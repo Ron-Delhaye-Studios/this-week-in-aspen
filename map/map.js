@@ -99,16 +99,30 @@
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18, attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
-  var cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 48 });
+  var cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 48,
+    iconCreateFunction: function (c) {
+      var n = c.getChildCount();
+      var size = n < 5 ? 40 : n < 15 ? 48 : 56;
+      return L.divIcon({
+        html: '<span style="display:flex;align-items:center;justify-content:center;width:' + size +
+          'px;height:' + size + 'px;border-radius:50%;background:#103d60;color:#fff;' +
+          'font:700 15px Inter,sans-serif;border:3px solid #fff;' +
+          'box-shadow:0 2px 8px rgba(0,0,0,.35)">' + n + '</span>',
+        className: "gh-cluster", iconSize: [size, size]
+      });
+    } });
   map.addLayer(cluster);
 
-  function dot(color) {
+  function dot(color, today) {
+    var d = today ? 24 : 20;
+    var glow = today
+      ? "box-shadow:0 0 0 4px rgba(185,138,29,.35),0 2px 8px rgba(0,0,0,.45)"
+      : "box-shadow:0 0 0 3px rgba(255,255,255,.65),0 2px 6px rgba(0,0,0,.4)";
     return L.divIcon({
-      className: "gh-dot",
-      html: '<span style="display:block;width:14px;height:14px;border-radius:50%;' +
-        "background:" + color + ';border:2px solid #fff;' +
-        'box-shadow:0 1px 4px rgba(0,0,0,.35)"></span>',
-      iconSize: [14, 14], iconAnchor: [7, 7]
+      className: "gh-dot" + (today ? " today" : ""),
+      html: '<span style="display:block;width:' + d + 'px;height:' + d + 'px;border-radius:50%;' +
+        "background:" + color + ";border:3px solid #fff;" + glow + '"></span>',
+      iconSize: [d, d], iconAnchor: [d / 2, d / 2]
     });
   }
 
@@ -122,7 +136,7 @@
       if (!inRange(ev)) return;
       var n = diffDays(ev.starts_at);
       var color = n < 0 ? COLORS.past : COLORS[imminence(ev.starts_at)];
-      var m = L.marker([ev.lat, ev.lng], { icon: dot(color) });
+      var m = L.marker([ev.lat, ev.lng], { icon: dot(color, n === 0) });
       m.bindPopup(popupHtml(ev), { maxWidth: 300 });
       cluster.addLayer(m);
       shown++;
