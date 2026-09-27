@@ -11,40 +11,40 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 <style>
-  :root{{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;
-    --serif:"Cormorant Garamond",Didot,Georgia,serif;--sans:"Inter",-apple-system,"Segoe UI",sans-serif}}
-  *{{box-sizing:border-box}}
-  body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}}
-  .masthead{{text-align:center;padding:2rem 1.25rem 0}}
-  .kicker{{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}}
-  h1.brand{{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 .4rem}}
-  .tagline{{color:var(--muted);font-style:italic;margin:0 0 1rem}}
-  nav.site-nav{{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}}
-  nav.site-nav a{{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}}
-  nav.site-nav a.active{{font-weight:700;border-bottom:3px solid var(--accent)}}
-  #controls{{max-width:60rem;margin:1.2rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}}
-  .chip{{border:1px solid var(--accent);background:#fff;color:var(--ink);padding:.42rem .9rem;font-size:.72rem;
-         letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:999px}}
-  .chip[aria-pressed="true"]{{background:var(--accent);color:#fff}}
-  .chip.gold[aria-pressed="true"]{{background:var(--gold);border-color:var(--gold)}}
-  #catrow{{max-width:60rem;margin:.6rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.45rem}}
-  #map{{height:min(72vh,640px);max-width:60rem;margin:1rem auto;border:1px solid var(--hair)}}
-  #count{{max-width:60rem;margin:.4rem auto 0;padding:0 1.25rem;color:var(--muted);font-size:.85rem}}
-  .ev-date{{font-family:var(--serif);font-weight:700;font-size:1.35rem;color:var(--accent);margin:0}}
-  .ev-time{{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}}
-  .ev-rel{{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-           background:var(--accent);color:#fff;border-radius:999px;padding:.15rem .6rem;margin-left:.5rem;vertical-align:middle}}
-  .ev-rel.soon{{background:var(--gold)}}
-  .leaflet-popup-content{{font-family:var(--sans);margin:.8rem 1rem;line-height:1.5}}
-  .leaflet-popup-content h3{{font-family:var(--serif);font-size:1.15rem;margin:.3rem 0 .2rem}}
-  .leaflet-popup-content .meta{{font-size:.82rem;color:var(--muted);margin:.1rem 0}}
-  .leaflet-popup-content a{{color:var(--accent)}}
-  .leaflet-popup-content img.ev-photo{{width:100%;height:150px;object-fit:cover;
-    border-radius:6px;margin:0 0 .5rem;display:block}}
-  footer.colophon{{text-align:center;color:var(--muted);font-size:.85rem;padding:2rem 1.25rem 3rem}}
-  footer.colophon a{{color:var(--ink)}}
-  .legend{{display:flex;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:var(--muted)}}
-  .dot{{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.3rem;vertical-align:baseline}}
+  :root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;
+    --serif:"Cormorant Garamond",Didot,Georgia,serif;--sans:"Inter",-apple-system,"Segoe UI",sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+  .masthead{text-align:center;padding:2rem 1.25rem 0}
+  .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}
+  h1.brand{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 .4rem}
+  .tagline{color:var(--muted);font-style:italic;margin:0 0 1rem}
+  nav.site-nav{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+  nav.site-nav a.active{font-weight:700;border-bottom:3px solid var(--accent)}
+  #controls{max-width:60rem;margin:1.2rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  .chip{border:1px solid var(--accent);background:#fff;color:var(--ink);padding:.42rem .9rem;font-size:.72rem;
+         letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:999px}
+  .chip[aria-pressed="true"]{background:var(--accent);color:#fff}
+  .chip.gold[aria-pressed="true"]{background:var(--gold);border-color:var(--gold)}
+  #catrow{max-width:60rem;margin:.6rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.45rem}
+  #map{height:min(72vh,640px);max-width:60rem;margin:1rem auto;border:1px solid var(--hair)}
+  #count{max-width:60rem;margin:.4rem auto 0;padding:0 1.25rem;color:var(--muted);font-size:.85rem}
+  .ev-date{font-family:var(--serif);font-weight:700;font-size:1.35rem;color:var(--accent);margin:0}
+  .ev-time{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .ev-rel{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+           background:var(--accent);color:#fff;border-radius:999px;padding:.15rem .6rem;margin-left:.5rem;vertical-align:middle}
+  .ev-rel.soon{background:var(--gold)}
+  .leaflet-popup-content{font-family:var(--sans);margin:.8rem 1rem;line-height:1.5}
+  .leaflet-popup-content h3{font-family:var(--serif);font-size:1.15rem;margin:.3rem 0 .2rem}
+  .leaflet-popup-content .meta{font-size:.82rem;color:var(--muted);margin:.1rem 0}
+  .leaflet-popup-content a{color:var(--accent)}
+  .leaflet-popup-content img.ev-photo{width:100%;height:150px;object-fit:cover;
+    border-radius:6px;margin:0 0 .5rem;display:block}
+  footer.colophon{text-align:center;color:var(--muted);font-size:.85rem;padding:2rem 1.25rem 3rem}
+  footer.colophon a{color:var(--ink)}
+  .legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:var(--muted)}
+  .dot{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.3rem;vertical-align:baseline}
 </style>
 </head>
 <body>
