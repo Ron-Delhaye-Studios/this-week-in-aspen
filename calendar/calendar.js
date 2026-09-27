@@ -133,7 +133,7 @@
     html += '<p class="gcal-venue">' + esc(ev.venue) + "</p>";
     if (meta) html += '<p class="gcal-meta">' + meta + "</p>";
     if (ev.blurb) html += '<p class="gcal-blurb">' + esc(ev.blurb) + "</p>";
-    if (ev.fit_note) html += '<p class="gcal-fit">For: ' + esc(ev.fit_note) + "</p>";
+    if (ev.fit_note) html += '<p class="gcal-fit">' + esc(/^for\s/i.test(ev.fit_note) ? ev.fit_note : "For: " + ev.fit_note) + "</p>";
     html += '<div class="gcal-links">';
     if (ev.url) html += '<a href="' + esc(ev.url) + '" target="_blank" rel="noopener">Official event page ↗</a>';
     html += '<a href="../map/?event=' + esc(ev.id) + '">View on map ↗</a>';
