@@ -11,40 +11,61 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 <style>
-  :root{{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;
-    --serif:"Cormorant Garamond",Didot,Georgia,serif;--sans:"Inter",-apple-system,"Segoe UI",sans-serif}}
-  *{{box-sizing:border-box}}
-  body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}}
-  .masthead{{text-align:center;padding:2rem 1.25rem 0}}
-  .kicker{{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}}
-  h1.brand{{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 .4rem}}
-  .tagline{{color:var(--muted);font-style:italic;margin:0 0 1rem}}
-  nav.site-nav{{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}}
-  nav.site-nav a{{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}}
-  nav.site-nav a.active{{font-weight:700;border-bottom:3px solid var(--accent)}}
-  #controls{{max-width:60rem;margin:1.2rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}}
-  .chip{{border:1px solid var(--accent);background:#fff;color:var(--ink);padding:.42rem .9rem;font-size:.72rem;
-         letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:999px}}
-  .chip[aria-pressed="true"]{{background:var(--accent);color:#fff}}
-  .chip.gold[aria-pressed="true"]{{background:var(--gold);border-color:var(--gold)}}
-  #catrow{{max-width:60rem;margin:.6rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.45rem}}
-  #map{{height:min(72vh,640px);max-width:60rem;margin:1rem auto;border:1px solid var(--hair)}}
-  #count{{max-width:60rem;margin:.4rem auto 0;padding:0 1.25rem;color:var(--muted);font-size:.85rem}}
-  .ev-date{{font-family:var(--serif);font-weight:700;font-size:1.35rem;color:var(--accent);margin:0}}
-  .ev-time{{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}}
-  .ev-rel{{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-           background:var(--accent);color:#fff;border-radius:999px;padding:.15rem .6rem;margin-left:.5rem;vertical-align:middle}}
-  .ev-rel.soon{{background:var(--gold)}}
-  .leaflet-popup-content{{font-family:var(--sans);margin:.8rem 1rem;line-height:1.5}}
-  .leaflet-popup-content h3{{font-family:var(--serif);font-size:1.15rem;margin:.3rem 0 .2rem}}
-  .leaflet-popup-content .meta{{font-size:.82rem;color:var(--muted);margin:.1rem 0}}
-  .leaflet-popup-content a{{color:var(--accent)}}
-  .leaflet-popup-content img.ev-photo{{width:100%;height:150px;object-fit:cover;
-    border-radius:6px;margin:0 0 .5rem;display:block}}
-  footer.colophon{{text-align:center;color:var(--muted);font-size:.85rem;padding:2rem 1.25rem 3rem}}
-  footer.colophon a{{color:var(--ink)}}
-  .legend{{display:flex;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:var(--muted)}}
-  .dot{{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.3rem;vertical-align:baseline}}
+  :root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;
+    --serif:"Cormorant Garamond",Didot,Georgia,serif;--sans:"Inter",-apple-system,"Segoe UI",sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+  .masthead{text-align:center;padding:2rem 1.25rem 0}
+  .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}
+  h1.brand{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 .4rem}
+  .tagline{color:var(--muted);font-style:italic;margin:0 0 1rem}
+  nav.site-nav{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+  nav.site-nav a.active{font-weight:700;border-bottom:3px solid var(--accent)}
+  #controls{max-width:60rem;margin:1.2rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  .chip{border:1px solid var(--accent);background:#fff;color:var(--ink);padding:.42rem .9rem;font-size:.72rem;
+         letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:999px}
+  .chip[aria-pressed="true"]{background:var(--accent);color:#fff}
+  .chip.gold[aria-pressed="true"]{background:var(--gold);border-color:var(--gold)}
+  #catrow{max-width:60rem;margin:.6rem auto 0;padding:0 1.25rem;display:flex;flex-wrap:wrap;gap:.45rem}
+  #map{height:min(72vh,640px);max-width:60rem;margin:1rem auto;border:1px solid var(--hair)}
+  #count{max-width:60rem;margin:.4rem auto 0;padding:0 1.25rem;color:var(--muted);font-size:.85rem}
+  .ev-date{font-family:var(--serif);font-weight:700;font-size:1.35rem;color:var(--accent);margin:0}
+  .ev-time{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .ev-rel{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+           background:var(--accent);color:#fff;border-radius:999px;padding:.15rem .6rem;margin-left:.5rem;vertical-align:middle}
+  .ev-rel.soon{background:var(--gold)}
+  .leaflet-popup-content{font-family:var(--sans);margin:.8rem 1rem;line-height:1.5}
+  .leaflet-popup-content h3{font-family:var(--serif);font-size:1.15rem;margin:.3rem 0 .2rem}
+  .leaflet-popup-content .meta{font-size:.82rem;color:var(--muted);margin:.1rem 0}
+  .leaflet-popup-content a{color:var(--accent)}
+  .leaflet-popup-content img.ev-photo{width:100%;height:150px;object-fit:cover;
+    border-radius:6px;margin:0 0 .5rem;display:block}
+  footer.colophon{text-align:center;color:var(--muted);font-size:.85rem;padding:2rem 1.25rem 3rem}
+  footer.colophon a{color:var(--ink)}
+  .legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.78rem;color:var(--muted)}
+  .dot{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.3rem;vertical-align:baseline}
+  .gh-dot{background:transparent;border:0}
+  .gh-dot .gh-dot-core{position:absolute;left:50%;top:50%;width:16px;height:16px;border-radius:50%;
+    border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);transform:translate(-50%,-50%)}
+  @media (max-width:640px){
+    .masthead{padding:1.35rem .9rem 0}
+    .tagline{margin-bottom:.8rem}
+    nav.site-nav{gap:.65rem .9rem;font-size:.72rem}
+    #controls,#catrow{padding:0 .75rem;gap:.4rem}
+    #controls{margin-top:1rem}
+    .chip{min-height:44px;padding:.55rem .75rem;font-size:.68rem;line-height:1.15;flex:1 1 auto}
+    #count{padding:0 .75rem}
+    #map{height:clamp(420px,68svh,620px);width:calc(100% - 1rem);margin:.75rem .5rem 1rem;border-radius:10px}
+    .leaflet-popup-content-wrapper{max-width:calc(100vw - 42px)}
+    .leaflet-popup-content{margin:.65rem .75rem;line-height:1.45}
+    .leaflet-popup-content h3{font-size:1.12rem}
+    .leaflet-popup-content img.ev-photo{height:128px}
+    .ev-date{font-size:1.2rem}
+    .ev-rel{display:table;margin:.3rem 0 0}
+    .legend{gap:.45rem .8rem}
+    #controls2{padding:0 .75rem !important}
+  }
 </style>
 </head>
 <body>
@@ -57,6 +78,7 @@
     <a href="../upcoming/">Upcoming</a>
     <a href="../calendar/">Calendar</a>
     <a href="" class="active" aria-current="page">Map</a>
+    <a href="../picks/">Top Picks</a>
     <a href="../editions/">Archive</a>
     <a href="../sources/">How we verify</a>
   </nav>
@@ -84,8 +106,8 @@
 
 <footer class="colophon">
   <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-  <p><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="index.html">Map</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
-  <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
+  <p><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="index.html">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
+  <p>© 2026 The Golden Hour · An Ad Astra Media publication. Photography by Ron Delhaye Studios.</p>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
