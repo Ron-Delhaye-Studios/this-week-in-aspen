@@ -18,8 +18,19 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <title>The Golden Hour</title>
+<meta name="description" content="The Golden Hour — a weekly field guide to what&#x27;s on in Aspen and beyond.">
+<link rel="canonical" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/template.html">
+<meta property="og:title" content="The Golden Hour">
+<meta property="og:description" content="The Golden Hour — a weekly field guide to what&#x27;s on in Aspen and beyond.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/template.html">
+<meta property="og:site_name" content="The Golden Hour">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Golden Hour">
+<meta name="twitter:description" content="The Golden Hour — a weekly field guide to what&#x27;s on in Aspen and beyond.">
+<meta name="theme-color" content="#103D60">
 <!--
-  AURELIAN — THIS WEEK IN ASPEN · design / typography template (v1)
+  CONCIERGE — THIS WEEK IN ASPEN · design / typography template (v1)
   ----------------------------------------------------------------
   SAMPLE DATA throughout — placeholder content for design review only.
   A build script will later inject real rows from a Supabase table.
@@ -87,6 +98,11 @@ if ("serviceWorker" in navigator) {
   nav.site-nav{ display: flex; gap: 1.4rem; justify-content: center; margin: 0 0 1.8rem;
                 font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
   nav.site-nav a{ color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  nav.site-nav a.active{ font-weight: 700; border-bottom: 3px solid var(--accent); }
+  .edition-pager{ display: flex; justify-content: space-between; gap: 1rem; margin: 2.5rem 0 0;
+    font-size: .85rem; letter-spacing: .04em; }
+  .edition-pager a{ color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .edition-pager .ph{ visibility: hidden; }
   .kicker{
     font-size: .68rem;
     font-weight: 600;
@@ -381,10 +397,13 @@ if ("serviceWorker" in navigator) {
 
   <!-- ══════════════ MASTHEAD ══════════════ -->
   <header class="masthead">
-    <nav class="site-nav screen-only">
-      <a href="../../index.html">Latest</a>
-      <a href="../../upcoming/">Upcoming</a>
-      <a href="../../calendar/">Calendar</a>
+    <nav class="site-nav screen-only" aria-label="Sections">
+      <a href="../../index.html" data-nav="latest">Latest</a>
+      <a href="../../upcoming/" data-nav="upcoming">Upcoming</a>
+      <a href="../../calendar/" data-nav="calendar">Calendar</a>
+      <a href="../../map/" data-nav="map">Map</a>
+      <a href="../../editions/" data-nav="archive">Archive</a>
+      <a href="../../sources/" data-nav="verify">How we verify</a>
     </nav>
     <p class="kicker">From Aspen and Beyond</p>
     <h1 class="brand">The Golden Hour</h1>
@@ -555,10 +574,11 @@ if ("serviceWorker" in navigator) {
   <p class="closing">If you'd like these narrowed to your interests — music, art, the outdoors — just let me know, and I'll tailor the week to you.</p>
 
   <!-- ══════════════ FOOTER ══════════════ -->
+<!--EDITION-PAGER-->
   <footer class="colophon">
-    <p class="concierge">Photography by Ron Delhaye Studios</p>
+    <p class="concierge">Photography provided by The Golden Hour</p>
     <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-    <p class="screen-only"><a href="../../editions/">Archive</a> · <a href="../../sources/">How we verify</a></p>
+    <p class="screen-only"><a href="../../index.html">Latest</a> · <a href="../../upcoming/">Upcoming</a> · <a href="../../calendar/">Calendar</a> · <a href="../../editions/">Archive</a> · <a href="../../sources/">How we verify</a></p>
     <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
   </footer>
 

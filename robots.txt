@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ron-delhaye-studios.github.io/this-week-in-aspen/sitemap.xml
