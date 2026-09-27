@@ -4,22 +4,44 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Upcoming — The Golden Hour</title>
-<style>
-  :root{--paper:#faf7f2;--ink:#1a1713;--accent:#103d60;--muted:#6e675c;--hair:#e4ded1}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--faint:#a39a8b;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;--serif:"Cormorant Garamond",Didot,"Bodoni MT",Georgia,"Times New Roman",serif;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
   .page{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
   .masthead{text-align:center;margin-bottom:2rem}
   .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .8rem}
-  .brand{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:clamp(2rem,6vw,3rem);margin:0 0 .6rem}
-  .rule{border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
-  nav.site-nav{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.4rem 0 0;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
-  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
-  h2.when{font-family:Georgia,serif;font-size:1.5rem;margin:2.6rem 0 1rem}
+  .brand{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7vw,3.4rem);margin:0 0 .6rem;letter-spacing:.02em}
+  .rule-double{border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
+  .tagline{color:var(--muted);font-style:italic;margin:0;max-width:34rem;margin-left:auto;margin-right:auto}
+  nav.site-nav{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 0;
+               font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+  nav.site-nav a.active{font-weight:700;border-bottom:3px solid var(--accent)}
+  h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
+  .lede{color:var(--muted);font-size:1.02rem;max-width:36rem}
+  .btn{display:inline-block;border:1px solid var(--accent);color:var(--ink);padding:.6rem 1.3rem;
+       text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;background:transparent}
+  .btn:hover{background:var(--accent);color:#fff}
+  .colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--hair);
+            font-size:.8rem;color:var(--muted);text-align:center}
+  .colophon .foot-links a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
+  .explore{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.9rem;margin:1.4rem 0}
+  .explore a{display:block;border:1px solid var(--hair);background:#fff;padding:1.1rem 1rem;text-decoration:none;color:var(--ink)}
+  .explore a:hover{border-color:var(--accent)}
+  .explore .ek{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+  .explore h3{font-family:var(--serif);font-size:1.2rem;margin:0 0 .25rem;font-weight:600}
+  .explore p{font-size:.85rem;color:var(--muted);margin:0}
+
+  h2.when{font-family:var(--serif);font-size:1.5rem;margin:2.6rem 0 1rem}
   .ev{border:1px solid var(--hair);background:#fff;padding:1.2rem 1.2rem 1rem;margin:0 0 1rem;position:relative}
   .ev .cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
-  .ev h3{font-family:Georgia,serif;font-size:1.25rem;margin:0 0 .25rem}
+  .ev h3{font-family:var(--serif);font-size:1.25rem;margin:0 0 .25rem}
   .ev-when{display:flex;align-items:baseline;flex-wrap:wrap;gap:.2rem .8rem;margin:0 0 .35rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
-  .ev-date{font-family:Georgia,serif;font-weight:700;font-size:1.15rem;color:var(--accent)}
+  .ev-date{font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--accent)}
   .ev-time{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
   .ev-rel{margin-left:auto;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
   .ev .meta{font-size:.88rem;color:var(--muted);margin:.15rem 0}
@@ -32,7 +54,7 @@
   .elink:hover{text-decoration:underline}
   .ev .ph{display:block;width:calc(100% + 2.4rem);max-width:none;margin:-1.2rem -1.2rem .9rem;aspect-ratio:16/9;object-fit:cover;background:#efe9dd}
   .month{margin:2.5rem 0}
-  .month h2{font-family:Georgia,serif;font-size:1.6rem;margin:0 0 .8rem}
+  .month h2{font-family:var(--serif);font-size:1.6rem;margin:0 0 .8rem}
   table.cal{width:100%;border-collapse:collapse;font-size:.85rem}
   table.cal th{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.4rem;font-weight:600}
   table.cal td{border:1px solid var(--hair);height:3.2rem;width:14.28%;vertical-align:top;padding:.3rem;text-align:left}
@@ -40,8 +62,7 @@
   table.cal td.has{background:#fff;cursor:default}
   table.cal td .dots{color:var(--accent);letter-spacing:2px;font-size:.8rem}
   table.cal td.dim{color:#c9c2b4;background:transparent}
-  .daylist h3{font-family:Georgia,serif;font-size:1.15rem;margin:1.8rem 0 .6rem}
-  .colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--hair);font-size:.8rem;color:var(--muted);text-align:center}
+  .daylist h3{font-family:var(--serif);font-size:1.15rem;margin:1.8rem 0 .6rem}
   .empty{color:var(--muted);font-style:italic}
 </style>
 </head>
@@ -50,20 +71,22 @@
   <header class="masthead">
     <p class="kicker">From Aspen and Beyond</p>
     <h1 class="brand">The Golden Hour</h1>
-    <hr class="rule">
-  
-  <nav class="site-nav">
+    <hr class="rule-double">
+    <nav class="site-nav" aria-label="Sections">
     <a href="../index.html">Latest</a>
-    <a href="../upcoming/">Upcoming</a>
+    <a href="../upcoming/" class="active" aria-current="page">Upcoming</a>
     <a href="../calendar/">Calendar</a>
+    <a href="../map/">Map</a>
+    <a href="../picks/">Top Picks</a>
     <a href="../editions/">Archive</a>
     <a href="../sources/">How we verify</a>
   </nav>
 
 </header>
   <h2 class="when" style="margin-top:0">Upcoming</h2>
+  <p class="empty">Showing events from yesterday through the next 120 days. Rebuilt daily.</p>
   <h2 class="when">September 26 – October 2, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-6dbe1666-58ea-4444-987d-e96f90646212">
     <img class="ph" src="../assets/browse/hot-air-balloons-snowmass.jpg" alt="Snowmass Balloon Festival — Morning Launch" loading="lazy">
     <p class="cat">outdoors</p>
     <h3>Snowmass Balloon Festival — Morning Launch</h3>
@@ -78,6 +101,7 @@
     <p class="fit">For: The single most photogenic morning of the week; worth the early alarm.</p>
     <div class="cardfoot">
       <a class="elink" href="https://www.gosnowmass.com/event/snowmass-balloon-festival/2026-09-25/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=6dbe1666-58ea-4444-987d-e96f90646212">View on map ↗</a>
       <button class="copybtn" data-copy="Snowmass Balloon Festival — Morning Launch — Snowmass Town Park, 2000 Brush Creek Rd, Snowmass Village
 Sat Sep 26 · 7 AM
 Free · All ages
@@ -85,7 +109,7 @@ https://www.gosnowmass.com/event/snowmass-balloon-festival/2026-09-25/
 Thirty-plus balloons lift off over the Elk Mountains at sunrise for the festival&#x27;s 51st year. Mornings are cold at this altitude — layers, closed-toe shoes, and a blanket or chairs; dogs aren&#x27;t allowed on the field.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-977fa9cb-2a5d-4020-af8f-dfc937fe88d2">
     <img class="ph" src="../assets/browse/aspen-saturday-market-farmers-market.jpg" alt="Aspen Saturday Market" loading="lazy">
     <p class="cat">family</p>
     <h3>Aspen Saturday Market</h3>
@@ -100,6 +124,7 @@ Thirty-plus balloons lift off over the Elk Mountains at sunrise for the festival
     <p class="fit">For: A gentle first morning — daylight, low-barrier, and an easy taste of the town.</p>
     <div class="cardfoot">
       <a class="elink" href="https://www.aspen.gov/180/Aspen-Saturday-Market" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=977fa9cb-2a5d-4020-af8f-dfc937fe88d2">View on map ↗</a>
       <button class="copybtn" data-copy="Aspen Saturday Market — Downtown Aspen (Galena &amp; Hopkins)
 Sat Sep 26 · 9 AM
 Free · All ages
@@ -107,7 +132,7 @@ https://www.aspen.gov/180/Aspen-Saturday-Market
 The town&#x27;s weekly market runs 9 to 2 with Colorado-grown produce, local meats, and artisan goods — strictly Colorado-made, no brokers. Arrive before 10 for the easiest browsing and the shortest coffee line.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-d8d2c7e3-73ce-4346-8430-7ae4204a39b1">
     <img class="ph" src="../assets/browse/snowmass-oktoberfest.webp" alt="Snowmass Oktoberfest" loading="lazy">
     <p class="cat">dining</p>
     <h3>Snowmass Oktoberfest</h3>
@@ -122,6 +147,7 @@ The town&#x27;s weekly market runs 9 to 2 with Colorado-grown produce, local mea
     <p class="fit">For: An easy, festive afternoon after the morning balloons — no tickets needed.</p>
     <div class="cardfoot">
       <a class="elink" href="https://www.gosnowmass.com/event/snowmass-oktoberfest/2026-09-26/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=d8d2c7e3-73ce-4346-8430-7ae4204a39b1">View on map ↗</a>
       <button class="copybtn" data-copy="Snowmass Oktoberfest — Snowmass Base Village Events Lawn, 73 Wood Road, Snowmass Village
 Sat Sep 26 · 12 PM
 Free entry; food &amp; drink for purchase · Must be 21+ to drink; festival open to all ages
@@ -129,7 +155,7 @@ https://www.gosnowmass.com/event/snowmass-oktoberfest/2026-09-26/
 Snowmass caps its summer season with steins, pretzels, a sausage-eating contest, stein-holding, live music, and the return of Manuela, the Oktoberfest Queen. Lederhosen encouraged; the festival itself is open to all ages.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-f1e5d415-f00c-4827-b8f5-98b2c68c24c7">
     <img class="ph" src="../assets/browse/hiss-golden-messenger-live-concert.jpg" alt="Hiss Golden Messenger at Belly Up" loading="lazy">
     <p class="cat">music</p>
     <h3>Hiss Golden Messenger at Belly Up</h3>
@@ -144,6 +170,7 @@ Snowmass caps its summer season with steins, pretzels, a sausage-eating contest,
     <p class="fit">For: For the music-first guest — one of the fall&#x27;s finest songwriters in the valley&#x27;s best listening room.</p>
     <div class="cardfoot">
       <a class="elink" href="https://tickets.bellyupaspen.com/link/event?event=hiss-golden-messenger-9-26-26" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=f1e5d415-f00c-4827-b8f5-98b2c68c24c7">View on map ↗</a>
       <button class="copybtn" data-copy="Hiss Golden Messenger at Belly Up — Belly Up Aspen, 450 S Galena St
 Sat Sep 26 · 8 PM
 $38.40 GA / $104.55 Reserved / $128.40 VIP (includes all fees) · All Ages. Under 18 must be accompanied by a parent or legal guardian.
@@ -151,7 +178,7 @@ https://tickets.bellyupaspen.com/link/event?event=hiss-golden-messenger-9-26-26
 M.C. Taylor brings his literate, gospel-tinged Americana to Aspen&#x27;s intimate 450-cap room, with Lou Hazel opening on the I&#x27;m People Tour. Doors 7 PM, show 8 PM. All ages (under 18 with a parent or guardian).">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-53b3582f-d664-4235-9efb-67aa335afabe">
     <img class="ph" src="../assets/browse/hot-air-balloons-snowmass-town-park.jpg" alt="Snowmass Balloon Festival — Final Launch" loading="lazy">
     <p class="cat">outdoors</p>
     <h3>Snowmass Balloon Festival — Final Launch</h3>
@@ -166,6 +193,7 @@ M.C. Taylor brings his literate, gospel-tinged Americana to Aspen&#x27;s intimat
     <p class="fit">For: Your second chance if Saturday&#x27;s weather didn&#x27;t cooperate.</p>
     <div class="cardfoot">
       <a class="elink" href="https://www.gosnowmass.com/event/snowmass-balloon-festival/2026-09-25/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=53b3582f-d664-4235-9efb-67aa335afabe">View on map ↗</a>
       <button class="copybtn" data-copy="Snowmass Balloon Festival — Final Launch — Snowmass Town Park, 2000 Brush Creek Rd, Snowmass Village
 Sun Sep 27 · 7 AM
 Free · All ages
@@ -173,7 +201,7 @@ https://www.gosnowmass.com/event/snowmass-balloon-festival/2026-09-25/
 The last morning of the festival&#x27;s 51st year — the final mass ascension over Snowmass Town Park. Same drill: layers, blankets, arrive early; balloons go up weather permitting.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-3184784e-5d7d-4b50-beae-421fb5149d6a">
     <img class="ph" src="../assets/browse/aspen-literary-festival.png" alt="Aspen Literary Festival — Closing Day" loading="lazy">
     <p class="cat">arts</p>
     <h3>Aspen Literary Festival — Closing Day</h3>
@@ -188,6 +216,7 @@ The last morning of the festival&#x27;s 51st year — the final mass ascension o
     <p class="fit">For: For readers — the cultural high point of the weekend, and mostly free.</p>
     <div class="cardfoot">
       <a class="elink" href="https://www.aspenliteraryfestival.org/how-to-attend" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=3184784e-5d7d-4b50-beae-421fb5149d6a">View on map ↗</a>
       <button class="copybtn" data-copy="Aspen Literary Festival — Closing Day — Downtown Aspen (Wheeler Opera House, Library, Community Church)
 Sun Sep 27 · 11 AM
 Free GA (registration required); Wheeler main stage events $45 · All ages
@@ -195,7 +224,7 @@ https://www.aspenliteraryfestival.org/how-to-attend
 The festival&#x27;s second year closes with a full day of author conversations, panels, and signings across downtown — Jennette McCurdy, Richard Russo, Veronica Roth, and more on the lineup. Most events are free with registration; marquee Wheeler main-stage sessions are ticketed.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-169dccaf-5e69-426f-ad9a-9ffd516b022c">
     <img class="ph" src="../assets/browse/aspen-restaurant-fine-dining.jpg" alt="Aspen Restaurant Week Autumn — Final Evening" loading="lazy">
     <p class="cat">dining</p>
     <h3>Aspen Restaurant Week Autumn — Final Evening</h3>
@@ -210,6 +239,7 @@ The festival&#x27;s second year closes with a full day of author conversations, 
     <p class="fit">For: The week&#x27;s best-value fine dining — book the table tonight, it ends Sunday.</p>
     <div class="cardfoot">
       <a class="elink" href="https://aspenchamber.org/restaurants-nightlife/restaurant-week/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=169dccaf-5e69-426f-ad9a-9ffd516b022c">View on map ↗</a>
       <button class="copybtn" data-copy="Aspen Restaurant Week Autumn — Final Evening — Participating restaurants, Aspen
 Sun Sep 27 · 5 PM
 Prix fixe (specially priced multi-course menus; varies by restaurant) · All ages
@@ -217,7 +247,7 @@ https://aspenchamber.org/restaurants-nightlife/restaurant-week/
 The last evening of the autumn edition — prix fixe, multi-course fall-harvest menus at 25+ local restaurants, from Matsuhisa to Wild Fig. Reserve ahead; menus and the full restaurant list are at the Chamber.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-e88aecf9-8e58-4f65-a153-7e64bd0399ec">
     <img class="ph" src="../assets/browse/bombargo-live-concert.jpg" alt="Bombargo at Belly Up" loading="lazy">
     <p class="cat">music</p>
     <h3>Bombargo at Belly Up</h3>
@@ -232,6 +262,7 @@ The last evening of the autumn edition — prix fixe, multi-course fall-harvest 
     <p class="fit">For: A high-energy night out for the group that wants to dance.</p>
     <div class="cardfoot">
       <a class="elink" href="https://tickets.bellyupaspen.com/link/event?event=bombargo-9-27-26" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=e88aecf9-8e58-4f65-a153-7e64bd0399ec">View on map ↗</a>
       <button class="copybtn" data-copy="Bombargo at Belly Up — Belly Up Aspen, 450 S Galena St
 Sun Sep 27 · 8 PM
 $12.00 GA / $48.00 Reserved / $104.55 VIP package (includes all fees) · All Ages. Under 18 must be accompanied by a parent or legal guardian.
@@ -239,7 +270,7 @@ https://tickets.bellyupaspen.com/link/event?event=bombargo-9-27-26
 Saskatoon-bred Bombargo bring their big-chorus pop-rock to the Belly Up room, with Graham Good &amp; The Painters opening. Doors 7 PM, show 8 PM. All ages (under 18 with a parent or guardian).">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-44ae4ec0-9bfd-4116-bde9-93b55011975f">
     <img class="ph" src="../assets/browse/maroon-bells-fall-colors.jpg" alt="Maroon Bells at Peak Color" loading="lazy">
     <p class="cat">outdoors</p>
     <h3>Maroon Bells at Peak Color</h3>
@@ -254,6 +285,7 @@ Saskatoon-bred Bombargo bring their big-chorus pop-rock to the Belly Up room, wi
     <p class="fit">For: The can&#x27;t-miss of the week for anyone who hasn&#x27;t seen the Bells in fall.</p>
     <div class="cardfoot">
       <a class="elink" href="https://www.visitmaroonbells.com/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=44ae4ec0-9bfd-4116-bde9-93b55011975f">View on map ↗</a>
       <button class="copybtn" data-copy="Maroon Bells at Peak Color — Maroon Bells Scenic Area (shuttle from Aspen Highlands)
 Mon Sep 28 · 8 AM
 Shuttle $16/adult; $10 children (12 &amp; under) and seniors (65+); parking $10/vehicle; reservations required · All ages
@@ -261,7 +293,7 @@ https://www.visitmaroonbells.com/
 Late September is the peak window for the gold — the most photographed peaks in North America at their most golden. Between 8am and 5pm all visitors must use the shuttle from Aspen Highlands; reserve ahead, it sells out in color season.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-b3d4817e-7852-4bec-aa32-06031817858f">
     <img class="ph" src="../assets/browse/aspen-art-museum.jpg" alt="Aspen Art Museum — Fall Exhibitions" loading="lazy">
     <p class="cat">arts</p>
     <h3>Aspen Art Museum — Fall Exhibitions</h3>
@@ -276,6 +308,7 @@ Late September is the peak window for the gold — the most photographed peaks i
     <p class="fit">For: A quiet, contemplative morning — and the rooftop view is worth the trip alone.</p>
     <div class="cardfoot">
       <a class="elink" href="https://aspenartmuseum.org/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=b3d4817e-7852-4bec-aa32-06031817858f">View on map ↗</a>
       <button class="copybtn" data-copy="Aspen Art Museum — Fall Exhibitions — Aspen Art Museum, 637 E Hyman Ave
 Tue Sep 29 · 10 AM
 Free · All ages
@@ -283,7 +316,7 @@ https://aspenartmuseum.org/
 Free, always. This fall: Adrián Villar Rojas&#x27;s monumental &#x27;First Gods, Lost Animals,&#x27; Arch Connelly&#x27;s &#x27;Straighten Your Wig and Pray&#x27; (through Oct 11), and Anthea Hamilton&#x27;s &#x27;Cauliflower Sundial&#x27; — plus the rooftop for the view.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-f55e4036-c375-464f-b960-1c84b87d2e07">
     <img class="ph" src="../assets/browse/aspen-filmfest-isis-theatre.jpg" alt="Aspen Filmfest — Opening Day (47th)" loading="lazy">
     <p class="cat">arts</p>
     <h3>Aspen Filmfest — Opening Day (47th)</h3>
@@ -298,6 +331,7 @@ Free, always. This fall: Adrián Villar Rojas&#x27;s monumental &#x27;First Gods
     <p class="fit">For: The week&#x27;s best indoor evening — festival energy without the ski-season crowds.</p>
     <div class="cardfoot">
       <a class="elink" href="https://aspenfilm.org/festival/2026-filmfest/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=f55e4036-c375-464f-b960-1c84b87d2e07">View on map ↗</a>
       <button class="copybtn" data-copy="Aspen Filmfest — Opening Day (47th) — The Grove, 315 E Hyman Ave, Aspen (opening reception); screenings at Isis Theatre, 406 E Hopkins Ave
 Tue Sep 29 · 4 PM
 Opening reception: Filmfest passholders &amp; Aspen Film members only (RSVP required); screenings ticketed via aspenfilmfest2026.eventive.org · All ages
@@ -305,7 +339,7 @@ https://aspenfilm.org/festival/2026-filmfest/
 Six days of international and independent film — features and docs from Cannes, Sundance, Telluride, and Venice — opens at the Isis. Tickets on sale now; the full program is at aspenfilm.org.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-51585a69-0951-4dc9-9497-1dc4c69e4a45">
     <img class="ph" src="../assets/browse/michigander-live-concert.jpg" alt="Michigander at Belly Up" loading="lazy">
     <p class="cat">music</p>
     <h3>Michigander at Belly Up</h3>
@@ -320,6 +354,7 @@ Six days of international and independent film — features and docs from Cannes
     <p class="fit">For: For the indie-rock fan — intimate room, big choruses.</p>
     <div class="cardfoot">
       <a class="elink" href="https://tickets.bellyupaspen.com/link/event?event=michigander-9-29-26" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=51585a69-0951-4dc9-9497-1dc4c69e4a45">View on map ↗</a>
       <button class="copybtn" data-copy="Michigander at Belly Up — Belly Up Aspen, 450 S Galena St
 Tue Sep 29 · 8 PM
 $45.60 GA / $93.48 Reserved (includes all fees) · All Ages. Under 18 must be accompanied by a parent or legal guardian.
@@ -327,7 +362,7 @@ https://tickets.bellyupaspen.com/link/event?event=michigander-9-29-26
 Jason Singer&#x27;s Michigander brings earnest, heartland indie-rock to the Belly Up stage, with Jake Lemond opening. Doors 7 PM, show 8 PM. All ages (under 18 with a parent or guardian).">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-b61b2915-35f3-4ebc-8ff8-7005487c755e">
     <img class="ph" src="../assets/browse/john-denver-celebration-aspen.webp" alt="John Denver Celebration — Opening Day" loading="lazy">
     <p class="cat">music</p>
     <h3>John Denver Celebration — Opening Day</h3>
@@ -342,6 +377,7 @@ Jason Singer&#x27;s Michigander brings earnest, heartland indie-rock to the Bell
     <p class="fit">For: Peak fall color meets the valley&#x27;s most heartfelt tradition — made for the sing-along crowd.</p>
     <div class="cardfoot">
       <a class="elink" href="https://johndenvercelebration.com/concerts-and-events" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=b61b2915-35f3-4ebc-8ff8-7005487c755e">View on map ↗</a>
       <button class="copybtn" data-copy="John Denver Celebration — Opening Day — Various venues, Aspen &amp; Snowmass
 Wed Sep 30 · 9 AM
 Varies by event (free nightly sing-a-longs, donation-based concerts, $195 horseback ride) · All ages
@@ -349,7 +385,7 @@ https://johndenvercelebration.com/concerts-and-events
 The annual tribute week opens — concerts of Denver&#x27;s songbook at the Wheeler and the Snowmass Chapel, plus nightly sing-alongs of &#x27;Rocky Mountain High&#x27; and &#x27;Country Roads.&#x27; Each event is run by its own organizer; the full schedule is on the celebration site.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-d8c63eca-1baa-4180-bf73-14f2d730ecb2">
     <img class="ph" src="../assets/browse/tom-rush-folk-singer.jpg" alt="An Evening with Tom Rush accompanied by Brendan Cleary" loading="lazy">
     <p class="cat">music</p>
     <h3>An Evening with Tom Rush accompanied by Brendan Cleary</h3>
@@ -364,6 +400,7 @@ The annual tribute week opens — concerts of Denver&#x27;s songbook at the Whee
     <p class="fit">For: For the folk traditionalist — a master in the perfect room.</p>
     <div class="cardfoot">
       <a class="elink" href="https://wheeleroperahouse.com/event/an-evening-with-tom-rush-accompanied-by-brendan-cleary/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=d8c63eca-1baa-4180-bf73-14f2d730ecb2">View on map ↗</a>
       <button class="copybtn" data-copy="An Evening with Tom Rush accompanied by Brendan Cleary — Wheeler Opera House
 Thu Oct 1 · 7 PM
 None
@@ -371,7 +408,7 @@ https://wheeleroperahouse.com/event/an-evening-with-tom-rush-accompanied-by-bren
 A foundational figure of the &#x27;60s folk revival, with his distinctive guitar work and songs by Joni Mitchell, James Taylor, and Jackson Browne in his repertoire. An intimate acoustic evening in the 1889 opera house — the room is half the experience.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-0be40222-5993-4d83-ad46-68da21415ad2">
     <img class="ph" src="../assets/browse/pink-talking-fish-live-concert.webp" alt="An Evening with Pink Talking Fish" loading="lazy">
     <p class="cat">music</p>
     <h3>An Evening with Pink Talking Fish</h3>
@@ -386,6 +423,7 @@ A foundational figure of the &#x27;60s folk revival, with his distinctive guitar
     <p class="fit">For: The late-night counterprogramming to the Wheeler&#x27;s folk evening.</p>
     <div class="cardfoot">
       <a class="elink" href="https://bellyupaspen.com/events/an-evening-with-pink-talking-fish/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=0be40222-5993-4d83-ad46-68da21415ad2">View on map ↗</a>
       <button class="copybtn" data-copy="An Evening with Pink Talking Fish — Belly Up Aspen, 450 S Galena St
 Thu Oct 1 · 9 PM
 From $33.60 (unverified — official ticket page failed to render) · 21+ (unverified by official source this round — official ticket page failed to render; matches prior AURELIAN Desk venue research)
@@ -393,7 +431,7 @@ https://bellyupaspen.com/events/an-evening-with-pink-talking-fish/
 A high-wire hybrid tribute — Pink Floyd, Talking Heads, and Phish fused into one late-night set. Doors 8 PM, show 9 PM. 21+, valid photo ID required.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-e942395d-f676-495c-aae5-3eb214f1bb26">
     <img class="ph" src="../assets/browse/mack-bailey-chris-nole-john-denver.webp" alt="Mack Bailey and Chris Nole: Poems, Prayers &amp; Promises: The Songs of John Denver" loading="lazy">
     <p class="cat">music</p>
     <h3>Mack Bailey and Chris Nole: Poems, Prayers &amp; Promises: The Songs of John Denver</h3>
@@ -408,6 +446,7 @@ A high-wire hybrid tribute — Pink Floyd, Talking Heads, and Phish fused into o
     <p class="fit">For: The Celebration&#x27;s centerpiece concert — book ahead.</p>
     <div class="cardfoot">
       <a class="elink" href="https://wheeleroperahouse.com/event/chris-collins-productions-poems-prayers-promises-the-songs-of-john-denver/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=e942395d-f676-495c-aae5-3eb214f1bb26">View on map ↗</a>
       <button class="copybtn" data-copy="Mack Bailey and Chris Nole: Poems, Prayers &amp; Promises: The Songs of John Denver — Wheeler Opera House
 Fri Oct 2 · 7:30 PM
 None
@@ -416,7 +455,7 @@ https://wheeleroperahouse.com/event/chris-collins-productions-poems-prayers-prom
     </div>
   </div>
   <h2 class="when">October 3 – October 9, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-4f860e71-d60b-4a8e-a96d-442f4ac28898">
     <img class="ph" src="../assets/browse/aspen-saturday-market.jpg" alt="Aspen Saturday Market — Season Finale" loading="lazy">
     <p class="cat">family</p>
     <h3>Aspen Saturday Market — Season Finale</h3>
@@ -431,6 +470,7 @@ https://wheeleroperahouse.com/event/chris-collins-productions-poems-prayers-prom
     <p class="fit">For: Bookend the week where it started — one last stroll before checkout.</p>
     <div class="cardfoot">
       <a class="elink" href="https://www.aspen.gov/180/Aspen-Saturday-Market" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=4f860e71-d60b-4a8e-a96d-442f4ac28898">View on map ↗</a>
       <button class="copybtn" data-copy="Aspen Saturday Market — Season Finale — Downtown Aspen (Galena &amp; Hopkins)
 Sat Oct 3 · 9 AM
 Free · All ages
@@ -438,7 +478,7 @@ https://www.aspen.gov/180/Aspen-Saturday-Market
 The last market of the 2026 season — fall produce, apple cider, pumpkins, and the final roundup of Colorado artisans. Arrive early; the send-off crowds come out for this one.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-dea7f079-910f-4832-9918-412843b145bb">
     <img class="ph" src="../assets/browse/carbondale-potato-day-parade.jpg" alt="Carbondale Potato Day" loading="lazy">
     <p class="cat">family</p>
     <h3>Carbondale Potato Day</h3>
@@ -453,6 +493,7 @@ The last market of the 2026 season — fall produce, apple cider, pumpkins, and 
     <p class="fit">For: Small-town Colorado at its most charming — an easy morning drive before departure.</p>
     <div class="cardfoot">
       <a class="elink" href="https://carbondalegov.org/newsimages/Events/2026 Calendar of Events updated May 6, 2026 .pdf" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=dea7f079-910f-4832-9918-412843b145bb">View on map ↗</a>
       <button class="copybtn" data-copy="Carbondale Potato Day — Main Street &amp; Sopris Park, Carbondale
 Sat Oct 3 · 10:30 AM
 Free (food for purchase) · All ages
@@ -460,7 +501,7 @@ https://carbondalegov.org/newsimages/Events/2026 Calendar of Events updated May 
 Carbondale&#x27;s harvest tradition since 1909 — parade down Main Street, community BBQ, farm market, and kids&#x27; activities in Sopris Park, 30 minutes down-valley. The pancake breakfast starts at 8 if you&#x27;re early.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-b439ccc7-cb5c-4300-835b-8f9d57e3db39">
     <img class="ph" src="../assets/browse/aspen-filmfest.jpg" alt="Aspen Filmfest — Closing Weekend" loading="lazy">
     <p class="cat">arts</p>
     <h3>Aspen Filmfest — Closing Weekend</h3>
@@ -475,6 +516,7 @@ Carbondale&#x27;s harvest tradition since 1909 — parade down Main Street, comm
     <p class="fit">For: A second bite at the week&#x27;s biggest arts event.</p>
     <div class="cardfoot">
       <a class="elink" href="https://aspenfilm.org/festival/2026-filmfest/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=b439ccc7-cb5c-4300-835b-8f9d57e3db39">View on map ↗</a>
       <button class="copybtn" data-copy="Aspen Filmfest — Closing Weekend — Isis Theatre, 406 E Hopkins Ave, Aspen (screenings); closing reception Sat Oct 3, 10pm, Caribou Club
 Sat Oct 3 · 12 PM
 Ticketed per screening/event; closing reception passholders &amp; members only (RSVP required) · All ages
@@ -483,7 +525,7 @@ The festival heads into its closing weekend — catch the features and docs you 
     </div>
   </div>
   <h2 class="when">October 17 – October 23, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-cfd187a5-4eb1-44cc-8fae-a37e9de88ac3">
     <img class="ph" src="../assets/browse/kiliii-yuyan-photographer.jpg" alt="Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World" loading="lazy">
     <p class="cat">speakers</p>
     <h3>Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World</h3>
@@ -498,6 +540,7 @@ The festival heads into its closing weekend — catch the features and docs you 
     <p class="fit">For: Culture-hungry guests who want a night with substance.</p>
     <div class="cardfoot">
       <a class="elink" href="http://wheeleroperahouse.com/event/kiliii-yuyan-indigenous-wisdom-for-a-modern-world/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=cfd187a5-4eb1-44cc-8fae-a37e9de88ac3">View on map ↗</a>
       <button class="copybtn" data-copy="Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World — Wheeler Opera House
 Tue Oct 20 · 7 PM
 See wheeleroperahouse.com
@@ -505,7 +548,7 @@ http://wheeleroperahouse.com/event/kiliii-yuyan-indigenous-wisdom-for-a-modern-w
 National Geographic explorer and photographer Kiliii Yuyan brings the Wheeler&#x27;s Changemaker Speaker Series a talk on indigenous wisdom for the modern world. Thoughtful, image-rich, and unlike anything else on the October calendar.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-5f89f002-2efc-47b3-9bb0-4541d3d3e02d">
     <img class="ph" src="../assets/browse/manual-cinema-4th-witch.jpg" alt="Manual Cinema&#x27;s The 4th Witch" loading="lazy">
     <p class="cat">arts</p>
     <h3>Manual Cinema&#x27;s The 4th Witch</h3>
@@ -520,6 +563,7 @@ National Geographic explorer and photographer Kiliii Yuyan brings the Wheeler&#x
     <p class="fit">For: Artsy guests and adventurous families.</p>
     <div class="cardfoot">
       <a class="elink" href="https://wheeleroperahouse.com/event/manual-cinemas-the-4th-witch/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=5f89f002-2efc-47b3-9bb0-4541d3d3e02d">View on map ↗</a>
       <button class="copybtn" data-copy="Manual Cinema&#x27;s The 4th Witch — Wheeler Opera House
 Fri Oct 23 · 7:30 PM
 See wheeleroperahouse.com
@@ -528,7 +572,7 @@ Chicago&#x27;s Manual Cinema stages a shadow-puppetry cinema-theater piece at th
     </div>
   </div>
   <h2 class="when">October 24 – October 30, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-a329622e-95ff-42e7-80b2-69c292cae0b2">
     <img class="ph" src="../assets/browse/vienna-boys-choir.jpg" alt="Vienna Boys Choir" loading="lazy">
     <p class="cat">music</p>
     <h3>Vienna Boys Choir</h3>
@@ -543,6 +587,7 @@ Chicago&#x27;s Manual Cinema stages a shadow-puppetry cinema-theater piece at th
     <p class="fit">For: Music lovers; an elegant family night out.</p>
     <div class="cardfoot">
       <a class="elink" href="https://wheeleroperahouse.com/event/vienna-boys-choir/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=a329622e-95ff-42e7-80b2-69c292cae0b2">View on map ↗</a>
       <button class="copybtn" data-copy="Vienna Boys Choir — Wheeler Opera House
 Sat Oct 24 · 7 PM
 See wheeleroperahouse.com
@@ -550,7 +595,7 @@ https://wheeleroperahouse.com/event/vienna-boys-choir/
 Five centuries of choral tradition in one of the world&#x27;s most famous boy choirs, in the jewel-box Wheeler. A rare Aspen appearance and a genuinely special night.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-27e51a13-5a43-494c-9966-ecc1bf0ef5d6">
     <img class="ph" src="../assets/browse/metalachi-live-concert.jpg" alt="Metalachi" loading="lazy">
     <p class="cat">music</p>
     <h3>Metalachi</h3>
@@ -565,6 +610,7 @@ Five centuries of choral tradition in one of the world&#x27;s most famous boy ch
     <p class="fit">For: Groups that want a fun, unpretentious night out.</p>
     <div class="cardfoot">
       <a class="elink" href="https://bellyupaspen.com/events/metalachi/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=27e51a13-5a43-494c-9966-ecc1bf0ef5d6">View on map ↗</a>
       <button class="copybtn" data-copy="Metalachi — Belly Up Aspen, 450 S Galena St
 Thu Oct 29 · 9 PM
 From $45 (unverified — official ticket page failed to render) · Check venue — varies by show (unverified)
@@ -572,7 +618,7 @@ https://bellyupaspen.com/events/metalachi/
 The world&#x27;s first heavy-metal mariachi band: full mariachi instrumentation playing metal classics. Loud, joyful, and completely unserious — a Belly Up specialty.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-4e903e27-b2ef-483d-800e-6782ce1d9b59">
     <img class="ph" src="../assets/browse/digable-planets-live-concert.jpg" alt="Digable Planets" loading="lazy">
     <p class="cat">music</p>
     <h3>Digable Planets</h3>
@@ -587,6 +633,7 @@ The world&#x27;s first heavy-metal mariachi band: full mariachi instrumentation 
     <p class="fit">For: Hip-hop and jazz fans; a standout date night.</p>
     <div class="cardfoot">
       <a class="elink" href="https://bellyupaspen.com/events/digable-planets-2/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=4e903e27-b2ef-483d-800e-6782ce1d9b59">View on map ↗</a>
       <button class="copybtn" data-copy="Digable Planets — Belly Up Aspen, 450 S Galena St
 Fri Oct 30 · 9 PM
 From $116 (unverified) · Check venue — varies by show (unverified)
@@ -595,7 +642,7 @@ The Grammy-winning jazz-rap trio behind &#x27;Rebirth of Slick (Cool Like Dat)&#
     </div>
   </div>
   <h2 class="when">November 14 – November 20, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-4eb383a2-6edd-48e6-a290-cf8e91dc03bc">
     <img class="ph" src="../assets/browse/the-black-angels-live-concert.webp" alt="The Black Angels with GHOSTWOMAN" loading="lazy">
     <p class="cat">music</p>
     <h3>The Black Angels with GHOSTWOMAN</h3>
@@ -610,6 +657,7 @@ The Grammy-winning jazz-rap trio behind &#x27;Rebirth of Slick (Cool Like Dat)&#
     <p class="fit">For: Rock fans; late-night energy seekers.</p>
     <div class="cardfoot">
       <a class="elink" href="https://bellyupaspen.com/events/the-black-angels/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=4eb383a2-6edd-48e6-a290-cf8e91dc03bc">View on map ↗</a>
       <button class="copybtn" data-copy="The Black Angels with GHOSTWOMAN — Belly Up Aspen, 450 S Galena St
 Sat Nov 14 · 9 PM
 From $105 (unverified) · Check venue — varies by show (unverified)
@@ -617,7 +665,7 @@ https://bellyupaspen.com/events/the-black-angels/
 Austin&#x27;s psych-rock torchbearers bring their drone-heavy, Velvet Underground-descended sound to Belly Up, with GHOSTWOMAN opening. Expect it loud.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-500797be-f54d-4abc-ba15-08c8ba2395f4">
     <img class="ph" src="../assets/browse/foy-vance-singer.jpg" alt="Foy Vance World Tour with Bonnie Bishop &amp; Ryan McMullan" loading="lazy">
     <p class="cat">music</p>
     <h3>Foy Vance World Tour with Bonnie Bishop &amp; Ryan McMullan</h3>
@@ -632,6 +680,7 @@ Austin&#x27;s psych-rock torchbearers bring their drone-heavy, Velvet Undergroun
     <p class="fit">For: Music lovers who listen closely.</p>
     <div class="cardfoot">
       <a class="elink" href="https://wheeleroperahouse.com/event/foy-vance-the-wake-world-tour/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=500797be-f54d-4abc-ba15-08c8ba2395f4">View on map ↗</a>
       <button class="copybtn" data-copy="Foy Vance World Tour with Bonnie Bishop &amp; Ryan McMullan — Wheeler Opera House
 Thu Nov 19 · 7 PM
 See wheeleroperahouse.com
@@ -639,7 +688,7 @@ https://wheeleroperahouse.com/event/foy-vance-the-wake-world-tour/
 Northern Irish singer-songwriter Foy Vance — a favorite of Ed Sheeran and Elton John — brings his soulful, gravel-voiced songs to the Wheeler. A songwriter&#x27;s songwriter in a listening room built for exactly this.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-8dc9404b-c0a7-49da-bbd1-6da349a998b5">
     <img class="ph" src="../assets/browse/bonobo-live-concert.jpg" alt="Bonobo" loading="lazy">
     <p class="cat">music</p>
     <h3>Bonobo</h3>
@@ -654,6 +703,7 @@ Northern Irish singer-songwriter Foy Vance — a favorite of Ed Sheeran and Elto
     <p class="fit">For: Electronic music fans; a sophisticated night out.</p>
     <div class="cardfoot">
       <a class="elink" href="https://bellyupaspen.com/events/bonobo/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=8dc9404b-c0a7-49da-bbd1-6da349a998b5">View on map ↗</a>
       <button class="copybtn" data-copy="Bonobo — Belly Up Aspen, 450 S Galena St
 Fri Nov 20 · 9 PM
 From $126 (unverified) · Check venue — varies by show (unverified)
@@ -662,7 +712,7 @@ Simon Green&#x27;s downtempo electronic project lands at Belly Up — lush, cine
     </div>
   </div>
   <h2 class="when">November 28 – December 4, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-007db58a-8264-43f9-9272-e92348fa053e">
     <img class="ph" src="../assets/browse/suzy-bogguss-singer.webp" alt="Suzy Bogguss: A Swingin&#x27; Little Christmas" loading="lazy">
     <p class="cat">music</p>
     <h3>Suzy Bogguss: A Swingin&#x27; Little Christmas</h3>
@@ -677,6 +727,7 @@ Simon Green&#x27;s downtempo electronic project lands at Belly Up — lush, cine
     <p class="fit">For: Families in town for Thanksgiving week.</p>
     <div class="cardfoot">
       <a class="elink" href="http://wheeleroperahouse.com/event/suzy-bogguss-a-swingin-little-christmas/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=007db58a-8264-43f9-9272-e92348fa053e">View on map ↗</a>
       <button class="copybtn" data-copy="Suzy Bogguss: A Swingin&#x27; Little Christmas — Wheeler Opera House
 Sat Nov 28 · 7:30 PM
 See wheeleroperahouse.com
@@ -685,7 +736,7 @@ Country veteran Suzy Bogguss swings through holiday classics with western-swing 
     </div>
   </div>
   <h2 class="when">December 5 – December 11, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-8ee2c123-952b-404b-b55d-400bca85f8db">
     <img class="ph" src="../assets/browse/the-wooten-brothers.webp" alt="The Wooten Brothers" loading="lazy">
     <p class="cat">music</p>
     <h3>The Wooten Brothers</h3>
@@ -700,6 +751,7 @@ Country veteran Suzy Bogguss swings through holiday classics with western-swing 
     <p class="fit">For: Musicians and serious music fans.</p>
     <div class="cardfoot">
       <a class="elink" href="http://wheeleroperahouse.com/event/the-wooten-brothers/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=8ee2c123-952b-404b-b55d-400bca85f8db">View on map ↗</a>
       <button class="copybtn" data-copy="The Wooten Brothers — Wheeler Opera House
 Mon Dec 7 · 7 PM
 See wheeleroperahouse.com
@@ -708,7 +760,7 @@ Victor Wooten — five-time Grammy winner and arguably the most influential livi
     </div>
   </div>
   <h2 class="when">December 12 – December 18, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-9f36306e-8c1f-4c47-9afe-f1ca5103842f">
     <img class="ph" src="../assets/browse/eddie-ifft-comedian.jpg" alt="EDDiE iFFT: The Last Chair Tour" loading="lazy">
     <p class="cat">comedy</p>
     <h3>EDDiE iFFT: The Last Chair Tour</h3>
@@ -723,6 +775,7 @@ Victor Wooten — five-time Grammy winner and arguably the most influential livi
     <p class="fit">For: Adults wanting a laugh before dinner.</p>
     <div class="cardfoot">
       <a class="elink" href="http://wheeleroperahouse.com/event/eddie-ifft-the-last-chair-tour/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=9f36306e-8c1f-4c47-9afe-f1ca5103842f">View on map ↗</a>
       <button class="copybtn" data-copy="EDDiE iFFT: The Last Chair Tour — Wheeler Opera House
 Sat Dec 12 · 5 PM
 Intended for adult audiences 21+
@@ -730,7 +783,7 @@ http://wheeleroperahouse.com/event/eddie-ifft-the-last-chair-tour/
 Veteran stand-up Eddie Ifft&#x27;s early show on a double-comedy Saturday at the Wheeler. Sharp, road-tested, and an easy ticket.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-3b80cd75-40ce-4b37-a6ea-e5183c05fe43">
     <img class="ph" src="../assets/browse/ismo-comedian.jpg" alt="Ismo: Perseverance Tour" loading="lazy">
     <p class="cat">comedy</p>
     <h3>Ismo: Perseverance Tour</h3>
@@ -745,6 +798,7 @@ Veteran stand-up Eddie Ifft&#x27;s early show on a double-comedy Saturday at the
     <p class="fit">For: Wordplay lovers; a bright night out.</p>
     <div class="cardfoot">
       <a class="elink" href="https://wheeleroperahouse.com/event/ismo/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=3b80cd75-40ce-4b37-a6ea-e5183c05fe43">View on map ↗</a>
       <button class="copybtn" data-copy="Ismo: Perseverance Tour — Wheeler Opera House
 Sat Dec 12 · 8 PM
 Check venue — varies by show
@@ -753,7 +807,7 @@ Finnish comedian Ismo mines the absurdity of the English language — a clean, c
     </div>
   </div>
   <h2 class="when">December 19 – December 25, 2026</h2>
-  <div class="ev">
+  <div class="ev" id="ev-e3c3de20-928a-4ba8-a8ec-3f0bfad5ae1a">
     <img class="ph" src="../assets/browse/danceaspen-snowy-soiree.webp" alt="DanceAspen: A Snowy Soiree" loading="lazy">
     <p class="cat">dance</p>
     <h3>DanceAspen: A Snowy Soiree</h3>
@@ -768,6 +822,7 @@ Finnish comedian Ismo mines the absurdity of the English language — a clean, c
     <p class="fit">For: Dance and arts patrons; holiday-week guests.</p>
     <div class="cardfoot">
       <a class="elink" href="https://dance-aspen.org/events/snowy-soiree" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=e3c3de20-928a-4ba8-a8ec-3f0bfad5ae1a">View on map ↗</a>
       <button class="copybtn" data-copy="DanceAspen: A Snowy Soiree — Wheeler Opera House
 Tue Dec 22 · 5:30 PM
 All ages
@@ -776,7 +831,7 @@ Aspen&#x27;s own contemporary dance company takes the Wheeler stage for a winter
     </div>
   </div>
   <h2 class="when">December 26 – January 1, 2027</h2>
-  <div class="ev">
+  <div class="ev" id="ev-55ddbd70-41d7-4e0e-bb74-3291209311ab">
     <img class="ph" src="../assets/browse/john-oates-good-road-band.jpg" alt="John Oates and the Good Road Band" loading="lazy">
     <p class="cat">music</p>
     <h3>John Oates and the Good Road Band</h3>
@@ -791,6 +846,7 @@ Aspen&#x27;s own contemporary dance company takes the Wheeler stage for a winter
     <p class="fit">For: Holiday-week guests; classic rock fans.</p>
     <div class="cardfoot">
       <a class="elink" href="http://wheeleroperahouse.com/event/john-oates-and-the-good-road-band/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=55ddbd70-41d7-4e0e-bb74-3291209311ab">View on map ↗</a>
       <button class="copybtn" data-copy="John Oates and the Good Road Band — Wheeler Opera House
 Sun Dec 27 · 7:30 PM
 See wheeleroperahouse.com
@@ -798,7 +854,7 @@ http://wheeleroperahouse.com/event/john-oates-and-the-good-road-band/
 Half of Hall &amp; Oates brings his roots-and-Americana band to the Wheeler between Christmas and New Year&#x27;s. Expect the hits reimagined and deep cuts.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-b70c9b35-d1bc-44e6-9002-1f60c42cd654">
     <img class="ph" src="../assets/browse/lcd-soundsystem-live-concert.jpg" alt="LCD Soundsystem — New Year&#x27;s Eve 2026" loading="lazy">
     <p class="cat">music</p>
     <h3>LCD Soundsystem — New Year&#x27;s Eve 2026</h3>
@@ -813,6 +869,7 @@ Half of Hall &amp; Oates brings his roots-and-Americana band to the Wheeler betw
     <p class="fit">For: The booking of the season; act fast.</p>
     <div class="cardfoot">
       <a class="elink" href="https://bellyupaspen.com/events/lcd-soundsystem-new-years-eve-2026-2/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=b70c9b35-d1bc-44e6-9002-1f60c42cd654">View on map ↗</a>
       <button class="copybtn" data-copy="LCD Soundsystem — New Year&#x27;s Eve 2026 — Belly Up Aspen, 450 S Galena St
 Wed Dec 30 · 9:30 PM
 Not on sale — Join Waitlist on bellyupaspen.com · Check venue — varies by show (unverified)
@@ -820,7 +877,7 @@ https://bellyupaspen.com/events/lcd-soundsystem-new-years-eve-2026-2/
 James Murphy&#x27;s dance-punk institution headlines Belly Up&#x27;s New Year&#x27;s run — three nights in a 450-cap room. These will not last.">Copy details</button>
     </div>
   </div>
-  <div class="ev">
+  <div class="ev" id="ev-c950e15f-b0a2-4835-a27d-e7be87fb16c9">
     <img class="ph" src="../assets/browse/lcd-soundsystem-new-year-s-eve-concert.jpg" alt="LCD Soundsystem — New Year&#x27;s Eve 2026" loading="lazy">
     <p class="cat">music</p>
     <h3>LCD Soundsystem — New Year&#x27;s Eve 2026</h3>
@@ -835,6 +892,7 @@ James Murphy&#x27;s dance-punk institution headlines Belly Up&#x27;s New Year&#x
     <p class="fit">For: The NYE splurge.</p>
     <div class="cardfoot">
       <a class="elink" href="https://bellyupaspen.com/events/lcd-soundsystem-new-years-eve-2026-2/" target="_blank" rel="noopener">Official event page ↗</a>
+      <a class="elink" href="../map/?event=c950e15f-b0a2-4835-a27d-e7be87fb16c9">View on map ↗</a>
       <button class="copybtn" data-copy="LCD Soundsystem — New Year&#x27;s Eve 2026 — Belly Up Aspen, 450 S Galena St
 Thu Dec 31 · 10:30 PM
 Not on sale — Join Waitlist on bellyupaspen.com · Check venue — varies by show (unverified)
@@ -843,9 +901,10 @@ Ring in 2027 with LCD Soundsystem at Belly Up — the room&#x27;s biggest New Ye
     </div>
   </div>
 </div>
-
   <footer class="colophon">
-    <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
+    <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
+    <p class="foot-links"><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="../map/">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
+    <p>© 2026 The Golden Hour · An Ad Astra Media publication. Photography by Ron Delhaye Studios.</p>
   </footer>
 
 

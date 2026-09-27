@@ -4,24 +4,44 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calendar — The Golden Hour</title>
-<style>
-  :root{--paper:#faf7f2;--ink:#1a1713;--accent:#103d60;--muted:#6e675c;--hair:#e4ded1}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--faint:#a39a8b;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;--serif:"Cormorant Garamond",Didot,"Bodoni MT",Georgia,"Times New Roman",serif;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
   .page{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
   .masthead{text-align:center;margin-bottom:2rem}
   .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .8rem}
-  .brand{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:clamp(2rem,6vw,3rem);margin:0 0 .6rem}
-  .rule{border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
-  nav.site-nav{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.4rem 0 0;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
-  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .brand{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7vw,3.4rem);margin:0 0 .6rem;letter-spacing:.02em}
+  .rule-double{border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
+  .tagline{color:var(--muted);font-style:italic;margin:0;max-width:34rem;margin-left:auto;margin-right:auto}
+  nav.site-nav{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 0;
+               font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
   nav.site-nav a.active{font-weight:700;border-bottom:3px solid var(--accent)}
+  h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
+  .lede{color:var(--muted);font-size:1.02rem;max-width:36rem}
+  .btn{display:inline-block;border:1px solid var(--accent);color:var(--ink);padding:.6rem 1.3rem;
+       text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;background:transparent}
+  .btn:hover{background:var(--accent);color:#fff}
+  .colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--hair);
+            font-size:.8rem;color:var(--muted);text-align:center}
   .colophon .foot-links a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
-  h2.when{font-family:Georgia,serif;font-size:1.5rem;margin:2.6rem 0 1rem}
+  .explore{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.9rem;margin:1.4rem 0}
+  .explore a{display:block;border:1px solid var(--hair);background:#fff;padding:1.1rem 1rem;text-decoration:none;color:var(--ink)}
+  .explore a:hover{border-color:var(--accent)}
+  .explore .ek{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+  .explore h3{font-family:var(--serif);font-size:1.2rem;margin:0 0 .25rem;font-weight:600}
+  .explore p{font-size:.85rem;color:var(--muted);margin:0}
+
+  h2.when{font-family:var(--serif);font-size:1.5rem;margin:2.6rem 0 1rem}
   .ev{border:1px solid var(--hair);background:#fff;padding:1.2rem 1.2rem 1rem;margin:0 0 1rem;position:relative}
   .ev .cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
-  .ev h3{font-family:Georgia,serif;font-size:1.25rem;margin:0 0 .25rem}
+  .ev h3{font-family:var(--serif);font-size:1.25rem;margin:0 0 .25rem}
   .ev-when{display:flex;align-items:baseline;flex-wrap:wrap;gap:.2rem .8rem;margin:0 0 .35rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
-  .ev-date{font-family:Georgia,serif;font-weight:700;font-size:1.15rem;color:var(--accent)}
+  .ev-date{font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--accent)}
   .ev-time{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
   .ev-rel{margin-left:auto;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
   .ev .meta{font-size:.88rem;color:var(--muted);margin:.15rem 0}
@@ -34,7 +54,7 @@
   .elink:hover{text-decoration:underline}
   .ev .ph{display:block;width:calc(100% + 2.4rem);max-width:none;margin:-1.2rem -1.2rem .9rem;aspect-ratio:16/9;object-fit:cover;background:#efe9dd}
   .month{margin:2.5rem 0}
-  .month h2{font-family:Georgia,serif;font-size:1.6rem;margin:0 0 .8rem}
+  .month h2{font-family:var(--serif);font-size:1.6rem;margin:0 0 .8rem}
   table.cal{width:100%;border-collapse:collapse;font-size:.85rem}
   table.cal th{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.4rem;font-weight:600}
   table.cal td{border:1px solid var(--hair);height:3.2rem;width:14.28%;vertical-align:top;padding:.3rem;text-align:left}
@@ -42,8 +62,7 @@
   table.cal td.has{background:#fff;cursor:default}
   table.cal td .dots{color:var(--accent);letter-spacing:2px;font-size:.8rem}
   table.cal td.dim{color:#c9c2b4;background:transparent}
-  .daylist h3{font-family:Georgia,serif;font-size:1.15rem;margin:1.8rem 0 .6rem}
-  .colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--hair);font-size:.8rem;color:var(--muted);text-align:center}
+  .daylist h3{font-family:var(--serif);font-size:1.15rem;margin:1.8rem 0 .6rem}
   .empty{color:var(--muted);font-style:italic}
 </style>
 </head>
@@ -52,12 +71,13 @@
   <header class="masthead">
     <p class="kicker">From Aspen and Beyond</p>
     <h1 class="brand">The Golden Hour</h1>
-    <hr class="rule">
+    <hr class="rule-double">
     <nav class="site-nav" aria-label="Sections">
     <a href="../index.html">Latest</a>
     <a href="../upcoming/">Upcoming</a>
     <a href="../calendar/" class="active" aria-current="page">Calendar</a>
     <a href="../map/">Map</a>
+    <a href="../picks/">Top Picks</a>
     <a href="../editions/">Archive</a>
     <a href="../sources/">How we verify</a>
   </nav>
@@ -67,9 +87,9 @@
 
 <style>
 .gcal-toolbar{display:flex;align-items:center;gap:.6rem;margin:1rem 0;flex-wrap:wrap}
-.gcal-title{font-size:1.5rem;margin:0 .4rem 0 0;font-family:Georgia,'Times New Roman',serif;color:#103D60}
-.gcal-btn{border:1px solid #d5dbe3;background:#fff;border-radius:999px;padding:.45rem .95rem;
-  font-size:.9rem;cursor:pointer;color:#103D60}
+.gcal-title{font-size:1.5rem;margin:0 .4rem 0 0;font-family:var(--serif);font-weight:600;color:var(--accent)}
+.gcal-btn{border:1px solid var(--hair);background:#fff;border-radius:999px;padding:.45rem .95rem;
+  font-size:.9rem;cursor:pointer;color:var(--accent);font-family:var(--sans)}
 .gcal-btn:hover:not(:disabled){background:#f0f4f8}
 .gcal-btn:disabled{opacity:.35;cursor:default}
 .gcal-btn.nav{width:2.4rem;padding:.45rem 0;text-align:center;font-size:1.05rem;line-height:1}
@@ -81,11 +101,12 @@
 .gcal-day.dim{background:#fafbfc;color:#9aa3b2}
 .gcal-daynum{font-size:.8rem;font-weight:600;width:1.7rem;height:1.7rem;display:flex;
   align-items:center;justify-content:center;border-radius:50%;margin-bottom:2px}
-.gcal-daynum.today{background:#103D60;color:#fff}
+.gcal-daynum.today{background:var(--accent);color:#fff}
 .gcal-chip{display:block;width:100%;text-align:left;border:0;border-radius:4px;
   font-size:.74rem;line-height:1.35;padding:.18rem .45rem;margin:2px 0;cursor:pointer;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gcal-chip .ct{font-weight:700;margin-right:.25rem}
+.gcal-chip.istoday{box-shadow:inset 3px 0 0 var(--gold)}
 .gcal-more{background:none;border:0;color:#5f6b7a;font-size:.74rem;cursor:pointer;padding:.15rem .45rem}
 .gcal-more:hover{text-decoration:underline}
 .gcal-overlay{position:fixed;inset:0;background:rgba(16,61,96,.45);display:flex;
@@ -96,7 +117,7 @@
   cursor:pointer;color:#5f6b7a;z-index:2}
 .gcal-photo{width:100%;height:190px;object-fit:cover;display:block;border-radius:12px 12px 0 0}
 .gcal-modal-body{padding:1.1rem 1.2rem 1.3rem}
-.gcal-modal-body h3{margin:.4rem 0 .5rem;font-size:1.25rem;color:#103D60}
+.gcal-modal-body h3{margin:.4rem 0 .5rem;font-size:1.35rem;font-family:var(--serif);font-weight:600;color:var(--accent)}
 .gcal-cat{display:inline-block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
   padding:.2rem .6rem;border-radius:999px;margin:0}
 .gcal-when{margin:.2rem 0;font-size:.95rem}
@@ -106,7 +127,7 @@
 .gcal-blurb{margin:.6rem 0;line-height:1.5}
 .gcal-fit{font-style:italic;color:#5f6b7a;font-size:.9rem}
 .gcal-links{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.8rem}
-.gcal-links a{color:#103D60;font-weight:600;font-size:.9rem}
+.gcal-links a{color:var(--accent);font-weight:600;font-size:.9rem}
 @media (max-width:640px){
   .gcal-day{min-height:76px;padding:3px}
   .gcal-chip{font-size:.66rem}
@@ -126,10 +147,9 @@
 </div>
 <script src="calendar.js"></script>
   <footer class="colophon">
-    <p class="concierge">Photography provided by The Golden Hour</p>
     <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-    <p class="foot-links"><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="../map/">Map</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
-    <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
+    <p class="foot-links"><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="../map/">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
+    <p>© 2026 The Golden Hour · An Ad Astra Media publication. Photography by Ron Delhaye Studios.</p>
   </footer>
 
 

@@ -1,0 +1,13 @@
+{
+  "_note": "Local Staples data. Append pick objects; the page renders them. Empty = honest curation state.",
+  "_schema": {
+    "name": "str",
+    "category": "Eat|Drink|Outdoors|Arts & Culture|Services",
+    "score": "number 0-10",
+    "why": "one line",
+    "sources": "e.g. Google 4.8 (2.1k) · Yelp 4.5",
+    "verified": "YYYY-MM-DD"
+  },
+  "rubric_version": "v1",
+  "picks": []
+}

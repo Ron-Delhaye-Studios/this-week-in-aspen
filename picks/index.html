@@ -16,7 +16,7 @@ if ("serviceWorker" in navigator) {{
     navigator.serviceWorker.register("/this-week-in-aspen/sw.js", {{ scope: "/this-week-in-aspen/" }});
   }});
 }
-</script><title>The Golden Hour</title>
+</script><title>Top Picks — The Golden Hour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -112,36 +112,55 @@ if ("serviceWorker" in navigator) {{
     <hr class="rule-double">
     <p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
   <nav class="site-nav" aria-label="Sections">
-    <a href="index.html" class="active" aria-current="page">Latest</a>
-    <a href="upcoming/">Upcoming</a>
-    <a href="calendar/">Calendar</a>
-    <a href="map/">Map</a>
-    <a href="picks/">Top Picks</a>
-    <a href="editions/">Archive</a>
-    <a href="sources/">How we verify</a>
+    <a href="../index.html">Latest</a>
+    <a href="../upcoming/">Upcoming</a>
+    <a href="../calendar/">Calendar</a>
+    <a href="../map/">Map</a>
+    <a href="../picks/" class="active" aria-current="page">Top Picks</a>
+    <a href="../editions/">Archive</a>
+    <a href="../sources/">How we verify</a>
   </nav>
   </header>
 
-  <h2 class="section">This week</h2>
-  <div class="hero">
-    <p class="ed-range">Saturday, September 26 – Saturday, October 3, 2026</p>
-    <h3>The current edition</h3>
-    <p>Eight days of curated picks — arriving Saturday through departure Saturday — each one verified against official sources.</p>
-    <a class="btn" href="editions/2026-09-26/">Read the edition</a>
-  </div>
-  <h2 class="section">Explore the live guide</h2>
-  <p class="lede">The guide never sleeps: every verified event, four ways in — always current, always sourced.</p>
-  <div class="explore">
-    <a href="upcoming/"><p class="ek">Browse</p><h3>Upcoming</h3><p>Every verified event, soonest first.</p></a>
-    <a href="calendar/"><p class="ek">Plan</p><h3>Calendar</h3><p>The month at a glance, Google-style.</p></a>
-    <a href="map/"><p class="ek">Wander</p><h3>Map</h3><p>Every event placed on Colorado.</p></a>
-    <a href="picks/"><p class="ek">The Concierge</p><h3>Top Picks</h3><p>Local staples, scored and verified.</p></a>
-  </div>
-  <h2 class="section">How we verify</h2>
-  <p class="method">Every event is checked against the venue's own page or a trusted local source before it reaches you. Aggregator listings alone never make the cut — and when two sources disagree on a time, we hold the pick until one is authoritative.</p>
-  <p><a class="btn" href="sources/">See our sources</a></p>
+  <div class="pagetitle"><p class="kicker">The Concierge</p>
+  <h2>Local Staples</h2></div>
+  <p class="lede">The places Aspen locals actually go — restaurants, bars, trails, shops, services. Each one is scored, sourced, and verified before it appears here. No ads, no pay-to-play, no filler.</p>
+  <h2 class="section">How a staple earns its place</h2>
+  <ol class="rubric">
+    <li><b>Public reputation</b><span>Google and Yelp ratings weighted by review volume — a 4.9 from 40 reviews does not outrank a 4.7 from 4,000.</span></li>
+    <li><b>Staying power</b><span>Years in business. A decade of winters survived counts more than a season of hype.</span></li>
+    <li><b>Local corroboration</b><span>Concierge desks, bartenders, and longtime locals are asked what they actually recommend — off the record.</span></li>
+    <li><b>On-the-ground check</b><span>Hours, prices, and the experience itself are verified in person before publication.</span></li>
+    <li><b>The dealbreakers</b><span>Tourist traps, pay-to-play placements, and anything that can't be verified are cut — loudly if necessary.</span></li>
+  </ol>
+  <h2 class="section">The staples</h2>
+  <div id="pick-list"><p class="lede">Loading…</p></div>
   <footer class="colophon">
     <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-    <p class="foot-links"><a href="index.html">Latest</a> · <a href="upcoming/">Upcoming</a> · <a href="calendar/">Calendar</a> · <a href="map/">Map</a> · <a href="picks/">Top Picks</a> · <a href="editions/">Archive</a> · <a href="sources/">How we verify</a></p>
+    <p class="foot-links"><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="../map/">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
     <p>© 2026 The Golden Hour · An Ad Astra Media publication. Photography by Ron Delhaye Studios.</p>
   </footer>
+
+
+<script>
+(function(){
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  fetch("picks.json").then(function(r){return r.json();}).then(function(d){
+    var picks=d.picks||[];
+    var host=document.getElementById("pick-list");
+    if(!picks.length){
+      host.innerHTML='<p class="lede" style="font-style:italic">The first staples are being scored now — check back soon. Nothing here is published until it earns its place.</p>';
+      return;
+    }
+    host.innerHTML=picks.map(function(p){
+      return '<article class="pick"><p class="cat">'+esc(p.category)+'</p>'+
+        '<h3>'+esc(p.name)+'<span class="score">'+esc(p.score)+' / 10</span></h3>'+
+        '<p class="why">'+esc(p.why)+'</p>'+
+        '<p class="src">'+esc(p.sources)+' · Verified '+esc(p.verified)+'</p></article>';
+    }).join("");
+  }).catch(function(){
+    document.getElementById("pick-list").innerHTML='<p class="lede">Could not load picks.</p>';
+  });
+})();
+</script>

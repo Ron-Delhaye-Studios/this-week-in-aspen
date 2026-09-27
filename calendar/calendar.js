@@ -44,6 +44,7 @@
   }
 
   var T = denverToday();
+  TODAY_KEY = T.y + "-" + pad2(T.m + 1) + "-" + pad2(T.d);
   var viewY = T.y, viewM = T.m;
   var minIdx = T.y * 12 + T.m;
   var maxIdx = minIdx + 4;
@@ -64,9 +65,11 @@
     return "In " + diff + " days";
   }
 
+  var TODAY_KEY = null;  // set after T is defined
   function chipHTML(ev) {
     var st = catStyle(ev.category);
-    return '<button class="gcal-chip" data-ev="' + esc(ev.id) + '"' +
+    var cls = denverKey(ev.starts_at) === TODAY_KEY ? "gcal-chip istoday" : "gcal-chip";
+    return '<button class="' + cls + '" data-ev="' + esc(ev.id) + '"' +
       ' style="background:' + st[0] + ';color:' + st[1] + '"' +
       ' title="' + esc(ev.title) + '">' +
       '<span class="ct">' + esc(chipTime(ev.starts_at)) + "</span> " + esc(ev.title) + "</button>";
