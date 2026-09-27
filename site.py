@@ -38,9 +38,11 @@ if ("serviceWorker" in navigator) {{
 
 def head_html(title, extra_head="", seo_desc=None, seo_path=""):
     seo = theme.seo_head(title, seo_desc, seo_path) if seo_desc else ""
+    depth = len([p for p in seo_path.strip("/").split("/") if p]) if seo_path else 0
+    analytics = theme.analytics_tags("../" * depth)
     return ("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n"
             '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-            + extra_head + PWA_HEAD + "<title>" + html.escape(title) + "</title>\n" + seo
+            + extra_head + PWA_HEAD + "<title>" + html.escape(title) + "</title>\n" + seo + analytics
             + theme.FONT_LINKS + "\n<style>\n" + theme.CORE_CSS + EXTRA_CSS + "\n</style>\n</head>\n"
             '<body>\n<div class="page">\n')
 

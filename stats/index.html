@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Stats — The Golden Hour (private)</title>
+<script src="../assets/js/analytics-config.js"></script>
+<style>
+  :root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;padding:1.5rem 1.2rem}
+  .wrap{max-width:640px;margin:0 auto}
+  h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.8rem;margin:0 0 .2rem}
+  .sub{color:var(--muted);font-size:.85rem;margin:0 0 1.2rem}
+  .tabs{margin:0 0 1rem}
+  .tabs button{border:1px solid var(--hair);background:#fff;color:var(--ink);
+    padding:.5rem 1rem;font-size:.85rem;cursor:pointer;border-radius:2px;margin-right:.4rem}
+  .tabs button[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--hair);font-size:.9rem}
+  th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--hair)}
+  th{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tr.total td{font-weight:600;border-bottom:none}
+  .note{color:var(--muted);font-size:.8rem;margin-top:1rem}
+  .err{color:#8a1f1f;background:#fdf0f0;border:1px solid #e8c4c4;padding:.8rem;border-radius:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Site stats</h1>
+  <p class="sub">The Golden Hour · aggregate page views · private</p>
+  <div class="tabs" role="group" aria-label="Range">
+    <button data-days="7" aria-pressed="true">Last 7 days</button>
+    <button data-days="30" aria-pressed="false">Last 30 days</button>
+  </div>
+  <div id="out"><p class="sub">Loading…</p></div>
+  <p class="note">Counts are aggregate only — no cookies, no identities, DNT respected.
+  Skeleton dashboard; a real auth gate arrives with the professional branding pass.</p>
+</div>
+<script>
+(function(){
+  var out = document.getElementById('out');
+  var key = window.GH_ANALYTICS_KEY;
+  function fail(msg){ out.innerHTML = '<p class="err">'+msg+'</p>'; }
+  if (!key || key.indexOf('__PASTE_') === 0) {
+    fail('Analytics not configured yet — paste the Supabase anon key into assets/js/analytics-config.js, then run the SQL schema.');
+    return;
+  }
+  function load(days){
+    out.innerHTML = '<p class="sub">Loading…</p>';
+    fetch('https://ypfhcqeispdunewubxjm.supabase.co/rest/v1/rpc/get_page_stats?apikey='+encodeURIComponent(key),{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({p_site:'golden-hour', p_days:days})
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(rows){
+      if(!rows.length){ out.innerHTML = '<p class="sub">No page views recorded in this range yet.</p>'; return; }
+      var total = rows.reduce(function(a,r){return a+r.views;},0);
+      var h = '<table><thead><tr><th>Page</th><th class="n">Views</th><th class="n">Active days</th></tr></thead><tbody>';
+      rows.forEach(function(r){
+        h += '<tr><td>'+String(r.path).replace(/</g,'&lt;')+'</td><td class="n">'+r.views+'</td><td class="n">'+r.unique_days+'</td></tr>';
+      });
+      h += '<tr class="total"><td>Total</td><td class="n">'+total+'</td><td class="n">—</td></tr></tbody></table>';
+      out.innerHTML = h;
+    }).catch(function(e){ fail('Could not load stats ('+e.message+'). Check the anon key and that the SQL schema was applied.'); });
+  }
+  document.querySelectorAll('.tabs button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+      b.setAttribute('aria-pressed','true');
+      load(parseInt(b.getAttribute('data-days'),10));
+    });
+  });
+  load(7);
+})();
+</script>
+</body>
+</html>

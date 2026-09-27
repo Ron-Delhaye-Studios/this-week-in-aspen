@@ -37,6 +37,21 @@ def seo_head(title, description, path=""):
         '<meta name="theme-color" content="#103D60">\n'
     )
 
+def analytics_tags(root=""):
+    """Analytics skeleton snippet. Additive head tags only — no visible markup.
+
+    root is the relative prefix back to the site root ("" / "../" / "../../"),
+    since the site is served from a subdirectory and root-absolute asset paths
+    would break. Emits the config first (holds the anon key), then the beacon.
+    Until a real anon key is pasted into analytics-config.js, the beacon
+    silently does nothing.
+    """
+    return (
+        f'<script src="{root}assets/js/analytics-config.js"></script>\n'
+        f'<script defer src="{root}assets/js/analytics.js"></script>\n'
+    )
+
+
 FONT_LINKS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">"""

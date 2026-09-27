@@ -352,13 +352,14 @@ SEO_FOR_PAGE = {
 def wrap(title, inner, root, active=None):
     seo_desc, seo_path = SEO_FOR_PAGE.get(active, ("", ""))
     seo = theme.seo_head(title, seo_desc, seo_path) if seo_desc else ""
+    analytics = theme.analytics_tags(root)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
-{seo}{theme.FONT_LINKS}
+{seo}{analytics}{theme.FONT_LINKS}
 <style>{CSS}</style>
 </head>
 <body>

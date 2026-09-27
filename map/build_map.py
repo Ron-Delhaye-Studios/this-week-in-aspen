@@ -251,6 +251,7 @@ PAGE_TMPL = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Map — The Golden Hour</title>
 {seo}
+{analytics}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -348,7 +349,8 @@ def build_shell():
     import theme as _theme
     seo = _theme.seo_head("Map — The Golden Hour",
         "Every verified Aspen-area event placed on a map of Colorado.", "map/")
-    page = PAGE_TMPL.replace("{nav}", nav).replace("{seo}", seo).replace("{{", "{").replace("}}", "}")
+    analytics = _theme.analytics_tags("../")
+    page = PAGE_TMPL.replace("{nav}", nav).replace("{seo}", seo).replace("{analytics}", analytics).replace("{{", "{").replace("}}", "}")
     with open(os.path.join(MAPDIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(page)
     print("wrote map/index.html")
