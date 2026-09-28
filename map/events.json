@@ -384,6 +384,22 @@
   "image": "assets/browse/digable-planets-live-concert.jpg"
  },
  {
+  "id": "4e677213-2e58-4d40-b1d7-ec71c304260f",
+  "title": "Haunted Hotel Halloween Party at W Aspen",
+  "venue": "W Aspen, 550 S Spring Street, Aspen, CO 81611",
+  "lat": 39.1863645,
+  "lng": -106.8169275,
+  "accuracy": "rooftop",
+  "starts_at": "2026-11-01T03:00:00+00:00",
+  "ends_at": null,
+  "category": "music",
+  "price_info": "Tickets via Eventbrite",
+  "age_policy": null,
+  "url": "https://www.eventbrite.com/e/haunted-hotel-halloween-party-at-w-aspen-tickets-1987456397586",
+  "blurb": "Step inside W Aspen's darker side for a night of spooky cocktails, immersive DJ sets, and a costume contest that transforms the hotel.",
+  "image": null
+ },
+ {
   "id": "4eb383a2-6edd-48e6-a290-cf8e91dc03bc",
   "title": "The Black Angels with GHOSTWOMAN",
   "venue": "Belly Up Aspen, 450 S Galena St",
