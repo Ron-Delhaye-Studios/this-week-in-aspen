@@ -362,5 +362,70 @@
     "price_info": "Ticketed (aspenshowtix.com)",
     "age_policy": "All ages",
     "fit_note": "The Celebration's closing-night sing-along — book ahead."
+  },
+  {
+    "id": "53b3582f-d664-4235-9efb-67aa335afabe",
+    "title": "Snowmass Balloon Festival — Final Launch",
+    "starts_at": "2026-09-27T13:00:00+00:00",
+    "venue": "Snowmass Town Park, 2000 Brush Creek Rd, Snowmass Village",
+    "category": "outdoors",
+    "image": "assets/browse/hot-air-balloons-snowmass-town-park.jpg",
+    "url": "https://www.gosnowmass.com/event/snowmass-balloon-festival/2026-09-25/",
+    "blurb": "The last morning of the festival's 51st year — the final mass ascension over Snowmass Town Park. Same drill: layers, blankets, arrive early; balloons go up weather permitting.",
+    "price_info": "Free",
+    "age_policy": "All ages",
+    "fit_note": "Your second chance if Saturday's weather didn't cooperate."
+  },
+  {
+    "id": "3184784e-5d7d-4b50-beae-421fb5149d6a",
+    "title": "Aspen Literary Festival — Closing Day",
+    "starts_at": "2026-09-27T17:00:00+00:00",
+    "venue": "Downtown Aspen (Wheeler Opera House, Library, Community Church)",
+    "category": "arts",
+    "image": "assets/browse/aspen-literary-festival.png",
+    "url": "https://www.aspenliteraryfestival.org/how-to-attend",
+    "blurb": "The festival's second year closes with a full day of author conversations, panels, and signings across downtown — Jennette McCurdy, Richard Russo, Veronica Roth, and more on the lineup. Most events are free with registration; marquee Wheeler main-stage sessions are ticketed.",
+    "price_info": "Free GA (registration required); Wheeler main stage events $45",
+    "age_policy": "All ages",
+    "fit_note": "For readers — the cultural high point of the weekend, and mostly free."
+  },
+  {
+    "id": "169dccaf-5e69-426f-ad9a-9ffd516b022c",
+    "title": "Aspen Restaurant Week Autumn — Final Evening",
+    "starts_at": "2026-09-27T23:00:00+00:00",
+    "venue": "Participating restaurants, Aspen",
+    "category": "dining",
+    "image": "assets/browse/aspen-restaurant-fine-dining.jpg",
+    "url": "https://aspenchamber.org/restaurants-nightlife/restaurant-week/",
+    "blurb": "The last evening of the autumn edition — prix fixe, multi-course fall-harvest menus at 25+ local restaurants, from Matsuhisa to Wild Fig. Reserve ahead; menus and the full restaurant list are at the Chamber.",
+    "price_info": "Prix fixe (specially priced multi-course menus; varies by restaurant)",
+    "age_policy": "All ages",
+    "fit_note": "The week's best-value fine dining — book the table tonight, it ends Sunday."
+  },
+  {
+    "id": "e88aecf9-8e58-4f65-a153-7e64bd0399ec",
+    "title": "Bombargo at Belly Up",
+    "starts_at": "2026-09-28T02:00:00+00:00",
+    "venue": "Belly Up Aspen, 450 S Galena St",
+    "category": "music",
+    "image": "assets/browse/bombargo-live-concert.jpg",
+    "url": "https://tickets.bellyupaspen.com/link/event?event=bombargo-9-27-26",
+    "blurb": "Saskatoon-bred Bombargo bring their big-chorus pop-rock to the Belly Up room, with Graham Good & The Painters opening. Doors 7 PM, show 8 PM. All ages (under 18 with a parent or guardian).",
+    "price_info": "$12.00 GA / $48.00 Reserved / $104.55 VIP package (includes all fees)",
+    "age_policy": "All Ages. Under 18 must be accompanied by a parent or legal guardian.",
+    "fit_note": "A high-energy night out for the group that wants to dance."
+  },
+  {
+    "id": "44ae4ec0-9bfd-4116-bde9-93b55011975f",
+    "title": "Maroon Bells at Peak Color",
+    "starts_at": "2026-09-28T14:00:00+00:00",
+    "venue": "Maroon Bells Scenic Area (shuttle from Aspen Highlands)",
+    "category": "outdoors",
+    "image": "assets/browse/maroon-bells-fall-colors.jpg",
+    "url": "https://www.visitmaroonbells.com/",
+    "blurb": "Late September is the peak window for the gold — the most photographed peaks in North America at their most golden. Between 8am and 5pm all visitors must use the shuttle from Aspen Highlands; reserve ahead, it sells out in color season.",
+    "price_info": "Shuttle $16/adult; $10 children (12 & under) and seniors (65+); parking $10/vehicle; reservations required",
+    "age_policy": "All ages",
+    "fit_note": "The can't-miss of the week for anyone who hasn't seen the Bells in fall."
   }
 ]
