@@ -44,7 +44,7 @@
   }
 
   var T = denverToday();
-  TODAY_KEY = T.y + "-" + pad2(T.m + 1) + "-" + pad2(T.d);
+  var TODAY_KEY = T.y + "-" + pad2(T.m + 1) + "-" + pad2(T.d);
   var viewY = T.y, viewM = T.m;
   var minIdx = T.y * 12 + T.m;
   var maxIdx = minIdx + 4;
@@ -66,7 +66,6 @@
     return "In " + diff + " days";
   }
 
-  var TODAY_KEY = null;  // set after T is defined
   function chipHTML(ev) {
     var st = catStyle(ev.category);
     var cls = denverKey(ev.starts_at) === TODAY_KEY ? "gcal-chip istoday" : "gcal-chip";
@@ -137,11 +136,12 @@
   function renderDayPanel() {
     var box = document.getElementById("gcal-agenda");
     if (!box) return;
-    var evs = (eventsByDay[selectedKey] || []).slice().sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); });
+    var key = selectedKey || TODAY_KEY;
+    var evs = (eventsByDay[key] || []).slice().sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); });
     var label = evs.length ? panelDayFmt.format(new Date(evs[0].starts_at))
-      : panelDayFmt.format(new Date(selectedKey + "T12:00:00"));
+      : panelDayFmt.format(new Date(key + "T12:00:00"));
     var html = '<div class="gcal-phead"><h3>' + esc(label) + "</h3>" +
-      (selectedKey === TODAY_KEY ? '<span class="gcal-arel">Today</span>' : "") +
+      (key === TODAY_KEY ? '<span class="gcal-arel">Today</span>' : "") +
       '<span class="gcal-pcount">' + evs.length + (evs.length === 1 ? " event" : " events") + "</span></div>";
     if (evs.length) evs.forEach(function (ev) { html += agendaRowHTML(ev); });
     else html += '<p class="empty">No events this day.</p>';
