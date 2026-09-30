@@ -26,6 +26,10 @@
   var fullDateFmt = new Intl.DateTimeFormat("en-US", { timeZone: DENVER, weekday: "long", month: "long", day: "numeric" });
 
   function denverKey(iso) { return dayKeyFmt.format(new Date(iso)); }
+  function hasEnded(ev) {
+    return denverKey(ev.starts_at) < TODAY_KEY;
+  }
+
   function chipTime(iso) {
     return timeFmt.format(new Date(iso)).replace(":00 ", " ").replace(" ", "").toLowerCase();
   }
@@ -68,7 +72,7 @@
 
   function chipHTML(ev) {
     var st = catStyle(ev.category);
-    var cls = denverKey(ev.starts_at) === TODAY_KEY ? "gcal-chip istoday" : "gcal-chip";
+    var cls = "gcal-chip" + (denverKey(ev.starts_at) === TODAY_KEY ? " istoday" : "") + (hasEnded(ev) ? " ended" : "");
     return '<button class="' + cls + '" data-ev="' + esc(ev.id) + '"' +
       ' style="background:' + st[0] + ';color:' + st[1] + '">' +
       '<span class="ct">' + esc(chipTime(ev.starts_at)) + "</span> " + esc(ev.title) + "</button>";
@@ -118,7 +122,7 @@
 
   function agendaRowHTML(ev) {
     var st = catStyle(ev.category);
-    return '<button class="gcal-arow" data-ev="' + esc(ev.id) + '" style="border-left-color:' + st[1] + '">' +
+    return '<button class="gcal-arow' + (hasEnded(ev) ? " ended" : "") + '" data-ev="' + esc(ev.id) + '" style="border-left-color:' + st[1] + '">' +
       '<span class="gcal-atime">' + esc(chipTime(ev.starts_at)) + "</span>" +
       '<span class="gcal-abody"><strong>' + esc(ev.title) + "</strong>" +
       '<span class="gcal-avenue">' + esc(ev.venue) + "</span></span></button>";
@@ -157,7 +161,7 @@
     tipEl = document.createElement("div");
     tipEl.className = "gcal-tip";
     tipEl.innerHTML = "<strong>" + esc(ev.title) + "</strong><span>" +
-      esc(chipTime(ev.starts_at)) + " · " + esc(ev.venue) + "</span>";
+      esc(chipTime(ev.starts_at)) + " · " + esc(ev.venue) + (hasEnded(ev) ? " · Ended" : "") + "</span>";
     document.body.appendChild(tipEl);
     var r = chip.getBoundingClientRect();
     var tw = Math.min(260, window.innerWidth * 0.7);
@@ -186,6 +190,7 @@
     html += "<h3>" + esc(ev.title) + "</h3>";
     html += '<p class="gcal-when"><strong>' + esc(fullDateFmt.format(new Date(ev.starts_at))) + "</strong> · " +
       esc(chipTime(ev.starts_at)) + (rel ? ' · <span class="gcal-rel">' + esc(rel) + "</span>" : "") + "</p>";
+    if (hasEnded(ev)) html += '<p class="gcal-ended">This event has ended.</p>';
     html += '<p class="gcal-venue">' + esc(ev.venue) + "</p>";
     if (meta) html += '<p class="gcal-meta">' + meta + "</p>";
     if (ev.blurb) html += '<p class="gcal-blurb">' + esc(ev.blurb) + "</p>";
