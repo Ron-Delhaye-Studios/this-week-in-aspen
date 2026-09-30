@@ -103,10 +103,12 @@ h2.when{font-size:2.4rem;margin-bottom:.75rem;letter-spacing:-.01em}
 .gcal-toolbar{display:flex;align-items:center;gap:.6rem;margin:1rem 0;flex-wrap:wrap}
 .gcal-title{font-size:1.5rem;margin:0 .4rem 0 0;font-family:var(--serif);font-weight:600;color:var(--accent)}
 .gcal-btn{border:1px solid var(--hair);background:#fff;border-radius:999px;padding:.45rem .95rem;
-  font-size:.9rem;cursor:pointer;color:var(--accent);font-family:var(--sans)}
+  font-size:.9rem;cursor:pointer;color:var(--accent);font-family:var(--sans);font-weight:700}
 .gcal-btn:hover:not(:disabled){background:#f0f4f8}
 .gcal-btn:disabled{opacity:.35;cursor:default}
-.gcal-btn.nav{width:2.4rem;padding:.45rem 0;text-align:center;font-size:1.05rem;line-height:1}
+.gcal-btn.nav{width:3rem;padding:.5rem 0;text-align:center;font-size:1.6rem;line-height:1;font-weight:800;
+  background:var(--accent);border-color:var(--accent);color:#fff}
+.gcal-btn.nav:hover:not(:disabled){filter:brightness(1.15);background:var(--accent)}
 .gcal-dow{display:grid;grid-template-columns:repeat(7,1fr);margin-top:.4rem}
 .gcal-dow span{text-align:center;font-size:.72rem;letter-spacing:.08em;color:#8a94a6;padding:.4rem 0;text-transform:uppercase}
 .gcal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid #e2e6ec;border-left:1px solid #e2e6ec}
@@ -156,6 +158,7 @@ h2.when{font-size:2.4rem;margin-bottom:.75rem;letter-spacing:-.01em}
 .gcal-modal-body h3{margin:.4rem 0 .5rem;font-size:1.35rem;font-family:var(--serif);font-weight:600;color:var(--accent)}
 .gcal-cat{display:inline-block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
   padding:.2rem .6rem;border-radius:999px;margin:0}
+.gcal-acat{margin-top:.5rem}
 .gcal-when{margin:.2rem 0;font-size:.95rem}
 .gcal-rel{color:#0b8043;font-weight:700}
 .gcal-venue{font-weight:600;margin:.2rem 0}
@@ -176,8 +179,8 @@ h2.when{font-size:2.4rem;margin-bottom:.75rem;letter-spacing:-.01em}
   <div class="gcal-toolbar">
     <button class="gcal-btn" id="gcal-today">Today</button>
     <button class="gcal-btn nav" id="gcal-prev" aria-label="Previous month">&#8249;</button>
-    <button class="gcal-btn nav" id="gcal-next" aria-label="Next month">&#8250;</button>
     <h3 class="gcal-title" id="gcal-title"></h3>
+    <button class="gcal-btn nav" id="gcal-next" aria-label="Next month">&#8250;</button>
   </div>
   <div class="gcal-dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
   <div class="gcal-legend" aria-hidden="true"><span><i style="background:#6a1b9a"></i>Music</span><span><i style="background:#ad1457"></i>Arts</span><span><i style="background:#1b5e20"></i>Outdoors</span><span><i style="background:#e65100"></i>Family</span><span><i style="background:#bf360c"></i>Dining</span><span><i style="background:#0277bd"></i>Comedy</span><span><i style="background:#283593"></i>Speakers</span><span><i style="background:#4e342e"></i>Dance</span></div>

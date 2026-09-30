@@ -130,7 +130,8 @@
       '<span class="gcal-atime">' + esc(chipTime(ev.starts_at)) + "</span>" +
       '<span class="gcal-abody"><strong>' + esc(ev.title) + "</strong>" +
       '<span class="gcal-avenue">' + esc(ev.venue) + "</span>" +
-      (ev.blurb ? '<span class="gcal-ablurb">' + esc(ev.blurb) + "</span>" : "") + "</span></button>";
+      (ev.blurb ? '<span class="gcal-ablurb">' + esc(ev.blurb) + "</span>" : "") +
+      '<span class="gcal-cat gcal-acat" style="background:' + st[0] + ";color:" + st[1] + '">' + esc(ev.category || "event") + "</span></span></button>";
   }
 
   function selectDay(key, scroll) {
