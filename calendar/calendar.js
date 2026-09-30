@@ -70,9 +70,10 @@
     var st = catStyle(ev.category);
     var cls = denverKey(ev.starts_at) === TODAY_KEY ? "gcal-chip istoday" : "gcal-chip";
     return '<button class="' + cls + '" data-ev="' + esc(ev.id) + '"' +
-      ' style="background:' + st[0] + ';color:' + st[1] + '"' +
-      ' title="' + esc(ev.title) + '">' +
-      '<span class="ct">' + esc(chipTime(ev.starts_at)) + "</span> " + esc(ev.title) + "</button>";
+      ' style="background:' + st[0] + ';color:' + st[1] + '">' +
+      '<span class="ct">' + esc(chipTime(ev.starts_at)) + "</span> " + esc(ev.title) +
+      '<span class="chip-tip"><strong>' + esc(ev.title) + "</strong>" +
+      '<span class="chip-tip-meta">' + esc(chipTime(ev.starts_at)) + " · " + esc(ev.venue) + "</span></span></button>";
   }
 
   var MONTHS = ["January", "February", "March", "April", "May", "June",
@@ -112,6 +113,35 @@
       html += "</div>";
     }
     grid.innerHTML = html;
+    renderAgenda();
+  }
+
+  var agendaDayFmt = new Intl.DateTimeFormat("en-US", { timeZone: DENVER, weekday: "short", month: "short", day: "numeric" });
+
+  function agendaRowHTML(ev) {
+    var st = catStyle(ev.category);
+    return '<button class="gcal-arow" data-ev="' + esc(ev.id) + '" style="border-left-color:' + st[1] + '">' +
+      '<span class="gcal-atime">' + esc(chipTime(ev.starts_at)) + "</span>" +
+      '<span class="gcal-abody"><strong>' + esc(ev.title) + "</strong>" +
+      '<span class="gcal-avenue">' + esc(ev.venue) + "</span></span></button>";
+  }
+
+  function renderAgenda() {
+    var box = document.getElementById("gcal-agenda");
+    if (!box) return;
+    var prefix = viewY + "-" + pad2(viewM + 1);
+    var html = "";
+    Object.keys(eventsByDay).filter(function (k) { return k.slice(0, 7) === prefix; }).sort()
+      .forEach(function (k) {
+        var evs = eventsByDay[k].slice().sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); });
+        if (!evs.length) return;
+        html += '<div class="gcal-aday' + (k === TODAY_KEY ? " istoday" : "") + '">';
+        html += '<div class="gcal-adayhead">' + esc(agendaDayFmt.format(new Date(evs[0].starts_at))) +
+          (k === TODAY_KEY ? ' <span class="gcal-arel">Today</span>' : "") + "</div>";
+        evs.forEach(function (ev) { html += agendaRowHTML(ev); });
+        html += "</div>";
+      });
+    box.innerHTML = html || '<p class="empty">No events this month.</p>';
   }
 
   function openEvent(id) {
@@ -181,7 +211,7 @@
   }
 
   document.addEventListener("click", function (e) {
-    var chip = e.target.closest(".gcal-chip");
+    var chip = e.target.closest(".gcal-chip,.gcal-arow");
     if (chip) { openEvent(chip.getAttribute("data-ev")); return; }
     var more = e.target.closest(".gcal-more");
     if (more) { openDay(more.getAttribute("data-day")); return; }
