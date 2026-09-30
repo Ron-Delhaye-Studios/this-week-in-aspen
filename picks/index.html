@@ -234,7 +234,7 @@ if ("serviceWorker" in navigator) {{
       el.addEventListener("click",function(){map.scrollWheelZoom.enable();},{once:true});
     }catch(e){/* map is enhancement-only */}
   }
-  fetch("picks.json").then(function(r){return r.json();}).then(function(d){
+  fetch("picks.json?v=20260930v2").then(function(r){return r.json();}).then(function(d){
     var picks=d.picks||[];
     var host=document.getElementById("pick-list");
     var nav=document.getElementById("cat-nav");
