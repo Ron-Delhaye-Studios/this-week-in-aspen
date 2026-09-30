@@ -31,6 +31,7 @@ if ("serviceWorker" in navigator) {{
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--faint:#a39a8b;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;--serif:"Cormorant Garamond",Didot,"Bodoni MT",Georgia,"Times New Roman",serif;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
   *{box-sizing:border-box}
@@ -79,13 +80,36 @@ if ("serviceWorker" in navigator) {{
     display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
   .rubric li b{display:block;font-size:.95rem}
   .rubric li span{color:var(--muted);font-size:.9rem}
-  .pick{border:1px solid var(--hair);background:#fff;padding:1.2rem;margin:0 0 1rem}
-  .pick .cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+  .pick{border:1px solid var(--hair);background:#fff;padding:1.2rem;margin:0 0 1rem;scroll-margin-top:1rem}
   .pick h3{font-family:var(--serif);font-size:1.3rem;margin:0 0 .25rem}
   .pick .score{display:inline-block;border:1.5px solid var(--gold);color:var(--ink);font-weight:700;
     font-size:.85rem;padding:.15rem .6rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
   .pick .why{margin:.5rem 0;font-size:.95rem}
+  .pick .addr{font-size:.85rem;color:var(--muted);margin:.2rem 0}
   .pick .src{font-size:.82rem;color:var(--muted);margin:.2rem 0}
+  .pick-photo{width:calc(100% + 2.4rem);aspect-ratio:16/9;object-fit:cover;display:block;margin:-1.2rem -1.2rem 1rem;background:#efe9dc}
+  .pick-photo.ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:#efe9dc;color:var(--faint);
+    font-family:var(--serif);font-size:2.2rem;font-style:italic}
+  .pcredit{font-size:.72rem;color:var(--faint);margin:-.6rem 0 .8rem;text-align:right}
+  /* v2: category sections */
+  .cat-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0 0}
+  .cat-nav a{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--hair);background:#fff;
+    color:var(--ink);text-decoration:none;font-size:.8rem;padding:.4rem .8rem;border-radius:999px}
+  .cat-nav a:hover{border-color:var(--accent)}
+  .cat-nav .cdot{width:.6rem;height:.6rem;border-radius:50%;flex:none}
+  #picks-map{height:400px;border:1px solid var(--hair);margin:1rem 0 .4rem;z-index:0;background:#eef2f4}
+  .map-note{font-size:.8rem;color:var(--muted);margin:0 0 .4rem}
+  .cat-section{margin:2.8rem 0 0;scroll-margin-top:1rem}
+  .cat-head{display:flex;align-items:center;gap:.65rem;margin:0 0 .15rem}
+  .cat-head .cdot{width:.85rem;height:.85rem;border-radius:50%;flex:none}
+  .cat-head h3{font-family:var(--serif);font-weight:600;font-size:1.55rem;margin:0}
+  .cat-count{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .cat-desc{color:var(--muted);font-size:.93rem;margin:0 0 1.1rem;max-width:34rem}
+  .mk{width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.4);display:block}
+  .leaflet-popup-content{font-family:var(--sans);font-size:.85rem;line-height:1.5}
+  .leaflet-popup-content b{font-family:var(--serif);font-size:1.05rem}
+  .leaflet-popup-content a{color:var(--accent)}
+  @media (max-width:640px){ #picks-map{height:300px} .pick-photo{width:calc(100% + 2rem);margin:-1rem -1rem .9rem} .pick{padding:1rem} }
   table.src{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
   table.src th{text-align:left;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
                color:var(--muted);border-bottom:1px solid var(--accent);padding:.5rem .4rem}
@@ -138,6 +162,7 @@ if ("serviceWorker" in navigator) {{
   <div class="pagetitle"><p class="kicker">The Concierge</p>
   <h2>Top Picks</h2></div>
   <p class="lede">The places Aspen locals actually go — restaurants, bars, trails, shops, services. Each one is scored, sourced, and verified before it appears here. No ads, no pay-to-play, no filler.</p>
+
   <h2 class="section">How a pick earns its place</h2>
   <ol class="rubric">
     <li><b>Public reputation</b><span>Google and Yelp ratings weighted by review volume — a 4.9 from 40 reviews does not outrank a 4.7 from 4,000.</span></li>
@@ -146,6 +171,12 @@ if ("serviceWorker" in navigator) {{
     <li><b>On-the-ground check</b><span>Hours, prices, and the experience itself are verified in person before publication.</span></li>
     <li><b>The dealbreakers</b><span>Tourist traps, pay-to-play placements, and anything that can't be verified are cut — loudly if necessary.</span></li>
   </ol>
+  <h2 class="section">Where they are</h2>
+  <p class="lede">Every pick, pinned. Tap a dot for the name and score — tap through to jump to its card.</p>
+  <div id="picks-map" role="application" aria-label="Map of Top Picks locations around Aspen"></div>
+  <p class="map-note">Map data © OpenStreetMap contributors.</p>
+  <nav class="cat-nav" id="cat-nav" aria-label="Pick categories"></nav>
+
   <h2 class="section">The picks</h2>
   <div id="pick-list"><p class="lede">Loading…</p></div>
   <footer class="colophon">
@@ -155,25 +186,86 @@ if ("serviceWorker" in navigator) {{
   </footer>
 
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function(){
+  var CAT_ORDER=["Eat","Drink","Music","Outdoors","Arts & Culture"];
+  var CAT_COLOR={"Eat":"#c05621","Drink":"#2b6cb0","Music":"#7b1fa2","Outdoors":"#2e7d32","Arts & Culture":"#c2185b"};
+  var CAT_DESC={
+    "Eat":"White-tablecloth rooms, taverns, and the sushi counter everyone talks about.",
+    "Drink":"The rooms where Aspen actually drinks — historic bars, not hotel lobbies.",
+    "Music":"The stages. Aspen's live music lives and dies in these rooms.",
+    "Outdoors":"The high country. Trails and icons that need no introduction.",
+    "Arts & Culture":"The institutions — opera house stagecraft and a Shigeru Ban landmark."
+  };
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+  function card(p){
+    var photo=p.photo
+      ? '<img class="pick-photo" src="'+esc(p.photo)+'" alt="'+esc(p.photo_alt||p.name)+'" loading="lazy">'
+      : '<div class="pick-photo ph">'+esc(p.category.charAt(0))+'</div>';
+    var credit=p.photo_credit?'<p class="pcredit">Photo: '+esc(p.photo_credit)+'</p>':"";
+    var addr=p.address?'<p class="addr">'+esc(p.address)+'</p>':"";
+    return '<article class="pick" id="pick-'+slug(p.name)+'">'+photo+credit+
+      '<h3>'+esc(p.name)+'<span class="score">'+esc(p.score)+' / 10</span></h3>'+
+      '<p class="why">'+esc(p.why)+'</p>'+addr+
+      '<p class="src">'+esc(p.sources)+' · Verified '+esc(p.verified)+'</p></article>';
+  }
+  function initMap(picks){
+    var el=document.getElementById("picks-map");
+    if(!window.L||!el){return;}
+    try{
+      var map=L.map(el,{scrollWheelZoom:false}).setView([39.19,-106.82],12);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {maxZoom:17,attribution:"© OpenStreetMap contributors"}).addTo(map);
+      var bounds=[];
+      picks.forEach(function(p){
+        if(p.lat==null||p.lng==null){return;}
+        var color=CAT_COLOR[p.category]||"#103d60";
+        var m=L.marker([p.lat,p.lng],{icon:L.divIcon({className:"",
+          html:'<span class="mk" style="background:'+color+'"></span>',iconSize:[14,14],iconAnchor:[7,7]})}).addTo(map);
+        m.bindPopup("<b>"+esc(p.name)+"</b><br>"+esc(p.score)+" / 10 · "+esc(p.category)+
+          (p.address?"<br>"+esc(p.address):"")+
+          '<br><a href="#pick-'+slug(p.name)+'">View pick ↓</a>');
+        bounds.push([p.lat,p.lng]);
+      });
+      if(bounds.length){map.fitBounds(bounds,{padding:[36,36],maxZoom:13});}
+      el.addEventListener("click",function(){map.scrollWheelZoom.enable();},{once:true});
+    }catch(e){/* map is enhancement-only */}
+  }
   fetch("picks.json").then(function(r){return r.json();}).then(function(d){
     var picks=d.picks||[];
     var host=document.getElementById("pick-list");
+    var nav=document.getElementById("cat-nav");
     if(!picks.length){
       host.innerHTML='<p class="lede" style="font-style:italic">The first staples are being scored now — check back soon. Nothing here is published until it earns its place.</p>';
       return;
     }
-    host.innerHTML=picks.map(function(p){
-      return '<article class="pick"><p class="cat">'+esc(p.category)+'</p>'+
-        '<h3>'+esc(p.name)+'<span class="score">'+esc(p.score)+' / 10</span></h3>'+
-        '<p class="why">'+esc(p.why)+'</p>'+
-        '<p class="src">'+esc(p.sources)+' · Verified '+esc(p.verified)+'</p></article>';
+    var groups={};
+    picks.forEach(function(p){(groups[p.category]=groups[p.category]||[]).push(p);});
+    var cats=CAT_ORDER.filter(function(c){return groups[c]&&groups[c].length;});
+    Object.keys(groups).forEach(function(c){if(cats.indexOf(c)<0){cats.push(c);}});
+    nav.innerHTML=cats.map(function(c){
+      var n=groups[c].length;
+      return '<a href="#cat-'+slug(c)+'"><span class="cdot" style="background:'+(CAT_COLOR[c]||"#103d60")+'"></span>'+
+        esc(c)+' · '+n+'</a>';
     }).join("");
+    host.innerHTML=cats.map(function(c){
+      var color=CAT_COLOR[c]||"#103d60";
+      var cards=groups[c].map(card).join("");
+      var desc=CAT_DESC[c]?"<p class=\"cat-desc\">"+esc(CAT_DESC[c])+"</p>":"";
+      return '<section class="cat-section" id="cat-'+slug(c)+'">'+
+        '<div class="cat-head"><span class="cdot" style="background:'+color+'"></span>'+
+        "<h3>"+esc(c)+'</h3><span class="cat-count">'+groups[c].length+" pick"+(groups[c].length>1?"s":"")+"</span></div>"+
+        desc+cards+"</section>";
+    }).join("");
+    initMap(picks);
   }).catch(function(){
     document.getElementById("pick-list").innerHTML='<p class="lede">Could not load picks.</p>';
   });
 })();
 </script>
+</body>
+</div>
+</html>

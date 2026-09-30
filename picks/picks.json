@@ -17,7 +17,10 @@
       "score": 9.4,
       "why": "The Little Nell's flagship — the special-occasion table against which Aspen measures itself.",
       "sources": "Flagship of The Little Nell; Aspen fine-dining institution",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.18669,
+      "lng": -106.81749,
+      "address": "675 E Durant Ave, Aspen"
     },
     {
       "name": "Matsuhisa",
@@ -25,7 +28,12 @@
       "score": 9.0,
       "why": "Nobu's mountain outpost — the black cod miso that built an empire, served at 8,000 feet.",
       "sources": "Nobu Matsuhisa's Aspen restaurant; perennial top-rated",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.19061,
+      "lng": -106.82029,
+      "address": "303 E Main St, Aspen",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Aspen_Matsuhisa_interior.jpg",
+      "photo_credit": "Wikimedia Commons · CC BY 2.0"
     },
     {
       "name": "White House Tavern",
@@ -33,7 +41,10 @@
       "score": 9.1,
       "why": "The packed lunch-and-dinner room — the crispy chicken sandwich locals line up for.",
       "sources": "TripAdvisor 4.6 (1,654) · Google 4.8",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.1902,
+      "lng": -106.82044,
+      "address": "302 E Hopkins Ave, Aspen"
     },
     {
       "name": "Casa Tua",
@@ -41,7 +52,10 @@
       "score": 8.4,
       "why": "Candlelit Northern Italian in a downtown cottage — truffle fettuccine in a room that feels like a friend's home.",
       "sources": "Google 4.3 · TripAdvisor 4.0 (281)",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.18787,
+      "lng": -106.81918,
+      "address": "403 S Galena St, Aspen"
     },
     {
       "name": "Cache Cache",
@@ -49,7 +63,10 @@
       "score": 8.2,
       "why": "French-American bistro with a deep cellar — the Colorado rack of lamb is the order.",
       "sources": "Google 4.4 · TripAdvisor 4.0 (312)",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.18961,
+      "lng": -106.81975,
+      "address": "205 S Mill St, Aspen"
     },
     {
       "name": "J-Bar",
@@ -57,15 +74,27 @@
       "score": 9.2,
       "why": "Hotel Jerome's historic bar — Aspen's living room, where the town has gathered since 1889.",
       "sources": "Historic bar of Hotel Jerome (est. 1889)",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.19088,
+      "lng": -106.81944,
+      "address": "Hotel Jerome, 330 E Main St, Aspen",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Aspen_Hotel_Jerome.jpg",
+      "photo_credit": "Wikimedia Commons · CC BY-SA 3.0",
+      "photo_alt": "Hotel Jerome, home of J-Bar"
     },
     {
       "name": "Belly Up",
-      "category": "Drink",
+      "category": "Music",
       "score": 8.8,
       "why": "Aspen's landmark live room — legends play small here; the best ticketed night in town.",
       "sources": "Aspen's premier live-music venue",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.18747,
+      "lng": -106.81883,
+      "address": "450 S Galena St, Aspen",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Smith_Westerns_2011.jpg",
+      "photo_credit": "Wikimedia Commons · CC BY 2.0",
+      "photo_alt": "Smith Westerns on the Belly Up stage, 2011"
     },
     {
       "name": "Maroon Bells",
@@ -73,7 +102,12 @@
       "score": 10,
       "why": "The peaks on every postcard, better in person — go early, take the shuttle, thank me later.",
       "sources": "Among the most photographed peaks in America",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.1008,
+      "lng": -106.9389,
+      "address": "Maroon Lake Trailhead, Maroon Creek Rd",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/5/53/Maroon_Bells_%2811553%29a.jpg",
+      "photo_credit": "Wikimedia Commons · CC BY-SA 4.0"
     },
     {
       "name": "Smuggler Mountain Trail",
@@ -81,7 +115,10 @@
       "score": 8.6,
       "why": "The locals' morning hike — a short climb to the whole town laid out below you.",
       "sources": "Aspen local favorite; panoramic town views",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.1911,
+      "lng": -106.80775,
+      "address": "Smuggler Mountain Rd, Aspen"
     },
     {
       "name": "Wheeler Opera House",
@@ -89,7 +126,12 @@
       "score": 9.3,
       "why": "Aspen's stage since 1889 — concerts, comedy, and the room every performer wants to play.",
       "sources": "Aspen's historic performing-arts venue since 1889",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.18926,
+      "lng": -106.82002,
+      "address": "320 E Hyman Ave, Aspen",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Aspen_Wheeler_Opera_House.jpg",
+      "photo_credit": "Wikimedia Commons · CC BY-SA 3.0"
     },
     {
       "name": "Aspen Art Museum",
@@ -97,7 +139,17 @@
       "score": 8.9,
       "why": "Free, world-class, with a rooftop made for golden hour — the easiest great hour in town.",
       "sources": "Free admission; Shigeru Ban-designed building",
-      "verified": "2026-09-30"
+      "verified": "2026-09-30",
+      "lat": 39.18817,
+      "lng": -106.81664,
+      "address": "637 E Hyman Ave, Aspen",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Aspen_Art_Museum.jpg",
+      "photo_credit": "Wikimedia Commons · CC BY-SA 4.0"
     }
-  ]
+  ],
+  "meta": {
+    "version": 2,
+    "updated": "2026-09-30",
+    "note": "v2: Belly Up recategorized Drink->Music; lat/lng/address added for map; photos where a genuine image of the place was found"
+  }
 }
