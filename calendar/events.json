@@ -427,5 +427,65 @@
     "price_info": "Shuttle $16/adult; $10 children (12 & under) and seniors (65+); parking $10/vehicle; reservations required",
     "age_policy": "All ages",
     "fit_note": "The can't-miss of the week for anyone who hasn't seen the Bells in fall."
+  },
+  {
+    "id": "e67e5685-6a8d-490a-b1ce-1ae158d89013",
+    "title": "49 Winchester",
+    "starts_at": "2026-10-09T01:30:00+00:00",
+    "venue": "Belly Up Aspen, 450 S Galena St",
+    "category": "music",
+    "url": "https://bellyupaspen.com/events/49-winchester/",
+    "blurb": "Appalachian country-soul with a rock-and-roll heart — front-porch storytelling and full-throttle choruses in the 450-cap room.",
+    "price_info": "Ticketed (price unverified)",
+    "age_policy": "Check venue — varies by show (unverified)",
+    "fit_note": "Country and Americana fans; a great group night."
+  },
+  {
+    "id": "f8bd6ab4-fe8d-407a-ae93-3a9aa2bca887",
+    "title": "Michelle Branch",
+    "starts_at": "2026-10-11T02:30:00+00:00",
+    "venue": "Belly Up Aspen, 450 S Galena St",
+    "category": "music",
+    "url": "https://bellyupaspen.com/events/michelle-branch/",
+    "blurb": "The voice behind 'Everywhere' and 'All You Wanted' — two decades on, still one of pop-rock's most honest songwriters, in an intimate room.",
+    "price_info": "Ticketed (price unverified)",
+    "age_policy": "Check venue — varies by show (unverified)",
+    "fit_note": "Date night; 2000s pop-rock nostalgics."
+  },
+  {
+    "id": "80d5d7f7-c411-42be-b583-12a023d04426",
+    "title": "Sugar Skull — A Día de Muertos Musical Adventure",
+    "starts_at": "2026-10-10T01:00:00+00:00",
+    "venue": "Wheeler Opera House, 320 E Hyman Ave",
+    "category": "arts",
+    "url": "https://wheeleroperahouse.com/event/sugar-skull-a-dia-de-muertos-musical-adventure/",
+    "blurb": "A family-friendly musical adventure celebrating Día de Muertos — music, color, and tradition on the Wheeler stage, right in Halloween season.",
+    "price_info": "Ticketed (price unverified)",
+    "age_policy": "All ages",
+    "fit_note": "Families; a warm Halloween-season outing."
+  },
+  {
+    "id": "6853ed6d-fb9a-430f-b074-994a9d90e249",
+    "title": "Craig Robinson",
+    "starts_at": "2026-10-15T01:30:00+00:00",
+    "venue": "Wheeler Opera House, 320 E Hyman Ave",
+    "category": "comedy",
+    "url": "https://wheeleroperahouse.com/event/craig-robinson/",
+    "blurb": "Darryl from The Office brings his stand-up (and his keyboard) to the Wheeler — deadpan charm and musical comedy in one set.",
+    "price_info": "Ticketed (price unverified)",
+    "age_policy": "Check venue (unverified)",
+    "fit_note": "Comedy fans; an easy, fun night out."
+  },
+  {
+    "id": "4eb5e42e-2cf2-4b59-9c51-68a7d30dae6b",
+    "title": "Haunted Hotel Halloween Party at W Aspen",
+    "starts_at": "2026-11-01T03:00:00+00:00",
+    "venue": "W Aspen, 550 S Spring St",
+    "category": "music",
+    "url": "https://www.eventbrite.com/e/haunted-hotel-halloween-party-at-w-aspen-tickets-1987456397586",
+    "blurb": "W Aspen goes dark: spooky cocktails, immersive DJ sets, and a costume contest that takes over the hotel. Halloween night's anchor party in town.",
+    "price_info": "Ticketed — see Eventbrite",
+    "age_policy": "21+ (unverified — confirm with venue)",
+    "fit_note": "The Halloween-night crowd; costumes required in spirit."
   }
 ]
