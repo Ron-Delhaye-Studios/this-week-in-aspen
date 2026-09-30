@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Golden Hour — Scroll-Driven Hyperspace</title>
 <meta name="description" content="The Golden Hour — a weekly field guide to what's on in Aspen and beyond. Music, art, and high-country happenings, verified before publication.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="../assets/js/analytics-config.js"></script>
 <script defer src="../assets/js/analytics.js"></script>
 <style>
@@ -67,46 +68,86 @@
   .cta{margin-top:4.5vh;font-family:Verdana,Geneva,sans-serif;font-size:3.6vmin;letter-spacing:.35em;
     text-indent:.35em;color:var(--cream);border:1px solid var(--gold);padding:2.4vh 9vw;
     background:rgba(217,169,74,.06);text-decoration:none;display:inline-block;cursor:pointer}
-  .more a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(217,169,74,.5)}
-  /* ---- real site footer (matches production pages) ---- */
-  .site-footer{background:#103d60;color:#f6f1e6;margin:0;padding:3.2rem 8vw 1.4rem}
-  .sf-grid{max-width:46rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:2.2rem 1.5rem}
-  .sf-kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#d9c48a;margin:0 0 .5rem}
-  .sf-name{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:1.7rem;margin:0 0 .6rem;color:#fff}
-  .sf-tag{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
-  .sf-col h3{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#d9c48a;margin:0 0 .8rem;font-weight:600;font-family:Verdana,Geneva,sans-serif}
-  .sf-col a{display:block;color:#f6f1e6;text-decoration:none;font-size:.92rem;padding:.3rem 0}
-  .sf-col a:hover{color:#fff;text-decoration:underline;text-decoration-color:#d9c48a;text-underline-offset:3px}
-  .sf-col a.sf-feature{font-weight:600}
-  .sf-trust p{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
-  .sf-base{max-width:46rem;margin:2.6rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.18);text-align:center;font-size:.78rem;color:#93a5b8}
-  .sf-base p{margin:0}
-
-  /* ---- settled filmstrip ---- */
-  #strip{position:absolute;left:0;right:0;bottom:0;height:15vh;overflow:hidden;opacity:0;
-    pointer-events:none;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-            mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  #strip .track{display:flex;gap:2.5vmin;height:100%;width:max-content;align-items:center;
-    animation:roll 40s linear infinite}
-  #strip img{height:11.5vh;width:auto;border-radius:1vmin;object-fit:cover;
-    box-shadow:0 1vh 3vh rgba(0,0,0,.5)}
-  @keyframes roll{to{transform:translateX(-50%)}}
-
-  /* ---- page content below the fold ---- */
-  #content{position:relative;padding:10vh 8vw 12vh;max-width:1100px;margin:0 auto}
-  #content h2{font-family:Verdana,sans-serif;font-weight:400;font-size:3.4vmin;
-    letter-spacing:.5em;text-indent:.5em;color:rgba(247,241,227,.8);margin-bottom:5vh;text-align:center}
-  .spot{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4vmin}
-  .spot figure{border-radius:1.5vmin;overflow:hidden;background:#12283f;
-    box-shadow:0 2vh 5vh rgba(0,0,0,.45)}
-  .spot img{width:100%;height:26vh;object-fit:cover;display:block}
-  .spot figcaption{padding:2.4vh 4vw;font-size:4.4vmin;font-style:italic;color:rgba(247,241,227,.9)}
-  #content .more{margin-top:8vh;text-align:center;font-style:italic;font-size:4.6vmin;
-    color:rgba(247,241,227,.65);line-height:1.7}
-  footer{border-top:1px solid rgba(217,169,74,.25);margin-top:10vh;padding-top:4vh;
-    text-align:center;font-family:Verdana,sans-serif;font-size:2.8vmin;letter-spacing:.25em;
-    color:rgba(247,241,227,.55);line-height:2.2}
+/* ---- the actual site, embedded below the runway (namespaced) ---- */
+  #realsite {--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--faint:#a39a8b;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;--serif:"Cormorant Garamond",Didot,"Bodoni MT",Georgia,"Times New Roman",serif;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+  #realsite *, #realsite {box-sizing:border-box}
+  #realsite {margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  #realsite .page {max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+  #realsite .masthead {text-align:center;margin-bottom:2rem}
+  #realsite .kicker {font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .8rem}
+  #realsite .brand {font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7vw,3.4rem);margin:0 0 .6rem;letter-spacing:.02em}
+  #realsite .rule-double {border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
+  #realsite .tagline {color:var(--muted);font-style:italic;margin:0;max-width:34rem;margin-left:auto;margin-right:auto}
+  #realsite nav.site-nav {display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 0;
+               font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+  #realsite nav.site-nav a {color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+  #realsite nav.site-nav a.active {font-weight:700;border-bottom:3px solid var(--accent)}
+  #realsite h2.section {font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
+  #realsite .lede {color:var(--muted);font-size:1.02rem;max-width:36rem}
+  #realsite .btn {display:inline-block;border:1px solid var(--accent);color:var(--ink);padding:.6rem 1.3rem;
+       text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;background:transparent}
+  #realsite .btn:hover {background:var(--accent);color:#fff}
+  #realsite .colophon {margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--hair);
+            font-size:.8rem;color:var(--muted);text-align:center}
+  #realsite .colophon .foot-links a {color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
+  #realsite .explore {display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.9rem;margin:1.4rem 0}
+  #realsite .explore a {display:block;border:1px solid var(--hair);background:#fff;padding:1.1rem 1rem;text-decoration:none;color:var(--ink)}
+  #realsite .explore a:hover {border-color:var(--accent)}
+  #realsite .explore .ek {font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+  #realsite .explore h3 {font-family:var(--serif);font-size:1.2rem;margin:0 0 .25rem;font-weight:600}
+  #realsite .explore p {font-size:.85rem;color:var(--muted);margin:0}
+  #realsite .hero {border:1px solid var(--hair);padding:1.6rem 1.4rem;margin-top:1rem;background:#fff}
+  #realsite .hero .ed-range {font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  #realsite .hero h3 {font-family:var(--serif);font-size:1.6rem;margin:.4rem 0 .4rem}
+  #realsite .hero p {color:var(--muted);margin:.4rem 0 1rem}
+  #realsite ul.archive {list-style:none;padding:0;margin:1rem 0}
+  #realsite ul.archive li {padding:.7rem 0;border-bottom:1px solid var(--hair)}
+  #realsite ul.archive a {color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px}
+  #realsite ul.archive .when {display:block;font-size:.8rem;color:var(--muted)}
+  #realsite .method {border-left:2px solid var(--accent);padding:.4rem 0 .4rem 1rem;color:var(--muted);
+          font-style:italic;margin:1.2rem 0}
+  #realsite .pagetitle h2 {font-family:var(--serif);font-weight:600;font-size:2rem;margin:.2rem 0 .4rem}
+  #realsite .rubric {counter-reset:step;list-style:none;padding:0;margin:1.2rem 0}
+  #realsite .rubric li {counter-increment:step;position:relative;padding:.7rem 0 .7rem 2.6rem;border-bottom:1px solid var(--hair)}
+  #realsite .rubric li::before {content:counter(step);position:absolute;left:0;top:.65rem;width:1.7rem;height:1.7rem;
+    border:1.5px solid var(--accent);color:var(--accent);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+  #realsite .rubric li b {display:block;font-size:.95rem}
+  #realsite .rubric li span {color:var(--muted);font-size:.9rem}
+  #realsite .pick {border:1px solid var(--hair);background:#fff;padding:1.2rem;margin:0 0 1rem}
+  #realsite .pick .cat {font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+  #realsite .pick h3 {font-family:var(--serif);font-size:1.3rem;margin:0 0 .25rem}
+  #realsite .pick .score {display:inline-block;border:1.5px solid var(--gold);color:var(--ink);font-weight:700;
+    font-size:.85rem;padding:.15rem .6rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
+  #realsite .pick .why {margin:.5rem 0;font-size:.95rem}
+  #realsite .pick .src {font-size:.82rem;color:var(--muted);margin:.2rem 0}
+  #realsite table.src {width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+  #realsite table.src th {text-align:left;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+               color:var(--muted);border-bottom:1px solid var(--accent);padding:.5rem .4rem}
+  #realsite table.src td {border-bottom:1px solid var(--hair);padding:.6rem .4rem;vertical-align:top}
+  #realsite table.src a {color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
+  #realsite .rel-highest, #realsite .rel-high, #realsite .rel-medium, #realsite .rel-low {display:inline-block;padding:.28rem .8rem;border-radius:999px;
+               font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+               border:1.5px solid;white-space:nowrap}
+  #realsite .rel-highest {color:#1b5e20;border-color:#2e7d32;background:#e8f5e9}
+  #realsite .rel-high {color:#33691e;border-color:#558b2f;background:#f1f8e9}
+  #realsite .rel-medium {color:#7a5c14;border-color:#b89b3e;background:#fdf6e3}
+  #realsite .rel-low {color:#8f2d2d;border-color:#c05757;background:#fbeeee}
+  #realsite table.desk {width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.86rem}
+  #realsite table.desk th {text-align:left;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+                color:var(--muted);border-bottom:1px solid var(--accent);padding:.5rem .35rem}
+  #realsite table.desk td {border-bottom:1px solid var(--hair);padding:.55rem .35rem;vertical-align:top}
+  #realsite .pill {display:inline-block;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+        border:1px solid;padding:.15rem .55rem;border-radius:2px;white-space:nowrap}
+  #realsite .st-verified-official {border-color:#2e7d32;color:#2e7d32}
+  #realsite .st-verified-secondary {border-color:#33691e;color:#33691e}
+  #realsite .st-needs-check {border-color:#8f7134;color:#8f7134}
+  #realsite .st-time-conflict {border-color:#b3261e;color:#b3261e}
+  #realsite .st-replaced {border-color:#6e675c;color:#6e675c}
+  #realsite .flag {border:1px solid var(--ink);font-size:.68rem;padding:.1rem .4rem;white-space:nowrap}
+  @media print{#realsite nav.site-nav, #realsite .btn {display:none}}
+  #realsite h1{text-shadow:none;line-height:1.25}
 </style>
 </head>
 <body>
@@ -122,48 +163,63 @@
       <h1>The Golden<br>Hour</h1>
       <div class="rule"></div>
       <p class="tag">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
-      <a class="cta" href="../upcoming/">SEE WHAT&rsquo;S ON</a>
+      <a class="cta" href="#realsite">SEE WHAT&rsquo;S ON</a>
     </section>
-    <div id="strip" aria-hidden="true"><div class="track" id="track"></div></div>
   </div>
 </div>
 
-<main id="content">
-  <h2>IN THE SPOTLIGHT</h2>
-  <div class="spot" id="spot"></div>
-  <p class="more">This is only the doorway.<br><a href="../upcoming/">Step inside — the week is waiting.</a></p>
-</main>
+<div id="realsite"><div class="page">
 
-<footer class="site-footer">
-  <div class="sf-grid">
-    <div class="sf-brand">
-      <p class="sf-kicker">From Aspen and Beyond</p>
-      <p class="sf-name">The Golden Hour</p>
-      <p class="sf-tag">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
-    </div>
-    <nav class="sf-col" aria-label="Explore the guide">
-      <h3>Explore</h3>
-      <a href="../index.html">Latest</a>
-      <a href="../upcoming/">Upcoming</a>
-      <a href="../calendar/">Calendar</a>
-      <a href="../map/">Map</a>
-      <a href="../activities/">Activities</a>
-      <a href="../editions/">Archive</a>
-    </nav>
-    <nav class="sf-col" aria-label="Curated by The Golden Hour">
-      <h3>Curated</h3>
-      <a href="../picks/" class="sf-feature">Top Picks</a>
-      <a href="../sources/">How we verify</a>
-    </nav>
-    <div class="sf-col sf-trust">
-      <h3>Our promise</h3>
-      <p>Every event verified against official sources before publication. No ads, no pay-to-play. Details may change — please confirm with the venue.</p>
-    </div>
+
+  <header class="masthead">
+    <p class="kicker">From Aspen and Beyond</p>
+    <h1 class="brand">The Golden Hour</h1>
+    <hr class="rule-double">
+    <p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="../index.html" class="active" aria-current="page">Latest</a>
+    <a href="../upcoming/">Upcoming</a>
+    <a href="../calendar/">Calendar</a>
+    <a href="../map/">Map</a>
+    <a href="../picks/">Top Picks</a>
+    <a href="../editions/">Archive</a>
+    <a href="../sources/">How we verify</a>
+  </nav>
+  </header>
+
+  <h2 class="section">This week</h2>
+  <div class="hero">
+    <p class="ed-range">Saturday, September 26 – Saturday, October 3, 2026</p>
+    <h3>The current edition</h3>
+    <p>Eight days of curated picks — arriving Saturday through departure Saturday — each one verified against official sources.</p>
+    <a class="btn" href="../editions/2026-09-26/">Read the edition</a>
   </div>
-  <div class="sf-base">
-    <p>&copy; 2026 The Golden Hour &middot; An Ad Astra Media publication.</p>
+  <h2 class="section">Explore the live guide</h2>
+  <p class="lede">The guide never sleeps: every verified event, four ways in — always current, always sourced.</p>
+  <div class="explore">
+    <a href="../upcoming/"><p class="ek">Browse</p><h3>Upcoming</h3><p>Every verified event, soonest first.</p></a>
+    <a href="../calendar/"><p class="ek">Plan</p><h3>Calendar</h3><p>The month at a glance, Google-style.</p></a>
+    <a href="../map/"><p class="ek">Wander</p><h3>Map</h3><p>Every event placed on Colorado.</p></a>
+    <a href="../picks/"><p class="ek">The Concierge</p><h3>Top Picks</h3><p>Local staples, scored and verified.</p></a>
+    <a href="../activities/"><p class="ek">Do</p><h3>Activities</h3><p>Guides to playing here — golf and more.</p></a>
   </div>
-</footer>
+  <h2 class="section">How we verify</h2>
+  <p class="method">Every event is checked against the venue's own page or a trusted local source before it reaches you. Aggregator listings alone never make the cut — and when two sources disagree on a time, we hold the pick until one is authoritative.</p>
+  <p><a class="btn" href="../sources/">See our sources</a></p>
+  <footer class="colophon">
+    <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
+    <p class="foot-links"><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="../map/">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../activities/">Activities</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
+    <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
+  </footer>
+</div></div>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/this-week-in-aspen/sw.js", { scope: "/this-week-in-aspen/" });
+  });
+}
+</script>
 
 <script>
 const PHOTOS = [{"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-art-museum.jpg", "title": "Aspen Art Museum \u2014 Fall Exhibitions"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-filmfest-isis-theatre.jpg", "title": "Aspen Filmfest \u2014 Opening Day (47th)"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/michigander-live-concert.jpg", "title": "Michigander at Belly Up"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/john-denver-celebration-aspen.webp", "title": "John Denver Celebration \u2014 Opening Day"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/tom-rush-folk-singer.jpg", "title": "An Evening with Tom Rush accompanied by Brendan Cleary"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/pink-talking-fish-live-concert.webp", "title": "An Evening with Pink Talking Fish"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/mack-bailey-chris-nole-john-denver.webp", "title": "Mack Bailey and Chris Nole: Poems, Prayers & Promises: The Songs of John Denver"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-saturday-market.jpg", "title": "Aspen Saturday Market \u2014 Season Finale"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/carbondale-potato-day-parade.jpg", "title": "Carbondale Potato Day"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-filmfest.jpg", "title": "Aspen Filmfest \u2014 Closing Weekend"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/kiliii-yuyan-photographer.jpg", "title": "Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/manual-cinema-4th-witch.jpg", "title": "Manual Cinema's The 4th Witch"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/vienna-boys-choir.jpg", "title": "Vienna Boys Choir"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/metalachi-live-concert.jpg", "title": "Metalachi"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/digable-planets-live-concert.jpg", "title": "Digable Planets"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/the-black-angels-live-concert.webp", "title": "The Black Angels with GHOSTWOMAN"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/foy-vance-singer.jpg", "title": "Foy Vance World Tour with Bonnie Bishop & Ryan McMullan"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/bonobo-live-concert.jpg", "title": "Bonobo"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/suzy-bogguss-singer.webp", "title": "Suzy Bogguss: A Swingin' Little Christmas"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/the-wooten-brothers.webp", "title": "The Wooten Brothers"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/eddie-ifft-comedian.jpg", "title": "EDDiE iFFT: The Last Chair Tour"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/ismo-comedian.jpg", "title": "Ismo: Perseverance Tour"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/danceaspen-snowy-soiree.webp", "title": "DanceAspen: A Snowy Soiree"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/john-oates-good-road-band.jpg", "title": "John Oates and the Good Road Band"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/lcd-soundsystem-live-concert.jpg", "title": "LCD Soundsystem \u2014 New Year's Eve 2026"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/lcd-soundsystem-new-year-s-eve-concert.jpg", "title": "LCD Soundsystem \u2014 New Year's Eve 2026"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/hot-air-balloons-snowmass-town-park.jpg", "title": "Snowmass Balloon Festival \u2014 Final Launch"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-literary-festival.png", "title": "Aspen Literary Festival \u2014 Closing Day"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-restaurant-fine-dining.jpg", "title": "Aspen Restaurant Week Autumn \u2014 Final Evening"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/bombargo-live-concert.jpg", "title": "Bombargo at Belly Up"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/maroon-bells-fall-colors.jpg", "title": "Maroon Bells at Peak Color"}];
@@ -171,7 +227,6 @@ const N = 12;
 const picks = PHOTOS.slice(0, N);
 const frame = document.getElementById('frame');
 const hero = document.getElementById('hero');
-const strip = document.getElementById('strip');
 const flash = document.getElementById('flash');
 const cue = document.getElementById('cue');
 const stars = document.getElementById('stars');
@@ -287,12 +342,11 @@ function draw(){
   /* golden pulse at the unify moment */
   flash.style.opacity = p > .56 && p < .72
     ? (Math.sin((p - .56) / .16 * Math.PI) * .9).toFixed(3) : 0;
-  /* hero + strip rise as the collage settles */
+  /* hero rises as the collage settles */
   const risen = smooth(.70, .84, p);
   hero.style.opacity = risen;
   hero.style.transform = `translateY(${(1 - risen) * 6}vh)`;
   hero.classList.toggle('live', p > .9);
-  strip.style.opacity = risen * .92;
   /* scroll cue only at the very top */
   cue.style.opacity = 1 - smooth(.015, .09, p);
   /* opening: teaser dissolves as the scroll takes over; stars drift */
@@ -309,23 +363,7 @@ function onScroll(){
 addEventListener('scroll', onScroll, { passive: true });
 addEventListener('resize', onScroll);
 
-/* ---------- settled marquee + spotlight (built once) ---------- */
-(function build(){
-  const track = document.getElementById('track');
-  const imgs = picks.map(p => {
-    const im = document.createElement('img'); im.src = p.src; im.alt = p.title;
-    return im;
-  });
-  imgs.concat(imgs.map(im => im.cloneNode())).forEach(im => track.appendChild(im));
-  const spot = document.getElementById('spot');
-  picks.slice(0, 3).forEach(p => {
-    const f = document.createElement('figure');
-    const a = document.createElement('a'); a.href = '../picks/';
-    const im = document.createElement('img'); im.src = p.src; im.alt = p.title;
-    const cap = document.createElement('figcaption'); cap.textContent = p.title;
-    a.appendChild(im); f.appendChild(a); f.appendChild(cap); spot.appendChild(f);
-  });
-})();
+
 
 if (reduced){
   runway.style.height = '100vh';
