@@ -1,5 +1,6 @@
 {
-  "_note": "Local Staples data. Append pick objects; the page renders them. Empty = honest curation state.",
+  "_note": "Golden Hour Top Picks. Curated for quality over volume; nothing here is published until it earns its place.",
+  "_verification": "v1 web-verified 2026-09-30 (operating status + public reputation confirmed via current listings/reviews); on-the-ground check per rubric pending Ron's sign-off.",
   "_schema": {
     "name": "str",
     "category": "Eat|Drink|Outdoors|Arts & Culture|Services",
@@ -9,5 +10,94 @@
     "verified": "YYYY-MM-DD"
   },
   "rubric_version": "v1",
-  "picks": []
+  "picks": [
+    {
+      "name": "Element 47",
+      "category": "Eat",
+      "score": 9.4,
+      "why": "The Little Nell's flagship — the special-occasion table against which Aspen measures itself.",
+      "sources": "Flagship of The Little Nell; Aspen fine-dining institution",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Matsuhisa",
+      "category": "Eat",
+      "score": 9.0,
+      "why": "Nobu's mountain outpost — the black cod miso that built an empire, served at 8,000 feet.",
+      "sources": "Nobu Matsuhisa's Aspen restaurant; perennial top-rated",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "White House Tavern",
+      "category": "Eat",
+      "score": 9.1,
+      "why": "The packed lunch-and-dinner room — the crispy chicken sandwich locals line up for.",
+      "sources": "TripAdvisor 4.6 (1,654) · Google 4.8",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Casa Tua",
+      "category": "Eat",
+      "score": 8.4,
+      "why": "Candlelit Northern Italian in a downtown cottage — truffle fettuccine in a room that feels like a friend's home.",
+      "sources": "Google 4.3 · TripAdvisor 4.0 (281)",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Cache Cache",
+      "category": "Eat",
+      "score": 8.2,
+      "why": "French-American bistro with a deep cellar — the Colorado rack of lamb is the order.",
+      "sources": "Google 4.4 · TripAdvisor 4.0 (312)",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "J-Bar",
+      "category": "Drink",
+      "score": 9.2,
+      "why": "Hotel Jerome's historic bar — Aspen's living room, where the town has gathered since 1889.",
+      "sources": "Historic bar of Hotel Jerome (est. 1889)",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Belly Up",
+      "category": "Drink",
+      "score": 8.8,
+      "why": "Aspen's landmark live room — legends play small here; the best ticketed night in town.",
+      "sources": "Aspen's premier live-music venue",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Maroon Bells",
+      "category": "Outdoors",
+      "score": 10,
+      "why": "The peaks on every postcard, better in person — go early, take the shuttle, thank me later.",
+      "sources": "Among the most photographed peaks in America",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Smuggler Mountain Trail",
+      "category": "Outdoors",
+      "score": 8.6,
+      "why": "The locals' morning hike — a short climb to the whole town laid out below you.",
+      "sources": "Aspen local favorite; panoramic town views",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Wheeler Opera House",
+      "category": "Arts & Culture",
+      "score": 9.3,
+      "why": "Aspen's stage since 1889 — concerts, comedy, and the room every performer wants to play.",
+      "sources": "Aspen's historic performing-arts venue since 1889",
+      "verified": "2026-09-30"
+    },
+    {
+      "name": "Aspen Art Museum",
+      "category": "Arts & Culture",
+      "score": 8.9,
+      "why": "Free, world-class, with a rooftop made for golden hour — the easiest great hour in town.",
+      "sources": "Free admission; Shigeru Ban-designed building",
+      "verified": "2026-09-30"
+    }
+  ]
 }
