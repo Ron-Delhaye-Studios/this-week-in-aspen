@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Golden Hour — Scroll-Driven Hyperspace</title>
+<meta name="description" content="The Golden Hour — a weekly field guide to what's on in Aspen and beyond. Music, art, and high-country happenings, verified before publication.">
+<script src="../assets/js/analytics-config.js"></script>
+<script defer src="../assets/js/analytics.js"></script>
+<style>
+  :root{
+    --navy:#0b1c30; --navy2:#103d60; --gold:#d9a94a; --cream:#f7f1e3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--navy)}
+  body{
+    font-family: Georgia, 'Times New Roman', serif; color:var(--cream);
+    background:
+      radial-gradient(120% 90% at 50% 110%, rgba(217,169,74,.28), transparent 55%),
+      radial-gradient(140% 100% at 50% 0%, #16395e 0%, var(--navy2) 34%, #0a1626 78%, #060d18 100%);
+    background-attachment: fixed;
+  }
+  /* ---- scroll stage: tall runway, sticky viewport frame ---- */
+  #runway{height:380vh;position:relative}
+  #frame{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden}
+  .card{
+    position:absolute;left:0;top:0;width:26vmin;height:34vmin;
+    border-radius:1.2vmin;overflow:hidden;will-change:transform,filter,opacity;
+    background:#12283f center/cover;margin-left:-13vmin;margin-top:-17vmin;
+    box-shadow:0 1.5vmin 4vmin rgba(0,0,0,.55), 0 0 0 1px rgba(247,241,227,.14);
+  }
+  .card img{width:100%;height:100%;object-fit:cover;display:block}
+  #flash{position:absolute;inset:0;pointer-events:none;opacity:0;
+    background:radial-gradient(60% 60% at 50% 50%, rgba(217,169,74,.55), transparent 70%)}
+  #cue{position:absolute;left:0;right:0;bottom:6vh;text-align:center;
+    font-family:Verdana,sans-serif;font-size:3vmin;letter-spacing:.5em;text-indent:.5em;
+    color:rgba(247,241,227,.65)}
+  #cue::after{content:"";display:block;width:3vmin;height:3vmin;margin:1.4vh auto 0;
+    border-right:1px solid rgba(247,241,227,.65);border-bottom:1px solid rgba(247,241,227,.65);
+    transform:rotate(45deg);animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{50%{transform:rotate(45deg) translate(1vmin,1vmin)}}
+
+  /* ---- living opening: starfield + teaser photos ---- */
+  #stars,#stars2{position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;
+    pointer-events:none;animation:tw 5s ease-in-out infinite}
+  #stars2{width:3px;height:3px;animation-duration:7s}
+  @keyframes tw{50%{opacity:.5}}
+  #teaser{position:absolute;inset:0;pointer-events:none}
+  .tcard{position:absolute;will-change:transform}
+  .tcard .in{border-radius:1.6vmin;overflow:hidden;animation:float 7s ease-in-out infinite;
+    box-shadow:0 2vmin 5vmin rgba(0,0,0,.55),0 0 0 1px rgba(247,241,227,.16)}
+  .tcard:nth-child(2) .in{animation-delay:-2.4s}
+  .tcard:nth-child(3) .in{animation-delay:-4.8s}
+  .tcard img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+  @keyframes float{50%{transform:translateY(-2.6vmin)}}
+
+  /* ---- settled hero (fades in with scroll) ---- */
+  #hero{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;padding:0 8vw;opacity:0;pointer-events:none}
+  #hero.live{pointer-events:auto}
+  .kicker{font-family:Verdana,Geneva,sans-serif;font-size:3.4vmin;letter-spacing:.55em;
+    text-indent:.55em;color:rgba(247,241,227,.85);margin-bottom:3.5vh}
+  h1{font-weight:400;font-size:16vmin;line-height:1.02;
+    text-shadow:0 2px 30px rgba(0,0,0,.4)}
+  .rule{width:26vmin;height:2px;background:var(--gold);margin:3.2vh auto;opacity:.9}
+  .tag{font-style:italic;font-size:5.2vmin;line-height:1.5;color:rgba(247,241,227,.92);max-width:80vw}
+  .cta{margin-top:4.5vh;font-family:Verdana,Geneva,sans-serif;font-size:3.6vmin;letter-spacing:.35em;
+    text-indent:.35em;color:var(--cream);border:1px solid var(--gold);padding:2.4vh 9vw;
+    background:rgba(217,169,74,.06);text-decoration:none;display:inline-block;cursor:pointer}
+  .more a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(217,169,74,.5)}
+  /* ---- real site footer (matches production pages) ---- */
+  .site-footer{background:#103d60;color:#f6f1e6;margin:0;padding:3.2rem 8vw 1.4rem}
+  .sf-grid{max-width:46rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:2.2rem 1.5rem}
+  .sf-kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#d9c48a;margin:0 0 .5rem}
+  .sf-name{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:1.7rem;margin:0 0 .6rem;color:#fff}
+  .sf-tag{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
+  .sf-col h3{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#d9c48a;margin:0 0 .8rem;font-weight:600;font-family:Verdana,Geneva,sans-serif}
+  .sf-col a{display:block;color:#f6f1e6;text-decoration:none;font-size:.92rem;padding:.3rem 0}
+  .sf-col a:hover{color:#fff;text-decoration:underline;text-decoration-color:#d9c48a;text-underline-offset:3px}
+  .sf-col a.sf-feature{font-weight:600}
+  .sf-trust p{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
+  .sf-base{max-width:46rem;margin:2.6rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.18);text-align:center;font-size:.78rem;color:#93a5b8}
+  .sf-base p{margin:0}
+
+  /* ---- settled filmstrip ---- */
+  #strip{position:absolute;left:0;right:0;bottom:0;height:15vh;overflow:hidden;opacity:0;
+    pointer-events:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  #strip .track{display:flex;gap:2.5vmin;height:100%;width:max-content;align-items:center;
+    animation:roll 40s linear infinite}
+  #strip img{height:11.5vh;width:auto;border-radius:1vmin;object-fit:cover;
+    box-shadow:0 1vh 3vh rgba(0,0,0,.5)}
+  @keyframes roll{to{transform:translateX(-50%)}}
+
+  /* ---- page content below the fold ---- */
+  #content{position:relative;padding:10vh 8vw 12vh;max-width:1100px;margin:0 auto}
+  #content h2{font-family:Verdana,sans-serif;font-weight:400;font-size:3.4vmin;
+    letter-spacing:.5em;text-indent:.5em;color:rgba(247,241,227,.8);margin-bottom:5vh;text-align:center}
+  .spot{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4vmin}
+  .spot figure{border-radius:1.5vmin;overflow:hidden;background:#12283f;
+    box-shadow:0 2vh 5vh rgba(0,0,0,.45)}
+  .spot img{width:100%;height:26vh;object-fit:cover;display:block}
+  .spot figcaption{padding:2.4vh 4vw;font-size:4.4vmin;font-style:italic;color:rgba(247,241,227,.9)}
+  #content .more{margin-top:8vh;text-align:center;font-style:italic;font-size:4.6vmin;
+    color:rgba(247,241,227,.65);line-height:1.7}
+  footer{border-top:1px solid rgba(217,169,74,.25);margin-top:10vh;padding-top:4vh;
+    text-align:center;font-family:Verdana,sans-serif;font-size:2.8vmin;letter-spacing:.25em;
+    color:rgba(247,241,227,.55);line-height:2.2}
+</style>
+</head>
+<body>
+
+<div id="runway">
+  <div id="frame">
+    <div id="stars"></div><div id="stars2"></div>
+    <div id="teaser"></div>
+    <div id="flash"></div>
+    <div id="cue">SCROLL</div>
+    <section id="hero" aria-label="The Golden Hour">
+      <div class="kicker">FROM ASPEN AND BEYOND</div>
+      <h1>The Golden<br>Hour</h1>
+      <div class="rule"></div>
+      <p class="tag">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
+      <a class="cta" href="../upcoming/">SEE WHAT&rsquo;S ON</a>
+    </section>
+    <div id="strip" aria-hidden="true"><div class="track" id="track"></div></div>
+  </div>
+</div>
+
+<main id="content">
+  <h2>IN THE SPOTLIGHT</h2>
+  <div class="spot" id="spot"></div>
+  <p class="more">This is only the doorway.<br><a href="../upcoming/">Step inside — the week is waiting.</a></p>
+</main>
+
+<footer class="site-footer">
+  <div class="sf-grid">
+    <div class="sf-brand">
+      <p class="sf-kicker">From Aspen and Beyond</p>
+      <p class="sf-name">The Golden Hour</p>
+      <p class="sf-tag">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
+    </div>
+    <nav class="sf-col" aria-label="Explore the guide">
+      <h3>Explore</h3>
+      <a href="../index.html">Latest</a>
+      <a href="../upcoming/">Upcoming</a>
+      <a href="../calendar/">Calendar</a>
+      <a href="../map/">Map</a>
+      <a href="../activities/">Activities</a>
+      <a href="../editions/">Archive</a>
+    </nav>
+    <nav class="sf-col" aria-label="Curated by The Golden Hour">
+      <h3>Curated</h3>
+      <a href="../picks/" class="sf-feature">Top Picks</a>
+      <a href="../sources/">How we verify</a>
+    </nav>
+    <div class="sf-col sf-trust">
+      <h3>Our promise</h3>
+      <p>Every event verified against official sources before publication. No ads, no pay-to-play. Details may change — please confirm with the venue.</p>
+    </div>
+  </div>
+  <div class="sf-base">
+    <p>&copy; 2026 The Golden Hour &middot; An Ad Astra Media publication.</p>
+  </div>
+</footer>
+
+<script>
+const PHOTOS = [{"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-art-museum.jpg", "title": "Aspen Art Museum \u2014 Fall Exhibitions"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-filmfest-isis-theatre.jpg", "title": "Aspen Filmfest \u2014 Opening Day (47th)"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/michigander-live-concert.jpg", "title": "Michigander at Belly Up"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/john-denver-celebration-aspen.webp", "title": "John Denver Celebration \u2014 Opening Day"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/tom-rush-folk-singer.jpg", "title": "An Evening with Tom Rush accompanied by Brendan Cleary"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/pink-talking-fish-live-concert.webp", "title": "An Evening with Pink Talking Fish"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/mack-bailey-chris-nole-john-denver.webp", "title": "Mack Bailey and Chris Nole: Poems, Prayers & Promises: The Songs of John Denver"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-saturday-market.jpg", "title": "Aspen Saturday Market \u2014 Season Finale"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/carbondale-potato-day-parade.jpg", "title": "Carbondale Potato Day"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-filmfest.jpg", "title": "Aspen Filmfest \u2014 Closing Weekend"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/kiliii-yuyan-photographer.jpg", "title": "Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/manual-cinema-4th-witch.jpg", "title": "Manual Cinema's The 4th Witch"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/vienna-boys-choir.jpg", "title": "Vienna Boys Choir"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/metalachi-live-concert.jpg", "title": "Metalachi"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/digable-planets-live-concert.jpg", "title": "Digable Planets"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/the-black-angels-live-concert.webp", "title": "The Black Angels with GHOSTWOMAN"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/foy-vance-singer.jpg", "title": "Foy Vance World Tour with Bonnie Bishop & Ryan McMullan"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/bonobo-live-concert.jpg", "title": "Bonobo"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/suzy-bogguss-singer.webp", "title": "Suzy Bogguss: A Swingin' Little Christmas"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/the-wooten-brothers.webp", "title": "The Wooten Brothers"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/eddie-ifft-comedian.jpg", "title": "EDDiE iFFT: The Last Chair Tour"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/ismo-comedian.jpg", "title": "Ismo: Perseverance Tour"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/danceaspen-snowy-soiree.webp", "title": "DanceAspen: A Snowy Soiree"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/john-oates-good-road-band.jpg", "title": "John Oates and the Good Road Band"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/lcd-soundsystem-live-concert.jpg", "title": "LCD Soundsystem \u2014 New Year's Eve 2026"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/lcd-soundsystem-new-year-s-eve-concert.jpg", "title": "LCD Soundsystem \u2014 New Year's Eve 2026"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/hot-air-balloons-snowmass-town-park.jpg", "title": "Snowmass Balloon Festival \u2014 Final Launch"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-literary-festival.png", "title": "Aspen Literary Festival \u2014 Closing Day"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-restaurant-fine-dining.jpg", "title": "Aspen Restaurant Week Autumn \u2014 Final Evening"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/bombargo-live-concert.jpg", "title": "Bombargo at Belly Up"}, {"src": "https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/maroon-bells-fall-colors.jpg", "title": "Maroon Bells at Peak Color"}];
+const N = 12;
+const picks = PHOTOS.slice(0, N);
+const frame = document.getElementById('frame');
+const hero = document.getElementById('hero');
+const strip = document.getElementById('strip');
+const flash = document.getElementById('flash');
+const cue = document.getElementById('cue');
+const stars = document.getElementById('stars');
+const stars2 = document.getElementById('stars2');
+const teaser = document.getElementById('teaser');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- living opening: starfield + teaser photos ---------- */
+function starfield(el, n, maxO){
+  const arr = [];
+  for (let i = 0; i < n; i++){
+    arr.push((Math.random()*120-10).toFixed(1) + 'vw ' + (Math.random()*120-10).toFixed(1) +
+      'vh 0 0 rgba(247,241,227,' + (Math.random()*maxO).toFixed(2) + ')');
+  }
+  el.style.boxShadow = arr.join(',');
+}
+starfield(stars, 90, .7);
+starfield(stars2, 36, .95);
+[{ l:'7%', t:'15%', w:'34vmin', r:'-7deg' },
+ { l:'60%', t:'36%', w:'30vmin', r:'6deg' },
+ { l:'12%', t:'62%', w:'27vmin', r:'-4deg' }].forEach((s, i) => {
+  const p = picks[i];
+  const d = document.createElement('div');
+  d.className = 'tcard';
+  d.style.cssText = 'left:' + s.l + ';top:' + s.t + ';width:' + s.w + ';transform:rotate(' + s.r + ')';
+  const inner = document.createElement('div');
+  inner.className = 'in';
+  const img = document.createElement('img');
+  img.src = p.src; img.alt = p.title;
+  img.onerror = () => d.style.display = 'none';
+  inner.appendChild(img); d.appendChild(inner); teaser.appendChild(d);
+});
+
+/* ---------- helpers ---------- */
+const clamp01 = v => Math.min(1, Math.max(0, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+const easeInOutCubic = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+const smooth = (a, b, x) => { const t = clamp01((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+const seg = (p, a, b, ease) => ease ? ease(clamp01((p - a) / (b - a))) : clamp01((p - a) / (b - a));
+const rnd = (a, b) => a + Math.random() * (b - a);
+
+/* ---------- cards + waypoints ---------- */
+const cards = picks.map(p => {
+  const d = document.createElement('div');
+  d.className = 'card';
+  const img = document.createElement('img');
+  img.src = p.src; img.alt = p.title;
+  img.onerror = () => d.style.background = 'linear-gradient(135deg,#16395e,#0b1c30)';
+  d.appendChild(img);
+  frame.insertBefore(d, flash);
+  const edge = Math.floor(rnd(0, 4));
+  const start = [
+    { x: rnd(-30, 130), y: -32 }, { x: rnd(-30, 130), y: 132 },
+    { x: -32, y: rnd(-30, 130) }, { x: 132, y: rnd(-30, 130) }
+  ][edge];
+  return { el: d,
+    w0: { ...start, r: rnd(-40, 40), s: rnd(.8, 1.2), o: 0 },
+    w1: { x: rnd(8, 84), y: rnd(8, 78), r: rnd(-22, 22), s: rnd(.75, 1.15), o: 1 },
+    w2: null, w3: null };
+});
+cards.forEach((c, i) => {
+  const col = i % 4, row = Math.floor(i / 4);
+  c.w2 = { x: 50 + (col - 1.5) * 24, y: 44 + (row - 1) * 26, r: 0, s: .92, o: 1 };
+  c.w3 = { x: 6 + i * 8.2, y: 92, r: 0, s: .42, o: 1 };
+});
+const W = () => innerWidth, H = () => innerHeight;
+function renderCard(c, st, blur){
+  c.el.style.transform =
+    `translate(${st.x * W() / 100}px, ${st.y * H() / 100}px) rotate(${st.r}deg) scale(${st.s})`;
+  c.el.style.opacity = st.o;
+  c.el.style.filter = blur > .05 ? `blur(${blur}px)` : '';
+}
+function mix(a, b, t){
+  return { x: lerp(a.x, b.x, t), y: lerp(a.y, b.y, t),
+           r: lerp(a.r, b.r, t), s: lerp(a.s, b.s, t), o: lerp(a.o, b.o, t) };
+}
+/* state of one card at scroll progress p */
+function cardAt(c, p){
+  let st, blur = 0;
+  if (p < .32){                       /* ACT 1 — hyperspace in, scatter */
+    const e = seg(p, 0, .32, easeOutCubic);
+    st = mix(c.w0, c.w1, e); blur = 6 * (1 - e);
+    st.o = seg(p, 0, .07);            /* fade in fast off the edge */
+  } else if (p < .40){                /* hold the scatter */
+    st = { ...c.w1 };
+  } else if (p < .58){                /* ACT 2 — unify into collage */
+    st = mix(c.w1, c.w2, seg(p, .40, .58, easeInOutCubic));
+  } else if (p < .66){                /* hold the unity */
+    st = { ...c.w2 };
+  } else if (p < .80){                /* ACT 3 — settle to filmstrip */
+    st = mix(c.w2, c.w3, seg(p, .66, .80, easeInOutCubic));
+  } else { st = { ...c.w3 }; }
+  return { st, blur };
+}
+
+/* ---------- scroll driver ---------- */
+const runway = document.getElementById('runway');
+let ticking = false;
+function progress(){
+  const max = runway.offsetHeight - innerHeight;
+  return clamp01(scrollY / Math.max(1, max));
+}
+function draw(){
+  ticking = false;
+  const p = reduced ? 1 : progress();
+  cards.forEach(c => {
+    const { st, blur } = cardAt(c, p);
+    /* hand off to marquee once settled */
+    st.o = p >= .82 ? 0 : st.o;
+    renderCard(c, st, blur);
+  });
+  /* golden pulse at the unify moment */
+  flash.style.opacity = p > .56 && p < .72
+    ? (Math.sin((p - .56) / .16 * Math.PI) * .9).toFixed(3) : 0;
+  /* hero + strip rise as the collage settles */
+  const risen = smooth(.70, .84, p);
+  hero.style.opacity = risen;
+  hero.style.transform = `translateY(${(1 - risen) * 6}vh)`;
+  hero.classList.toggle('live', p > .9);
+  strip.style.opacity = risen * .92;
+  /* scroll cue only at the very top */
+  cue.style.opacity = 1 - smooth(.015, .09, p);
+  /* opening: teaser dissolves as the scroll takes over; stars drift */
+  teaser.style.opacity = 1 - smooth(0, .06, p);
+  const drift = p * -10;
+  stars.style.transform = 'translateY(' + drift + 'vh)';
+  stars2.style.transform = 'translateY(' + (drift * 1.6) + 'vh)';
+  /* parallax: settled hero drifts slightly as you keep scrolling south */
+  if (p > .84) hero.style.transform = `translateY(${(p - .84) * -30}vh)`;
+}
+function onScroll(){
+  if (!ticking){ ticking = true; requestAnimationFrame(draw); }
+}
+addEventListener('scroll', onScroll, { passive: true });
+addEventListener('resize', onScroll);
+
+/* ---------- settled marquee + spotlight (built once) ---------- */
+(function build(){
+  const track = document.getElementById('track');
+  const imgs = picks.map(p => {
+    const im = document.createElement('img'); im.src = p.src; im.alt = p.title;
+    return im;
+  });
+  imgs.concat(imgs.map(im => im.cloneNode())).forEach(im => track.appendChild(im));
+  const spot = document.getElementById('spot');
+  picks.slice(0, 3).forEach(p => {
+    const f = document.createElement('figure');
+    const a = document.createElement('a'); a.href = '../picks/';
+    const im = document.createElement('img'); im.src = p.src; im.alt = p.title;
+    const cap = document.createElement('figcaption'); cap.textContent = p.title;
+    a.appendChild(im); f.appendChild(a); f.appendChild(cap); spot.appendChild(f);
+  });
+})();
+
+if (reduced){
+  runway.style.height = '100vh';
+  draw();
+} else {
+  draw();
+}
+</script>
+</body>
+</html>
