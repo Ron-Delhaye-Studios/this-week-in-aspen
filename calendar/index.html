@@ -110,15 +110,19 @@ h2.when{font-size:2.4rem;margin-bottom:.75rem;letter-spacing:-.01em}
 .gcal-dow{display:grid;grid-template-columns:repeat(7,1fr);margin-top:.4rem}
 .gcal-dow span{text-align:center;font-size:.72rem;letter-spacing:.08em;color:#8a94a6;padding:.4rem 0;text-transform:uppercase}
 .gcal-grid{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid #e2e6ec;border-left:1px solid #e2e6ec}
-.gcal-day{min-height:104px;border-right:1px solid #e2e6ec;border-bottom:1px solid #e2e6ec;
-  padding:4px 5px;overflow:hidden;background:#fff;position:relative}
+.gcal-day{min-height:92px;border-right:1px solid #e2e6ec;border-bottom:1px solid #e2e6ec;
+  padding:6px;overflow:hidden;background:#fff;position:relative}
 
 .gcal-day.dim{background:#fafbfc;color:#9aa3b2}
 .gcal-daynum{font-size:.8rem;font-weight:600;width:1.7rem;height:1.7rem;display:flex;
   align-items:center;justify-content:center;border-radius:50%;margin-bottom:2px}
 .gcal-daynum.today{background:var(--accent);color:#fff}
-.gcal-chip{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;width:100%;text-align:left;border:0;border-radius:6px;
-  font-size:.82rem;line-height:1.4;padding:.3rem .55rem;margin:3px 0;cursor:pointer;overflow:hidden;position:relative}
+.gcal-dots{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.gcal-dot{width:10px;height:10px;border-radius:50%;border:0;padding:0;flex:0 0 auto}
+.gcal-dot.ended{opacity:.35;filter:saturate(.4)}
+.gcal-morecount{display:block;font-size:.72rem;color:#8a94a6;margin-top:4px}
+.gcal-legend{display:flex;flex-wrap:wrap;gap:.3rem .9rem;margin:.6rem 0 0;font-size:.72rem;color:#5f6b7a}
+.gcal-legend i{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:.3rem}
 .gcal-tip{position:absolute;background:#fff;color:#22303f;border:1px solid #e2e6ec;border-radius:10px;
   box-shadow:0 10px 28px rgba(16,61,96,.22);padding:.6rem .7rem;z-index:80;pointer-events:none;
   font-size:.85rem;line-height:1.45}
@@ -126,22 +130,21 @@ h2.when{font-size:2.4rem;margin-bottom:.75rem;letter-spacing:-.01em}
 .gcal-tip span{color:#5f6b7a;font-size:.8rem}
 .gcal-day{cursor:pointer}
 .gcal-day.selected{box-shadow:inset 0 0 0 2px var(--accent)}
-.gcal-agenda{margin-top:1.2rem;border:1px solid #e2e6ec;border-radius:12px;padding:1rem 1.1rem;background:#fbfcfe}
+.gcal-agenda{margin-top:1.5rem;border:1px solid #e2e6ec;border-radius:12px;padding:1rem;background:#fbfcfe}
 .gcal-phead{display:flex;align-items:baseline;gap:.6rem;margin-bottom:.5rem;flex-wrap:wrap}
 .gcal-phead h3{margin:0;font-size:1.15rem;font-family:var(--serif);color:var(--accent)}
 .gcal-arel{font-size:.78rem;font-weight:700;color:#0b8043}
 .gcal-pcount{margin-left:auto;font-size:.8rem;color:#5f6b7a}
 .gcal-arow{display:flex;gap:.7rem;width:100%;text-align:left;background:#fff;border:1px solid #eef1f5;
-  border-left:4px solid #999;border-radius:8px;padding:.6rem .7rem;margin:.35rem 0;cursor:pointer;align-items:baseline}
+  border-left:4px solid #999;border-radius:8px;padding:.65rem .75rem;margin:.5rem 0;cursor:pointer;align-items:baseline;min-height:44px}
+.gcal-ablurb{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  font-size:.82rem;color:#5f6b7a;margin-top:.25rem;line-height:1.45}
 .gcal-atime{font-weight:700;font-size:.85rem;color:var(--accent);white-space:nowrap;min-width:4.2rem}
 .gcal-abody strong{display:block;font-size:.92rem;color:#22303f;line-height:1.35;font-weight:600}
 .gcal-avenue{display:block;font-size:.8rem;color:#5f6b7a;margin-top:.1rem}
-.gcal-chip .ct{font-weight:700;margin-right:.35rem}
-.gcal-chip.istoday{box-shadow:inset 3px 0 0 var(--gold)}
-.gcal-chip.ended,.gcal-arow.ended{opacity:.55;filter:saturate(.55)}
+.gcal-arow.ended{opacity:.55;filter:saturate(.55)}
 .gcal-ended{color:#8a94a6;font-size:.85rem;font-style:italic;margin:.2rem 0}
-.gcal-more{background:none;border:0;color:#5f6b7a;font-size:.8rem;cursor:pointer;padding:.25rem .55rem}
-.gcal-more:hover{text-decoration:underline}
+/* gcal-more retired with the dot redesign; count is plain text now */
 .gcal-overlay{position:fixed;inset:0;background:rgba(16,61,96,.45);display:flex;
   align-items:center;justify-content:center;z-index:60;padding:1rem}
 .gcal-modal-card{background:#fff;border-radius:12px;max-width:430px;width:100%;max-height:88vh;
@@ -162,9 +165,11 @@ h2.when{font-size:2.4rem;margin-bottom:.75rem;letter-spacing:-.01em}
 .gcal-links{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-top:.8rem}
 .gcal-links a{color:var(--accent);font-weight:600;font-size:.9rem}
 @media (max-width:640px){
-  .gcal-day{min-height:76px;padding:3px}
-  .gcal-chip{font-size:.74rem}
+  .gcal-day{min-height:68px;padding:4px}
+  .gcal-dots{gap:4px;margin-top:4px}
+  .gcal-dot{width:9px;height:9px}
   .gcal-title{font-size:1.2rem}
+  .gcal-legend{font-size:.68rem}
 }
 </style>
 
@@ -175,6 +180,7 @@ h2.when{font-size:2.4rem;margin-bottom:.75rem;letter-spacing:-.01em}
     <h3 class="gcal-title" id="gcal-title"></h3>
   </div>
   <div class="gcal-dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+  <div class="gcal-legend" aria-hidden="true"><span><i style="background:#6a1b9a"></i>Music</span><span><i style="background:#ad1457"></i>Arts</span><span><i style="background:#1b5e20"></i>Outdoors</span><span><i style="background:#e65100"></i>Family</span><span><i style="background:#bf360c"></i>Dining</span><span><i style="background:#0277bd"></i>Comedy</span><span><i style="background:#283593"></i>Speakers</span><span><i style="background:#4e342e"></i>Dance</span></div>
   <div class="gcal-grid" id="gcal-grid"><p class="empty">Loading events…</p></div>
   <div class="gcal-agenda" id="gcal-agenda"></div>
   <p class="empty" style="margin-top:1rem">Tap a day to see its events · tap an event for details, photos, and links.</p>

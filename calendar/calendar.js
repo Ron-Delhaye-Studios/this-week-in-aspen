@@ -1,11 +1,11 @@
 /* Golden Hour calendar — Google-style month grid.
    Renders events.json (same live-layer rows as Upcoming/Map) into a month
-   view with event chips, "+N more" overflow, and detail popups. */
+   view with category-color event dots and a selected-day agenda panel below. */
 (function () {
   "use strict";
 
   var DENVER = "America/Denver";
-  var MAX_CHIPS = 3;
+  var MAX_DOTS = 6;
 
   var CAT_STYLE = {
     music:    ["#e1bee7", "#6a1b9a"],
@@ -70,12 +70,12 @@
     return "In " + diff + " days";
   }
 
-  function chipHTML(ev) {
+  function dotHTML(ev) {
     var st = catStyle(ev.category);
-    var cls = "gcal-chip" + (denverKey(ev.starts_at) === TODAY_KEY ? " istoday" : "") + (hasEnded(ev) ? " ended" : "");
+    var cls = "gcal-dot" + (hasEnded(ev) ? " ended" : "");
     return '<button class="' + cls + '" data-ev="' + esc(ev.id) + '"' +
-      ' style="background:' + st[0] + ';color:' + st[1] + '">' +
-      '<span class="ct">' + esc(chipTime(ev.starts_at)) + "</span> " + esc(ev.title) + "</button>";
+      ' style="background:' + st[1] + '"' +
+      ' aria-label="' + esc(ev.title) + ", " + esc(chipTime(ev.starts_at)) + '"></button>';
   }
 
   var MONTHS = ["January", "February", "March", "April", "May", "June",
@@ -107,10 +107,14 @@
       });
       html += '<div class="gcal-day' + (inMonth ? "" : " dim") + (isToday ? " istoday" : "") + (key === selectedKey ? " selected" : "") + '" data-day="' + key + '">';
       html += '<div class="gcal-daynum' + (isToday ? " today" : "") + '">' + d.getUTCDate() + "</div>";
-      var shown = evs.slice(0, MAX_CHIPS);
-      shown.forEach(function (ev) { html += chipHTML(ev); });
-      if (evs.length > MAX_CHIPS) {
-        html += '<button class="gcal-more" data-day="' + key + '">' + (evs.length - MAX_CHIPS) + " more</button>";
+      var shown = evs.slice(0, MAX_DOTS);
+      if (shown.length) {
+        html += '<div class="gcal-dots">';
+        shown.forEach(function (ev) { html += dotHTML(ev); });
+        html += "</div>";
+      }
+      if (evs.length > MAX_DOTS) {
+        html += '<span class="gcal-morecount">+' + (evs.length - MAX_DOTS) + "</span>";
       }
       html += "</div>";
     }
@@ -125,7 +129,8 @@
     return '<button class="gcal-arow' + (hasEnded(ev) ? " ended" : "") + '" data-ev="' + esc(ev.id) + '" style="border-left-color:' + st[1] + '">' +
       '<span class="gcal-atime">' + esc(chipTime(ev.starts_at)) + "</span>" +
       '<span class="gcal-abody"><strong>' + esc(ev.title) + "</strong>" +
-      '<span class="gcal-avenue">' + esc(ev.venue) + "</span></span></button>";
+      '<span class="gcal-avenue">' + esc(ev.venue) + "</span>" +
+      (ev.blurb ? '<span class="gcal-ablurb">' + esc(ev.blurb) + "</span>" : "") + "</span></button>";
   }
 
   function selectDay(key, scroll) {
@@ -232,21 +237,22 @@
     render();
   }
 
+  var HOVERABLE = window.matchMedia("(hover:hover)").matches;
   document.addEventListener("click", function (e) {
-    var chip = e.target.closest(".gcal-chip,.gcal-arow");
-    if (chip) { openEvent(chip.getAttribute("data-ev")); return; }
-    var more = e.target.closest(".gcal-more");
-    if (more) { selectDay(more.getAttribute("data-day"), true); return; }
+    var dot = e.target.closest(".gcal-dot");
+    if (dot && HOVERABLE) { openEvent(dot.getAttribute("data-ev")); return; }
+    var row = e.target.closest(".gcal-arow");
+    if (row) { openEvent(row.getAttribute("data-ev")); return; }
     var day = e.target.closest(".gcal-day");
-    if (day) { selectDay(day.getAttribute("data-day"), false); }
+    if (day) { selectDay(day.getAttribute("data-day"), !!dot); }
   });
   if (window.matchMedia("(hover:hover)").matches) {
     document.addEventListener("mouseover", function (e) {
-      var c = e.target.closest(".gcal-chip");
+      var c = e.target.closest(".gcal-dot");
       if (c) showTip(c);
     });
     document.addEventListener("mouseout", function (e) {
-      var c = e.target.closest(".gcal-chip");
+      var c = e.target.closest(".gcal-dot");
       if (c && (!e.relatedTarget || !c.contains(e.relatedTarget))) hideTip();
     });
   }
