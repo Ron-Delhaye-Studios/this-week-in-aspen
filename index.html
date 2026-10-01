@@ -2,7 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Golden Hour</title>
+<meta name="description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
+<link rel="canonical" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
+<meta property="og:title" content="The Golden Hour">
+<meta property="og:description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
+<meta property="og:image" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/maroon-bells-fall-colors.jpg">
+<meta name="theme-color" content="#0d2137">
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/this-week-in-aspen/sw.js", { scope: "/this-week-in-aspen/" });
+  });
+}
+</script>
 <link rel="manifest" href="/this-week-in-aspen/manifest.json">
 <meta name="theme-color" content="#0a1628">
 <meta name="mobile-web-app-capable" content="yes">
@@ -10,122 +26,101 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Golden Hour">
 <link rel="apple-touch-icon" href="/this-week-in-aspen/icons/apple-touch-icon.png">
-<script>
-if ("serviceWorker" in navigator) {{
-  window.addEventListener("load", function () {{
-    navigator.serviceWorker.register("/this-week-in-aspen/sw.js", {{ scope: "/this-week-in-aspen/" }});
-  }});
-}
-</script><title>The Golden Hour</title>
-<meta name="description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
-<link rel="canonical" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
-<meta property="og:title" content="The Golden Hour">
-<meta property="og:description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
-<meta property="og:site_name" content="The Golden Hour">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Golden Hour">
-<meta name="twitter:description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
-<meta name="theme-color" content="#103D60">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--faint:#a39a8b;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;--serif:"Cormorant Garamond",Didot,"Bodoni MT",Georgia,"Times New Roman",serif;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
-       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
-  .page{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
-  .masthead{text-align:center;margin-bottom:2rem}
-  .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .8rem}
-  .brand{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7vw,3.4rem);margin:0 0 .6rem;letter-spacing:.02em}
-  .rule-double{border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
-  .tagline{color:var(--muted);font-style:italic;margin:0;max-width:34rem;margin-left:auto;margin-right:auto}
-  nav.site-nav{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 0;
-               font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
-  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
-  nav.site-nav a.active{font-weight:700;border-bottom:3px solid var(--accent)}
-  h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
-  .lede{color:var(--muted);font-size:1.02rem;max-width:36rem}
-  .btn{display:inline-block;border:1px solid var(--accent);color:var(--ink);padding:.6rem 1.3rem;
-       text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;background:transparent}
-  .btn:hover{background:var(--accent);color:#fff}
-  .colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--hair);
-            font-size:.8rem;color:var(--muted);text-align:center}
-  .colophon .foot-links a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
-  .explore{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.9rem;margin:1.4rem 0}
-  .explore a{display:block;border:1px solid var(--hair);background:#fff;padding:1.1rem 1rem;text-decoration:none;color:var(--ink)}
-  .explore a:hover{border-color:var(--accent)}
-  .explore .ek{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
-  .explore h3{font-family:var(--serif);font-size:1.2rem;margin:0 0 .25rem;font-weight:600}
-  .explore p{font-size:.85rem;color:var(--muted);margin:0}
-
-  .hero{border:1px solid var(--hair);padding:1.6rem 1.4rem;margin-top:1rem;background:#fff}
-  .hero .ed-range{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
-  .hero h3{font-family:var(--serif);font-size:1.6rem;margin:.4rem 0 .4rem}
-  .hero p{color:var(--muted);margin:.4rem 0 1rem}
-  ul.archive{list-style:none;padding:0;margin:1rem 0}
-  ul.archive li{padding:.7rem 0;border-bottom:1px solid var(--hair)}
-  ul.archive a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px}
-  ul.archive .when{display:block;font-size:.8rem;color:var(--muted)}
-  .method{border-left:2px solid var(--accent);padding:.4rem 0 .4rem 1rem;color:var(--muted);
-          font-style:italic;margin:1.2rem 0}
-  .pagetitle h2{font-family:var(--serif);font-weight:600;font-size:2rem;margin:.2rem 0 .4rem}
-  .rubric{counter-reset:step;list-style:none;padding:0;margin:1.2rem 0}
-  .rubric li{counter-increment:step;position:relative;padding:.7rem 0 .7rem 2.6rem;border-bottom:1px solid var(--hair)}
-  .rubric li::before{content:counter(step);position:absolute;left:0;top:.65rem;width:1.7rem;height:1.7rem;
-    border:1.5px solid var(--accent);color:var(--accent);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
-  .rubric li b{display:block;font-size:.95rem}
-  .rubric li span{color:var(--muted);font-size:.9rem}
-  .pick{border:1px solid var(--hair);background:#fff;padding:1.2rem;margin:0 0 1rem}
-  .pick .cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
-  .pick h3{font-family:var(--serif);font-size:1.3rem;margin:0 0 .25rem}
-  .pick .score{display:inline-block;border:1.5px solid var(--gold);color:var(--ink);font-weight:700;
-    font-size:.85rem;padding:.15rem .6rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
-  .pick .why{margin:.5rem 0;font-size:.95rem}
-  .pick .src{font-size:.82rem;color:var(--muted);margin:.2rem 0}
-  table.src{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
-  table.src th{text-align:left;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-               color:var(--muted);border-bottom:1px solid var(--accent);padding:.5rem .4rem}
-  table.src td{border-bottom:1px solid var(--hair);padding:.6rem .4rem;vertical-align:top}
-  table.src a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
-  .rel-highest,.rel-high,.rel-medium,.rel-low{display:inline-block;padding:.28rem .8rem;border-radius:999px;
-               font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-               border:1.5px solid;white-space:nowrap}
-  .rel-highest{color:#1b5e20;border-color:#2e7d32;background:#e8f5e9}
-  .rel-high{color:#33691e;border-color:#558b2f;background:#f1f8e9}
-  .rel-medium{color:#7a5c14;border-color:#b89b3e;background:#fdf6e3}
-  .rel-low{color:#8f2d2d;border-color:#c05757;background:#fbeeee}
-  table.desk{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.86rem}
-  table.desk th{text-align:left;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
-                color:var(--muted);border-bottom:1px solid var(--accent);padding:.5rem .35rem}
-  table.desk td{border-bottom:1px solid var(--hair);padding:.55rem .35rem;vertical-align:top}
-  .pill{display:inline-block;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
-        border:1px solid;padding:.15rem .55rem;border-radius:2px;white-space:nowrap}
-  .st-verified-official{border-color:#2e7d32;color:#2e7d32}
-  .st-verified-secondary{border-color:#33691e;color:#33691e}
-  .st-needs-check{border-color:#8f7134;color:#8f7134}
-  .st-time-conflict{border-color:#b3261e;color:#b3261e}
-  .st-replaced{border-color:#6e675c;color:#6e675c}
-  .flag{border:1px solid var(--ink);font-size:.68rem;padding:.1rem .4rem;white-space:nowrap}
-  @media print{ nav.site-nav, .btn {display:none} }
-
-</style>
 <script src="assets/js/analytics-config.js"></script>
 <script defer src="assets/js/analytics.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:#1d1a16;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;background:#fdfcf8}
+.serif{font-family:"Cormorant Garamond",Didot,Georgia,serif}
+:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;
+  --navy:#0d2137;--gold:#d9a94a;--gold-deep:#b98a1d}
+
+/* ===== DIRECTION 1 · GOLDEN HOUR hero ===== */
+.hero{min-height:100vh;min-height:100svh;position:relative;display:flex;flex-direction:column;
+  background:#0d2137 url('https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/maroon-bells-fall-colors.jpg') center/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,33,55,.45) 0%,rgba(13,33,55,.08) 38%,rgba(13,33,55,.85) 100%)}
+.hero nav{position:relative;z-index:3;display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;
+  padding:1.1rem 1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.hero nav a{color:rgba(255,255,255,.92);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.hero nav a:hover{border-color:var(--gold)}
+.hero .inner{position:relative;z-index:2;text-align:center;padding:0 8vw;margin:auto 0 11vh}
+.hero .kicker{font-size:.72rem;letter-spacing:.4em;text-indent:.4em;color:#e9d9ae;margin-bottom:2.5vh}
+.hero h1{font-weight:500;font-size:clamp(3rem,15vw,7rem);line-height:1;color:#fff;
+  text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.hero .rule{width:4rem;height:2px;background:var(--gold);margin:3vh auto}
+.hero .tag{font-style:italic;color:rgba(255,255,255,.93);font-size:clamp(1rem,4.5vw,1.3rem);margin-bottom:4vh}
+.hero .cta{display:inline-block;color:#fff;text-decoration:none;letter-spacing:.25em;text-indent:.25em;
+  font-size:.85rem;border:1px solid var(--gold);padding:1rem 2.4rem;background:rgba(217,169,74,.14)}
+
+/* ===== DIRECTION 3 · TONIGHT pulse ===== */
+.tonight{background:var(--navy);color:#f6f1e6;padding:11vh 6vw 10vh}
+.tonight .wrap{max-width:60rem;margin:0 auto}
+.tonight .kicker{font-size:.72rem;letter-spacing:.35em;color:var(--gold);margin-bottom:1rem;font-weight:600}
+.tonight h2{font-weight:600;font-size:clamp(2.4rem,10vw,4.5rem);line-height:1.02;color:#fff;margin-bottom:.5rem}
+.tonight .sub{color:#9fb0c3;font-style:italic;margin-bottom:2.4rem}
+.tonight .cards{display:grid;gap:1rem}
+.tonight .card{display:grid;grid-template-columns:96px 1fr auto;gap:1rem;align-items:center;
+  background:rgba(255,255,255,.05);border:1px solid rgba(217,169,74,.25);
+  padding:.8rem;text-decoration:none;color:inherit}
+.tonight .card img{width:96px;height:96px;object-fit:cover;display:block}
+.tonight .when{font-size:.68rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.3rem}
+.tonight .what{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.35rem;font-weight:600;color:#fff;line-height:1.2;margin-bottom:.2rem}
+.tonight .where{font-size:.82rem;color:#9fb0c3}
+.tonight .arrow{font-size:1.6rem;color:var(--gold);padding-right:.6rem}
+.tonight .cta{display:inline-block;margin-top:2.2rem;color:var(--navy);background:var(--gold);text-decoration:none;
+  letter-spacing:.2em;font-size:.8rem;font-weight:700;padding:1rem 2.2rem}
+@media(min-width:700px){.tonight .cards{grid-template-columns:repeat(3,1fr)}
+  .tonight .card{grid-template-columns:1fr}.tonight .card img{width:100%;height:150px}.tonight .arrow{display:none}}
+
+/* ===== DIRECTION 2 · THE COVER editorial ===== */
+.cover{padding:11vh 7vw 10vh;max-width:60rem;margin:0 auto}
+.cover .dateline{font-size:.72rem;letter-spacing:.3em;color:var(--accent);margin-bottom:1.2rem;font-weight:600}
+.cover h2{font-weight:600;font-size:clamp(2.6rem,11vw,5.5rem);line-height:1.02;margin-bottom:2rem}
+.cover h2 em{font-style:italic;font-weight:500}
+.cover .collage{display:grid;grid-template-columns:1.4fr 1fr;gap:1rem;align-items:start;margin-bottom:2.2rem}
+.cover .collage img{width:100%;display:block;box-shadow:0 1.2rem 3rem rgba(16,61,96,.18)}
+.cover .collage .tall{transform:rotate(-1.2deg)}
+.cover .collage .small{transform:rotate(1.5deg);margin-top:2.5rem}
+.cover .collage figcaption{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.5rem}
+.cover .standfirst{font-size:1.05rem;line-height:1.7;color:#4a443b;max-width:36rem;margin-bottom:2rem}
+.cover .cta{display:inline-block;border:1px solid var(--accent);color:var(--accent);text-decoration:none;
+  letter-spacing:.15em;font-size:.82rem;padding:.85rem 1.8rem;font-weight:600}
+.cover .cta:hover{background:var(--accent);color:#fff}
+
+/* ===== guide body (kept from the live site) ===== */
+.guide{max-width:46rem;margin:0 auto;padding:0 1.25rem 3rem}
+h2.section{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
+.lede{color:var(--muted);font-size:1.02rem;max-width:36rem}
+.btn{display:inline-block;border:1px solid var(--accent);color:var(--ink);padding:.6rem 1.3rem;
+  text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;background:transparent}
+.btn:hover{background:var(--accent);color:#fff}
+.explore{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.9rem;margin:1.4rem 0}
+.explore a{display:block;border:1px solid var(--hair);background:#fff;padding:1.1rem 1rem;text-decoration:none;color:var(--ink)}
+.explore a:hover{border-color:var(--accent)}
+.explore .ek{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+.explore h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.2rem;margin:0 0 .25rem;font-weight:600}
+.explore p{font-size:.85rem;color:var(--muted);margin:0}
+.method{border-left:2px solid var(--accent);padding:.4rem 0 .4rem 1rem;color:var(--muted);
+  font-style:italic;margin:1.2rem 0}
+
+/* ===== footer ===== */
+footer.colophon{margin-top:3.5rem;padding:2rem 1.25rem 3rem;border-top:1px solid var(--hair);
+  font-size:.8rem;color:var(--muted);text-align:center}
+footer.colophon .foot-links{margin:.8rem 0}
+footer.colophon .foot-links a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px;margin:0 .35rem}
+footer.colophon .promise{font-style:italic;max-width:34rem;margin:0 auto 1rem}
+</style>
 </head>
 <body>
-<div class="page">
 
-  <header class="masthead">
-    <p class="kicker">From Aspen and Beyond</p>
-    <h1 class="brand">The Golden Hour</h1>
-    <hr class="rule-double">
-    <p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
-  <nav class="site-nav" aria-label="Sections">
-    <a href="index.html" class="active" aria-current="page">Latest</a>
+<!-- DIRECTION 1 · GOLDEN HOUR -->
+<header class="hero">
+  <nav aria-label="Sections">
+    <a href="index.html">Latest</a>
     <a href="upcoming/">Upcoming</a>
     <a href="calendar/">Calendar</a>
     <a href="map/">Map</a>
@@ -133,17 +128,64 @@ if ("serviceWorker" in navigator) {{
     <a href="editions/">Archive</a>
     <a href="sources/">How we verify</a>
   </nav>
-  </header>
-
-  <h2 class="section">This week</h2>
-  <div class="hero">
-    <p class="ed-range">Saturday, September 26 – Saturday, October 3, 2026</p>
-    <h3>The current edition</h3>
-    <p>Eight days of curated picks — arriving Saturday through departure Saturday — each one verified against official sources.</p>
-    <a class="btn" href="editions/2026-09-26/">Read the edition</a>
+  <div class="inner">
+    <p class="kicker">FROM ASPEN AND BEYOND</p>
+    <h1 class="serif">The Golden Hour</h1>
+    <div class="rule"></div>
+    <p class="tag serif">A weekly field guide to what's on — music, art, and high-country happenings.</p>
+    <a class="cta" href="upcoming/">SEE WHAT'S ON</a>
   </div>
+</header>
+
+<!-- DIRECTION 3 · TONIGHT -->
+<section class="tonight">
+  <div class="wrap">
+    <p class="kicker">● LIVE FROM THE GUIDE</p>
+    <h2 class="serif">Tonight in Aspen</h2>
+    <p class="sub serif">The guide never sleeps — here's what's on right now.</p>
+    <div class="cards">
+      <a class="card" href="calendar/" data-date="2026-09-30">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/michigander-live-concert.jpg" alt="Michigander live">
+        <div><p class="when">TONIGHT · SEP 30</p><p class="what">Michigander</p><p class="where">Belly Up Aspen</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="calendar/" data-date="2026-10-02">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/pink-talking-fish-live-concert.webp" alt="Pink Talking Fish live">
+        <div><p class="when">FRIDAY · OCT 2</p><p class="what">Pink Talking Fish</p><p class="where">Belly Up Aspen</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="calendar/" data-date="2026-10-03">
+        <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-saturday-market.jpg" alt="Aspen Saturday Market">
+        <div><p class="when">SATURDAY · OCT 3</p><p class="what">Saturday Market — Finale</p><p class="where">Downtown Aspen</p></div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+    <a class="cta" href="upcoming/">SEE EVERYTHING →</a>
+  </div>
+</section>
+
+<!-- DIRECTION 2 · THE COVER -->
+<section class="cover">
+  <p class="dateline">SATURDAY, SEPTEMBER 26 – SATURDAY, OCTOBER 3, 2026</p>
+  <h2 class="serif">This week in <em>Aspen.</em></h2>
+  <div class="collage">
+    <figure class="tall">
+      <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/hot-air-balloons-snowmass-town-park.jpg" alt="Hot air balloons over Snowmass">
+      <figcaption>Balloon glow over Snowmass Town Park</figcaption>
+    </figure>
+    <figure class="small">
+      <img src="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/browse/aspen-art-museum.jpg" alt="Aspen Art Museum at dusk">
+      <figcaption>Fall exhibitions at the Art Museum</figcaption>
+    </figure>
+  </div>
+  <p class="standfirst">Eight days of curated picks — arriving Saturday through departure Saturday — each one verified against official sources before it earns a place here.</p>
+  <a class="cta" href="editions/2026-09-26/">READ THE EDITION</a>
+</section>
+
+<!-- GUIDE BODY -->
+<main class="guide">
   <h2 class="section">Explore the live guide</h2>
-  <p class="lede">The guide never sleeps: every verified event, four ways in — always current, always sourced.</p>
+  <p class="lede">Every verified event, four ways in — always current, always sourced.</p>
   <div class="explore">
     <a href="upcoming/"><p class="ek">Browse</p><h3>Upcoming</h3><p>Every verified event, soonest first.</p></a>
     <a href="calendar/"><p class="ek">Plan</p><h3>Calendar</h3><p>The month at a glance, Google-style.</p></a>
@@ -154,8 +196,26 @@ if ("serviceWorker" in navigator) {{
   <h2 class="section">How we verify</h2>
   <p class="method">Every event is checked against the venue's own page or a trusted local source before it reaches you. Aggregator listings alone never make the cut — and when two sources disagree on a time, we hold the pick until one is authoritative.</p>
   <p><a class="btn" href="sources/">See our sources</a></p>
-  <footer class="colophon">
-    <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-    <p class="foot-links"><a href="index.html">Latest</a> · <a href="upcoming/">Upcoming</a> · <a href="calendar/">Calendar</a> · <a href="map/">Map</a> · <a href="picks/">Top Picks</a> · <a href="activities/">Activities</a> · <a href="editions/">Archive</a> · <a href="sources/">How we verify</a></p>
-    <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
-  </footer>
+</main>
+
+<footer class="colophon">
+  <p class="promise">Our promise: every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
+  <p class="foot-links"><a href="index.html">Latest</a> · <a href="upcoming/">Upcoming</a> · <a href="calendar/">Calendar</a> · <a href="map/">Map</a> · <a href="picks/">Top Picks</a> · <a href="activities/">Activities</a> · <a href="editions/">Archive</a> · <a href="sources/">How we verify</a></p>
+  <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
+</footer>
+
+<script>
+// Hide tonight cards whose date has passed (America/Denver); hide the section if none remain.
+(function(){
+  try{
+    var fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'});
+    var today=fmt.format(new Date());
+    var cards=document.querySelectorAll('.tonight .card[data-date]');
+    var visible=0;
+    cards.forEach(function(c){ if(c.getAttribute('data-date')<today){c.style.display='none';} else {visible++;} });
+    if(visible===0){var s=document.querySelector('.tonight'); if(s) s.style.display='none';}
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
