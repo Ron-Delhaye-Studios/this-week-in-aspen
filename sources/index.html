@@ -112,6 +112,22 @@ if ("serviceWorker" in navigator) {{
   .flag{border:1px solid var(--ink);font-size:.68rem;padding:.1rem .4rem;white-space:nowrap}
   @media print{ nav.site-nav, .btn {display:none} }
 
+
+  .site-footer{background:#103d60;color:#f6f1e6;margin:4rem -1.25rem -3rem;padding:3.2rem 1.5rem 1.4rem}
+  .sf-grid{max-width:46rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:2.2rem 1.5rem}
+  .sf-kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#d9c48a;margin:0 0 .5rem}
+  .sf-name{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:0 0 .6rem;color:#fff}
+  .sf-tag{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
+  .sf-col h3{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#d9c48a;margin:0 0 .8rem;font-weight:600;font-family:var(--sans)}
+  .sf-col a{display:block;color:#f6f1e6;text-decoration:none;font-size:.92rem;padding:.3rem 0}
+  .sf-col a:hover{color:#fff;text-decoration:underline;text-decoration-color:#d9c48a;text-underline-offset:3px}
+  .sf-trust p{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
+  .sf-base{max-width:46rem;margin:2.6rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.18);text-align:center;font-size:.78rem;color:#93a5b8}
+  .sf-base p{margin:0}
+
+  .page-hero{margin:0 0 2rem}
+  .page-hero img{width:100%;height:clamp(200px,36vw,380px);object-fit:cover;display:block}
+  .page-hero figcaption{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.45rem;text-align:center}
 </style>
 <script src="../assets/js/analytics-config.js"></script>
 <script defer src="../assets/js/analytics.js"></script>
@@ -125,15 +141,17 @@ if ("serviceWorker" in navigator) {{
     <hr class="rule-double">
     <p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
   <nav class="site-nav" aria-label="Sections">
-    <a href="../index.html">Latest</a>
+    <a href="../index.html" class="active" aria-current="page">Latest</a>
     <a href="../upcoming/">Upcoming</a>
+    <a href="../events/">Events</a>
     <a href="../calendar/">Calendar</a>
     <a href="../map/">Map</a>
-    <a href="../picks/">Top Picks</a>
-    <a href="../editions/">Archive</a>
-    <a href="../sources/" class="active" aria-current="page">How we verify</a>
   </nav>
   </header>
+  <figure class="page-hero">
+    <img src="../assets/img/ron-delhaye-w30.jpg" alt="Fence line leading toward a distant peak — photograph by Ron Delhaye" loading="lazy">
+    <figcaption>Photograph by Ron Delhaye</figcaption>
+  </figure>
 
   <h2 class="section">How we verify</h2>
   <p class="method">Each week's picks are researched against the sources below. Venue and organizer pages are ground truth. Local papers surface announcements and last-minute additions. Aggregators are a fallback — never the sole source for a published time or ticket link.</p>
@@ -169,8 +187,34 @@ if ("serviceWorker" in navigator) {{
     <tr><td><a href="https://www.gosnowmass.com">GoSnowmass.com</a></td><td><span class="rel-high">high</span></td><td>Official Snowmass events calendar — Balloon Festival, Oktoberfest, etc.<br><span style="color:var(--faint);font-size:.8rem">Timeliness: weekly</span></td></tr>
     <tr><td><a href="https://aspenchamber.org">Aspen Chamber Resort Association</a></td><td><span class="rel-high">high</span></td><td>Restaurant Week, Saturday Market, town-wide events.<br><span style="color:var(--faint);font-size:.8rem">Timeliness: weekly</span></td></tr>
   </table>
-  <footer class="colophon">
-    <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-    <p class="foot-links"><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="../map/">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../activities/">Activities</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
-    <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
+  <footer class="site-footer">
+    <div class="sf-grid">
+      <div class="sf-brand">
+        <p class="sf-kicker">From Aspen and Beyond</p>
+        <p class="sf-name">The Golden Hour</p>
+        <p class="sf-tag">A weekly field guide to what&#x27;s on &mdash; music, art, and high-country happenings, verified before publication.</p>
+      </div>
+      <nav class="sf-col" aria-label="Explore the guide">
+        <h3>Explore</h3>
+        <a href="../index.html">Latest</a>
+        <a href="../upcoming/">Upcoming</a>
+        <a href="../events/">Events</a>
+        <a href="../calendar/">Calendar</a>
+        <a href="../map/">Map</a>
+      </nav>
+      <nav class="sf-col" aria-label="Curated by The Golden Hour">
+        <h3>Curated</h3>
+        <a href="../picks/">Top Picks</a>
+        <a href="../editions/">Archive</a>
+        <a href="../activities/">Activities</a>
+      </nav>
+      <div class="sf-col sf-trust">
+        <h3>Our promise</h3>
+        <p>Every event verified against official sources before publication. No ads, no pay-to-play. Details may change &mdash; please confirm with the venue.</p>
+        <a href="../sources/">How we verify &rarr;</a>
+      </div>
+    </div>
+    <div class="sf-base">
+      <p>&copy; 2026 The Golden Hour &middot; Photography by Ron Delhaye Studios &middot; An Ad Astra Media publication.</p>
+    </div>
   </footer>

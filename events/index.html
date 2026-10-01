@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Events — The Golden Hour</title>
+<meta name="description" content="Every verified event around Aspen, each with its own page — tonight’s pulse, weekend picks, music, art, outdoors.">
+<link rel="canonical" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">
+<meta property="og:title" content="Events — The Golden Hour">
+<meta property="og:description" content="Every verified event around Aspen, each with its own page — tonight’s pulse, weekend picks, music, art, outdoors.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/events/">
+<meta property="og:image" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/img/ron-delhaye-w10.jpg">
+<meta name="theme-color" content="#103D60">
+<link rel="manifest" href="/this-week-in-aspen/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Golden Hour">
+<link rel="apple-touch-icon" href="/this-week-in-aspen/icons/apple-touch-icon.png">
+<script src="../../assets/js/analytics-config.js"></script>
+<script defer src="../../assets/js/analytics.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;--gold:#d9a94a;--gold-deep:#b98a1d;--navy:#0d2137;--serif:"Cormorant Garamond",Didot,Georgia,serif;--sans:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.page{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+.masthead{text-align:center;margin-bottom:2rem}
+.kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .8rem}
+.brand{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7vw,3.4rem);margin:0 0 .6rem}
+.rule-double{border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
+.tagline{color:var(--muted);font-style:italic;margin:0 auto;max-width:34rem}
+nav.site-nav{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 0;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+nav.site-nav a.active{font-weight:700;border-bottom:3px solid var(--accent)}
+h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
+.lede{color:var(--muted);font-size:1.02rem;max-width:36rem}
+
+  .page-hero{margin:0 0 2rem}
+  .page-hero img{width:100%;height:clamp(200px,36vw,380px);object-fit:cover;display:block}
+  .page-hero figcaption{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.45rem;text-align:center}
+
+  .site-footer{background:#103d60;color:#f6f1e6;margin:4rem -1.25rem -3rem;padding:3.2rem 1.5rem 1.4rem}
+  .sf-grid{max-width:46rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:2.2rem 1.5rem}
+  .sf-kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#d9c48a;margin:0 0 .5rem}
+  .sf-name{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:0 0 .6rem;color:#fff}
+  .sf-tag{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
+  .sf-col h3{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#d9c48a;margin:0 0 .8rem;font-weight:600;font-family:var(--sans)}
+  .sf-col a{display:block;color:#f6f1e6;text-decoration:none;font-size:.92rem;padding:.3rem 0}
+  .sf-col a:hover{color:#fff;text-decoration:underline;text-decoration-color:#d9c48a;text-underline-offset:3px}
+  .sf-trust p{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
+  .sf-base{max-width:46rem;margin:2.6rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.18);text-align:center;font-size:.78rem;color:#93a5b8}
+  .sf-base p{margin:0}
+
+.evchips{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.4rem 0 1.8rem}
+.evchips button{border:1px solid var(--hair);background:#fff;border-radius:999px;padding:.5rem 1.1rem;font-size:.8rem;letter-spacing:.06em;cursor:pointer;font-family:var(--sans);color:var(--ink)}
+.evchips button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.evgrid{display:grid;gap:1.1rem}
+@media(min-width:640px){.evgrid{grid-template-columns:1fr 1fr}}
+a.evcard{display:grid;grid-template-columns:110px 1fr auto;gap:1rem;align-items:center;border:1px solid var(--hair);background:#fff;padding:.7rem;text-decoration:none;color:inherit}
+a.evcard:hover{border-color:var(--accent)}
+a.evcard img{width:110px;height:110px;object-fit:cover;display:block}
+.evcard .when{font-size:.68rem;letter-spacing:.18em;color:var(--accent);font-weight:700;margin:0 0 .25rem}
+.evcard .what{font-family:var(--serif);font-size:1.25rem;font-weight:600;line-height:1.2;margin:0 0 .15rem;color:var(--ink)}
+.evcard .where{font-size:.82rem;color:var(--muted);margin:0}
+.evcard .arrow{font-size:1.4rem;color:var(--gold-deep);padding-right:.5rem}
+.tonight{background:var(--navy);color:#f6f1e6;padding:3rem 6vw;margin:2.5rem -1.25rem 0}
+.tonight .wrap{max-width:60rem;margin:0 auto}
+.tonight .kicker{font-size:.72rem;letter-spacing:.35em;color:var(--gold);margin-bottom:1rem;font-weight:600}
+.tonight h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,8vw,3.2rem);line-height:1.02;color:#fff;margin:0 0 .5rem}
+.tonight .sub{color:#9fb0c3;font-style:italic;margin:0 0 1.8rem}
+.tonight .cards{display:grid;gap:1rem}
+.tonight .card{display:grid;grid-template-columns:96px 1fr auto;gap:1rem;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(217,169,74,.25);padding:.8rem;text-decoration:none;color:inherit}
+.tonight .card img{width:96px;height:96px;object-fit:cover;display:block}
+.tonight .when{font-size:.68rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin:0 0 .3rem}
+.tonight .what{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:#fff;line-height:1.2;margin:0 0 .2rem}
+.tonight .where{font-size:.82rem;color:#9fb0c3;margin:0}
+.tonight .arrow{font-size:1.6rem;color:var(--gold);padding-right:.6rem}
+@media(min-width:700px){.tonight .cards{grid-template-columns:repeat(3,1fr)}.tonight .card{grid-template-columns:1fr}.tonight .card img{width:100%;height:150px}.tonight .arrow{display:none}}
+
+</style>
+</head>
+<body>
+<div class="page">
+<header class="masthead">
+    <p class="kicker">From Aspen and Beyond</p>
+    <p class="brand serif">The Golden Hour</p>
+    <hr class="rule-double">
+    <p class="tagline">A weekly field guide to what&#x27;s on — music, art, and high-country happenings, verified before publication.</p>
+<nav class="site-nav" aria-label="Sections">
+    <a href="../../index.html">Latest</a>
+    <a href="../../upcoming/">Upcoming</a>
+    <a href="../../events/" class="active" aria-current="page">Events</a>
+    <a href="../../calendar/">Calendar</a>
+    <a href="../../map/">Map</a>
+  </nav>
+  </header>
+<figure class="page-hero">
+    <img src="../../assets/img/ron-delhaye-w10.jpg" alt="Snow-capped peak over a golden autumn meadow — photograph by Ron Delhaye" loading="lazy">
+    <figcaption>Photograph by Ron Delhaye</figcaption>
+  </figure>
+  <h2 class="section" style="margin-top:0">Events</h2>
+  <p class="lede">Every verified event, each with its own page. Tonight’s pulse up top — the full field below, filterable by mood.</p>
+  <div class="evchips" role="group" aria-label="Filter events">
+    <button data-filter="all" aria-pressed="true">All</button>
+    <button data-filter="weekend" aria-pressed="false">This weekend</button>
+    <button data-filter="music" aria-pressed="false">Music</button>
+    <button data-filter="art" aria-pressed="false">Art</button>
+    <button data-filter="outdoors" aria-pressed="false">Outdoors</button>
+    <button data-filter="free" aria-pressed="false">Free</button>
+  </div>
+  <div class="evgrid">
+      <a class="evcard" href="snowmass-balloon-festival-final-launch/" data-date="2026-09-27" data-cat="outdoors" data-weekend="1" data-free="1">
+        <img src="../../assets/img/ron-delhaye-w11.jpg" alt="Snowmass Balloon Festival — Final Launch — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SUN · SEP 27</p>
+        <p class="what">Snowmass Balloon Festival — Final Launch</p>
+        <p class="where">Snowmass Town Park, 2000 Brush Creek Rd, Snowmass Village</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="aspen-literary-festival-closing-day/" data-date="2026-09-27" data-cat="arts" data-weekend="1" data-free="1">
+        <img src="../../assets/img/ron-delhaye-w18.jpg" alt="Aspen Literary Festival — Closing Day — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SUN · SEP 27</p>
+        <p class="what">Aspen Literary Festival — Closing Day</p>
+        <p class="where">Downtown Aspen (Wheeler Opera House, Library, Community Church)</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="aspen-restaurant-week-autumn-final-evening/" data-date="2026-09-27" data-cat="dining" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w25.jpg" alt="Aspen Restaurant Week Autumn — Final Evening — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SUN · SEP 27</p>
+        <p class="what">Aspen Restaurant Week Autumn — Final Evening</p>
+        <p class="where">Participating restaurants, Aspen</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="bombargo-at-belly-up/" data-date="2026-09-27" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w01.jpg" alt="Bombargo at Belly Up — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SUN · SEP 27</p>
+        <p class="what">Bombargo at Belly Up</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="maroon-bells-at-peak-color/" data-date="2026-09-28" data-cat="outdoors" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w08.jpg" alt="Maroon Bells at Peak Color — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">MON · SEP 28</p>
+        <p class="what">Maroon Bells at Peak Color</p>
+        <p class="where">Maroon Bells Scenic Area (shuttle from Aspen Highlands)</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="aspen-art-museum-fall-exhibitions/" data-date="2026-09-29" data-cat="arts" data-weekend="0" data-free="1">
+        <img src="../../assets/img/ron-delhaye-w01.jpg" alt="Aspen Art Museum — Fall Exhibitions — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">TUE · SEP 29</p>
+        <p class="what">Aspen Art Museum — Fall Exhibitions</p>
+        <p class="where">Aspen Art Museum, 637 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="aspen-filmfest-opening-day-47th/" data-date="2026-09-29" data-cat="arts" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w08.jpg" alt="Aspen Filmfest — Opening Day (47th) — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">TUE · SEP 29</p>
+        <p class="what">Aspen Filmfest — Opening Day (47th)</p>
+        <p class="where">The Grove, 315 E Hyman Ave, Aspen (opening reception); screenings at Isis Theatre, 406 E Hopkins Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="michigander-at-belly-up/" data-date="2026-09-29" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w15.jpg" alt="Michigander at Belly Up — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">TUE · SEP 29</p>
+        <p class="what">Michigander at Belly Up</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="john-denver-celebration-opening-day/" data-date="2026-09-30" data-cat="music" data-weekend="0" data-free="1">
+        <img src="../../assets/img/ron-delhaye-w22.jpg" alt="John Denver Celebration — Opening Day — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">WED · SEP 30</p>
+        <p class="what">John Denver Celebration — Opening Day</p>
+        <p class="where">Various venues, Aspen &amp; Snowmass</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="an-evening-with-tom-rush-accompanied-by-brendan-cleary/" data-date="2026-10-01" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-aspen-road.jpg" alt="An Evening with Tom Rush accompanied by Brendan Cleary — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">THU · OCT 1</p>
+        <p class="what">An Evening with Tom Rush accompanied by Brendan Cleary</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="an-evening-with-pink-talking-fish/" data-date="2026-10-01" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w05.jpg" alt="An Evening with Pink Talking Fish — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">THU · OCT 1</p>
+        <p class="what">An Evening with Pink Talking Fish</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="mack-bailey-and-chris-nole-poems-prayers-promises-the-songs/" data-date="2026-10-02" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w12.jpg" alt="Mack Bailey and Chris Nole: Poems, Prayers &amp; Promises: The Songs of John Denver — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">FRI · OCT 2</p>
+        <p class="what">Mack Bailey and Chris Nole: Poems, Prayers &amp; Promises: The Songs of John Denver</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="aspen-saturday-market-season-finale/" data-date="2026-10-03" data-cat="family" data-weekend="1" data-free="1">
+        <img src="../../assets/img/ron-delhaye-w19.jpg" alt="Aspen Saturday Market — Season Finale — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · OCT 3</p>
+        <p class="what">Aspen Saturday Market — Season Finale</p>
+        <p class="where">Downtown Aspen (Galena &amp; Hopkins)</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="carbondale-potato-day/" data-date="2026-10-03" data-cat="family" data-weekend="1" data-free="1">
+        <img src="../../assets/img/ron-delhaye-w26.jpg" alt="Carbondale Potato Day — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · OCT 3</p>
+        <p class="what">Carbondale Potato Day</p>
+        <p class="where">Main Street &amp; Sopris Park, Carbondale</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="aspen-filmfest-closing-weekend/" data-date="2026-10-03" data-cat="arts" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w02.jpg" alt="Aspen Filmfest — Closing Weekend — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · OCT 3</p>
+        <p class="what">Aspen Filmfest — Closing Weekend</p>
+        <p class="where">Isis Theatre, 406 E Hopkins Ave, Aspen (screenings); closing reception Sat Oct 3, 10pm, Caribou Club</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="chris-collins-boulder-canyon-john-denver-tribute/" data-date="2026-10-03" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w04.jpg" alt="Chris Collins &amp; Boulder Canyon — John Denver Tribute — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · OCT 3</p>
+        <p class="what">Chris Collins &amp; Boulder Canyon — John Denver Tribute</p>
+        <p class="where">Wheeler Opera House, 320 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="49-winchester/" data-date="2026-10-08" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w15.jpg" alt="49 Winchester — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">THU · OCT 8</p>
+        <p class="what">49 Winchester</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="sugar-skull-a-d-a-de-muertos-musical-adventure/" data-date="2026-10-09" data-cat="arts" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-aspen-road.jpg" alt="Sugar Skull — A Día de Muertos Musical Adventure — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">FRI · OCT 9</p>
+        <p class="what">Sugar Skull — A Día de Muertos Musical Adventure</p>
+        <p class="where">Wheeler Opera House, 320 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="michelle-branch/" data-date="2026-10-10" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w22.jpg" alt="Michelle Branch — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · OCT 10</p>
+        <p class="what">Michelle Branch</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="craig-robinson/" data-date="2026-10-14" data-cat="comedy" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w05.jpg" alt="Craig Robinson — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">WED · OCT 14</p>
+        <p class="what">Craig Robinson</p>
+        <p class="where">Wheeler Opera House, 320 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="changemaker-speaker-series-kiliii-yuyan-indigenous-wisdom-fo/" data-date="2026-10-20" data-cat="speakers" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-golden-grove.jpg" alt="Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">TUE · OCT 20</p>
+        <p class="what">Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="manual-cinema-s-the-4th-witch/" data-date="2026-10-23" data-cat="arts" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-fall-valley.jpg" alt="Manual Cinema&#x27;s The 4th Witch — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">FRI · OCT 23</p>
+        <p class="what">Manual Cinema&#x27;s The 4th Witch</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="vienna-boys-choir/" data-date="2026-10-24" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w23.jpg" alt="Vienna Boys Choir — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · OCT 24</p>
+        <p class="what">Vienna Boys Choir</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="metalachi/" data-date="2026-10-29" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w30.jpg" alt="Metalachi — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">THU · OCT 29</p>
+        <p class="what">Metalachi</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="digable-planets/" data-date="2026-10-30" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w06.jpg" alt="Digable Planets — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">FRI · OCT 30</p>
+        <p class="what">Digable Planets</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="haunted-hotel-halloween-party-at-w-aspen/" data-date="2026-10-31" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w13.jpg" alt="Haunted Hotel Halloween Party at W Aspen — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · OCT 31</p>
+        <p class="what">Haunted Hotel Halloween Party at W Aspen</p>
+        <p class="where">W Aspen, 550 S Spring Street, Aspen, CO 81611</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="the-black-angels-with-ghostwoman/" data-date="2026-11-14" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w20.jpg" alt="The Black Angels with GHOSTWOMAN — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · NOV 14</p>
+        <p class="what">The Black Angels with GHOSTWOMAN</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="foy-vance-world-tour-with-bonnie-bishop-ryan-mcmullan/" data-date="2026-11-19" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w27.jpg" alt="Foy Vance World Tour with Bonnie Bishop &amp; Ryan McMullan — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">THU · NOV 19</p>
+        <p class="what">Foy Vance World Tour with Bonnie Bishop &amp; Ryan McMullan</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="bonobo/" data-date="2026-11-20" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w03.jpg" alt="Bonobo — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">FRI · NOV 20</p>
+        <p class="what">Bonobo</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="suzy-bogguss-a-swingin-little-christmas/" data-date="2026-11-28" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w10.jpg" alt="Suzy Bogguss: A Swingin&#x27; Little Christmas — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · NOV 28</p>
+        <p class="what">Suzy Bogguss: A Swingin&#x27; Little Christmas</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="the-wooten-brothers/" data-date="2026-12-07" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w17.jpg" alt="The Wooten Brothers — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">MON · DEC 7</p>
+        <p class="what">The Wooten Brothers</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="eddie-ifft-the-last-chair-tour/" data-date="2026-12-12" data-cat="comedy" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w24.jpg" alt="EDDiE iFFT: The Last Chair Tour — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · DEC 12</p>
+        <p class="what">EDDiE iFFT: The Last Chair Tour</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="ismo-perseverance-tour/" data-date="2026-12-12" data-cat="comedy" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w31.jpg" alt="Ismo: Perseverance Tour — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SAT · DEC 12</p>
+        <p class="what">Ismo: Perseverance Tour</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="danceaspen-a-snowy-soiree/" data-date="2026-12-22" data-cat="dance" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w07.jpg" alt="DanceAspen: A Snowy Soiree — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">TUE · DEC 22</p>
+        <p class="what">DanceAspen: A Snowy Soiree</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="john-oates-and-the-good-road-band/" data-date="2026-12-27" data-cat="music" data-weekend="1" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w14.jpg" alt="John Oates and the Good Road Band — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">SUN · DEC 27</p>
+        <p class="what">John Oates and the Good Road Band</p>
+        <p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="lcd-soundsystem-new-year-s-eve-2026/" data-date="2026-12-30" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w21.jpg" alt="LCD Soundsystem — New Year&#x27;s Eve 2026 — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">WED · DEC 30</p>
+        <p class="what">LCD Soundsystem — New Year&#x27;s Eve 2026</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="evcard" href="lcd-soundsystem-new-year-s-eve-2026-2/" data-date="2026-12-31" data-cat="music" data-weekend="0" data-free="0">
+        <img src="../../assets/img/ron-delhaye-w28.jpg" alt="LCD Soundsystem — New Year&#x27;s Eve 2026 — photograph by Ron Delhaye" loading="lazy">
+        <div><p class="when">THU · DEC 31</p>
+        <p class="what">LCD Soundsystem — New Year&#x27;s Eve 2026</p>
+        <p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+  </div>
+  <section class="tonight">
+    <div class="wrap">
+      <p class="kicker">● LIVE FROM THE GUIDE</p>
+      <h2 class="serif">Tonight &amp; tomorrow</h2>
+      <p class="sub serif">The guide never sleeps — here’s what’s on right now.</p>
+      <div class="cards">
+      <a class="card" href="snowmass-balloon-festival-final-launch/" data-date="2026-09-27">
+        <img src="../../assets/img/ron-delhaye-w11.jpg" alt="Snowmass Balloon Festival — Final Launch">
+        <div><p class="when">SUN · SEP 27</p><p class="what">Snowmass Balloon Festival — Final Launch</p><p class="where">Snowmass Town Park, 2000 Brush Creek Rd, Snowmass Village</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="aspen-literary-festival-closing-day/" data-date="2026-09-27">
+        <img src="../../assets/img/ron-delhaye-w18.jpg" alt="Aspen Literary Festival — Closing Day">
+        <div><p class="when">SUN · SEP 27</p><p class="what">Aspen Literary Festival — Closing Day</p><p class="where">Downtown Aspen (Wheeler Opera House, Library, Community Church)</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="aspen-restaurant-week-autumn-final-evening/" data-date="2026-09-27">
+        <img src="../../assets/img/ron-delhaye-w25.jpg" alt="Aspen Restaurant Week Autumn — Final Evening">
+        <div><p class="when">SUN · SEP 27</p><p class="what">Aspen Restaurant Week Autumn — Final Evening</p><p class="where">Participating restaurants, Aspen</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="bombargo-at-belly-up/" data-date="2026-09-27">
+        <img src="../../assets/img/ron-delhaye-w01.jpg" alt="Bombargo at Belly Up">
+        <div><p class="when">SUN · SEP 27</p><p class="what">Bombargo at Belly Up</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="maroon-bells-at-peak-color/" data-date="2026-09-28">
+        <img src="../../assets/img/ron-delhaye-w08.jpg" alt="Maroon Bells at Peak Color">
+        <div><p class="when">MON · SEP 28</p><p class="what">Maroon Bells at Peak Color</p><p class="where">Maroon Bells Scenic Area (shuttle from Aspen Highlands)</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="aspen-art-museum-fall-exhibitions/" data-date="2026-09-29">
+        <img src="../../assets/img/ron-delhaye-w01.jpg" alt="Aspen Art Museum — Fall Exhibitions">
+        <div><p class="when">TUE · SEP 29</p><p class="what">Aspen Art Museum — Fall Exhibitions</p><p class="where">Aspen Art Museum, 637 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="aspen-filmfest-opening-day-47th/" data-date="2026-09-29">
+        <img src="../../assets/img/ron-delhaye-w08.jpg" alt="Aspen Filmfest — Opening Day (47th)">
+        <div><p class="when">TUE · SEP 29</p><p class="what">Aspen Filmfest — Opening Day (47th)</p><p class="where">The Grove, 315 E Hyman Ave, Aspen (opening reception); screenings at Isis Theatre, 406 E Hopkins Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="michigander-at-belly-up/" data-date="2026-09-29">
+        <img src="../../assets/img/ron-delhaye-w15.jpg" alt="Michigander at Belly Up">
+        <div><p class="when">TUE · SEP 29</p><p class="what">Michigander at Belly Up</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="john-denver-celebration-opening-day/" data-date="2026-09-30">
+        <img src="../../assets/img/ron-delhaye-w22.jpg" alt="John Denver Celebration — Opening Day">
+        <div><p class="when">WED · SEP 30</p><p class="what">John Denver Celebration — Opening Day</p><p class="where">Various venues, Aspen &amp; Snowmass</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="an-evening-with-tom-rush-accompanied-by-brendan-cleary/" data-date="2026-10-01">
+        <img src="../../assets/img/ron-delhaye-aspen-road.jpg" alt="An Evening with Tom Rush accompanied by Brendan Cleary">
+        <div><p class="when">THU · OCT 1</p><p class="what">An Evening with Tom Rush accompanied by Brendan Cleary</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="an-evening-with-pink-talking-fish/" data-date="2026-10-01">
+        <img src="../../assets/img/ron-delhaye-w05.jpg" alt="An Evening with Pink Talking Fish">
+        <div><p class="when">THU · OCT 1</p><p class="what">An Evening with Pink Talking Fish</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="mack-bailey-and-chris-nole-poems-prayers-promises-the-songs/" data-date="2026-10-02">
+        <img src="../../assets/img/ron-delhaye-w12.jpg" alt="Mack Bailey and Chris Nole: Poems, Prayers &amp; Promises: The Songs of John Denver">
+        <div><p class="when">FRI · OCT 2</p><p class="what">Mack Bailey and Chris Nole: Poems, Prayers &amp; Promises: The Songs of John Denver</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="aspen-saturday-market-season-finale/" data-date="2026-10-03">
+        <img src="../../assets/img/ron-delhaye-w19.jpg" alt="Aspen Saturday Market — Season Finale">
+        <div><p class="when">SAT · OCT 3</p><p class="what">Aspen Saturday Market — Season Finale</p><p class="where">Downtown Aspen (Galena &amp; Hopkins)</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="carbondale-potato-day/" data-date="2026-10-03">
+        <img src="../../assets/img/ron-delhaye-w26.jpg" alt="Carbondale Potato Day">
+        <div><p class="when">SAT · OCT 3</p><p class="what">Carbondale Potato Day</p><p class="where">Main Street &amp; Sopris Park, Carbondale</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="aspen-filmfest-closing-weekend/" data-date="2026-10-03">
+        <img src="../../assets/img/ron-delhaye-w02.jpg" alt="Aspen Filmfest — Closing Weekend">
+        <div><p class="when">SAT · OCT 3</p><p class="what">Aspen Filmfest — Closing Weekend</p><p class="where">Isis Theatre, 406 E Hopkins Ave, Aspen (screenings); closing reception Sat Oct 3, 10pm, Caribou Club</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="chris-collins-boulder-canyon-john-denver-tribute/" data-date="2026-10-03">
+        <img src="../../assets/img/ron-delhaye-w04.jpg" alt="Chris Collins &amp; Boulder Canyon — John Denver Tribute">
+        <div><p class="when">SAT · OCT 3</p><p class="what">Chris Collins &amp; Boulder Canyon — John Denver Tribute</p><p class="where">Wheeler Opera House, 320 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="49-winchester/" data-date="2026-10-08">
+        <img src="../../assets/img/ron-delhaye-w15.jpg" alt="49 Winchester">
+        <div><p class="when">THU · OCT 8</p><p class="what">49 Winchester</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="sugar-skull-a-d-a-de-muertos-musical-adventure/" data-date="2026-10-09">
+        <img src="../../assets/img/ron-delhaye-aspen-road.jpg" alt="Sugar Skull — A Día de Muertos Musical Adventure">
+        <div><p class="when">FRI · OCT 9</p><p class="what">Sugar Skull — A Día de Muertos Musical Adventure</p><p class="where">Wheeler Opera House, 320 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="michelle-branch/" data-date="2026-10-10">
+        <img src="../../assets/img/ron-delhaye-w22.jpg" alt="Michelle Branch">
+        <div><p class="when">SAT · OCT 10</p><p class="what">Michelle Branch</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="craig-robinson/" data-date="2026-10-14">
+        <img src="../../assets/img/ron-delhaye-w05.jpg" alt="Craig Robinson">
+        <div><p class="when">WED · OCT 14</p><p class="what">Craig Robinson</p><p class="where">Wheeler Opera House, 320 E Hyman Ave</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="changemaker-speaker-series-kiliii-yuyan-indigenous-wisdom-fo/" data-date="2026-10-20">
+        <img src="../../assets/img/ron-delhaye-golden-grove.jpg" alt="Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World">
+        <div><p class="when">TUE · OCT 20</p><p class="what">Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="manual-cinema-s-the-4th-witch/" data-date="2026-10-23">
+        <img src="../../assets/img/ron-delhaye-fall-valley.jpg" alt="Manual Cinema&#x27;s The 4th Witch">
+        <div><p class="when">FRI · OCT 23</p><p class="what">Manual Cinema&#x27;s The 4th Witch</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="vienna-boys-choir/" data-date="2026-10-24">
+        <img src="../../assets/img/ron-delhaye-w23.jpg" alt="Vienna Boys Choir">
+        <div><p class="when">SAT · OCT 24</p><p class="what">Vienna Boys Choir</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="metalachi/" data-date="2026-10-29">
+        <img src="../../assets/img/ron-delhaye-w30.jpg" alt="Metalachi">
+        <div><p class="when">THU · OCT 29</p><p class="what">Metalachi</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="digable-planets/" data-date="2026-10-30">
+        <img src="../../assets/img/ron-delhaye-w06.jpg" alt="Digable Planets">
+        <div><p class="when">FRI · OCT 30</p><p class="what">Digable Planets</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="haunted-hotel-halloween-party-at-w-aspen/" data-date="2026-10-31">
+        <img src="../../assets/img/ron-delhaye-w13.jpg" alt="Haunted Hotel Halloween Party at W Aspen">
+        <div><p class="when">SAT · OCT 31</p><p class="what">Haunted Hotel Halloween Party at W Aspen</p><p class="where">W Aspen, 550 S Spring Street, Aspen, CO 81611</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="the-black-angels-with-ghostwoman/" data-date="2026-11-14">
+        <img src="../../assets/img/ron-delhaye-w20.jpg" alt="The Black Angels with GHOSTWOMAN">
+        <div><p class="when">SAT · NOV 14</p><p class="what">The Black Angels with GHOSTWOMAN</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="foy-vance-world-tour-with-bonnie-bishop-ryan-mcmullan/" data-date="2026-11-19">
+        <img src="../../assets/img/ron-delhaye-w27.jpg" alt="Foy Vance World Tour with Bonnie Bishop &amp; Ryan McMullan">
+        <div><p class="when">THU · NOV 19</p><p class="what">Foy Vance World Tour with Bonnie Bishop &amp; Ryan McMullan</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="bonobo/" data-date="2026-11-20">
+        <img src="../../assets/img/ron-delhaye-w03.jpg" alt="Bonobo">
+        <div><p class="when">FRI · NOV 20</p><p class="what">Bonobo</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="suzy-bogguss-a-swingin-little-christmas/" data-date="2026-11-28">
+        <img src="../../assets/img/ron-delhaye-w10.jpg" alt="Suzy Bogguss: A Swingin&#x27; Little Christmas">
+        <div><p class="when">SAT · NOV 28</p><p class="what">Suzy Bogguss: A Swingin&#x27; Little Christmas</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="the-wooten-brothers/" data-date="2026-12-07">
+        <img src="../../assets/img/ron-delhaye-w17.jpg" alt="The Wooten Brothers">
+        <div><p class="when">MON · DEC 7</p><p class="what">The Wooten Brothers</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="eddie-ifft-the-last-chair-tour/" data-date="2026-12-12">
+        <img src="../../assets/img/ron-delhaye-w24.jpg" alt="EDDiE iFFT: The Last Chair Tour">
+        <div><p class="when">SAT · DEC 12</p><p class="what">EDDiE iFFT: The Last Chair Tour</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="ismo-perseverance-tour/" data-date="2026-12-12">
+        <img src="../../assets/img/ron-delhaye-w31.jpg" alt="Ismo: Perseverance Tour">
+        <div><p class="when">SAT · DEC 12</p><p class="what">Ismo: Perseverance Tour</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="danceaspen-a-snowy-soiree/" data-date="2026-12-22">
+        <img src="../../assets/img/ron-delhaye-w07.jpg" alt="DanceAspen: A Snowy Soiree">
+        <div><p class="when">TUE · DEC 22</p><p class="what">DanceAspen: A Snowy Soiree</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="john-oates-and-the-good-road-band/" data-date="2026-12-27">
+        <img src="../../assets/img/ron-delhaye-w14.jpg" alt="John Oates and the Good Road Band">
+        <div><p class="when">SUN · DEC 27</p><p class="what">John Oates and the Good Road Band</p><p class="where">Wheeler Opera House</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="lcd-soundsystem-new-year-s-eve-2026/" data-date="2026-12-30">
+        <img src="../../assets/img/ron-delhaye-w21.jpg" alt="LCD Soundsystem — New Year&#x27;s Eve 2026">
+        <div><p class="when">WED · DEC 30</p><p class="what">LCD Soundsystem — New Year&#x27;s Eve 2026</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="card" href="lcd-soundsystem-new-year-s-eve-2026-2/" data-date="2026-12-31">
+        <img src="../../assets/img/ron-delhaye-w28.jpg" alt="LCD Soundsystem — New Year&#x27;s Eve 2026">
+        <div><p class="when">THU · DEC 31</p><p class="what">LCD Soundsystem — New Year&#x27;s Eve 2026</p><p class="where">Belly Up Aspen, 450 S Galena St</p></div>
+        <span class="arrow">&rarr;</span>
+      </a>
+      </div>
+    </div>
+  </section>
+</div>
+<footer class="site-footer">
+    <div class="sf-grid">
+      <div class="sf-brand">
+        <p class="sf-kicker">From Aspen and Beyond</p>
+        <p class="sf-name">The Golden Hour</p>
+        <p class="sf-tag">A weekly field guide to what&#x27;s on &mdash; music, art, and high-country happenings, verified before publication.</p>
+      </div>
+      <nav class="sf-col" aria-label="Explore the guide">
+        <h3>Explore</h3>
+        <a href="../../index.html">Latest</a>
+        <a href="../../upcoming/">Upcoming</a>
+        <a href="../../events/">Events</a>
+        <a href="../../calendar/">Calendar</a>
+        <a href="../../map/">Map</a>
+      </nav>
+      <nav class="sf-col" aria-label="Curated by The Golden Hour">
+        <h3>Curated</h3>
+        <a href="../../picks/">Top Picks</a>
+        <a href="../../editions/">Archive</a>
+        <a href="../../activities/">Activities</a>
+      </nav>
+      <div class="sf-col sf-trust">
+        <h3>Our promise</h3>
+        <p>Every event verified against official sources before publication. No ads, no pay-to-play. Details may change &mdash; please confirm with the venue.</p>
+        <a href="../../sources/">How we verify &rarr;</a>
+      </div>
+    </div>
+    <div class="sf-base">
+      <p>&copy; 2026 The Golden Hour &middot; Photography by Ron Delhaye Studios &middot; An Ad Astra Media publication.</p>
+    </div>
+  </footer>
+<script>
+(function(){
+  try{
+    var fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'});
+    var today=fmt.format(new Date());
+    function alive(c){return c.getAttribute('data-date')>=today;}
+    document.querySelectorAll('.evcard').forEach(function(c){ if(!alive(c)) c.style.display='none'; });
+    var pcards=document.querySelectorAll('.tonight .card');
+    var vis=0;
+    pcards.forEach(function(c){
+      var d=c.getAttribute('data-date');
+      var t=new Date(today+'T12:00:00'); var dd=new Date(d+'T12:00:00');
+      var days=Math.round((dd-t)/864e5);
+      if(d<today||days>2){c.style.display='none';} else {vis++;}
+    });
+    if(vis===0){var s=document.querySelector('.tonight'); if(s) s.style.display='none';}
+    document.querySelectorAll('.evchips button').forEach(function(b){
+      b.addEventListener('click',function(){
+        document.querySelectorAll('.evchips button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+        b.setAttribute('aria-pressed','true');
+        var f=b.getAttribute('data-filter');
+        document.querySelectorAll('.evcard').forEach(function(c){
+          if(!alive(c)) return;
+          var show=true;
+          if(f==='weekend') show=c.getAttribute('data-weekend')==='1';
+          else if(f==='music') show=c.getAttribute('data-cat')==='music';
+          else if(f==='art') show=(c.getAttribute('data-cat')==='arts');
+          else if(f==='outdoors') show=c.getAttribute('data-cat')==='outdoors';
+          else if(f==='free') show=c.getAttribute('data-free')==='1';
+          c.style.display=show?'':'none';
+        });
+      });
+    });
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
