@@ -2,23 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The Golden Hour</title>
-<meta name="description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
-<link rel="canonical" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
-<meta property="og:title" content="The Golden Hour">
-<meta property="og:description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
-<meta property="og:image" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/img/og-events.jpg">
-<meta name="theme-color" content="#0d2137">
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("/this-week-in-aspen/sw.js", { scope: "/this-week-in-aspen/" });
-  });
-}
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="/this-week-in-aspen/manifest.json">
 <meta name="theme-color" content="#0a1628">
 <meta name="mobile-web-app-capable" content="yes">
@@ -26,233 +10,141 @@ if ("serviceWorker" in navigator) {
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Golden Hour">
 <link rel="apple-touch-icon" href="/this-week-in-aspen/icons/apple-touch-icon.png">
-<script src="assets/js/analytics-config.js"></script>
-<script defer src="assets/js/analytics.js"></script>
+<script>
+if ("serviceWorker" in navigator) {{
+  window.addEventListener("load", function () {{
+    navigator.serviceWorker.register("/this-week-in-aspen/sw.js", {{ scope: "/this-week-in-aspen/" }});
+  }});
+}
+</script><title>The Golden Hour</title>
+<meta name="description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
+<link rel="canonical" href="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
+<meta property="og:title" content="The Golden Hour">
+<meta property="og:description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
+<meta property="og:site_name" content="The Golden Hour">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Golden Hour">
+<meta name="twitter:description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
+<meta name="theme-color" content="#103D60">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:#1d1a16;
-  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;background:#fdfcf8}
-.serif{font-family:"Cormorant Garamond",Didot,Georgia,serif}
-:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--hair:#e4ded1;--accent:#103d60;
-  --navy:#0d2137;--gold:#d9a94a;--gold-deep:#b98a1d}
+:root{--paper:#fdfcf8;--ink:#1d1a16;--muted:#6e675c;--faint:#a39a8b;--hair:#e4ded1;--accent:#103d60;--gold:#b98a1d;--serif:"Cormorant Garamond",Didot,"Bodoni MT",Georgia,"Times New Roman",serif;--sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .page{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+  .masthead{text-align:center;margin-bottom:2rem}
+  .kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 .8rem}
+  .brand{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,7vw,3.4rem);margin:0 0 .6rem;letter-spacing:.02em}
+  .rule-double{border:0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);height:5px;padding:1px 0;margin:1.2rem 0}
+  .tagline{color:var(--muted);font-style:italic;margin:0;max-width:34rem;margin-left:auto;margin-right:auto}
+  nav.site-nav{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 0;
+               font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+  nav.site-nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+  nav.site-nav a.active{font-weight:700;border-bottom:3px solid var(--accent)}
+  h2.section{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
+  .lede{color:var(--muted);font-size:1.02rem;max-width:36rem}
+  .btn{display:inline-block;border:1px solid var(--accent);color:var(--ink);padding:.6rem 1.3rem;
+       text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;background:transparent}
+  .btn:hover{background:var(--accent);color:#fff}
+  .colophon{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--hair);
+            font-size:.8rem;color:var(--muted);text-align:center}
+  .colophon .foot-links a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
+  .explore{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.9rem;margin:1.4rem 0}
+  .explore a{display:block;border:1px solid var(--hair);background:#fff;padding:1.1rem 1rem;text-decoration:none;color:var(--ink)}
+  .explore a:hover{border-color:var(--accent)}
+  .explore .ek{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+  .explore h3{font-family:var(--serif);font-size:1.2rem;margin:0 0 .25rem;font-weight:600}
+  .explore p{font-size:.85rem;color:var(--muted);margin:0}
 
-/* ===== EVENTS-FIRST hero ===== */
-.hero-ev{min-height:100vh;min-height:100svh;position:relative;display:flex;flex-direction:column;background:#0d2137}
-.hero-ev nav{position:relative;z-index:3;display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;
-  padding:1.1rem 1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
-.hero-ev nav a{color:rgba(255,255,255,.92);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
-.hero-ev nav a:hover{border-color:var(--gold)}
-.hero-ev .inner{position:relative;z-index:2;padding:0 7vw;margin:auto 0 8vh;max-width:58rem;width:100%;
-  margin-left:auto;margin-right:auto}
-.hero-ev .kicker{font-size:.72rem;letter-spacing:.4em;text-indent:.4em;color:#e9d9ae;margin-bottom:3vh;text-align:center}
-.hero-ev .tkicker{text-align:center;font-size:.8rem;letter-spacing:.4em;text-indent:.4em;color:var(--gold);font-weight:700;margin-bottom:1vh}
-.feat{padding:2.6vh 0;border-top:1px solid rgba(217,169,74,.35)}
-.feat.last{border-bottom:1px solid rgba(217,169,74,.35)}
-.fwhen{font-size:.72rem;letter-spacing:.25em;color:var(--gold);font-weight:700;margin:0 0 .6rem}
-a.fname{font-weight:600;font-size:clamp(2.4rem,10vw,5rem);line-height:1.04;color:#fff;
-  text-decoration:none;text-shadow:0 2px 30px rgba(0,0,0,.45)}
-a.fname:hover{color:var(--gold)}
-.fsub{font-style:italic;color:rgba(255,255,255,.85);font-size:1.05rem;margin:.5rem 0 1rem}
-.ftix{display:inline-block;color:#0d2137;background:var(--gold);text-decoration:none;
-  letter-spacing:.2em;text-indent:.2em;font-size:.75rem;font-weight:700;padding:.7rem 1.6rem}
-.ftix:hover{background:#fff}
-.wknd{margin:3.5vh 0}
-.wknd-kicker{font-size:.72rem;letter-spacing:.3em;color:#9fb0c3;font-weight:600;margin:0 0 .6rem}
-.wknd a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;color:#fff;text-decoration:none;
-  padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:.95rem}
-.wknd a:hover{color:var(--gold)}
-.wknd .wd{color:var(--gold);font-weight:700;font-size:.75rem;letter-spacing:.15em;flex:0 0 2.6rem}
-.wknd .go{color:var(--gold);flex:0 0 auto}
-.hero-ev .cta{display:inline-block;color:#fff;text-decoration:none;letter-spacing:.25em;text-indent:.25em;
-  font-size:.85rem;border:1px solid var(--gold);padding:1rem 2.4rem;background:rgba(217,169,74,.14);margin-top:1vh}
-.hero-ev .cta:hover{background:var(--gold);color:#0d2137}
+  .hero{border:1px solid var(--hair);padding:1.6rem 1.4rem;margin-top:1rem;background:#fff}
+  .hero .ed-range{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .hero h3{font-family:var(--serif);font-size:1.6rem;margin:.4rem 0 .4rem}
+  .hero p{color:var(--muted);margin:.4rem 0 1rem}
+  ul.archive{list-style:none;padding:0;margin:1rem 0}
+  ul.archive li{padding:.7rem 0;border-bottom:1px solid var(--hair)}
+  ul.archive a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px}
+  ul.archive .when{display:block;font-size:.8rem;color:var(--muted)}
+  .method{border-left:2px solid var(--accent);padding:.4rem 0 .4rem 1rem;color:var(--muted);
+          font-style:italic;margin:1.2rem 0}
+  .pagetitle h2{font-family:var(--serif);font-weight:600;font-size:2rem;margin:.2rem 0 .4rem}
+  .rubric{counter-reset:step;list-style:none;padding:0;margin:1.2rem 0}
+  .rubric li{counter-increment:step;position:relative;padding:.7rem 0 .7rem 2.6rem;border-bottom:1px solid var(--hair)}
+  .rubric li::before{content:counter(step);position:absolute;left:0;top:.65rem;width:1.7rem;height:1.7rem;
+    border:1.5px solid var(--accent);color:var(--accent);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+  .rubric li b{display:block;font-size:.95rem}
+  .rubric li span{color:var(--muted);font-size:.9rem}
+  .pick{border:1px solid var(--hair);background:#fff;padding:1.2rem;margin:0 0 1rem}
+  .pick .cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+  .pick h3{font-family:var(--serif);font-size:1.3rem;margin:0 0 .25rem}
+  .pick .score{display:inline-block;border:1.5px solid var(--gold);color:var(--ink);font-weight:700;
+    font-size:.85rem;padding:.15rem .6rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
+  .pick .why{margin:.5rem 0;font-size:.95rem}
+  .pick .src{font-size:.82rem;color:var(--muted);margin:.2rem 0}
+  table.src{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.92rem}
+  table.src th{text-align:left;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+               color:var(--muted);border-bottom:1px solid var(--accent);padding:.5rem .4rem}
+  table.src td{border-bottom:1px solid var(--hair);padding:.6rem .4rem;vertical-align:top}
+  table.src a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px}
+  .rel-highest,.rel-high,.rel-medium,.rel-low{display:inline-block;padding:.28rem .8rem;border-radius:999px;
+               font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+               border:1.5px solid;white-space:nowrap}
+  .rel-highest{color:#1b5e20;border-color:#2e7d32;background:#e8f5e9}
+  .rel-high{color:#33691e;border-color:#558b2f;background:#f1f8e9}
+  .rel-medium{color:#7a5c14;border-color:#b89b3e;background:#fdf6e3}
+  .rel-low{color:#8f2d2d;border-color:#c05757;background:#fbeeee}
+  table.desk{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.86rem}
+  table.desk th{text-align:left;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+                color:var(--muted);border-bottom:1px solid var(--accent);padding:.5rem .35rem}
+  table.desk td{border-bottom:1px solid var(--hair);padding:.55rem .35rem;vertical-align:top}
+  .pill{display:inline-block;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+        border:1px solid;padding:.15rem .55rem;border-radius:2px;white-space:nowrap}
+  .st-verified-official{border-color:#2e7d32;color:#2e7d32}
+  .st-verified-secondary{border-color:#33691e;color:#33691e}
+  .st-needs-check{border-color:#8f7134;color:#8f7134}
+  .st-time-conflict{border-color:#b3261e;color:#b3261e}
+  .st-replaced{border-color:#6e675c;color:#6e675c}
+  .flag{border:1px solid var(--ink);font-size:.68rem;padding:.1rem .4rem;white-space:nowrap}
+  @media print{ nav.site-nav, .btn {display:none} }
 
-/* ===== DIRECTION 3 · TONIGHT pulse ===== */
-.tonight{background:var(--navy);color:#f6f1e6;padding:11vh 6vw 10vh}
-.tonight .wrap{max-width:60rem;margin:0 auto}
-.tonight .kicker{font-size:.72rem;letter-spacing:.35em;color:var(--gold);margin-bottom:1rem;font-weight:600}
-.tonight h2{font-weight:600;font-size:clamp(2.4rem,10vw,4.5rem);line-height:1.02;color:#fff;margin-bottom:.5rem}
-.tonight .sub{color:#9fb0c3;font-style:italic;margin-bottom:2.4rem}
-.tonight .cards{display:grid;gap:1rem}
-.tonight .card{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;
-  background:rgba(255,255,255,.05);border:1px solid rgba(217,169,74,.25);
-  padding:1rem 1.2rem;text-decoration:none;color:inherit}
-.tonight .card:hover{border-color:var(--gold)}
-.tonight .when{font-size:.68rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.3rem}
-.tonight .what{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;font-weight:600;color:#fff;line-height:1.2;margin-bottom:.2rem}
-.tonight .where{font-size:.85rem;color:#9fb0c3}
-.tonight .arrow{font-size:1.6rem;color:var(--gold)}
-.tonight .cta{display:inline-block;margin-top:2.2rem;color:var(--navy);background:var(--gold);text-decoration:none;
-  letter-spacing:.2em;font-size:.8rem;font-weight:700;padding:1rem 2.2rem}
-@media(min-width:700px){.tonight .cards{grid-template-columns:repeat(3,1fr)}}
-
-/* ===== THE WEEK AHEAD lineup ===== */
-.week{padding:11vh 7vw 10vh;max-width:60rem;margin:0 auto}
-.week .dateline{font-size:.72rem;letter-spacing:.3em;color:var(--accent);margin-bottom:1.2rem;font-weight:600}
-.week h2{font-weight:600;font-size:clamp(2.6rem,11vw,5.5rem);line-height:1.02;margin-bottom:2rem}
-.week h2 em{font-style:italic;font-weight:500}
-.week .standfirst{font-size:1.05rem;line-height:1.7;color:#4a443b;max-width:36rem;margin-bottom:2rem}
-.lrow{display:grid;grid-template-columns:4.4rem 1fr auto;gap:1.2rem;align-items:center;
-  padding:1.1rem .2rem;border-top:1px solid var(--hair);text-decoration:none;color:inherit}
-.lrow:last-child{border-bottom:1px solid var(--hair)}
-.lrow:hover .lname{color:var(--accent)}
-.ldate{font-size:.72rem;letter-spacing:.12em;font-weight:700;color:var(--accent);line-height:1.6}
-.lname{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.45rem;font-weight:600;line-height:1.2;display:block}
-.lvenue{font-size:.85rem;color:var(--muted)}
-.larrow{font-size:1.4rem;color:var(--gold-deep)}
-.week .cta{display:inline-block;border:1px solid var(--accent);color:var(--accent);text-decoration:none;
-  letter-spacing:.15em;font-size:.82rem;padding:.85rem 1.8rem;font-weight:600;margin-top:2.2rem}
-.week .cta:hover{background:var(--accent);color:#fff}
-
-/* ===== guide body (kept from the live site) ===== */
-.guide{max-width:46rem;margin:0 auto;padding:0 1.25rem 3rem}
-h2.section{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.7rem;margin:2.8rem 0 .8rem}
-.lede{color:var(--muted);font-size:1.02rem;max-width:36rem}
-.btn{display:inline-block;border:1px solid var(--accent);color:var(--ink);padding:.6rem 1.3rem;
-  text-decoration:none;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;background:transparent}
-.btn:hover{background:var(--accent);color:#fff}
-.explore{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.9rem;margin:1.4rem 0}
-.explore a{display:block;border:1px solid var(--hair);background:#fff;padding:1.1rem 1rem;text-decoration:none;color:var(--ink)}
-.explore a:hover{border-color:var(--accent)}
-.explore .ek{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
-.explore h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.2rem;margin:0 0 .25rem;font-weight:600}
-.explore p{font-size:.85rem;color:var(--muted);margin:0}
-.method{border-left:2px solid var(--accent);padding:.4rem 0 .4rem 1rem;color:var(--muted);
-  font-style:italic;margin:1.2rem 0}
-
-/* ===== footer ===== */
-footer.colophon{margin-top:3.5rem;padding:2rem 1.25rem 3rem;border-top:1px solid var(--hair);
-  font-size:.8rem;color:var(--muted);text-align:center}
-footer.colophon .foot-links{margin:.8rem 0}
-footer.colophon .foot-links a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:2px;margin:0 .35rem}
-footer.colophon .promise{font-style:italic;max-width:34rem;margin:0 auto 1rem}
-
-  .site-footer{background:#103d60;color:#f6f1e6;margin:3.5rem 0 0;padding:3.2rem 1.5rem 1.4rem}
-  .sf-grid{max-width:46rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:2.2rem 1.5rem}
-  .sf-kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#d9c48a;margin:0 0 .5rem}
-  .sf-name{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin:0 0 .6rem;color:#fff}
-  .sf-tag{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
-  .sf-col h3{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#d9c48a;margin:0 0 .8rem;font-weight:600;font-family:var(--sans)}
-  .sf-col a{display:block;color:#f6f1e6;text-decoration:none;font-size:.92rem;padding:.3rem 0}
-  .sf-col a:hover{color:#fff;text-decoration:underline;text-decoration-color:#d9c48a;text-underline-offset:3px}
-  .sf-trust p{font-size:.85rem;color:#c8d3e0;margin:0;line-height:1.7}
-  .sf-base{max-width:46rem;margin:2.6rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.18);text-align:center;font-size:.78rem;color:#93a5b8}
-  .sf-base p{margin:0}
 </style>
+<script src="assets/js/analytics-config.js"></script>
+<script defer src="assets/js/analytics.js"></script>
 </head>
 <body>
+<div class="page">
 
-<!-- EVENTS-FIRST hero -->
-<header class="hero-ev">
-  <nav aria-label="Sections">
-    <a href="index.html">Latest</a>
+  <header class="masthead">
+    <p class="kicker">From Aspen and Beyond</p>
+    <h1 class="brand">The Golden Hour</h1>
+    <hr class="rule-double">
+    <p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="index.html" class="active" aria-current="page">Latest</a>
     <a href="upcoming/">Upcoming</a>
-    <a href="events/">Events</a>
     <a href="calendar/">Calendar</a>
     <a href="map/">Map</a>
+    <a href="picks/">Top Picks</a>
+    <a href="editions/">Archive</a>
+    <a href="sources/">How we verify</a>
   </nav>
-  <div class="inner">
-    <p class="kicker">FROM ASPEN AND BEYOND &middot; THURSDAY, OCTOBER 1</p>
-    <p class="tkicker">&#9679; TONIGHT IN ASPEN</p>
-    <div class="feat">
-      <p class="fwhen">7:00 PM &middot; WHEELER OPERA HOUSE</p>
-      <a class="fname serif" href="events/an-evening-with-tom-rush-accompanied-by-brendan-cleary/">An Evening with Tom Rush</a>
-      <p class="fsub serif">With Brendan Cleary &mdash; the folk legend, up close.</p>
-      <a class="ftix" href="https://wheeleroperahouse.com/event/an-evening-with-tom-rush-accompani">TICKETS &#8599;</a>
-    </div>
-    <div class="feat last">
-      <p class="fwhen">9:00 PM &middot; BELLY UP ASPEN</p>
-      <a class="fname serif" href="events/an-evening-with-pink-talking-fish/">An Evening with Pink Talking Fish</a>
-      <p class="fsub serif">Pink Floyd &times; Talking Heads &times; Phish &mdash; the late-night set.</p>
-      <a class="ftix" href="https://bellyupaspen.com/events/an-evening-with-pink-talking-fish/">TICKETS &#8599;</a>
-    </div>
-    <div class="wknd">
-      <p class="wknd-kicker">THIS WEEKEND</p>
-      <a href="events/mack-bailey-and-chris-nole-poems-prayers-promises-the-songs/"><span class="wd">FRI</span><span>Mack Bailey &amp; Chris Nole &middot; Wheeler Opera House</span><span class="go">&rarr;</span></a>
-      <a href="events/aspen-saturday-market-season-finale/"><span class="wd">SAT</span><span>Saturday Market &mdash; Season Finale &middot; Downtown Aspen</span><span class="go">&rarr;</span></a>
-      <a href="events/carbondale-potato-day/"><span class="wd">SAT</span><span>Carbondale Potato Day &middot; Main Street</span><span class="go">&rarr;</span></a>
-    </div>
-    <a class="cta" href="events/">SEE ALL EVENTS &rarr;</a>
-  </div>
-</header>
+  </header>
 
-<!-- DIRECTION 3 · TONIGHT -->
-<section class="tonight">
-  <div class="wrap">
-    <p class="kicker">● LIVE FROM THE GUIDE</p>
-    <h2 class="serif">Tonight in Aspen</h2>
-    <p class="sub serif">The guide never sleeps — here's what's on right now.</p>
-    <div class="cards">
-      <a class="card" href="events/an-evening-with-tom-rush-accompanied-by-brendan-cleary/" data-date="2026-10-01">
-        <div><p class="when">TONIGHT &middot; 7:00 PM</p><p class="what">An Evening with Tom Rush</p><p class="where">Wheeler Opera House</p></div>
-        <span class="arrow">&rarr;</span>
-      </a>
-      <a class="card" href="events/an-evening-with-pink-talking-fish/" data-date="2026-10-01">
-        <div><p class="when">TONIGHT &middot; 9:00 PM</p><p class="what">An Evening with Pink Talking Fish</p><p class="where">Belly Up Aspen</p></div>
-        <span class="arrow">&rarr;</span>
-      </a>
-      <a class="card" href="events/mack-bailey-and-chris-nole-poems-prayers-promises-the-songs/" data-date="2026-10-02">
-        <div><p class="when">FRIDAY &middot; 7:30 PM</p><p class="what">Mack Bailey &amp; Chris Nole</p><p class="where">Wheeler Opera House</p></div>
-        <span class="arrow">&rarr;</span>
-      </a>
-    </div>
-    <a class="cta" href="events/">SEE EVERYTHING →</a>
+  <h2 class="section">This week</h2>
+  <div class="hero">
+    <p class="ed-range">Saturday, September 26 – Saturday, October 3, 2026</p>
+    <h3>The current edition</h3>
+    <p>Eight days of curated picks — arriving Saturday through departure Saturday — each one verified against official sources.</p>
+    <a class="btn" href="editions/2026-09-26/">Read the edition</a>
   </div>
-</section>
-
-<!-- THE WEEK AHEAD -->
-<section class="week">
-  <p class="dateline">THURSDAY, OCTOBER 1 &ndash; SUNDAY, OCTOBER 4, 2026</p>
-  <h2 class="serif">The week <em>ahead.</em></h2>
-  <p class="standfirst">Every event verified against official sources before it earns a place here. Pick your nights.</p>
-  <div class="lineup">
-    <a class="lrow" href="events/an-evening-with-tom-rush-accompanied-by-brendan-cleary/">
-      <span class="ldate">THU<br>OCT 1</span>
-      <span><span class="lname">An Evening with Tom Rush</span><span class="lvenue">Wheeler Opera House &middot; 7:00 PM</span></span>
-      <span class="larrow">&rarr;</span>
-    </a>
-    <a class="lrow" href="events/an-evening-with-pink-talking-fish/">
-      <span class="ldate">THU<br>OCT 1</span>
-      <span><span class="lname">An Evening with Pink Talking Fish</span><span class="lvenue">Belly Up Aspen &middot; 9:00 PM</span></span>
-      <span class="larrow">&rarr;</span>
-    </a>
-    <a class="lrow" href="events/mack-bailey-and-chris-nole-poems-prayers-promises-the-songs/">
-      <span class="ldate">FRI<br>OCT 2</span>
-      <span><span class="lname">Mack Bailey &amp; Chris Nole</span><span class="lvenue">Wheeler Opera House &middot; 7:30 PM</span></span>
-      <span class="larrow">&rarr;</span>
-    </a>
-    <a class="lrow" href="events/aspen-saturday-market-season-finale/">
-      <span class="ldate">SAT<br>OCT 3</span>
-      <span><span class="lname">Aspen Saturday Market &mdash; Season Finale</span><span class="lvenue">Downtown Aspen &middot; 9:00 AM</span></span>
-      <span class="larrow">&rarr;</span>
-    </a>
-    <a class="lrow" href="events/carbondale-potato-day/">
-      <span class="ldate">SAT<br>OCT 3</span>
-      <span><span class="lname">Carbondale Potato Day</span><span class="lvenue">Main Street, Carbondale &middot; 10:30 AM</span></span>
-      <span class="larrow">&rarr;</span>
-    </a>
-    <a class="lrow" href="events/aspen-filmfest-closing-weekend/">
-      <span class="ldate">SAT<br>OCT 3</span>
-      <span><span class="lname">Aspen Filmfest &mdash; Closing Weekend</span><span class="lvenue">Isis Theatre &middot; 12:00 PM</span></span>
-      <span class="larrow">&rarr;</span>
-    </a>
-    <a class="lrow" href="events/chris-collins-boulder-canyon-john-denver-tribute/">
-      <span class="ldate">SAT<br>OCT 3</span>
-      <span><span class="lname">Chris Collins &amp; Boulder Canyon</span><span class="lvenue">Wheeler Opera House &middot; 7:30 PM</span></span>
-      <span class="larrow">&rarr;</span>
-    </a>
-  </div>
-  <a class="cta" href="events/">BROWSE ALL EVENTS</a>
-</section>
-
-<!-- GUIDE BODY -->
-<main class="guide">
   <h2 class="section">Explore the live guide</h2>
-  <p class="lede">Every verified event, five ways in — always current, always sourced.</p>
+  <p class="lede">The guide never sleeps: every verified event, four ways in — always current, always sourced.</p>
   <div class="explore">
-    <a href="events/"><p class="ek">Enter</p><h3>Events</h3><p>Every verified event, each with its own page.</p></a>
     <a href="upcoming/"><p class="ek">Browse</p><h3>Upcoming</h3><p>Every verified event, soonest first.</p></a>
     <a href="calendar/"><p class="ek">Plan</p><h3>Calendar</h3><p>The month at a glance, Google-style.</p></a>
     <a href="map/"><p class="ek">Wander</p><h3>Map</h3><p>Every event placed on Colorado.</p></a>
@@ -262,52 +154,8 @@ footer.colophon .promise{font-style:italic;max-width:34rem;margin:0 auto 1rem}
   <h2 class="section">How we verify</h2>
   <p class="method">Every event is checked against the venue's own page or a trusted local source before it reaches you. Aggregator listings alone never make the cut — and when two sources disagree on a time, we hold the pick until one is authoritative.</p>
   <p><a class="btn" href="sources/">See our sources</a></p>
-</main>
-
-<footer class="site-footer">
-    <div class="sf-grid">
-      <div class="sf-brand">
-        <p class="sf-kicker">From Aspen and Beyond</p>
-        <p class="sf-name">The Golden Hour</p>
-        <p class="sf-tag">A weekly field guide to what&#x27;s on &mdash; music, art, and high-country happenings, verified before publication.</p>
-      </div>
-      <nav class="sf-col" aria-label="Explore the guide">
-        <h3>Explore</h3>
-        <a href="index.html">Latest</a>
-        <a href="upcoming/">Upcoming</a>
-        <a href="events/">Events</a>
-        <a href="calendar/">Calendar</a>
-        <a href="map/">Map</a>
-      </nav>
-      <nav class="sf-col" aria-label="Curated by The Golden Hour">
-        <h3>Curated</h3>
-        <a href="picks/">Top Picks</a>
-        <a href="editions/">Archive</a>
-        <a href="activities/">Activities</a>
-      </nav>
-      <div class="sf-col sf-trust">
-        <h3>Our promise</h3>
-        <p>Every event verified against official sources before publication. No ads, no pay-to-play. Details may change &mdash; please confirm with the venue.</p>
-        <a href="sources/">How we verify &rarr;</a>
-      </div>
-    </div>
-    <div class="sf-base">
-      <p>&copy; 2026 The Golden Hour &middot; Photography by Ron Delhaye Studios &middot; An Ad Astra Media publication.</p>
-    </div>
+  <footer class="colophon">
+    <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
+    <p class="foot-links"><a href="index.html">Latest</a> · <a href="upcoming/">Upcoming</a> · <a href="calendar/">Calendar</a> · <a href="map/">Map</a> · <a href="picks/">Top Picks</a> · <a href="activities/">Activities</a> · <a href="editions/">Archive</a> · <a href="sources/">How we verify</a></p>
+    <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>
   </footer>
-
-<script>
-// Hide tonight cards whose date has passed (America/Denver); hide the section if none remain.
-(function(){
-  try{
-    var fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'});
-    var today=fmt.format(new Date());
-    var cards=document.querySelectorAll('.tonight .card[data-date]');
-    var visible=0;
-    cards.forEach(function(c){ if(c.getAttribute('data-date')<today){c.style.display='none';} else {visible++;} });
-    if(visible===0){var s=document.querySelector('.tonight'); if(s) s.style.display='none';}
-  }catch(e){}
-})();
-</script>
-</body>
-</html>
