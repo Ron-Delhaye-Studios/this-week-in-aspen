@@ -320,22 +320,6 @@
   "image": "assets/browse/kiliii-yuyan-photographer.jpg"
  },
  {
-  "id": "5f89f002-2efc-47b3-9bb0-4541d3d3e02d",
-  "title": "Manual Cinema's The 4th Witch",
-  "venue": "Wheeler Opera House",
-  "lat": 39.1893496,
-  "lng": -106.8199254,
-  "accuracy": "rooftop",
-  "starts_at": "2026-10-24T01:30:00+00:00",
-  "ends_at": null,
-  "category": "arts",
-  "price_info": null,
-  "age_policy": "See wheeleroperahouse.com",
-  "url": "https://wheeleroperahouse.com/event/manual-cinemas-the-4th-witch/",
-  "blurb": "Chicago's Manual Cinema stages a shadow-puppetry cinema-theater piece at the Wheeler — handmade film, live music, and overhead projectors. Single-source listing so far; confirm time with the venue before sending guests.",
-  "image": "assets/browse/manual-cinema-4th-witch.jpg"
- },
- {
   "id": "a329622e-95ff-42e7-80b2-69c292cae0b2",
   "title": "Vienna Boys Choir",
   "venue": "Wheeler Opera House",
