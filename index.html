@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-title" content="Golden Hour">
 <link rel="apple-touch-icon" href="/this-week-in-aspen/icons/apple-touch-icon.png">
 <script>
-if ("serviceWorker" in navigator) {{
-  window.addEventListener("load", function () {{
-    navigator.serviceWorker.register("/this-week-in-aspen/sw.js", {{ scope: "/this-week-in-aspen/" }});
-  }});
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/this-week-in-aspen/sw.js", { scope: "/this-week-in-aspen/" });
+  });
 }
 </script><title>The Golden Hour</title>
 <meta name="description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
@@ -25,6 +25,8 @@ if ("serviceWorker" in navigator) {{
 <meta property="og:url" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/">
 <meta property="og:site_name" content="The Golden Hour">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/img/og-events.jpg">
+<meta name="twitter:image" content="https://ron-delhaye-studios.github.io/this-week-in-aspen/assets/img/og-events.jpg">
 <meta name="twitter:title" content="The Golden Hour">
 <meta name="twitter:description" content="The Golden Hour is a weekly field guide to what&#x27;s on in Aspen and beyond — music, art, and high-country happenings, verified before publication.">
 <meta name="theme-color" content="#103D60">
@@ -159,6 +161,28 @@ if ("serviceWorker" in navigator) {{
 </style>
 <script src="assets/js/analytics-config.js"></script>
 <script defer src="assets/js/analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://ron-delhaye-studios.github.io/this-week-in-aspen/#website",
+      "url": "https://ron-delhaye-studios.github.io/this-week-in-aspen/",
+      "name": "The Golden Hour",
+      "publisher": {
+        "@id": "https://ron-delhaye-studios.github.io/this-week-in-aspen/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://ron-delhaye-studios.github.io/this-week-in-aspen/#organization",
+      "name": "The Golden Hour",
+      "url": "https://ron-delhaye-studios.github.io/this-week-in-aspen/"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="page">
@@ -182,7 +206,7 @@ if ("serviceWorker" in navigator) {{
 <section class="ght" id="ghHero">
   <div class="ght-hero">
     <div class="ght-art">
-      <img id="ghtImg" src="assets/browse/craig-robinson.jpg" alt="Craig Robinson — official promo photo">
+      <img fetchpriority="high" id="ghtImg" src="assets/browse/craig-robinson.jpg" alt="Craig Robinson — official promo photo">
     </div>
     <div>
       <p class="ght-kick" id="ghtKick">● NEXT UP · WEDNESDAY NIGHT IN ASPEN</p>
@@ -206,16 +230,16 @@ if ("serviceWorker" in navigator) {{
     <h3 class="ghc-title">This week in <em>Aspen.</em></h3>
     <div class="ghc-collage">
       <figure class="ghc-big">
-        <img id="ghcImg1" src="assets/browse/craig-robinson.jpg" alt="Craig Robinson — official promo photo">
+        <img loading="lazy" id="ghcImg1" src="assets/browse/craig-robinson.jpg" alt="Craig Robinson — official promo photo">
         <figcaption id="ghcCap1">Craig Robinson — Wednesday at the Wheeler</figcaption>
       </figure>
       <div class="ghc-stack">
         <figure>
-          <img id="ghcImg2" src="assets/browse/kiliii-yuyan-photographer.jpg" alt="Kiliii Yuyan — official promo photo">
+          <img loading="lazy" id="ghcImg2" src="assets/browse/kiliii-yuyan-photographer.jpg" alt="Kiliii Yuyan — official promo photo">
           <figcaption id="ghcCap2">Kiliii Yuyan — Tuesday, Oct 20</figcaption>
         </figure>
         <figure>
-          <img id="ghcImg3" src="assets/browse/vienna-boys-choir.jpg" alt="Vienna Boys Choir — official promo photo">
+          <img loading="lazy" id="ghcImg3" src="assets/browse/vienna-boys-choir.jpg" alt="Vienna Boys Choir — official promo photo">
           <figcaption id="ghcCap3">Vienna Boys Choir — Saturday, Oct 24</figcaption>
         </figure>
       </div>
