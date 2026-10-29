@@ -76,6 +76,27 @@
   .page-hero{margin:0 0 2rem}
   .page-hero img{width:100%;height:clamp(200px,36vw,380px);object-fit:cover;display:block}
   .page-hero figcaption{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:.45rem;text-align:center}
+  .gh-dot{background:transparent;border:0}
+  .gh-dot .gh-dot-core{position:absolute;left:50%;top:50%;width:16px;height:16px;border-radius:50%;
+    border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35);transform:translate(-50%,-50%)}
+  @media (max-width:640px){
+    .masthead{padding:1.35rem .9rem 0}
+    .tagline{margin-bottom:.8rem}
+    nav.site-nav{gap:.65rem .9rem;font-size:.72rem}
+    #controls,#catrow{padding:0 .75rem;gap:.4rem}
+    #controls{margin-top:1rem}
+    .chip{min-height:44px;padding:.55rem .75rem;font-size:.68rem;line-height:1.15;flex:1 1 auto}
+    #count{padding:0 .75rem}
+    #map{height:clamp(420px,68svh,620px);width:calc(100% - 1rem);margin:.75rem .5rem 1rem;border-radius:10px}
+    .leaflet-popup-content-wrapper{max-width:calc(100vw - 42px)}
+    .leaflet-popup-content{margin:.65rem .75rem;line-height:1.45}
+    .leaflet-popup-content h3{font-size:1.12rem}
+    .leaflet-popup-content img.ev-photo{height:128px}
+    .ev-date{font-size:1.2rem}
+    .ev-rel{display:table;margin:.3rem 0 0}
+    .legend{gap:.45rem .8rem}
+    #controls2{padding:0 .75rem !important}
+  }
 </style>
 </head>
 <body>
