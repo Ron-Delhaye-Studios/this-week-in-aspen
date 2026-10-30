@@ -2,11 +2,10 @@
 (() => {
   'use strict';
   const base = new URL('../', document.currentScript.src);
-  const device = matchMedia('(prefers-color-scheme: dark)');
   let manual;
-  try { manual = sessionStorage.getItem('gh-theme'); } catch (_) {}
+  try { manual = localStorage.getItem('gh-theme'); } catch (_) {}
   const apply = () => {
-    const value = manual === 'dark' || manual === 'light' ? manual : device.matches ? 'dark' : 'light';
+    const value = manual === 'dark' ? 'dark' : 'light';
     document.documentElement.dataset.theme = value;
     const button = document.querySelector('.gh-theme-toggle');
     if (button) {
@@ -21,12 +20,11 @@
     });
   };
   apply();
-  device.addEventListener('change', apply);
   document.addEventListener('DOMContentLoaded', () => {
     apply();
     document.querySelector('.gh-theme-toggle')?.addEventListener('click', () => {
       manual = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-      try { sessionStorage.setItem('gh-theme', manual); } catch (_) {}
+      try { localStorage.setItem('gh-theme', manual); } catch (_) {}
       apply();
     });
     const format = options => new Intl.DateTimeFormat('en-US', {timeZone:'America/Denver', ...options});

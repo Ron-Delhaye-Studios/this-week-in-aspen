@@ -1,6 +1,6 @@
-/* The Golden Hour — service worker v3; WO8 design revision 1.0.1 */
+/* The Golden Hour — service worker v4; WO8-R1 light-default revision */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v3";
+const CACHE = "golden-hour-v4";
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
