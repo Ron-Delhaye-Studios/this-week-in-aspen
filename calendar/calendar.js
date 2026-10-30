@@ -5,7 +5,7 @@
   "use strict";
 
   var DENVER = "America/Denver";
-  var MAX_DOTS = 6;
+  var MAX_DOTS = 3;
 
   var CAT_STYLE = {
     music:    ["#e1bee7", "#6a1b9a"],
@@ -56,6 +56,8 @@
   var eventsByDay = {};
   var eventsById = {};
   var selectedKey = null; // set once TODAY_KEY exists
+  var loaded = false;
+  var returnFocus = null;
 
   function relLabel(iso) {
     var now = new Date();
@@ -71,11 +73,12 @@
   }
 
   function dotHTML(ev) {
-    var st = catStyle(ev.category);
-    var cls = "gcal-dot" + (hasEnded(ev) ? " ended" : "");
+    var cls = "gcal-event" + (hasEnded(ev) ? " ended" : "");
     return '<button class="' + cls + '" data-ev="' + esc(ev.id) + '"' +
-      ' style="background:' + st[1] + '"' +
-      ' aria-label="' + esc(ev.title) + ", " + esc(chipTime(ev.starts_at)) + '"></button>';
+      ' style="border-left-color:' + catStyle(ev.category)[1] + '"' +
+      ' aria-label="' + esc(ev.title) + ", " + esc(chipTime(ev.starts_at)) + '">' +
+      '<span class="gcal-event-time">' + esc(chipTime(ev.starts_at)) + '</span>' +
+      '<span class="gcal-event-title">' + esc(ev.title) + '</span></button>';
   }
 
   var MONTHS = ["January", "February", "March", "April", "May", "June",
@@ -105,8 +108,8 @@
       var evs = (eventsByDay[key] || []).slice().sort(function (a, b) {
         return new Date(a.starts_at) - new Date(b.starts_at);
       });
-      html += '<div class="gcal-day' + (inMonth ? "" : " dim") + (isToday ? " istoday" : "") + (key === selectedKey ? " selected" : "") + '" data-day="' + key + '">';
-      html += '<div class="gcal-daynum' + (isToday ? " today" : "") + '">' + d.getUTCDate() + "</div>";
+      html += '<div class="gcal-day' + (inMonth ? "" : " dim") + (evs.length ? " has-events" : "") + (isToday ? " istoday" : "") + (key === selectedKey ? " selected" : "") + '" data-day="' + key + '">';
+      html += '<button class="gcal-daynum' + (isToday ? " today" : "") + '" aria-label="' + esc(new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'long',month:'long',day:'numeric'}).format(d)) + '" aria-pressed="' + (key === selectedKey) + '"><span class="gcal-weekday">' + ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getUTCDay()] + '</span>' + d.getUTCDate() + "</button>";
       var shown = evs.slice(0, MAX_DOTS);
       if (shown.length) {
         html += '<div class="gcal-dots">';
@@ -114,7 +117,7 @@
         html += "</div>";
       }
       if (evs.length > MAX_DOTS) {
-        html += '<span class="gcal-morecount">+' + (evs.length - MAX_DOTS) + "</span>";
+        html += '<button class="gcal-morecount">+' + (evs.length - MAX_DOTS) + " more</button>";
       }
       html += "</div>";
     }
@@ -154,7 +157,7 @@
       (key === TODAY_KEY ? '<span class="gcal-arel">Today</span>' : "") +
       '<span class="gcal-pcount">' + evs.length + (evs.length === 1 ? " event" : " events") + "</span></div>";
     if (evs.length) evs.forEach(function (ev) { html += agendaRowHTML(ev); });
-    else html += '<p class="empty">No events this day.</p>';
+    else html += '<p class="empty" role="status">' + (loaded ? 'No events this day.' : 'Loading event details…') + '</p>';
     box.innerHTML = html;
   }
 
@@ -211,19 +214,33 @@
 
   function showModal(inner) {
     closeModal();
+    hideTip();
+    returnFocus = document.activeElement;
     var ov = document.createElement("div");
     ov.className = "gcal-overlay";
+    ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Event details');
     ov.innerHTML = inner;
     ov.addEventListener("click", function (e) {
       if (e.target === ov || e.target.classList.contains("gcal-x")) closeModal();
     });
     document.body.appendChild(ov);
+    ov.querySelector('.gcal-x').focus();
     document.addEventListener("keydown", escClose);
   }
-  function escClose(e) { if (e.key === "Escape") closeModal(); }
+  function escClose(e) {
+    if (e.key === "Escape") closeModal();
+    if (e.key === 'Tab') {
+      var nodes=document.querySelectorAll('.gcal-overlay button,.gcal-overlay a[href]');
+      var first=nodes[0],last=nodes[nodes.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+  }
   function closeModal() {
     document.querySelectorAll(".gcal-overlay").forEach(function (x) { x.remove(); });
     document.removeEventListener("keydown", escClose);
+    if(returnFocus&&returnFocus.isConnected)returnFocus.focus();
+    returnFocus=null;
   }
 
   function nav(delta) {
@@ -240,32 +257,35 @@
 
   var HOVERABLE = window.matchMedia("(hover:hover)").matches;
   document.addEventListener("click", function (e) {
-    var dot = e.target.closest(".gcal-dot");
-    if (dot && HOVERABLE) { openEvent(dot.getAttribute("data-ev")); return; }
+    var dot = e.target.closest(".gcal-event");
+    if (dot) { openEvent(dot.getAttribute("data-ev")); return; }
     var row = e.target.closest(".gcal-arow");
     if (row) { openEvent(row.getAttribute("data-ev")); return; }
     var day = e.target.closest(".gcal-day");
-    if (day) { selectDay(day.getAttribute("data-day"), !!dot); }
+    if (day) { selectDay(day.getAttribute("data-day"), e.target.closest('.gcal-morecount') !== null); }
   });
   if (window.matchMedia("(hover:hover)").matches) {
     document.addEventListener("mouseover", function (e) {
-      var c = e.target.closest(".gcal-dot");
+      var c = e.target.closest(".gcal-event");
       if (c) showTip(c);
     });
     document.addEventListener("mouseout", function (e) {
-      var c = e.target.closest(".gcal-dot");
+      var c = e.target.closest(".gcal-event");
       if (c && (!e.relatedTarget || !c.contains(e.relatedTarget))) hideTip();
     });
   }
   document.getElementById("gcal-prev").addEventListener("click", function () { nav(-1); });
   document.getElementById("gcal-next").addEventListener("click", function () { nav(1); });
   document.getElementById("gcal-today").addEventListener("click", function () {
-    viewY = T.y; viewM = T.m; render();
+    viewY = T.y; viewM = T.m; selectedKey = TODAY_KEY; render();
   });
 
+  selectedKey = TODAY_KEY;
+  render();
   fetch("../data/events.json", { cache: "no-store" })
     .then(function (r) { return r.json(); })
     .then(function (evs) {
+      loaded = true;
       evs.forEach(function (ev) {
         eventsById[ev.id] = ev;
         var k = denverKey(ev.starts_at);
