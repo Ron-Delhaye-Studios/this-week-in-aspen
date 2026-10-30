@@ -123,7 +123,7 @@ def footer(root):
         "    <p>Every event verified against official sources before "
         "publication. Details may change — please confirm with the venue.</p>\n"
         f'    <p class="foot-links">{links}</p>\n'
-        "    <p>© 2026 The Golden Hour · An Ad Astra Media publication.</p>\n"
+        "    <p>© 2026 The Golden Hour</p>\n"
 
         "  </footer>\n"
     )

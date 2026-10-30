@@ -1,0 +1,15 @@
+# WO8 validation — 2026-10-30
+
+Local build passed for all 67 HTML pages. The canonical source contains 46 occurrences; the hub and Upcoming contain the same 22 today/future occurrences, in timestamp order, including all eight required Halloween routes. JSON-LD follows the same order. A deliberately divergent compatibility export fails validation. Running the build twice produces identical HTML.
+
+Chromium with axe-core 4.10.3 scanned all 67 pages in both themes: 134 combinations, zero reported contrast violations after repairing the calendar category label. Four combinations (Events and Upcoming in each theme) require manual image-overlay review because axe cannot resolve pseudo-element backgrounds. The overlay's least opaque stop is 70% `rgb(4,11,22)`; against an all-white image, the `#fff4df` text has a calculated minimum contrast of **6.97:1**. This calculation covers the brightest possible underlying image. Other text uses the shared theme tokens or audited inverse surfaces.
+
+Mobile checks at 390 × 844 found no horizontal overflow on homepage, Events, one event page, calendar, map, and the golf guide. Desktop and mobile visual review also caught and repaired collage caption overlap. Separate checks confirmed device-theme following, persistence of a manual session toggle across navigation, weather success, and dated fallback after a failed refresh. The live Open-Meteo endpoint returned a current Aspen reading during validation; no reading is embedded in the site source.
+
+Existing hub filters (All, This weekend, Music, Art, Outdoors, Free) and analytics hooks are retained. Filter interactions, mobile wrapping and control contrast passed in both themes; This weekend uses the current Denver weekend.
+
+Both hosting layouts were simulated: `/this-week-in-aspen/` and `/`. For each, the manifest and all three icons resolved, the service worker installed `golden-hour-v3`, a previously visited hub reloaded offline with the shared design, all eight required Halloween routes were visible, and the list/JSON-LD expired correctly across the year boundary. JavaScript syntax and `git diff --check` passed. A copied build with only `skin` changed to null removed seasonal resources from every page.
+
+Existing event images remain unchanged. Events without existing approved imagery use compact unboxed rows; no unrelated image is substituted. The pending WO3 recompression package was inspected for available media but is not applied by this PR.
+
+Remaining verification belongs to the publication workflow: LUNA's comparison with the correct approved v3.1 reference (the supplied ZIP instead contains Cloudflare setup screenshots), review of the new wordmark icons, physical phone installation, and live acceptance on both hosts after MASTER INDY merges. Local testing does not establish a GitHub Pages build or a Cloudflare production deployment.

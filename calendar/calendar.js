@@ -263,7 +263,7 @@
     viewY = T.y; viewM = T.m; render();
   });
 
-  fetch("events.json", { cache: "no-store" })
+  fetch("../data/events.json", { cache: "no-store" })
     .then(function (r) { return r.json(); })
     .then(function (evs) {
       evs.forEach(function (ev) {

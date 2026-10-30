@@ -182,7 +182,7 @@
     });
   });
 
-  fetch("events.json").then(function (r) { return r.json(); }).then(function (data) {
+  fetch("../data/events.json").then(function (r) { return r.json(); }).then(function (data) {
     allEvents = data.filter(function (ev) {
       return typeof ev.lat === "number" && typeof ev.lng === "number";
     });
