@@ -65,9 +65,19 @@
       const parts = Object.fromEntries(format({year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d).map(p => [p.type,p.value]));
       return `${parts.year}-${parts.month}-${parts.day}`;
     };
+    let selectedFilter = 'all';
     const prune = () => {
       const cutoff = key(new Date());
-      document.querySelectorAll('.gh-event-card[data-starts]').forEach(card => { card.hidden = key(new Date(card.dataset.starts)) < cutoff; });
+      const today = new Date(cutoff + 'T12:00:00Z');
+      const weekday = today.getUTCDay();
+      const friday = new Date(today.getTime() + (weekday === 0 ? -2 : weekday === 6 ? -1 : (5-weekday+7)%7) * 86400000);
+      const sunday = new Date(friday.getTime() + 2*86400000);
+      const friKey = friday.toISOString().slice(0,10), sunKey = sunday.toISOString().slice(0,10);
+      document.querySelectorAll('.gh-event-card[data-starts]').forEach(card => {
+        const day = key(new Date(card.dataset.starts));
+        const matches = selectedFilter === 'all' || (selectedFilter === 'weekend' ? day >= friKey && day <= sunKey : selectedFilter === 'free' ? card.dataset.free === '1' : card.dataset.cat === selectedFilter);
+        card.hidden = day < cutoff || !matches;
+      });
       const empty = document.querySelector('.gh-list-empty');
       if (empty) empty.hidden = !!document.querySelector('.gh-event-card:not([hidden])');
       const ld = document.querySelector('#gh-event-list');
@@ -78,6 +88,11 @@
       }
     };
     prune(); setInterval(prune,60000);
+    document.querySelectorAll('.gh-filters button').forEach(button => button.addEventListener('click', () => {
+      selectedFilter = button.dataset.filter;
+      document.querySelectorAll('.gh-filters button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      prune();
+    }));
     document.addEventListener('click', async e => {
       const button = e.target.closest('.gh-copy'); if (!button) return;
       try { await navigator.clipboard.writeText(button.dataset.copy); button.textContent = 'Copied ✓'; }

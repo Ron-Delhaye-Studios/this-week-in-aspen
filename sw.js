@@ -1,4 +1,4 @@
-/* The Golden Hour — service worker v3 */
+/* The Golden Hour — service worker v3; WO8 design revision 1.0.1 */
 const PREFIX = "golden-hour-";
 const CACHE = "golden-hour-v3";
 const BASE = new URL('./', self.location.href).pathname;

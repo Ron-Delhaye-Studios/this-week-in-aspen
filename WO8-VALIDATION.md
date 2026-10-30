@@ -6,6 +6,8 @@ Chromium with axe-core 4.10.3 scanned all 67 pages in both themes: 134 combinati
 
 Mobile checks at 390 × 844 found no horizontal overflow on homepage, Events, one event page, calendar, map, and the golf guide. Desktop and mobile visual review also caught and repaired collage caption overlap. Separate checks confirmed device-theme following, persistence of a manual session toggle across navigation, weather success, and dated fallback after a failed refresh. The live Open-Meteo endpoint returned a current Aspen reading during validation; no reading is embedded in the site source.
 
+Existing hub filters (All, This weekend, Music, Art, Outdoors, Free) and analytics hooks are retained. Filter interactions, mobile wrapping and control contrast passed in both themes; This weekend uses the current Denver weekend.
+
 Both hosting layouts were simulated: `/this-week-in-aspen/` and `/`. For each, the manifest and all three icons resolved, the service worker installed `golden-hour-v3`, a previously visited hub reloaded offline with the shared design, all eight required Halloween routes were visible, and the list/JSON-LD expired correctly across the year boundary. JavaScript syntax and `git diff --check` passed. A copied build with only `skin` changed to null removed seasonal resources from every page.
 
 Existing event images remain unchanged. Events without existing approved imagery use compact unboxed rows; no unrelated image is substituted. The pending WO3 recompression package was inspected for available media but is not applied by this PR.

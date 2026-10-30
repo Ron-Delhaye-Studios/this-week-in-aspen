@@ -132,7 +132,8 @@ def document(title,body,ld=None):
     structured = '<script id="gh-event-list" type="application/ld+json">' + json.dumps(ld,ensure_ascii=False).replace('</','<\\/') + '</script>' if ld else ''
     route = title.lower() + '/'
     seo = (f'<meta name="description" content="Every verified upcoming event in Aspen and the high country, soonest first."><link rel="canonical" href="{URL}{route}">' if title in ('Events','Upcoming') else '')
-    return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — The Golden Hour</title>{seo}{structured}</head><body><div class="page">{body}</div></body></html>'
+    analytics = '<script src="../assets/js/analytics-config.js"></script><script defer src="../assets/js/analytics.js"></script>' if title in ('Events','Upcoming') else ''
+    return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — The Golden Hour</title>{seo}{structured}{analytics}</head><body><div class="page">{body}</div></body></html>'
 
 
 def card(e,detail=False):
@@ -144,7 +145,8 @@ def card(e,detail=False):
              f'<p>{esc(e.get("blurb") or "")}</p><p>{esc(e.get("fit_note") or "")}</p>'
              f'<a href="{esc(e["url"])}" rel="noopener">Official event page ↗</a>'
              f'<button type="button" class="copybtn gh-copy" data-copy="{esc(copy)}">Copy details</button>') if detail else ''
-    return (f'<article id="ev-{esc(e["id"])}" class="gh-event-card {"has-media" if image else ""}" data-starts="{esc(e["starts_at"])}" data-slug="{esc(e["slug"])}">'
+    free = '1' if re.search(r'\bfree\b|^\$?0(?:\D|$)',e.get('price_info') or '',re.I) else '0'
+    return (f'<article id="ev-{esc(e["id"])}" class="gh-event-card {"has-media" if image else ""}" data-starts="{esc(e["starts_at"])}" data-slug="{esc(e["slug"])}" data-cat="{esc(e["category"])}" data-free="{free}">'
             f'{image}<time datetime="{esc(e["starts_at"])}">{d:%a, %b %d · %I:%M %p} MT</time>'
             f'<h2><a class="gh-card-link" href="../events/{esc(e["slug"])}/">{esc(e["title"])}</a></h2>'
             f'<p>{esc(e["venue"])}</p>{extra}</article>')
@@ -157,6 +159,8 @@ def build_lists(rows,day):
             'startDate':e['starts_at'],'url':URL+'events/'+e['slug']+'/'}} for i,e in enumerate(future)]}
     for path,title,detail in [('events/index.html','Events',False),('upcoming/index.html','Upcoming',True)]:
         body = f'<h1>{title}</h1><p class="lede">Every verified upcoming event in Aspen and the high country, soonest first.</p>'
+        if not detail:
+            body += '<div class="gh-filters" role="group" aria-label="Filter events">' + ''.join(f'<button type="button" data-filter="{key}" aria-pressed="{str(key == "all").lower()}">{label}</button>' for key,label in [('all','All'),('weekend','This weekend'),('music','Music'),('arts','Art'),('outdoors','Outdoors'),('free','Free')]) + '</div>'
         body += '<div class="gh-event-grid">' + ''.join(card(e,detail) for e in future) + '</div>'
         body += '<p class="gh-list-empty"' + (' hidden' if future else '') + '>No upcoming events listed. Check back soon.</p>'
         (ROOT/path).write_text(document(title,body,ld))
