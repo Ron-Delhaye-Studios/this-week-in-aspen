@@ -1,13 +1,11 @@
-/* The Golden Hour — service worker v2 */
+/* The Golden Hour — service worker v3 */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v2";
-const BASE = "/this-week-in-aspen/";
-const CORE = [
-  "/this-week-in-aspen/",
-  "/this-week-in-aspen/manifest.json",
-  "/this-week-in-aspen/icons/icon-192.png",
-  "/this-week-in-aspen/icons/icon-512.png"
-];
+const CACHE = "golden-hour-v3";
+const BASE = new URL('./', self.location.href).pathname;
+const CORE = ['', 'index.html', 'manifest.json', 'manifest-dark.json',
+  'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
+  'assets/gh-theme.css', 'assets/gh-theme.js', 'assets/gh-halloween.css', 'assets/gh-halloween.js']
+  .map(path => BASE + path);
 function noStore(response) {
   return /(?:^|,)\s*no-store\b/i.test(response.headers.get("Cache-Control") || "");
 }

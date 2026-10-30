@@ -1,0 +1,29 @@
+name: Golden Hour design build
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-design.txt
+      - name: Check canonical feed parity before building
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from build_design import events
+          rows = events()
+          for path in ['calendar/events.json', 'map/events.json']:
+              assert json.loads(Path(path).read_text()) == rows, f'Canonical feed diverged: {path}'
+          PY
+      - run: python build_design.py
+      - run: python build_design.py --check
+      - run: git diff --check
