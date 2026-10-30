@@ -9,7 +9,7 @@
     document.documentElement.dataset.theme = value;
     const button = document.querySelector('.gh-theme-toggle');
     if (button) {
-      button.textContent = value === 'dark' ? 'Light mode ☀' : 'Dark mode ☾';
+      button.textContent = value === 'dark' ? 'Light mode' : 'Dark mode';
       button.setAttribute('aria-pressed', String(value === 'dark'));
       button.setAttribute('aria-label', 'Dark theme');
     }

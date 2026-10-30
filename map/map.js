@@ -99,7 +99,10 @@
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18, attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
-  var cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 48,
+  new ResizeObserver(function(){map.invalidateSize({pan:false});}).observe(document.getElementById('map'));
+  if(document.fonts)document.fonts.ready.then(function(){map.invalidateSize({pan:false});});
+  var cluster = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 64,
+    spiderfyOnMaxZoom:true, zoomToBoundsOnClick:true, animate:false, animateAddingMarkers:false,
     iconCreateFunction: function (c) {
       var n = c.getChildCount();
       var size = n < 5 ? 40 : n < 15 ? 48 : 56;
@@ -108,7 +111,7 @@
           'px;height:' + size + 'px;border-radius:50%;background:#103d60;color:#fff;' +
           'font:700 15px Inter,sans-serif;border:3px solid #fff;' +
           'box-shadow:0 2px 8px rgba(0,0,0,.35)">' + n + '</span>',
-        className: "gh-cluster", iconSize: [size, size]
+        className: "gh-cluster", iconSize: [size, size], iconAnchor:[size/2,size/2]
       });
     } });
   map.addLayer(cluster);
@@ -136,7 +139,7 @@
       if (!inRange(ev)) return;
       var n = diffDays(ev.starts_at);
       var color = n < 0 ? COLORS.past : COLORS[imminence(ev.starts_at)];
-      var m = L.marker([ev.lat, ev.lng], { icon: dot(color, n === 0) });
+      var m = L.marker([ev.lat, ev.lng], { icon: dot(color, n === 0), title:ev.title });
       m.bindPopup(popupHtml(ev), { maxWidth: 300 });
       cluster.addLayer(m);
       shown++;
@@ -196,8 +199,7 @@
       var target = null;
       allEvents.forEach(function (ev) { if (String(ev.id) === focusId) target = ev; });
       if (target) {
-        map.setView([target.lat, target.lng], 13);
-        // re-render one marker outside the cluster so its popup can open
+        map.setView([target.lat, target.lng], 13, {animate:false});
         var m = L.marker([target.lat, target.lng],
           { icon: dot(diffDays(target.starts_at) < 0 ? COLORS.past : COLORS[imminence(target.starts_at)]) });
         m.bindPopup(popupHtml(target), { maxWidth: 300 }).addTo(map).openPopup();
@@ -206,7 +208,7 @@
     }
     if (!focused && allEvents.length) {
       var pts = allEvents.filter(inRange).map(function (ev) { return [ev.lat, ev.lng]; });
-      if (pts.length) map.fitBounds(L.latLngBounds(pts).pad(0.15));
+      if (pts.length) map.fitBounds(L.latLngBounds(pts).pad(0.15),{animate:false});
     }
   }).catch(function () {
     document.getElementById("count").textContent = "Event data is not loaded yet.";

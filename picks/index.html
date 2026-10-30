@@ -154,7 +154,7 @@
 
 
 
-<meta content="#faf4e8" data-gh-design="" name="theme-color"/>
+<meta content="https://ron-delhaye-studios.github.io/this-week-in-aspen/icons/icon-512.png" property="og:image"/><meta content="#faf4e8" data-gh-design="" name="theme-color"/>
 <meta content="yes" data-gh-design="" name="mobile-web-app-capable"/>
 <meta content="yes" data-gh-design="" name="apple-mobile-web-app-capable"/>
 <meta content="Golden Hour" data-gh-design="" name="apple-mobile-web-app-title"/>
@@ -162,9 +162,9 @@
 <link data-gh-design="" href="../icons/apple-touch-icon.png" rel="apple-touch-icon"/>
 <link data-gh-design="" href="../assets/gh-theme.css" rel="stylesheet"/>
 <script data-gh-design="" src="../assets/gh-theme.js"></script><link data-gh-design="" href="../assets/gh-halloween.css" rel="stylesheet"/><script data-gh-design="" defer="" src="../assets/gh-halloween.js"></script></head>
-<body class="gh-site">
+<body class="gh-site" data-page="picks/index.html">
 <div class="page">
-<header class="masthead"><div class="gh-top"><time class="gh-date">Aspen, Colorado</time><span class="gh-weather" role="status">Aspen · Loading weather…</span><button aria-label="Dark theme" aria-pressed="false" class="gh-theme-toggle" type="button">Theme</button></div><p class="kicker">FROM ASPEN AND BEYOND</p><h1 class="brand"><a aria-label="The Golden Hour — home" href="../index.html">THE GOLDEN <em>HOUR</em></a></h1><nav aria-label="Sections" class="site-nav"><a href="../index.html">Latest</a><a href="../events/">Events</a><a href="../upcoming/">Upcoming</a><a href="../calendar/">Calendar</a><a href="../map/">Map</a><a aria-current="page" href="../picks/">Top Picks</a><a href="../activities/">Activities</a><a href="../editions/">Archive</a><a href="../sources/">How we verify</a></nav></header><p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
+<header class="masthead"><div class="gh-top"><div class="gh-context"><time class="gh-date">Aspen, Colorado</time><span class="gh-weather" role="status">Aspen · Loading weather…</span></div><button aria-label="Dark theme" aria-pressed="false" class="gh-theme-toggle" type="button">Theme</button></div><p class="kicker">FROM ASPEN AND BEYOND</p><h1 class="brand"><a aria-label="The Golden Hour — home" href="../index.html">THE GOLDEN <em>HOUR</em></a></h1><nav aria-label="Sections" class="site-nav"><a href="../index.html">Latest</a><a href="../events/">Events</a><a href="../upcoming/">Upcoming</a><a href="../calendar/">Calendar</a><a href="../map/">Map</a><a aria-current="page" href="../picks/">Top Picks</a><a href="../activities/">Activities</a><a href="../editions/">Archive</a><a href="../sources/">How we verify</a></nav></header><p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
 <div class="pagetitle"><p class="kicker">The Concierge</p>
 <h2>Top Picks</h2></div>
 <p class="lede">The places Aspen locals actually go — restaurants, bars, trails, shops, services. Each one is scored, sourced, and verified before it appears here. No ads, no pay-to-play, no filler.</p>
@@ -199,15 +199,15 @@
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
   function card(p){
+    var heading='<p class="gh-card-kicker">'+esc(p.category)+'</p><h3>'+esc(p.name)+'</h3><span class="score" aria-label="Score '+esc(p.score)+' out of 10">'+esc(p.score)+' / 10</span>';
     var photo=p.photo
-      ? '<img class="pick-photo" src="'+esc(p.photo)+'" alt="'+esc(p.photo_alt||p.name)+'" loading="lazy">'
-      : '<div class="pick-photo ph">'+esc(p.category.charAt(0))+'</div>';
+      ? '<figure class="gh-card-media"><img class="gh-artwork" src="'+esc(p.photo)+'" alt="'+esc(p.photo_alt||p.name)+'" loading="lazy"></figure>'
+      : '<header class="gh-type-media">'+heading+'</header>';
     var credit=p.photo_credit?'<p class="pcredit">Photo: '+esc(p.photo_credit)+'</p>':"";
     var addr=p.address?'<p class="addr">'+esc(p.address)+'</p>':"";
-    return '<article class="pick" id="pick-'+slug(p.name)+'">'+photo+credit+
-      '<h3>'+esc(p.name)+'<span class="score">'+esc(p.score)+' / 10</span></h3>'+
+    return '<article class="pick gh-card '+(p.photo?'has-media':'gh-typographic')+'" id="pick-'+slug(p.name)+'">'+photo+'<div class="gh-card-body">'+(p.photo?heading:'')+credit+
       '<p class="why">'+esc(p.why)+'</p>'+addr+
-      '<p class="src">'+esc(p.sources)+' · Verified '+esc(p.verified)+'</p></article>';
+      '<p class="src">'+esc(p.sources)+' · Verified '+esc(p.verified)+'</p></div></article>';
   }
   function initMap(picks){
     var el=document.getElementById("picks-map");
@@ -216,6 +216,10 @@
       var map=L.map(el,{scrollWheelZoom:false}).setView([39.19,-106.82],12);
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
         {maxZoom:17,attribution:"© OpenStreetMap contributors"}).addTo(map);
+      var place=L.control({position:'topright'});
+      place.onAdd=function(){var label=L.DomUtil.create('div','gh-map-place');label.textContent='Aspen · Roaring Fork Valley';return label;};place.addTo(map);
+      new ResizeObserver(function(){map.invalidateSize({pan:false});}).observe(el);
+      if(document.fonts)document.fonts.ready.then(function(){map.invalidateSize({pan:false});});
       var bounds=[];
       picks.forEach(function(p){
         if(p.lat==null||p.lng==null){return;}
@@ -257,6 +261,12 @@
         "<h3>"+esc(c)+'</h3><span class="cat-count">'+groups[c].length+" pick"+(groups[c].length>1?"s":"")+"</span></div>"+
         desc+cards+"</section>";
     }).join("");
+    host.addEventListener('error',function(e){
+      if(e.target.tagName!=='IMG')return;
+      var old=e.target.closest('.pick');if(!old)return;
+      var pick=picks.find(function(p){return 'pick-'+slug(p.name)===old.id;});
+      if(pick)old.outerHTML=card(Object.assign({},pick,{photo:null,photo_credit:null}));
+    },true);
     initMap(picks);
   }).catch(function(){
     document.getElementById("pick-list").innerHTML='<p class="lede">Could not load picks.</p>';

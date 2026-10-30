@@ -3,5 +3,4 @@
 .gh-halloween-greeting{max-width:1152px;margin:0 auto 18px;padding:18px 24px;background:#492336;color:#fff4df;border-radius:16px;font:700 clamp(1.3rem,4vw,2rem) var(--serif)}
 .gh-halloween .brand em{color:#f5a55b}
 :root[data-theme="light"] .gh-halloween .brand em{color:#8e420b}
-.gh-halloween .brand em:after{content:" 🎃";font-size:.34em;vertical-align:middle;letter-spacing:0}
 .gh-halloween .ght{background:#492336}

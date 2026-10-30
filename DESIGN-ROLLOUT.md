@@ -28,7 +28,11 @@ Change `"skin": "halloween"` to `"skin": null` in `design-config.json`, then run
 
 WO8-R1 / Brand Standards A1 (2026-10-30): first visits default to light regardless of device preference. An explicit toggle choice is stored in localStorage and wins across navigation and later visits; storage denial falls back to in-memory state for the current page. Invalid stored preferences fall back to light. Weather uses Open-Meteo current temperature and WMO condition at Aspen's coordinates, in Fahrenheit, every 30 minutes. A failed refresh shows the previous reading with its observation date and Denver time; without a reading it says weather unavailable. It never invents a reading.
 
-Relative manifests, icons, assets and service-worker scope support both the GitHub project path and the Cloudflare root path. The light and dark manifests share one app ID and specify their matching colors; the runtime chooses the current scheme. Both use standalone display and brand-only 192/512 PNG icons plus the 180 PNG Apple icon. Cache `golden-hour-v4` precaches the shell and shared design assets; WO8-R1 advances it from v3 so returning phones receive the new default. Live data and pages use network-first; successful stale fallback never replaces a real 404/410.
+Relative manifests, icons, assets and service-worker scope support both the GitHub project path and the Cloudflare root path. The light and dark manifests share one app ID and specify their matching colors; the runtime chooses the current scheme. Both use standalone display and brand-only 192/512 PNG icons plus the 180 PNG Apple icon. Cache `golden-hour-v5` precaches the shell, branded 404 and shared design assets. WO8-R1 advanced v3 to v4 for the light default; WO10 advances v4 to v5 for the presentation repairs. Live data and pages use network-first; successful stale fallback never replaces a real 404/410.
+
+## Presentation revision — WO10, 2026-10-30
+
+All event lists use the same full-frame artwork/card component and filter group. Poster text and faces are never cropped: media uses contain, while copy uses a separate solid caption surface. Missing artwork uses a deliberate typographic header. Sources keep tables on desktop and labelled cards on phones. Calendar uses titled month-grid entries on desktop and a dated monthly list on phones; max three events per date plus a more button. The homepage alone carries the optional seasonal banner. `WO10-VALIDATION.md` records all twelve fixes, tests and the seven publication gates.
 
 ## Publication and acceptance
 

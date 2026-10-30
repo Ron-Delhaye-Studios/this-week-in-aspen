@@ -1,8 +1,8 @@
-/* The Golden Hour — service worker v4; WO8-R1 light-default revision */
+/* The Golden Hour — service worker v5; WO10 presentation repairs */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v4";
+const CACHE = "golden-hour-v5";
 const BASE = new URL('./', self.location.href).pathname;
-const CORE = ['', 'index.html', 'manifest.json', 'manifest-dark.json',
+const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
   'assets/gh-theme.css', 'assets/gh-theme.js', 'assets/gh-halloween.css', 'assets/gh-halloween.js']
   .map(path => BASE + path);
