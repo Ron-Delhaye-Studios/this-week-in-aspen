@@ -248,7 +248,7 @@ PAGE_TMPL = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Map — The Golden Hour</title>
 {seo}
 {analytics}

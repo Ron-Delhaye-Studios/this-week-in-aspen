@@ -11,7 +11,7 @@ carried by typography and labels, never by a rainbow.
 
 import html as _html
 
-SITE_URL = "https://ron-delhaye-studios.github.io/this-week-in-aspen"
+SITE_URL = "https://thegoldenhour.guide"
 
 
 def seo_head(title, description, path=""):

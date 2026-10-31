@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parent
 TZ = ZoneInfo('America/Denver')
-URL = 'https://ron-delhaye-studios.github.io/this-week-in-aspen/'
+URL = 'https://thegoldenhour.guide/'
 HALLOWEEN = {'aspens-darkside-ghost-tour', 'spooktacular-creepy-crafts', 'ute-cemetery-tour',
              'murder-at-the-rattlesnake-saloon', 'ghosts-of-aspens-past', 'coco-and-breezy',
              'halloween-bash-ft-chaparelle', 'shrek-themed-halloween-party'}
@@ -231,7 +231,7 @@ def document(title,body,ld=None):
     route = title.lower() + '/'
     seo = (f'<meta name="description" content="Every verified upcoming event in Aspen and the high country, soonest first."><link rel="canonical" href="{URL}{route}">' if title in ('Events','Upcoming') else '')
     analytics = '<script src="../assets/js/analytics-config.js"></script><script defer src="../assets/js/analytics.js"></script>' if title in ('Events','Upcoming') else ''
-    return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — The Golden Hour</title>{seo}{structured}{analytics}</head><body><div class="page">{body}</div></body></html>'
+    return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{html.escape(title)} — The Golden Hour</title>{seo}{structured}{analytics}</head><body><div class="page">{body}</div></body></html>'
 
 
 def card(e,detail=False):
