@@ -69,11 +69,11 @@ body.gh-site{margin:0;background:var(--paper);color:var(--ink);font-family:var(-
 .gh-card time,.gh-card-venue{font-size:.85rem;color:var(--muted)}
 .gh-typographic{border-top:4px solid var(--accent);background:var(--surface)}
 .gh-typographic .gh-card-body{justify-content:flex-start}
-.gh-type-media{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;aspect-ratio:4/3;padding:28px;background:#101e33;color:#fff4df}
-.gh-site .gh-type-media :is(h2,h3,a,time,.score){color:#fff4df}
-.gh-site .gh-type-media .gh-card-kicker{color:#f3c667}
-.gh-type-media h2,.gh-type-media h3{font-size:clamp(1.6rem,2.5vw,2rem)}
-.gh-site .pick.gh-card .gh-type-media .score{color:#fff4df;border-color:#f3c667}
+.gh-type-media{display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;gap:8px;padding:20px 24px 18px;background:var(--surface);color:var(--ink);border-bottom:1px solid var(--hair)}
+.gh-site .gh-type-media :is(h2,h3,a,time,.score){color:var(--ink)}
+.gh-site .gh-type-media .gh-card-kicker{color:var(--accent)}
+.gh-type-media h2,.gh-type-media h3{font-size:clamp(1.45rem,2.2vw,1.8rem)}
+.gh-site .pick.gh-card .gh-type-media .score{color:var(--ink);border-color:var(--accent)}
 .gh-card-details{border-top:1px solid var(--hair);padding-top:12px;margin-top:auto}
 .gh-card-details summary{cursor:pointer;min-height:40px;font-size:.85rem;font-weight:600;padding:8px 0;color:var(--accent)}
 .gh-card-details p{font-size:.9rem;margin:12px 0}
@@ -224,3 +224,10 @@ body.gh-site{margin:0;background:var(--paper);color:var(--ink);font-family:var(-
 [hidden]{display:none!important}
 @media(max-width:600px){.gh-site .page{padding-inline:16px}.gh-top{gap:7px;font-size:.65rem}.gh-weather{margin-left:0}.gh-site nav.site-nav{gap:7px 13px;font-size:.68rem}.gh-site .masthead .kicker{font-size:.58rem;letter-spacing:.22em}.gh-site .masthead .brand{font-size:8.1vw!important}.gh-site .ght-hero{padding:16px}.gh-site .ev-details .row{flex-wrap:wrap;gap:4px}.gh-site .gcal-title{font-size:1rem}.gh-site pre{white-space:pre-wrap}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* WO#13 F1: safe-area compensation (viewport-fit=cover + black-translucent status bar).
+   env(safe-area-inset-top) resolves to 0 in ordinary browser contexts, so browser rendering is unchanged. */
+.gh-site .gh-top{padding-top:calc(12px + env(safe-area-inset-top,0px))}
+.gh-site nav.site-nav{padding-top:calc(8px + env(safe-area-inset-top,0px))}
+.gh-site .gh-filters{padding-top:env(safe-area-inset-top,0px)}
+.gh-site .cat-nav{padding-top:env(safe-area-inset-top,0px)}
