@@ -23,6 +23,10 @@ HALLOWEEN = {'aspens-darkside-ghost-tour', 'spooktacular-creepy-crafts', 'ute-ce
 NAV = [('index.html','Latest'), ('events/','Events'), ('upcoming/','Upcoming'),
        ('calendar/','Calendar'), ('map/','Map'), ('picks/','Top Picks'),
        ('activities/','Activities'), ('editions/','Archive'), ('sources/','How we verify')]
+# Footer-only guide links: the footer is the canonical guide-discovery
+# surface. These render ONLY in the footer (footer_navigation), spliced in
+# immediately after Top Picks; they never join NAV / the header nav.
+FOOTER_EXTRA = [('happy-hour/', 'Happy Hour')]
 
 
 def soup(text):
@@ -46,6 +50,18 @@ def navigation(prefix, current):
     return '<nav class="site-nav" aria-label="Sections">' + ''.join(
         f'<a href="{prefix}{path}"' + (' aria-current="page"' if path == current else '') + f'>{label}</a>'
         for path, label in NAV) + '</nav>'
+
+
+def footer_navigation(prefix, current):
+    """Footer nav: NAV plus the FOOTER_EXTRA guide links after Top Picks."""
+    items = []
+    for path, label in NAV:
+        items.append((path, label))
+        if path == 'picks/':
+            items.extend(FOOTER_EXTRA)
+    return '<nav class="site-nav" aria-label="Sections">' + ''.join(
+        f'<a href="{prefix}{path}"' + (' aria-current="page"' if path == current else '') + f'>{label}</a>'
+        for path, label in items) + '</nav>'
 
 
 def decorate(path, skin, rows, day):
@@ -101,7 +117,7 @@ def decorate(path, skin, rows, day):
         masthead.select_one('.brand').name = 'h1'
     refine_page(doc, path, rows, day)
     for footer in doc.find_all('footer'): footer.decompose()
-    doc.body.append(fragment('<footer class="gh-footer">' + navigation(prefix,current) +
+    doc.body.append(fragment('<footer class="gh-footer">' + footer_navigation(prefix,current) +
         '<p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>'
         '<p>© 2026 The Golden Hour · From Aspen and Beyond.</p></footer>'))
     if path.relative_to(ROOT).parts[0] in ('press','desk','stats'):

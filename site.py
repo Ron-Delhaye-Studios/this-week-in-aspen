@@ -294,6 +294,59 @@ def build_picks():
     return "\n".join(body)
 
 
+def build_happy_hour():
+    """Happy Hour guide — listings render from happy-hour/happy-hours.json,
+    the only content source (WO#11 content table 0021; five verified
+    listings at launch). Entries render in start-time order, earliest
+    first; the count line is computed from the data, never hand-typed."""
+    js = """
+<script>
+(function(){
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+  fetch("happy-hours.json").then(function(r){return r.json();}).then(function(d){
+    var listings=(d.listings||[]).slice().sort(function(a,b){
+      return a.start<b.start?-1:(a.start>b.start?1:0);});
+    var host=document.getElementById("hh-list");
+    var asof=document.getElementById("hh-asof");
+    if(asof&&d.as_of){
+      asof.textContent=d.as_of+" "+listings.length+
+        (listings.length===1?" listing":" listings")+", earliest first.";
+    }
+    if(!listings.length){
+      host.innerHTML='<p class="lede" style="font-style:italic">No verified happy hours right now — the page is re-checked each season.</p>';
+      return;
+    }
+    host.innerHTML=listings.map(function(l){
+      var heading='<p class="gh-card-kicker">'+esc(l.days)+'</p><h3>'+esc(l.venue)+
+        '</h3><span class="score">'+esc(l.times)+'</span>';
+      var note=l.note?'<p class="src">Note: '+esc(l.note)+'</p>':"";
+      var addr=l.area?'<p class="addr">'+esc(l.area)+'</p>':"";
+      return '<article class="guide pick gh-card gh-typographic" id="hh-'+slug(l.venue)+'">'+
+        '<header class="gh-type-media">'+heading+'</header>'+
+        '<div class="gh-card-body"><p class="why">'+esc(l.deal)+'</p>'+addr+note+
+        '<p class="src">Source: <a href="'+esc(l.source_url)+'" rel="noopener">'+
+        esc(l.link_text)+'</a> · Checked '+esc(d.checked_label)+'</p></div></article>';
+    }).join("");
+  }).catch(function(){
+    document.getElementById("hh-list").innerHTML='<p class="lede">Could not load listings.</p>';
+  });
+})();
+</script>"""
+    body = [head_html("Happy Hour in Aspen — The Golden Hour", seo_desc="Aspen's verified happy hours — venue, days, times, and the deal, checked against venue sources.", seo_path="happy-hour/")]
+    body.append(theme.masthead("../", None))
+    body.append('  <div class="pagetitle"><p class="kicker">Guide</p>')
+    body.append('  <h2>Happy Hour in Aspen</h2></div>')
+    body.append('  <p class="lede">The valley\'s verified happy hours — each one checked against the venue\'s own menu or a trusted local guide before it earns a place here. No ads, no pay-to-play.</p>')
+    body.append('  <p class="src" id="hh-asof">Checked October 30, 2026 — shoulder-season hours; venues update for winter.</p>')
+    body.append('  <div id="hh-list"><p class="lede">Loading…</p></div>')
+    body.append('  <p class="src">More venues publish winter hours as ski season opens — this page is re-checked each season.</p>')
+    body.append(theme.footer("../"))
+    body.append(js)
+    return "\n".join(body)
+
+
 def build_editions(weeks):
     """Archive index on the shared theme shell — was an unstyled orphan."""
     body = [head_html("Archive — The Golden Hour", seo_desc="Past weekly editions of The Golden Hour field guide.", seo_path="editions/")]
@@ -329,6 +382,7 @@ def main():
     write(os.path.join(HERE, "sources", "index.html"),
           build_sources_page(reg.get("sources", [])))
     write(os.path.join(HERE, "picks", "index.html"), build_picks())
+    write(os.path.join(HERE, "happy-hour", "index.html"), build_happy_hour())
     write(os.path.join(HERE, "editions", "index.html"), build_editions(weeks))
     stub = os.path.join(HERE, "picks", "picks.json")
     if not os.path.exists(stub):
