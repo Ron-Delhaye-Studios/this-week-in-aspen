@@ -327,7 +327,7 @@ PAGE_TMPL = """<!DOCTYPE html>
 
 <footer class="colophon">
   <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-  <p><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="index.html">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
+  <p><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="index.html">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../happy-hour/">Happy Hour</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
   <p>© 2026 The Golden Hour</p>
 </footer>
 

@@ -85,6 +85,13 @@ NAV_ITEMS = [
     ("sources/", "How we verify", "verify"),
 ]
 
+# Footer-only guide links: the footer is the canonical guide-discovery
+# surface, so guide pages live here and NEVER join NAV_ITEMS / the header
+# nav. footer() splices each entry in immediately after the Top Picks link.
+FOOTER_EXTRA = [
+    ("happy-hour/", "Happy Hour", "happyhour"),
+]
+
 
 def nav_html(root, active=None):
     items = []
@@ -115,8 +122,13 @@ def masthead(root, active=None, tagline=None):
 
 
 def footer(root):
+    items = []
+    for href, label, key in NAV_ITEMS:
+        items.append((href, label))
+        if key == "picks":
+            items.extend((h, l) for h, l, _ in FOOTER_EXTRA)
     links = " · ".join(
-        f'<a href="{root}{href}">{label}</a>' for href, label, _ in NAV_ITEMS
+        f'<a href="{root}{href}">{label}</a>' for href, label in items
     )
     return (
         '  <footer class="colophon">\n'
