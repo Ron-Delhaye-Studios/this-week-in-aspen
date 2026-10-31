@@ -104,49 +104,6 @@
   .st-replaced{border-color:#6e675c;color:var(--ink)}
   .flag{border:1px solid var(--ink);font-size:.68rem;padding:.1rem .4rem;white-space:nowrap}
   @media print{ nav.site-nav, .btn {display:none} }
-  /* ===== Homepage hero: Concept 1 TONIGHT + Concept 2 cover (2026-10-12) ===== */
-  .ght{--navy:#0d2137;--gold:#d9a94a;--cream:#f6f1e6;
-       background:var(--surface);color:var(--ink)}
-  .ght-hero{max-width:64rem;margin:0 auto;padding:2.4rem 1.25rem 0;display:grid;gap:1.8rem}
-  .ght-art{position:relative}
-  .ght-art::before{content:"";position:absolute;inset:0;transform:translate(10px,10px);
-    border:1px solid #d9a94a;z-index:0}
-  .ght-art img{position:relative;z-index:1;width:100%;height:100%;max-height:420px;object-fit:cover;object-position:center 22%;display:block}
-  .ght-kick{font-size:.72rem;letter-spacing:.3em;color:var(--ink);font-weight:700;margin:0 0 .9rem}
-  .ght-title{font-family:var(--serif);font-weight:600;color:var(--ink);
-    font-size:clamp(2.9rem,11vw,4.6rem);line-height:.98;margin:0 0 .7rem}
-  .ght-meta{font-size:.95rem;color:var(--ink);letter-spacing:.02em;margin:0 0 .9rem}
-  .ght-meta b{color:var(--ink)}
-  .ght-line{color:var(--ink);font-size:1rem;max-width:30rem;margin:0 0 1.6rem}
-  .ght-cta{display:inline-block;background:var(--surface);color:var(--ink);font-weight:700;
-    letter-spacing:.18em;font-size:.8rem;padding:1rem 2.1rem;text-transform:uppercase;text-decoration:none}
-  .ght-then{max-width:64rem;margin:0 auto;padding:0 1.25rem 2.4rem}
-  .ght-then-inner{border-top:1px solid rgba(217,169,74,.35);padding-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
-    font-size:.85rem;color:var(--ink);margin-top:2.4rem}
-  .ght-then-inner b{color:var(--ink);letter-spacing:.18em;font-size:.7rem;padding-top:.2rem}
-  .ght-then-inner span b{color:var(--ink);letter-spacing:0;font-size:.85rem;padding-top:0}
-  @media(min-width:760px){.ght-hero{grid-template-columns:1.05fr .95fr;align-items:center;padding-top:3.2rem}
-    .ght-art img{max-height:520px}}
-  .ghc{background:var(--surface)}
-  .ghc-body{max-width:64rem;margin:0 auto;padding:0 1.25rem 3rem}
-  .ghc-dateline{font-size:.7rem;letter-spacing:.3em;color:var(--ink);font-weight:600;margin:1.6rem 0 1rem}
-  .ghc-title{font-family:var(--serif);font-weight:600;color:var(--ink);
-    font-size:clamp(2.8rem,12vw,5.4rem);line-height:1.0;margin:0 0 2rem}
-  .ghc-title em{font-style:italic;font-weight:500}
-  .ghc-collage{display:grid;gap:1rem;margin-bottom:2rem}
-  .ghc-collage figure{margin:0}
-  .ghc-collage img{width:100%;height:100%;object-fit:cover;box-shadow:0 1.2rem 3rem rgba(16,61,96,.18);display:block}
-  .ghc-collage figcaption{font-size:.8rem;color:var(--ink);font-style:italic;margin-top:.5rem}
-  .ghc-big img{aspect-ratio:3/2}
-  .ghc-stack{display:grid;gap:1rem}
-  .ghc-stack figure img{aspect-ratio:3/2}
-  @media(min-width:760px){.ghc-collage{grid-template-columns:1.35fr 1fr}
-    .ghc-big{transform:rotate(-1deg)}.ghc-stack{padding-top:2.2rem}
-    .ghc-stack figure:first-child{transform:rotate(1.4deg)}
-    .ghc-stack figure:last-child{transform:rotate(-1.2deg)}}
-  .ghc-standfirst{font-size:1.06rem;line-height:1.7;color:var(--ink);max-width:37rem;margin:0 0 2rem}
-  .ghc-cta{display:inline-block;border:1px solid var(--accent);color:var(--ink);
-    letter-spacing:.15em;font-size:.82rem;padding:.9rem 1.9rem;font-weight:600;text-transform:uppercase;text-decoration:none}
 
 
 </style>
@@ -188,56 +145,25 @@
 <link data-gh-design="" href="manifest.json" rel="manifest"/>
 <link data-gh-design="" href="icons/apple-touch-icon.png" rel="apple-touch-icon"/>
 <link data-gh-design="" href="assets/gh-theme.css" rel="stylesheet"/>
-<script data-gh-design="" src="assets/gh-theme.js"></script><link data-gh-design="" href="assets/gh-halloween.css" rel="stylesheet"/><script data-gh-design="" defer="" src="assets/gh-halloween.js"></script></head>
-<body class="gh-site" data-page="index.html">
+<script data-gh-design="" src="assets/gh-theme.js"></script><link data-gh-design="" href="assets/gh-home.css" rel="stylesheet"/><link data-gh-design="" href="assets/gh-halloween.css" rel="stylesheet"/><script data-gh-design="" defer="" src="assets/gh-halloween.js"></script></head>
+<body class="gh-site" data-page="index.html"><div class="gh-top gh-topbar"><div class="gh-topbar-in"><span class="gh-top-left"><time class="gh-date">Aspen, Colorado</time><span class="gh-weather" role="status">Aspen · Loading weather…</span></span><span aria-hidden="true" class="gh-top-center"></span><span class="gh-top-right"><span class="gh-top-loc">Aspen, Colorado</span><button aria-label="Dark theme" aria-pressed="false" class="gh-theme-toggle" type="button">Theme</button></span></div></div>
 <div class="page">
-<header class="masthead"><div class="gh-top"><div class="gh-context"><time class="gh-date">Aspen, Colorado</time><span class="gh-weather" role="status">Aspen · Loading weather…</span></div><button aria-label="Dark theme" aria-pressed="false" class="gh-theme-toggle" type="button">Theme</button></div><p class="kicker">FROM ASPEN AND BEYOND</p><h1 class="brand"><a aria-label="The Golden Hour — home" href="index.html">THE GOLDEN <em>HOUR</em></a></h1><nav aria-label="Sections" class="site-nav"><a aria-current="page" href="index.html">Latest</a><a href="events/">Events</a><a href="upcoming/">Upcoming</a><a href="calendar/">Calendar</a><a href="map/">Map</a><a href="picks/">Top Picks</a><a href="activities/">Activities</a><a href="editions/">Archive</a><a href="sources/">How we verify</a></nav></header><p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p>
+<header class="masthead"><p class="kicker gh-eyebrow"><span class="rule double"></span><span class="gh-kicker-text">FROM ASPEN AND BEYOND</span><span class="rule double"></span></p><h1 class="brand"><a aria-label="The Golden Hour — home" href="index.html"><span class="l1">THE GOLDEN</span> <span class="l2"><em>HOUR</em></span></a></h1><div class="gh-mast-sub"><p class="tagline">A weekly field guide to what's on — music, art, and high-country happenings, verified before publication.</p><nav aria-label="Sections" class="site-nav"><a aria-current="page" href="index.html">Latest</a><a href="events/">Events</a><a href="upcoming/">Upcoming</a><a href="calendar/">Calendar</a><a href="map/">Map</a><a href="picks/">Top Picks</a><a href="activities/">Activities</a><a href="editions/">Archive</a><a href="sources/">How we verify</a></nav></div></header>
 </div>
-<section class="ght" id="ghHero">
-<div class="ght-hero">
-<div class="ght-art">
-<img alt="Metalachi — official promo photo" class="gh-artwork" fetchpriority="high" id="ghtImg" src="assets/browse/metalachi-live-concert.jpg"/>
-</div>
+<section aria-label="Cover story" class="gh-cover">
+<figure class="gh-cover-frame">
+<img alt="Maroon Bells glowing gold at sunrise, reflected in Maroon Lake with golden aspens on the slopes" class="gh-artwork" fetchpriority="high" src="assets/img/cover-maroon-bells.jpg"/>
+<div class="gh-cover-shade"></div>
+<span class="gh-cover-tag">The Cover</span>
+<figcaption class="gh-cover-cap">
 <div>
-<p class="ght-kick" id="ghtKick">● NEXT UP · THURSDAY NIGHT IN ASPEN</p>
-<h3 class="ght-title" id="ghtTitle">Metalachi</h3>
-<p class="ght-meta" id="ghtMeta"><b>Thursday, Oct 29 · 9:00 PM</b> · Belly Up Aspen</p>
-<p class="ght-line" id="ghtLine">The world's first heavy-metal mariachi band: full mariachi instrumentation playing metal classics. Loud, joyful, and completely unserious — a Belly Up specialty.</p>
-<a class="ght-cta" href="events/">See what's on</a>
+<div class="gh-cover-k">Maroon Bells · Aspen, Colorado</div>
+<h2 class="gh-cover-h">This week in Aspen.</h2>
 </div>
-</div>
-<div class="ght-then">
-<div class="ght-then-inner" id="ghtThen">
-<b>THEN</b>
-<span><b>Fri, Oct 30</b> — Spooktacular Creepy Crafts</span>
-<span><b>Fri, Oct 30</b> — Aspen's DarkSide Ghost Tour</span>
-<span><b>Fri, Oct 30</b> — Digable Planets</span>
-</div>
-</div>
-</section>
-<section class="ghc" id="ghCover">
-<div class="ghc-body">
-<p class="ghc-dateline" id="ghcDateline">THE WEEK OF OCTOBER 26, 2026 · ASPEN, COLORADO</p>
-<h3 class="ghc-title">This week in <em>Aspen.</em></h3>
-<div class="ghc-collage">
-<figure class="ghc-big">
-<img alt="Metalachi — official promo photo" class="gh-artwork" id="ghcImg1" loading="lazy" src="assets/browse/metalachi-live-concert.jpg"/>
-<figcaption id="ghcCap1">Metalachi — Thursday, Oct 29</figcaption>
+<p>Ghost tours through downtown’s haunted history, a walk with the dead at Ute Cemetery, and a town full of costume parties on Saturday night — every pick verified against official sources before publication.</p>
+</figcaption>
 </figure>
-<div class="ghc-stack">
-<figure>
-<img alt="Digable Planets — official promo photo" class="gh-artwork" id="ghcImg2" loading="lazy" src="assets/browse/digable-planets-live-concert.jpg"/>
-<figcaption id="ghcCap2">Digable Planets — Friday, Oct 30</figcaption>
-</figure>
-<figure>
-<img alt="Haunted Hotel Halloween Party at W Aspen — official promo photo" class="gh-artwork" id="ghcImg3" loading="lazy" src="assets/browse/haunted-hotel-halloween-party.jpg"/>
-<figcaption id="ghcCap3">Haunted Hotel Halloween Party at W Aspen — Saturday, Oct 31</figcaption>
-</figure>
-</div>
-</div>
-<p class="ghc-standfirst">Halloween week in Aspen: ghost tours through downtown's haunted history with Dean's Aspen Tours, a walk with the dead at Ute Cemetery, and a town full of costume parties on Saturday night. Every pick verified against the venue before publication.</p>
-<a class="ghc-cta" href="events/">See Halloween week</a>
-</div>
+<p class="gh-cover-credit">Cover: Maroon Bells at sunrise — Lorie Shaull, <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="license">CC BY-SA 2.0</a>. Display crop and seasonal color treatment.</p>
 </section>
 <div class="page">
 <h2 class="section">This week</h2>
@@ -259,118 +185,6 @@
 <h2 class="section">How we verify</h2>
 <p class="method">Every event is checked against the venue's own page or a trusted local source before it reaches you. Aggregator listings alone never make the cut — and when two sources disagree on a time, we hold the pick until one is authoritative.</p>
 <p><a class="btn" href="sources/">See our sources</a></p>
-<script>
-/* Golden Hour homepage hero rotation (Concept 1 TONIGHT + Concept 2 cover).
-   Data: calendar/events.json — regenerated and deployed daily by the 06:08 MDT
-   listings refresh (golden-hour-engine/refresh_listings.py + deploy_listings.py).
-   At view time this picks the next upcoming event (start no earlier than 2h ago,
-   so a show stays "tonight" through its evening) and advances hero, ticker, and
-   collage. A past event can never be presented as upcoming. If the fetch fails,
-   the baked launch content stays; if no upcoming events exist at all, both
-   sections hide rather than show stale picks. Maintenance notes:
-   goals/aspen-media-website-and-guest-newsletter/hidden_files/hero-rotation.md */
-(function () {
-  var TZ = "America/Denver";
-  var IMG_FIX = { "Craig Robinson": "assets/browse/craig-robinson.jpg" };
-  var SHORT = { "Changemaker Speaker Series Kiliii Yuyan: Indigenous Wisdom for a Modern World": "Kiliii Yuyan" };
-  function f(opts) { return new Intl.DateTimeFormat("en-US", Object.assign({ timeZone: TZ }, opts)); }
-  var fKey = f({ year: "numeric", month: "2-digit", day: "2-digit" });
-  function key(d) { var p = {}; fKey.formatToParts(d).forEach(function (x) { p[x.type] = x.value; }); return p.year + "-" + p.month + "-" + p.day; }
-  function piece(d, opts) { return f(opts).format(d); }
-  function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
-  function shortTitle(t) {
-    if (SHORT[t]) return SHORT[t];
-    if (t.length <= 44) return t;
-    var cut = t.slice(0, 44); var sp = cut.lastIndexOf(" ");
-    return (sp > 12 ? cut.slice(0, sp) : cut) + "…";
-  }
-  function venueShort(v) { return (v || "").split(",")[0]; }
-  function setHero(e, img) {
-    var d = new Date(e.starts_at);
-    var now = new Date();
-    var todayK = key(now), heroK = key(d);
-    var tom = new Date(now.getTime() + 864e5), tomK = key(tom);
-    var wd = piece(d, { weekday: "long" });
-    var kick = heroK === todayK ? "● TONIGHT IN ASPEN"
-      : heroK === tomK ? "● TOMORROW NIGHT IN ASPEN"
-      : "● NEXT UP · " + wd.toUpperCase() + " NIGHT IN ASPEN";
-    document.getElementById("ghtKick").textContent = kick;
-    var t = document.getElementById("ghtTitle");
-    t.textContent = e.title;
-    t.style.fontSize = e.title.length > 26 ? "clamp(2.1rem,7.5vw,3.2rem)" : "";
-    document.getElementById("ghtMeta").innerHTML =
-      "<b>" + esc(wd + ", " + piece(d, { month: "short" }) + " " + piece(d, { day: "numeric" }) +
-      " · " + piece(d, { hour: "numeric", minute: "2-digit" })) + "</b> · " + esc(venueShort(e.venue));
-    var line = document.getElementById("ghtLine");
-    if (e.blurb) {
-      var b = e.blurb; if (b.length > 230) { var c = b.slice(0, 230); b = c.slice(0, c.lastIndexOf(" ")) + "…"; }
-      line.textContent = b; line.style.display = "";
-    } else { line.style.display = "none"; }
-    var im = document.getElementById("ghtImg");
-    im.src = img; im.alt = e.title + " — official promo photo";
-  }
-  function setTicker(list) {
-    var el = document.getElementById("ghtThen");
-    var html = "<b>THEN</b>";
-    list.forEach(function (e) {
-      var d = new Date(e.starts_at);
-      html += "<span><b>" + esc(piece(d, { weekday: "short" }) + ", " + piece(d, { month: "short" }) + " " + piece(d, { day: "numeric" })) + "</b> — " + esc(shortTitle(e.title)) + "</span>";
-    });
-    el.innerHTML = html;
-  }
-  function setCollage(imaged) {
-    var slots = [["ghcImg1", "ghcCap1"], ["ghcImg2", "ghcCap2"], ["ghcImg3", "ghcCap3"]];
-    imaged.slice(0, 3).forEach(function (e, i) {
-      var img = e.image || IMG_FIX[e.title];
-      var im = document.getElementById(slots[i][0]);
-      im.src = img; im.alt = e.title + " — official promo photo";
-      var d = new Date(e.starts_at);
-      document.getElementById(slots[i][1]).textContent =
-        shortTitle(e.title) + " — " + piece(d, { weekday: "long" }) + ", " + piece(d, { month: "short" }) + " " + piece(d, { day: "numeric" });
-    });
-    var kp = {}; fKey.formatToParts(new Date()).forEach(function (x) { kp[x.type] = x.value; });
-    var base = new Date(Date.UTC(+kp.year, +kp.month - 1, +kp.day));
-    var mon = new Date(base.getTime() - ((base.getUTCDay() + 6) % 7) * 864e5);
-    var mp = {}; new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "long", day: "numeric", year: "numeric" }).formatToParts(mon).forEach(function (x) { mp[x.type] = x.value; });
-    document.getElementById("ghcDateline").textContent =
-      "THE WEEK OF " + mp.month.toUpperCase() + " " + mp.day + ", " + mp.year + " · ASPEN, COLORADO";
-  }
-  function apply(events) {
-    var now = Date.now();
-    var upcoming = events.filter(function (e) {
-      var t = Date.parse(e.starts_at);
-      return !isNaN(t) && t >= now - 2 * 36e5;
-    }).sort(function (a, b) { return Date.parse(a.starts_at) - Date.parse(b.starts_at); });
-    if (!upcoming.length) {
-      document.getElementById("ghHero").style.display = "none";
-      document.getElementById("ghCover").style.display = "none";
-      return;
-    }
-    var imaged = upcoming.filter(function (e) { return e.image || IMG_FIX[e.title]; });
-    if (!imaged.length) { return; }
-    var hero = imaged[0];
-    var probe = new Image();
-    probe.onload = function () {
-      setHero(hero, hero.image || IMG_FIX[hero.title]);
-      var idx = upcoming.indexOf(hero);
-      setTicker(upcoming.slice(idx + 1, idx + 4));
-      setCollage(imaged);
-    };
-    probe.onerror = function () {
-      var rest = imaged.slice(1);
-      if (rest.length) { var h2 = rest[0]; var p2 = new Image(); p2.onload = function () { setHero(h2, h2.image || IMG_FIX[h2.title]); setTicker(upcoming.slice(upcoming.indexOf(h2) + 1, upcoming.indexOf(h2) + 4)); setCollage(imaged); }; p2.src = h2.image || IMG_FIX[h2.title]; }
-    };
-    probe.src = hero.image || IMG_FIX[hero.title];
-  }
-  try {
-    var stamp = key(new Date()).replace(/-/g, "");
-    fetch("calendar/events.json?d=" + stamp, { credentials: "same-origin" })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) { if (Array.isArray(data) && data.length) apply(data); })
-      .catch(function () { /* baked launch content stays */ });
-  } catch (e) { /* baked launch content stays */ }
-})();
-</script>
 </div>
 <footer class="gh-footer"><nav aria-label="Sections" class="site-nav"><a aria-current="page" href="index.html">Latest</a><a href="events/">Events</a><a href="upcoming/">Upcoming</a><a href="calendar/">Calendar</a><a href="map/">Map</a><a href="picks/">Top Picks</a><a href="happy-hour/">Happy Hour</a><a href="off-season/" data-windows="2026-10-30..2026-11-26,2027-04-15..2027-05-27">Off Season</a><a href="activities/">Activities</a><a href="editions/">Archive</a><a href="sources/">How we verify</a></nav><p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p><p>© 2026 The Golden Hour · From Aspen and Beyond.</p></footer></body>
 </html>

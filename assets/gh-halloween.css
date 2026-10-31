@@ -1,6 +1,63 @@
-/* Optional costume; base tokens and templates contain no seasonal copy. */
-.gh-halloween-garland{padding:7px;text-align:center;letter-spacing:.55em;background:#492336;color:#fff4df;border-radius:0 0 16px 16px}
-.gh-halloween-greeting{max-width:1152px;margin:0 auto 18px;padding:18px 24px;background:#492336;color:#fff4df;border-radius:16px;font:700 clamp(1.3rem,4vw,2rem) var(--serif)}
-.gh-halloween .brand em{color:#f5a55b}
-:root[data-theme="light"] .gh-halloween .brand em{color:#8e420b}
-.gh-halloween .ght{background:#492336}
+/* Optional costume; base tokens and templates contain no seasonal copy.
+   WO#15: dressing ported from the approved concept v3.1 — midnight + pumpkin
+   over the Golden Hour gold. Every rule fires only under body.gh-halloween,
+   a class the skin script adds on the homepage alone. */
+.gh-halloween-garland{padding:6px 0 7px;text-align:center;white-space:nowrap;overflow:hidden;letter-spacing:.55em;line-height:1;font-size:15px;background:#1b0f1e;color:#ffd9a0}
+.gh-halloween-garland .sm{font-size:11px;opacity:.85;vertical-align:.18em}
+
+/* Ribbon — the concept's "Happy Halloween, Aspen" banner */
+.gh-halloween-greeting{max-width:1152px;margin:14px auto 18px;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;background:#370617;color:#ffe9c2;border:1px solid #5a1230;border-radius:16px}
+.gh-halloween-greeting .big{font-size:20px;line-height:1}
+.gh-halloween-greeting strong{font-family:var(--serif);font-size:17px;font-weight:800;letter-spacing:.01em}
+.gh-halloween-greeting .sub{font-size:12.5px;color:#ebcb9a}
+
+/* Top strip goes midnight-plum with an ember rule */
+.gh-halloween .gh-topbar{background:#370617!important;border-bottom:2px solid #e85d04}
+.gh-halloween .gh-top-center{color:#ffba08}
+
+/* Masthead dressing: bats, pumpkin hat, pumpkin accents */
+.gh-halloween .masthead{position:relative}
+.hw-bats{position:absolute;inset:0;pointer-events:none;color:var(--ink);z-index:2}
+.hw-bats svg{position:absolute;fill:currentColor;opacity:.88}
+.hw-bats .b1{width:44px;top:2px;left:2%}
+.hw-bats .b2{width:28px;top:34px;left:11%;opacity:.6}
+.hw-bats .b3{width:52px;top:6px;right:2.5%}
+.hw-bats .b4{width:24px;top:52px;right:12%;opacity:.55}
+.hw-bats .b5{width:20px;top:118px;left:4%;opacity:.45}
+.hw-bats .b6{width:20px;top:118px;right:4%;opacity:.45}
+@media(max-width:640px){.hw-bats .b2,.hw-bats .b4,.hw-bats .b5,.hw-bats .b6{display:none}.hw-bats .b1{width:32px}.hw-bats .b3{width:38px}}
+.hw-pumpkin-hat{position:absolute;left:50%;top:-6px;transform:translateX(-50%) rotate(-8deg);font-size:clamp(26px,4vw,44px);line-height:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));z-index:3}
+.gh-halloween .brand em{color:#f48c06}
+:root[data-theme="light"] .gh-halloween .brand em{color:#b24300}
+.gh-halloween .gh-kicker-text{color:#f48c06}
+:root[data-theme="light"] .gh-halloween .gh-kicker-text{color:#9d0208}
+.gh-halloween .gh-mast-sub{border-bottom-color:#e85d04}
+.gh-halloween .gh-mast-sub nav.site-nav a[aria-current]{background:#370617;border-color:#370617;color:#ffe9c2}
+
+/* Cover in costume: witch ring, ember shade, moon, bats, pumpkins */
+.gh-halloween .gh-cover-frame{box-shadow:0 0 0 2px #370617,0 18px 44px rgba(244,140,6,.28)}
+.gh-halloween .gh-cover-frame img{filter:saturate(1.06) contrast(1.04) brightness(.96)}
+.gh-halloween .gh-cover-shade{background:linear-gradient(to top,rgba(27,6,18,.92) 0%,rgba(55,6,23,.32) 44%,rgba(27,15,30,.08) 68%)}
+.gh-halloween .gh-cover-tag{background:#9d0208;color:#fff3d6;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.hw-moon{position:absolute;top:16px;right:18px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 38% 36%,#fff8d6 0%,#fce9a8 52%,#efd27a 100%);box-shadow:0 0 0 10px rgba(255,240,180,.14),0 0 42px 18px rgba(255,214,110,.38);z-index:2}
+.hw-moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 68% 62%,rgba(180,140,40,.22) 0 12%,transparent 13%),radial-gradient(circle at 30% 70%,rgba(180,140,40,.18) 0 9%,transparent 10%)}
+@media(max-width:640px){.hw-moon{width:52px;height:52px;top:12px;right:12px}}
+.hw-hero-bats{position:absolute;top:22px;right:108px;z-index:2;color:#140a16;pointer-events:none}
+.hw-hero-bats svg{fill:currentColor;position:absolute}
+.hw-hero-bats .hb1{width:36px;right:0;top:0}
+.hw-hero-bats .hb2{width:22px;right:44px;top:26px;opacity:.75}
+@media(max-width:640px){.hw-hero-bats{right:74px}.hw-hero-bats .hb1{width:26px}}
+.hw-pumpkins{position:absolute;right:14px;bottom:86px;z-index:2;font-size:30px;line-height:1;display:flex;gap:2px;filter:drop-shadow(0 6px 12px rgba(0,0,0,.5))}
+.hw-pumpkins .p2{font-size:22px;margin-top:10px}
+@media(max-width:900px){.hw-pumpkins{bottom:auto;top:96px}}
+@media(max-width:640px){.hw-pumpkins{font-size:22px;top:78px}.hw-pumpkins .p2{font-size:16px}}
+
+@media (prefers-reduced-motion: no-preference){
+  .hw-bats .b1,.hw-hero-bats .hb1{animation:hw-flap 3.6s ease-in-out infinite alternate}
+  .hw-bats .b3{animation:hw-flap 4.4s ease-in-out infinite alternate-reverse}
+  .hw-pumpkin-hat{animation:hw-bob 3.2s ease-in-out infinite}
+  .hw-moon{animation:hw-glow 5s ease-in-out infinite alternate}
+  @keyframes hw-flap{from{transform:translateY(0) rotate(-2deg)}to{transform:translateY(7px) rotate(3deg)}}
+  @keyframes hw-bob{0%,100%{transform:translateX(-50%) rotate(-8deg) translateY(0)}50%{transform:translateX(-50%) rotate(-4deg) translateY(-4px)}}
+  @keyframes hw-glow{from{box-shadow:0 0 0 10px rgba(255,240,180,.12),0 0 34px 14px rgba(255,214,110,.30)}to{box-shadow:0 0 0 14px rgba(255,240,180,.18),0 0 52px 24px rgba(255,214,110,.46)}}
+}
