@@ -1,10 +1,10 @@
-/* The Golden Hour — service worker v7; WO13 brand-consistency repairs */
+/* The Golden Hour — service worker v8; WO15 homepage assets and costume refresh */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v7";
+const CACHE = "golden-hour-v8";
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
-  'assets/gh-theme.css', 'assets/gh-theme.js', 'assets/gh-halloween.css', 'assets/gh-halloween.js']
+  'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js', 'assets/gh-halloween.css', 'assets/gh-halloween.js']
   .map(path => BASE + path);
 function noStore(response) {
   return /(?:^|,)\s*no-store\b/i.test(response.headers.get("Cache-Control") || "");

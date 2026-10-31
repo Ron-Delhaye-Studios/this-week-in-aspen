@@ -1,0 +1,157 @@
+/* ══ WO#15 — Homepage concept fidelity (approved concept v3.1, 2026-10-30) ══
+   Homepage only: every rule is scoped to body[data-page="index.html"].
+   Ported from the approved masthead concept (gh-masthead-mock): dark top
+   strip with the weather pill, eyebrow rules, the giant two-line wordmark,
+   tagline + pill-nav row, and the Maroon Bells COVER hero. Colors ride the
+   shared gh-theme.css tokens so both themes stay AA-audited; seasonal
+   dressing lives in gh-halloween.css/js, never here. */
+
+/* ── Top strip — dark band, full bleed ─────────────────────────── */
+body.gh-site[data-page="index.html"] .gh-topbar{
+  --band:#0d1b24; --band-ink:#f7efdb; --band-soft:#c9bfa6; --band-gold:#efce7a;
+  display:block; padding:0; border-bottom:0;
+  background:var(--band); color:var(--band-ink);
+}
+body.gh-site[data-page="index.html"] .gh-topbar-in{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px 12px; flex-wrap:wrap;
+  max-width:1200px; margin:0 auto; padding:7px 24px;
+  padding-top:calc(7px + env(safe-area-inset-top,0px));
+  font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+}
+body.gh-site[data-page="index.html"] .gh-top-left,
+body.gh-site[data-page="index.html"] .gh-top-right{display:inline-flex; align-items:center; gap:9px; flex-wrap:wrap}
+body.gh-site[data-page="index.html"] .gh-top-center{color:var(--band-gold); text-align:center}
+body.gh-site[data-page="index.html"] .gh-top-loc{color:var(--band-ink)}
+/* Weather pill — the live .gh-weather hook, concept pill dress */
+body.gh-site[data-page="index.html"] .gh-topbar .gh-weather{
+  margin-left:0; padding:3px 9px; min-height:0;
+  border:1px solid rgba(247,239,219,.4); border-radius:999px;
+  background:rgba(247,239,219,.1); color:var(--band-ink);
+  font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:none;
+}
+/* Theme toggle — the live .gh-theme-toggle hook, pill dress */
+body.gh-site[data-page="index.html"] .gh-topbar .gh-theme-toggle{
+  min-height:44px; padding:4px 10px;
+  border:1px solid rgba(247,239,219,.4); border-radius:999px;
+  background:transparent; color:var(--band-soft);
+  font-size:10.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+body.gh-site[data-page="index.html"] .gh-topbar .gh-theme-toggle:hover{
+  background:#d99a22!important; color:#1d1503!important; border-color:#d99a22;
+}
+@media(max-width:560px){ body.gh-site[data-page="index.html"] .gh-top-loc{display:none} }
+
+/* ── Masthead — eyebrow rules + giant two-line wordmark ────────── */
+body.gh-site[data-page="index.html"] .masthead{padding-top:18px!important; margin-bottom:0!important}
+body.gh-site[data-page="index.html"] .gh-eyebrow{
+  display:flex; align-items:center; gap:12px; justify-content:center;
+  margin:0 0 10px!important;
+}
+body.gh-site[data-page="index.html"] .gh-eyebrow .rule{
+  height:1px; flex:1; background:var(--accent); opacity:.7;
+  box-shadow:0 3px 0 var(--accent);
+}
+body.gh-site[data-page="index.html"] .gh-eyebrow .gh-kicker-text{
+  font-size:11px; font-weight:800; letter-spacing:.34em;
+  text-transform:uppercase; color:var(--accent); text-align:center;
+}
+body.gh-site[data-page="index.html"] .masthead .brand{
+  font-size:clamp(30px,11.8vw,168px)!important;
+  white-space:normal!important; line-height:.84!important;
+  letter-spacing:-.015em!important; font-weight:900;
+  margin:0!important; padding:10px 0 4px; text-align:center;
+}
+body.gh-site[data-page="index.html"] .masthead .brand .l1,
+body.gh-site[data-page="index.html"] .masthead .brand .l2{display:block}
+body.gh-site[data-page="index.html"] .masthead .brand{position:relative}
+
+/* ── Mast-sub — tagline left, pill nav right (stacked on mobile) ── */
+body.gh-site[data-page="index.html"] .gh-mast-sub{
+  display:flex; flex-direction:column; gap:12px; align-items:center;
+  padding:10px 0 16px; border-bottom:3px double var(--accent);
+}
+body.gh-site[data-page="index.html"] .gh-mast-sub .tagline{
+  font-family:var(--serif); font-style:italic; font-size:17px; line-height:1.35;
+  color:var(--muted); text-align:center; max-width:560px; margin:0;
+}
+body.gh-site[data-page="index.html"] .gh-mast-sub nav.site-nav{
+  border-block:0!important; margin:0; padding:0;
+  display:flex; flex-wrap:wrap; gap:6px; justify-content:center;
+}
+body.gh-site[data-page="index.html"] .gh-mast-sub nav.site-nav a{
+  border:1px solid var(--hair); border-radius:999px; background:var(--surface);
+  color:var(--ink); text-decoration:none;
+  font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  padding:8px 13px; min-height:44px;
+  display:inline-flex; align-items:center; justify-content:center; white-space:nowrap;
+}
+body.gh-site[data-page="index.html"] .gh-mast-sub nav.site-nav a[aria-current]{
+  background:var(--ink); color:var(--paper); border-color:var(--ink);
+  text-decoration:none;
+}
+@media(min-width:900px){
+  body.gh-site[data-page="index.html"] .gh-mast-sub{
+    flex-direction:row; justify-content:space-between; align-items:center;
+  }
+  body.gh-site[data-page="index.html"] .gh-mast-sub .tagline{text-align:left}
+  body.gh-site[data-page="index.html"] .gh-mast-sub nav.site-nav{justify-content:flex-end}
+}
+
+/* ── THE COVER — Maroon Bells hero ─────────────────────────────── */
+body.gh-site[data-page="index.html"] .gh-cover{
+  max-width:1200px; margin:0 auto; padding:16px 24px 0;
+}
+body.gh-site[data-page="index.html"] .gh-cover-frame{
+  position:relative; margin:0; border-radius:var(--radius);
+  overflow:hidden; background:var(--navy);
+}
+body.gh-site[data-page="index.html"] .gh-cover-frame img{
+  width:100%; height:min(62vh,560px); min-height:340px; display:block;
+  /* The cover is a designed full-bleed photograph (concept: cover-crop at
+     36%), not event artwork — exempt it from the shared contain rule that
+     gh-theme.css applies to .gh-artwork. Event art keeps the contain law. */
+  object-fit:cover!important; object-position:center 36%!important;
+  background:transparent;
+}
+body.gh-site[data-page="index.html"] .gh-cover-shade{
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(8,17,23,.88) 0%,rgba(8,17,23,.28) 42%,rgba(8,17,23,0) 65%);
+}
+body.gh-site[data-page="index.html"] .gh-cover-tag{
+  position:absolute; top:14px; left:14px; z-index:3;
+  background:#d99a22; color:#1d1503;
+  font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+  padding:7px 11px; border-radius:3px;
+}
+body.gh-site[data-page="index.html"] .gh-cover-cap{
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  padding:18px; color:#f7efdb;
+  display:flex; flex-direction:column; gap:6px;
+}
+body.gh-site[data-page="index.html"] .gh-cover-k{
+  font-size:11px; font-weight:800; letter-spacing:.22em;
+  text-transform:uppercase; color:#efce7a;
+}
+body.gh-site[data-page="index.html"] .gh-cover-h{
+  font-family:var(--serif); font-weight:800;
+  font-size:clamp(28px,4.6vw,52px); line-height:1.02; max-width:760px; margin:0;
+  color:#f7efdb;
+}
+body.gh-site[data-page="index.html"] .gh-cover-cap p{
+  font-size:14.5px; line-height:1.45; color:#ede4cc; max-width:620px; margin:0;
+}
+@media(min-width:900px){
+  body.gh-site[data-page="index.html"] .gh-cover-cap{
+    flex-direction:row; align-items:flex-end; justify-content:space-between; gap:24px;
+  }
+  body.gh-site[data-page="index.html"] .gh-cover-cap p{padding-bottom:6px}
+}
+
+/* Cover attribution stays on an opaque theme surface in both themes. */
+body.gh-site[data-page="index.html"] .gh-cover-credit{margin:10px 0 0;font-size:12px;line-height:1.5;color:var(--ink)}
+body.gh-site[data-page="index.html"] .gh-cover-credit a{color:inherit;text-decoration:underline}
+
+/* Keep the approved two-line lockup at phone widths and guarantee cover-copy contrast. */
+body.gh-site[data-page="index.html"] .masthead .brand .l1{white-space:nowrap}
+body.gh-site[data-page="index.html"] .gh-cover-cap{background:rgba(13,27,36,.94)}

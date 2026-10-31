@@ -114,23 +114,53 @@ def decorate(path, skin, rows, day):
     for tag in doc.select('[style]'):
         tag['style'] = clean_css(tag['style'])
     current = path.relative_to(ROOT).as_posix().replace('index.html','') or 'index.html'
+    home_tagline = None
+    if current == 'index.html':
+        # WO#15: the homepage tagline moves into the concept mast-sub row;
+        # lift it out before the masthead rebuild discards shell children.
+        tagline_tag = doc.select_one('.tagline')
+        if tagline_tag is not None: home_tagline = tagline_tag.extract()
     masthead = doc.select_one('header.masthead')
     if masthead:
         # Keep edition datelines and descriptive copy, outside the wordmark.
         retained = [t.extract() for t in list(masthead.children)
-                    if getattr(t,'name',None) and not (set(t.get('class',[])) & {'brand','kicker','rule-double','site-nav','gh-top'})]
+                    if getattr(t,'name',None) and not (set(t.get('class',[])) & {'brand','kicker','rule-double','site-nav','gh-top','gh-mast-sub'})]
     else:
         retained = []
         masthead = doc.new_tag('header', attrs={'class':'masthead'})
         (doc.select_one('.page') or doc.body).insert(0,masthead)
     masthead.clear()
-    masthead.append(fragment('<div class="gh-top"><div class="gh-context"><time class="gh-date">Aspen, Colorado</time>'
-        '<span class="gh-weather" role="status">Aspen · Loading weather…</span></div>'
-        '<button class="gh-theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false">Theme</button></div>'
-        '<p class="kicker">FROM ASPEN AND BEYOND</p>'
-        f'<p class="brand"><a href="{prefix}index.html" aria-label="The Golden Hour — home">THE GOLDEN <em>HOUR</em></a></p>'
-        + navigation(prefix,current)))
+    if current == 'index.html':
+        # WO#15 — homepage concept masthead (approved concept v3.1): the top
+        # strip leaves the masthead so it bleeds full width as a dark band;
+        # eyebrow rules, giant two-line wordmark, tagline + pill-nav row.
+        # gh-theme.js hooks (.gh-date/.gh-weather/.gh-theme-toggle) unchanged.
+        topbar = fragment('<div class="gh-top gh-topbar"><div class="gh-topbar-in">'
+            '<span class="gh-top-left"><time class="gh-date">Aspen, Colorado</time>'
+            '<span class="gh-weather" role="status">Aspen · Loading weather…</span></span>'
+            '<span class="gh-top-center" aria-hidden="true"></span>'
+            '<span class="gh-top-right"><span class="gh-top-loc">Aspen, Colorado</span>'
+            '<button class="gh-theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false">Theme</button></span></div></div>')
+        doc.body.insert(0, topbar.select_one('.gh-topbar').extract())
+        masthead.append(fragment('<p class="kicker gh-eyebrow"><span class="rule double"></span>'
+            '<span class="gh-kicker-text">FROM ASPEN AND BEYOND</span><span class="rule double"></span></p>'
+            f'<p class="brand"><a href="{prefix}index.html" aria-label="The Golden Hour — home">'
+            '<span class="l1">THE GOLDEN</span> <span class="l2"><em>HOUR</em></span></a></p>'))
+        masthead.append(fragment('<div class="gh-mast-sub"></div>'))
+    else:
+        masthead.append(fragment('<div class="gh-top"><div class="gh-context"><time class="gh-date">Aspen, Colorado</time>'
+            '<span class="gh-weather" role="status">Aspen · Loading weather…</span></div>'
+            '<button class="gh-theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false">Theme</button></div>'
+            '<p class="kicker">FROM ASPEN AND BEYOND</p>'
+            f'<p class="brand"><a href="{prefix}index.html" aria-label="The Golden Hour — home">THE GOLDEN <em>HOUR</em></a></p>'
+            + navigation(prefix,current)))
     for tag in reversed(retained): masthead.insert_after(tag)
+    if current == 'index.html':
+        sub = masthead.select_one('.gh-mast-sub')
+        if home_tagline is None:
+            home_tagline = fragment('<p class="tagline">A weekly field guide to what&rsquo;s on &mdash; music, art, and high-country happenings, verified before publication.</p>').select_one('.tagline').extract()
+        sub.insert(0, home_tagline)
+        sub.append(fragment(navigation(prefix, current)).select_one('nav').extract())
     if not doc.find('h1'):
         masthead.select_one('.brand').name = 'h1'
     refine_page(doc, path, rows, day)
@@ -150,6 +180,8 @@ def decorate(path, skin, rows, day):
 <link data-gh-design rel="apple-touch-icon" href="{prefix}icons/apple-touch-icon.png">
 <link data-gh-design rel="stylesheet" href="{prefix}assets/gh-theme.css">
 <script data-gh-design src="{prefix}assets/gh-theme.js"></script>'''
+    if current == 'index.html':
+        resources += f'<link data-gh-design rel="stylesheet" href="{prefix}assets/gh-home.css">'
     if skin == 'halloween':
         resources += f'<link data-gh-design rel="stylesheet" href="{prefix}assets/gh-halloween.css"><script data-gh-design defer src="{prefix}assets/gh-halloween.js"></script>'
     doc.head.append(fragment(resources))
@@ -226,6 +258,12 @@ def refine_page(doc, path, rows, day):
             badge.string='Listing source checked'
             if not doc.select_one('.gh-field-note'):
                 badge.insert_after(fragment('<p class="gh-field-note">Price and age details may remain unverified. Confirm these fields with the venue when booking.</p>'))
+    if route == 'index.html':
+        # WO#15 guards: the concept cover and pill nav are homepage structure,
+        # not decoration — a build that loses them must fail here, not ship.
+        assert doc.select_one('.gh-cover-frame img'), 'WO#15: homepage cover missing'
+        assert doc.select_one('.gh-topbar'), 'WO#15: homepage top strip missing'
+        assert doc.select_one('.gh-mast-sub nav.site-nav'), 'WO#15: homepage pill nav missing'
     if route == 'press/index.html':
         total=sum(datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()>=day for e in rows)
         for paragraph in doc.select('.card p'):
