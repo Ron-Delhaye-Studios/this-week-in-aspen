@@ -26,7 +26,25 @@ NAV = [('index.html','Latest'), ('events/','Events'), ('upcoming/','Upcoming'),
 # Footer-only guide links: the footer is the canonical guide-discovery
 # surface. These render ONLY in the footer (footer_navigation), spliced in
 # immediately after Top Picks; they never join NAV / the header nav.
-FOOTER_EXTRA = [('happy-hour/', 'Happy Hour')]
+FOOTER_EXTRA = [('happy-hour/', 'Happy Hour', None),
+                ('off-season/', 'Off Season', 'off-season')]
+
+# Seasonal footer links (WO#12): season key -> data file whose "windows"
+# config stamps a data-windows attribute on the footer anchor;
+# assets/gh-theme.js hides seasonal anchors outside every window.
+SEASON_FILES = {'off-season': 'off-season/off-season.json'}
+
+
+def season_windows_attr(season):
+    rel = SEASON_FILES.get(season or '')
+    if not rel:
+        return ''
+    try:
+        cfg = json.loads((ROOT / rel).read_text(encoding='utf-8'))
+        wins = ','.join(f"{w['start']}..{w['end']}" for w in cfg.get('windows', []))
+        return f' data-windows="{wins}"' if wins else ''
+    except Exception:
+        return ''
 
 
 def soup(text):
@@ -56,12 +74,12 @@ def footer_navigation(prefix, current):
     """Footer nav: NAV plus the FOOTER_EXTRA guide links after Top Picks."""
     items = []
     for path, label in NAV:
-        items.append((path, label))
+        items.append((path, label, None))
         if path == 'picks/':
             items.extend(FOOTER_EXTRA)
     return '<nav class="site-nav" aria-label="Sections">' + ''.join(
-        f'<a href="{prefix}{path}"' + (' aria-current="page"' if path == current else '') + f'>{label}</a>'
-        for path, label in items) + '</nav>'
+        f'<a href="{prefix}{path}"' + (' aria-current="page"' if path == current else '') + season_windows_attr(season) + f'>{label}</a>'
+        for path, label, season in items) + '</nav>'
 
 
 def decorate(path, skin, rows, day):

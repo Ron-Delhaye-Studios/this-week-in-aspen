@@ -90,7 +90,29 @@ NAV_ITEMS = [
 # nav. footer() splices each entry in immediately after the Top Picks link.
 FOOTER_EXTRA = [
     ("happy-hour/", "Happy Hour", "happyhour"),
+    ("off-season/", "Off Season", "offseason"),
 ]
+
+# Seasonal footer links (WO#12): href -> data file whose "windows" config
+# stamps a data-windows attribute on the footer anchor; assets/gh-theme.js
+# hides seasonal anchors outside every window (Denver dates).
+SEASONAL_LINKS = {"off-season/": "off-season/off-season.json"}
+
+
+def _season_windows_attr(href):
+    rel = SEASONAL_LINKS.get(href)
+    if not rel:
+        return ""
+    try:
+        import json as _json
+        import os as _os
+
+        path = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), rel)
+        cfg = _json.load(open(path, encoding="utf-8"))
+        wins = ",".join(f"{w['start']}..{w['end']}" for w in cfg.get("windows", []))
+        return f' data-windows="{wins}"' if wins else ""
+    except Exception:
+        return ""
 
 
 def nav_html(root, active=None):
@@ -128,7 +150,8 @@ def footer(root):
         if key == "picks":
             items.extend((h, l) for h, l, _ in FOOTER_EXTRA)
     links = " · ".join(
-        f'<a href="{root}{href}">{label}</a>' for href, label in items
+        f'<a href="{root}{href}"{_season_windows_attr(href)}>{label}</a>'
+        for href, label in items
     )
     return (
         '  <footer class="colophon">\n'

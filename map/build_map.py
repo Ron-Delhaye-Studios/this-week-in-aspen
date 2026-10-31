@@ -327,7 +327,7 @@ PAGE_TMPL = """<!DOCTYPE html>
 
 <footer class="colophon">
   <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-  <p><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="index.html">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../happy-hour/">Happy Hour</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
+  <p><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="index.html">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../happy-hour/">Happy Hour</a> · <a href="../off-season/"{season_windows}>Off Season</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
   <p>© 2026 The Golden Hour</p>
 </footer>
 
@@ -350,7 +350,21 @@ def build_shell():
     seo = _theme.seo_head("Map — The Golden Hour",
         "Every verified Aspen-area event placed on a map of Colorado.", "map/")
     analytics = _theme.analytics_tags("../")
-    page = PAGE_TMPL.replace("{nav}", nav).replace("{seo}", seo).replace("{analytics}", analytics).replace("{{", "{").replace("}}", "}")
+    # WO#12: the Off Season footer link is seasonal — its windows come from
+    # off-season/off-season.json (the config source of truth) and
+    # assets/gh-theme.js hides the link outside every window.
+    season_windows = ""
+    try:
+        import json as _json
+        cfg_path = os.path.join(os.path.dirname(MAPDIR), "off-season", "off-season.json")
+        with open(cfg_path, encoding="utf-8") as _f:
+            _cfg = _json.load(_f)
+        _wins = ",".join(f"{w['start']}..{w['end']}" for w in _cfg.get("windows", []))
+        if _wins:
+            season_windows = f' data-windows="{_wins}"'
+    except Exception:
+        season_windows = ""
+    page = PAGE_TMPL.replace("{nav}", nav).replace("{season_windows}", season_windows).replace("{seo}", seo).replace("{analytics}", analytics).replace("{{", "{").replace("}}", "}")
     with open(os.path.join(MAPDIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(page)
     print("wrote map/index.html")
