@@ -99,3 +99,29 @@
     if ('serviceWorker' in navigator) navigator.serviceWorker.register(new URL('sw.js',base),{scope:base.pathname}).catch(() => {});
   });
 })();
+
+/* WO#12: season-window gating for seasonal footer guide links (Off
+   Season). Builders stamp data-windows="YYYY-MM-DD..YYYY-MM-DD,..." on
+   the anchor from off-season/off-season.json (the config source of
+   truth); outside every window the link is hidden. The off-season page
+   itself renders its "returns" treatment from the same config. Denver
+   dates, like the theme logic above. Appended only — the theme
+   resolution logic above is byte-untouched (Amendment A1). This script
+   loads in <head>, so the gating runs on DOMContentLoaded. */
+(() => {
+  const gate = () => {
+    const parts = {};
+    new Intl.DateTimeFormat('en-US', {timeZone: 'America/Denver', year: 'numeric', month: '2-digit', day: '2-digit'})
+      .formatToParts(new Date()).forEach(p => { parts[p.type] = p.value; });
+    const today = `${parts.year}-${parts.month}-${parts.day}`;
+    document.querySelectorAll('a[data-windows]').forEach(a => {
+      const inside = (a.dataset.windows || '').split(',').some(w => {
+        const [s, e] = w.split('..');
+        return s && e && today >= s && today <= e;
+      });
+      if (!inside) a.style.display = 'none';
+    });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', gate);
+  else gate();
+})();

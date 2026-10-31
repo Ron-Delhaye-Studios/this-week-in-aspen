@@ -347,6 +347,111 @@ def build_happy_hour():
     return "\n".join(body)
 
 
+def build_off_season():
+    """Off Season guide — renders from off-season/off-season.json, the only
+    content source (WO#12 content data 0023). The data file's "windows"
+    config drives BOTH page states: inside a window the guide lists who's
+    dealing, who's open, and who's dark; outside every window the page
+    serves the designed "returns" treatment and the footer link hides
+    site-wide (assets/gh-theme.js + data-windows). Happy-hour listings are
+    NOT duplicated here — the Happy Hour page owns them (0022 lineup)."""
+    js = """
+<script>
+(function(){
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+  function denverToday(){
+    var parts={};
+    new Intl.DateTimeFormat("en-US",{timeZone:"America/Denver",year:"numeric",
+      month:"2-digit",day:"2-digit"}).formatToParts(new Date()).forEach(function(p){
+      parts[p.type]=p.value;});
+    return parts.year+"-"+parts.month+"-"+parts.day;
+  }
+  function srcLine(e){
+    var tail=" · Checked "+esc(e.last_checked||"");
+    if(e.source_url){
+      return '<p class="src">Source: <a href="'+esc(e.source_url)+'" rel="noopener">'+
+        esc(e.source_label)+'</a>'+tail+'</p>';
+    }
+    return '<p class="src">Source: '+esc(e.source_label)+tail+'</p>';
+  }
+  function card(kicker,name,pill,why,e){
+    var heading='<p class="gh-card-kicker">'+esc(kicker)+'</p><h3>'+esc(name)+'</h3>'+
+      (pill?'<span class="score">'+esc(pill)+'</span>':"");
+    return '<article class="guide pick gh-card gh-typographic" id="os-'+slug(name)+'">'+
+      '<header class="gh-type-media">'+heading+'</header>'+
+      '<div class="gh-card-body">'+(why?'<p class="why">'+esc(why)+'</p>':"")+
+      srcLine(e)+'</div></article>';
+  }
+  fetch("off-season.json").then(function(r){return r.json();}).then(function(d){
+    var today=denverToday();
+    var windows=d.windows||[];
+    var inside=windows.some(function(w){return today>=w.start&&today<=w.end;});
+    var live=document.getElementById("season-live");
+    var out=document.getElementById("season-out");
+    if(!inside){
+      var past=windows.filter(function(w){return w.end<today;});
+      var line=past.length?past[past.length-1].returns_line:
+        "Off Season returns when the lifts stop spinning — the dates land here when they're set.";
+      document.getElementById("os-returns").textContent=line;
+      out.hidden=false;
+      return;
+    }
+    var ctx=document.getElementById("os-context");
+    ctx.innerHTML=(d.context||[]).map(function(c){
+      var link=c.source_url?' <a href="'+esc(c.source_url)+'" rel="noopener">'+
+        esc(c.source_label)+'</a>':"";
+      return '<p class="src">'+esc(c.detail)+link+'</p>';
+    }).join("");
+    document.getElementById("os-deals").innerHTML=(d.deals||[]).map(function(e){
+      return card("Deal",e.name,"",e.detail,e);}).join("");
+    document.getElementById("os-open").innerHTML=(d.open||[]).map(function(e){
+      return card("Open",e.name,"",e.detail,e);}).join("");
+    var closed=(d.closed||[]).slice().sort(function(a,b){
+      return a.sort_date<b.sort_date?-1:(a.sort_date>b.sort_date?1:0);});
+    document.getElementById("os-closed").innerHTML=closed.map(function(e){
+      return card("Closed",e.name,e.reopen_label,e.detail,e);}).join("");
+    document.getElementById("os-gone").innerHTML=(d.gone||[]).map(function(e){
+      return card("Permanently closed",e.name,"",e.line,e);}).join("");
+    live.hidden=false;
+  }).catch(function(){
+    var out=document.getElementById("season-out");
+    document.getElementById("os-returns").textContent=
+      "The Off Season listings couldn't load just now — please check back shortly.";
+    out.hidden=false;
+  });
+})();
+</script>"""
+    body = [head_html("Off Season in Aspen — The Golden Hour", seo_desc="Aspen's off-season guide: who's open, who's dark, reopening dates, and the locals' deals — checked against venue and guide sources.", seo_path="off-season/")]
+    body.append(theme.masthead("../", None))
+    body.append('  <div class="pagetitle"><p class="kicker">Guide</p>')
+    body.append('  <h2>Off Season in Aspen</h2></div>')
+    body.append('  <section id="season-live" hidden>')
+    body.append('  <p class="lede">Mud season is the locals\' season: quiet streets, open tables, and deals that vanish when the lifts spin. Who\'s dealing, who\'s open, and who\'s dark — each entry checked against venue and guide sources.</p>')
+    body.append('  <div id="os-context"></div>')
+    body.append('  <p class="src">Checked Oct 30, 2026 — shoulder-season listings; the checker re-reads the sources every three days in season.</p>')
+    body.append('  <h2 class="section">Open &amp; dealing</h2>')
+    body.append('  <div id="os-deals"><p class="lede">Loading…</p></div>')
+    body.append('  <h2 class="section">Open</h2>')
+    body.append('  <div id="os-open"></div>')
+    body.append('  <h2 class="section">Dark for the season</h2>')
+    body.append('  <p class="lede">Closed for the shoulder — each one with its reopening date. See you on the other side.</p>')
+    body.append('  <div id="os-closed"></div>')
+    body.append('  <h2 class="section">Not coming back</h2>')
+    body.append('  <div id="os-gone"></div>')
+    body.append('  <p class="src">Happy hours live on the <a href="../happy-hour/">Happy Hour page</a> — they are not repeated here.</p>')
+    body.append('  </section>')
+    body.append('  <section id="season-out" hidden>')
+    body.append('  <p class="lede" id="os-returns">Off Season returns when the lifts stop spinning.</p>')
+    body.append('  <p>Until then, the guide rolls on — this week\'s events and the calendar never close.</p>')
+    body.append('  <p><a href="../events/">Events</a> · <a href="../calendar/">Calendar</a></p>')
+    body.append('  </section>')
+    body.append(theme.footer("../"))
+    body.append(js)
+    return "\n".join(body)
+
+
 def build_editions(weeks):
     """Archive index on the shared theme shell — was an unstyled orphan."""
     body = [head_html("Archive — The Golden Hour", seo_desc="Past weekly editions of The Golden Hour field guide.", seo_path="editions/")]
@@ -383,6 +488,7 @@ def main():
           build_sources_page(reg.get("sources", [])))
     write(os.path.join(HERE, "picks", "index.html"), build_picks())
     write(os.path.join(HERE, "happy-hour", "index.html"), build_happy_hour())
+    write(os.path.join(HERE, "off-season", "index.html"), build_off_season())
     write(os.path.join(HERE, "editions", "index.html"), build_editions(weeks))
     stub = os.path.join(HERE, "picks", "picks.json")
     if not os.path.exists(stub):

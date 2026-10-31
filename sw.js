@@ -1,6 +1,6 @@
-/* The Golden Hour — service worker v6; WO13 brand-consistency repairs */
+/* The Golden Hour — service worker v7; WO13 brand-consistency repairs */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v6";
+const CACHE = "golden-hour-v7";
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
