@@ -454,3 +454,7 @@ body.gh-site[data-page="index.html"] .gh-cover-frame{
 body.gh-site[data-page="index.html"] .gh-cover-cap{
   background:linear-gradient(to top, rgba(8,17,23,0.96) 0%, rgba(8,17,23,0.86) 62%, rgba(8,17,23,0.45) 85%, transparent 100%);
 }
+/* WO19 Tier 1: a rolled-forward event lead keeps the complete promo artwork. */
+body.gh-site[data-page="index.html"] .gh-event-lead img{object-fit:contain!important;background:var(--paper);aspect-ratio:4/3;height:auto}
+body.gh-site[data-page="index.html"] .gh-lead:not(:has(img)) .gh-lead-body{min-height:240px;display:flex;flex-direction:column;justify-content:center}
+body.gh-site[data-page="index.html"] :is(.gh-week-grid,.gh-filters,.gh-band)[hidden]{display:none!important}
