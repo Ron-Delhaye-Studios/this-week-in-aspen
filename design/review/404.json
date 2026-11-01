@@ -2,10 +2,12 @@
   "work_order": "WO19",
   "family": "404",
   "state": "verified; PR queued for owner merge",
-  "tested_source": "7efbc9b818b6266cf9e7cbd00f76d367d6bbd4e0",
+  "tested_source": "4f4f0587a9a5989df5a8a1e55a7acaf79a3e6308",
   "evidence_commit": "7c35b674ee9700a134ea9ecd55173bc50c785a3f",
   "checks": "Four rendered viewport/theme cases, zero reported WCAG A/AA violations or overflow. Nested missing URLs retain working CSS, theme and recovery links on both hosting layouts.",
   "canonical_event_sha256": "115afb6b6e0b23111faae3998b47e85df994f93c7ccdbaaf3b00c311888b02ae",
   "publication": "MASTER INDY merge only; production pending",
-  "signed": "CODEX"
+  "signed": "CODEX",
+  "final_evidence_commit": "27a2a4493d8cc838c5db0d6ca925a99c1875c4e2",
+  "shared_weather": "Reserves space without visible loading text; reveals reading or unavailable state. Folded into PR15."
 }
