@@ -1,10 +1,10 @@
 /* The Golden Hour — service worker v11; retire the optional Halloween skin */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v11";
+const CACHE = "golden-hour-wo19-chrome-1";
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
-  'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js']
+  'assets/gh-chrome.css', 'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js']
   .map(path => BASE + path);
 function noStore(response) {
   return /(?:^|,)\s*no-store\b/i.test(response.headers.get("Cache-Control") || "");

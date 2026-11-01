@@ -1,0 +1,25 @@
+/* WO19: the approved homepage shell on every inner route. */
+body.gh-site:not([data-page="index.html"]) .gh-topbar{display:block;padding:env(safe-area-inset-top,0px) 0 0;border:0;background:#0d1b24;color:#f7efdb}
+.gh-site .gh-topbar-in{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:1200px;margin:auto;padding:7px 24px;font-size:11px;letter-spacing:.08em;font-weight:700}
+.gh-site .gh-top-left,.gh-site .gh-top-right{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.gh-site .gh-topbar .gh-weather{background:#24333d;color:#f7efdb;border-color:#7d8790;padding:4px 9px;font-size:11px;letter-spacing:0}
+.gh-site .gh-topbar .gh-theme-toggle{background:#0d1b24!important;color:#f7efdb!important;border-color:#7d8790;font-size:11px;min-height:44px;padding:7px 10px}
+body.gh-site:not([data-page="index.html"]) .masthead{max-width:1200px;margin:0 auto 24px!important;padding:18px 24px 0!important}
+.gh-site .gh-eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 10px!important}
+.gh-site .gh-eyebrow .rule{height:1px;flex:1;background:var(--accent);box-shadow:0 3px 0 var(--accent)}
+.gh-site .gh-kicker-text{font-size:11px;letter-spacing:.24em;color:var(--accent)}
+body.gh-site:not([data-page="index.html"]) .masthead .brand{font-size:clamp(30px,11.8vw,168px)!important;line-height:.84!important;white-space:normal;letter-spacing:-.015em;padding:10px 0 4px;margin:0!important}
+.gh-site .brand .l1,.gh-site .brand .l2{display:block}
+.gh-site .gh-mast-sub{padding:14px 0 16px;border-bottom:3px double var(--accent)}
+.gh-site .gh-mast-sub nav.site-nav{border:0;padding:0;gap:6px}
+.gh-site .gh-mast-sub nav.site-nav a{border:1px solid var(--hair);border-radius:999px;background:var(--surface);color:var(--ink);padding:8px 13px;min-height:44px;font-size:12px;letter-spacing:.08em}
+.gh-site .gh-mast-sub nav.site-nav a[aria-current]{background:var(--ink);color:var(--paper);border-color:var(--ink);text-decoration:none}
+body.gh-site:not([data-page="index.html"]) .gh-footer{max-width:none;margin:28px 0 0;padding:24px;background:#0d1b24;color:#c9bfa6;border:0}
+.gh-site .gh-foot-word{max-width:none!important;white-space:nowrap;font-family:var(--serif);font-weight:900;font-size:clamp(28px,9vw,118px);line-height:1;letter-spacing:-.02em;margin:0 auto!important;color:#f7efdb}
+.gh-site .gh-foot-word em{color:#efce7a}
+.gh-site .gh-foot-meta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#efce7a;margin:14px auto!important}
+.gh-site .gh-footer nav.site-nav{max-width:1152px;margin:20px auto 0;border-color:#7d8790}
+.gh-site .gh-footer nav.site-nav a{color:#f7efdb}.gh-site .gh-footer nav.site-nav a[aria-current]{color:#efce7a}
+.gh-site .gh-footer p:not(.gh-foot-word):not(.gh-foot-meta){color:#c9bfa6}
+.gh-site .gh-footer a{color:#efce7a}
+@media(max-width:640px){.gh-site .gh-topbar-in{padding-inline:16px}.gh-site .gh-top-left{align-items:flex-start;flex-direction:column;gap:4px}.gh-site .gh-kicker-text{font-size:10px;letter-spacing:.16em}body.gh-site:not([data-page="index.html"]) .masthead{padding-inline:16px!important}.gh-site .gh-mast-sub nav.site-nav a{font-size:10px;padding:7px 10px}.gh-site .gh-footer{padding-inline:16px}}
