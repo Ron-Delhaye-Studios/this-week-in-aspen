@@ -1,7 +1,7 @@
 import asyncio,json,subprocess
 from pathlib import Path
 from playwright.async_api import async_playwright
-ROOT=Path('/workspace/wo19-combined');routes=[p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.html') if '.git' not in p.parts]
+ROOT=Path('/workspace/wo19-ready');routes=[p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.html') if '.git' not in p.parts]
 async def main():
  results=[];jobs=asyncio.Queue()
  for route in routes:
@@ -14,7 +14,7 @@ async def main():
     await c.add_init_script(f"localStorage.setItem('gh-theme','{theme}')")
     await c.route('**/api.open-meteo.com/**',lambda r:r.fulfill(json={'current':{'time':'2026-11-01T15:00','temperature_2m':38,'weather_code':0}}))
     page=await c.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-    await page.goto('http://127.0.0.1:8326/'+route,wait_until='domcontentloaded');await page.wait_for_timeout(100)
+    await page.goto('http://127.0.0.1:8329/'+route,wait_until='domcontentloaded');await page.wait_for_timeout(100)
     await page.add_script_tag(path='/tmp/site-axe/node_modules/axe-core/axe.min.js')
     violations=await page.evaluate("async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}});return r.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)}))}")
     overflow=await page.evaluate('document.documentElement.scrollWidth>innerWidth')

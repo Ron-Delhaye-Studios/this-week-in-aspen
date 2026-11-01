@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2026-11-01T15:00:00+00:00",
+    "title": "The Black Angels with GHOSTWOMAN",
+    "default_theme": "light",
+    "summaries": "complete source sentences or category/venue facts"
+  },
+  {
+    "date": "2026-11-21T15:00:00+00:00",
+    "title": "Suzy Bogguss: A Swingin' Little Christmas",
+    "default_theme": "light",
+    "summaries": "complete source sentences or category/venue facts"
+  },
+  {
+    "offline_stale_feed": "expired edition hidden; Events recovery remains"
+  },
+  {
+    "full_build": "repeat stable; 70-page guard and canonical hashes pass"
+  }
+]

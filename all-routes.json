@@ -1,5 +1,5 @@
 {
-  "source": "af9a38d0d5e56a10388b39bed76f4a8eef92866f",
+  "source": "feab67f716b743698b064f77f122f8bec1891c25",
   "width": 390,
   "results": [
     {
@@ -11,14 +11,14 @@
     },
     {
       "route": "template.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
     },
     {
       "route": "template.html",
-      "theme": "light",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -32,20 +32,13 @@
     },
     {
       "route": "index.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
     },
     {
       "route": "index.html",
-      "theme": "light",
-      "overflow": false,
-      "issues": [],
-      "errors": []
-    },
-    {
-      "route": "key-dates/index.html",
       "theme": "dark",
       "overflow": false,
       "issues": [],
@@ -59,7 +52,7 @@
       "errors": []
     },
     {
-      "route": "stats/index.html",
+      "route": "key-dates/index.html",
       "theme": "dark",
       "overflow": false,
       "issues": [],
@@ -68,6 +61,13 @@
     {
       "route": "stats/index.html",
       "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "stats/index.html",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -88,21 +88,14 @@
     },
     {
       "route": "events/index.html",
-      "theme": "light",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
     },
     {
       "route": "events/index.html",
-      "theme": "dark",
-      "overflow": false,
-      "issues": [],
-      "errors": []
-    },
-    {
-      "route": "calendar/index.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -115,8 +108,8 @@
       "errors": []
     },
     {
-      "route": "happy-hour/index.html",
-      "theme": "light",
+      "route": "calendar/index.html",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -124,6 +117,13 @@
     {
       "route": "happy-hour/index.html",
       "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "happy-hour/index.html",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -158,14 +158,14 @@
     },
     {
       "route": "picks/index.html",
-      "theme": "light",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
     },
     {
       "route": "picks/index.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -187,6 +187,13 @@
     {
       "route": "versions/2026-09-21-2255-field-notes-v1.html",
       "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "versions/2026-09-21-2255-field-notes-v1.html",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -194,13 +201,6 @@
     {
       "route": "shoulder-season/index.html",
       "theme": "light",
-      "overflow": false,
-      "issues": [],
-      "errors": []
-    },
-    {
-      "route": "versions/2026-09-21-2255-field-notes-v1.html",
-      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -248,13 +248,6 @@
       "errors": []
     },
     {
-      "route": "activities/index.html",
-      "theme": "light",
-      "overflow": false,
-      "issues": [],
-      "errors": []
-    },
-    {
       "route": "off-season/index.html",
       "theme": "dark",
       "overflow": false,
@@ -263,7 +256,7 @@
     },
     {
       "route": "activities/index.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -271,6 +264,13 @@
     {
       "route": "press/photo-pass-template/index.html",
       "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "activities/index.html",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -327,13 +327,6 @@
     {
       "route": "events/vienna-boys-choir/index.html",
       "theme": "light",
-      "overflow": false,
-      "issues": [],
-      "errors": []
-    },
-    {
-      "route": "events/vienna-boys-choir/index.html",
-      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -341,6 +334,13 @@
     {
       "route": "events/spooktacular-creepy-crafts/index.html",
       "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/vienna-boys-choir/index.html",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -486,6 +486,13 @@
       "errors": []
     },
     {
+      "route": "events/suzy-bogguss-a-swingin-little-christmas/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
       "route": "events/the-black-angels-with-ghostwoman/index.html",
       "theme": "dark",
       "overflow": false,
@@ -494,13 +501,6 @@
     },
     {
       "route": "events/suzy-bogguss-a-swingin-little-christmas/index.html",
-      "theme": "light",
-      "overflow": false,
-      "issues": [],
-      "errors": []
-    },
-    {
-      "route": "events/suzy-bogguss-a-swingin-little-christmas/index.html",
       "theme": "dark",
       "overflow": false,
       "issues": [],
@@ -536,14 +536,14 @@
     },
     {
       "route": "events/bombargo-at-belly-up/index.html",
-      "theme": "light",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
     },
     {
       "route": "events/bombargo-at-belly-up/index.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -774,14 +774,14 @@
     },
     {
       "route": "events/coco-and-breezy/index.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []
     },
     {
       "route": "events/coco-and-breezy/index.html",
-      "theme": "light",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
@@ -836,13 +836,6 @@
       "errors": []
     },
     {
-      "route": "events/john-oates-and-the-good-road-band/index.html",
-      "theme": "light",
-      "overflow": false,
-      "issues": [],
-      "errors": []
-    },
-    {
       "route": "events/snowmass-balloon-festival-morning-launch/index.html",
       "theme": "dark",
       "overflow": false,
@@ -851,6 +844,13 @@
     },
     {
       "route": "events/john-oates-and-the-good-road-band/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/john-oates-and-the-good-road-band/index.html",
       "theme": "dark",
       "overflow": false,
       "issues": [],
@@ -872,14 +872,14 @@
     },
     {
       "route": "events/aspen-filmfest-closing-weekend/index.html",
-      "theme": "light",
+      "theme": "dark",
       "overflow": false,
       "issues": [],
       "errors": []
     },
     {
       "route": "events/aspen-filmfest-closing-weekend/index.html",
-      "theme": "dark",
+      "theme": "light",
       "overflow": false,
       "issues": [],
       "errors": []

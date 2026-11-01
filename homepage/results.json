@@ -1,0 +1,47 @@
+{
+  "source": "1fe893fb2025d35bc7e3bf03db8b5b0c6058ee18",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "home-390-light.png"
+    },
+    {
+      "route": "",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "home-390-dark.png"
+    },
+    {
+      "route": "",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "home-1440-light.png"
+    },
+    {
+      "route": "",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "home-1440-dark.png"
+    }
+  ]
+}

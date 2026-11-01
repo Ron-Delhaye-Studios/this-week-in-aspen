@@ -1,0 +1,12 @@
+{
+  "evidence": "OBSERVED / UNKNOWN",
+  "observed": [
+    "Existing cover credit names Lorie Shaull, links CC BY-SA 2.0, and identifies a display crop / seasonal color treatment.",
+    "WO19 does not change any cover or tile image bytes, crop or grade.",
+    "The original WO15 ZIP contains the image but no file-level source/license manifest.",
+    "Multiple public Commons files with similar names by the same author exist under CC BY-SA 2.0."
+  ],
+  "unknown": "Exact source-file identity and explicit share-alike licensing of the previously altered cover rendition are not established by the available payload.",
+  "needed": "LUNA/source owner: original cover source URL and rendition license record.",
+  "action": "Flag to LUNA; keep existing credit and image unchanged. No broad imagery-grade/crop pass or new legal claim."
+}
