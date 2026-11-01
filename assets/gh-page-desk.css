@@ -1,0 +1,16 @@
+/* WO19 verification records: readable columns on desktop, labelled records on phones. */
+.gh-site table:is(.desk,.src){width:100%;border-collapse:separate;border-spacing:0;margin:24px 0 32px;background:var(--surface);border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden;table-layout:auto}
+.gh-site table:is(.desk,.src) th{font:700 11px/1.5 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:16px 20px;border-bottom:2px solid var(--accent);color:var(--muted)}
+.gh-site table:is(.desk,.src) td{padding:20px;vertical-align:top;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.7;overflow-wrap:anywhere;word-break:normal}
+.gh-site table:is(.desk,.src) tr:last-child td{border-bottom:0}
+.gh-site table.desk td:first-child{font-variant-numeric:tabular-nums;max-width:20rem;min-width:12rem}
+.gh-site table.desk .pill{display:inline-flex;white-space:normal;line-height:1.5;padding:5px 9px;border:1px solid var(--accent);color:var(--accent);background:var(--surface);font-size:11px}
+@media(max-width:640px){
+.gh-site table:is(.desk,.src),.gh-site table:is(.desk,.src) tbody{display:block;width:100%;background:transparent;border:0;overflow:visible}
+.gh-site table:is(.desk,.src) thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.gh-site table:is(.desk,.src) tr{display:block;border:1px solid var(--hair);border-radius:var(--radius);padding:20px;margin:0 0 16px;background:var(--surface)}
+.gh-site table:is(.desk,.src) td{display:block;width:100%!important;max-width:none!important;min-width:0!important;padding:0 0 18px;border:0;overflow-wrap:anywhere;word-break:normal;line-height:1.75}
+.gh-site table:is(.desk,.src) td:last-child{padding-bottom:0}
+.gh-site table:is(.desk,.src) td:before{content:attr(data-label);display:block;color:var(--accent);font:700 10px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+.gh-site table.src td{overflow-wrap:normal}
+}
