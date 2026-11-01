@@ -47,6 +47,212 @@ def season_windows_attr(season):
         return ''
 
 
+
+# WO#16 — homepage concept completion (concept v3.1, below-hero sections).
+# The masthead shipped in WO#15; these are the concept's remaining homepage
+# sections: This-week list, Explore photo mosaic, Coming-up band, Verify
+# steps, giant footer wordmark. All copy below is the concept's own words;
+# event rows and band items are generated from data/events.json at build
+# time. Imagery is licensed stock only (see the WO#16 MANIFEST); Ron's
+# photography never appears on this site.
+EXPLORE_TILES = [
+    ('upcoming/', 'assets/img/tile-upcoming-live-concert.jpg', 'Browse', 'Upcoming',
+     'Every verified event, soonest first — music, art, and nights out.',
+     'A live band on stage under stage lights, crowd silhouettes in front', 'gh-tile-big'),
+    ('map/', 'assets/img/tile-map-aspen-downtown.jpg', 'Wander', 'Map',
+     'Every event, placed across Colorado.',
+     "Downtown Aspen's historic blocks with the ski slopes behind", 'gh-tile-wide'),
+    ('calendar/', 'assets/img/tile-calendar-autumn-gold.jpg', 'Plan', 'Calendar',
+     'The month at a glance.',
+     'Red Maroon-group peaks above a sea of golden aspens', ''),
+    ('picks/', 'assets/img/tile-picks-cafe.jpg', 'The Concierge', 'Top Picks',
+     'Local staples, scored and verified.',
+     'A quiet café table set by a window in morning light', ''),
+    ('activities/', 'assets/img/tile-activities-maroon-bells.jpg', 'Do', 'Activities',
+     'Guides to playing here — the high country, on foot, on water, and soon, on snow.',
+     'Maroon Bells over Maroon Lake in fall color, reflected in still water', 'gh-tile-full'),
+]
+LEAD_IMAGE = ('assets/img/lead-ute-cemetery.jpg',
+              'The brick entrance sign of Ute Cemetery, Aspen, among bare autumn aspens')
+VERIFY_STEPS = [
+    ('Checked at the source',
+     "Every event is checked against the venue's own page or a trusted local source before it reaches you."),
+    ('Aggregators never make the cut',
+     "A listing scraped from somewhere else isn't proof. Alone, it never gets published."),
+    ('When sources disagree, we hold',
+     'If two sources give different times, the pick waits until one is authoritative.'),
+]
+CAT_LABELS = {'music': 'Music', 'arts': 'Art', 'outdoors': 'Outdoors', 'family': 'Family',
+              'comedy': 'Comedy', 'dining': 'Dining', 'dance': 'Dance', 'speakers': 'Speakers'}
+# Licensed homepage photography credits (CC0 images need none and are not
+# listed). The licensed authors' credits — never a Ron credit.
+HOME_CREDITS = (
+    'Homepage photos: Ute Cemetery entrance — Jeffrey Beall, '
+    '<a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="license">CC BY-SA 2.0</a> · '
+    'Downtown Aspen — Daniel Case, '
+    '<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">CC BY-SA 3.0</a> · '
+    'Autumn Gold and Maroon — MichaelKirsh, '
+    '<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · '
+    'Live concert — Shixart1985, '
+    '<a href="https://creativecommons.org/licenses/by/2.0/" rel="license">CC BY 2.0</a>')
+
+
+def _wo16_trim(text, limit=140):
+    """First sentence of a blurb, hard-trimmed at a word boundary."""
+    text = ' '.join((text or '').split())
+    if len(text) <= limit:
+        return text
+    cut = text.find('. ')
+    if 40 <= cut <= limit:
+        return text[:cut + 1]
+    return text[:limit].rsplit(' ', 1)[0] + '…'
+
+
+def _wo16_edition(doc):
+    """Edition (range, title, standfirst, href) for the This-week lead.
+
+    First build reads the legacy .hero block; rebuilds read the data
+    attributes the WO#16 section stamps on itself, so decorate() stays
+    idempotent over its own output.
+    """
+    hero = doc.select_one('.hero')
+    if hero is not None:
+        rng = hero.select_one('.ed-range')
+        title = hero.find('h3')
+        paras = [p for p in hero.find_all('p') if 'ed-range' not in (p.get('class') or [])]
+        btn = hero.select_one('a.btn')
+        return {'range': rng.get_text(' ', strip=True) if rng else '',
+                'title': title.get_text(' ', strip=True) if title else '',
+                'standfirst': paras[0].get_text(' ', strip=True) if paras else '',
+                'href': btn.get('href') if btn else 'events/'}
+    sec = doc.select_one('.gh-week')
+    if sec is not None:
+        return {'range': sec.get('data-ed-range', ''), 'title': sec.get('data-ed-title', ''),
+                'standfirst': sec.get('data-ed-standfirst', ''), 'href': sec.get('data-ed-href', 'events/')}
+    return {'range': '', 'title': '', 'standfirst': '', 'href': 'events/'}
+
+
+def _wo16_window(ed, day):
+    """Edition window [start, end] parsed from the .ed-range text.
+
+    Falls back to the build week (day .. day+6) when unparseable.
+    """
+    m = re.search(r'(?:\w+,\s*)?(\w+)\s+(\d{1,2})\s*[–—-]\s*(?:\w+,\s*)?(\w+)\s+(\d{1,2}),\s*(\d{4})', ed.get('range', ''))
+    if m:
+        try:
+            start = datetime.strptime(f'{m.group(1)} {m.group(2)} {m.group(5)}', '%B %d %Y').date()
+            end = datetime.strptime(f'{m.group(3)} {m.group(4)} {m.group(5)}', '%B %d %Y').date()
+            return start, end
+        except ValueError:
+            pass
+    return day, day.fromordinal(day.toordinal() + 6)
+
+def homepage_sections(rows, day, ed, prefix):
+    """WO#16: the concept's below-hero homepage, generated at build time.
+
+    This week (edition lead + data rows + category filters), Explore photo
+    mosaic, the Coming-up band (data-driven), and the Verify steps. The
+    seasonal band string is generated from the data window: when the
+    edition week contains Halloween and the band looks into November, the
+    kicker reads 'After Halloween · November', as in the concept.
+    """
+    esc = html.escape
+    start, end = _wo16_window(ed, day)
+    in_week, seen = [], set()
+    for e in rows:
+        d = datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()
+        if start <= d <= end and e['slug'] not in seen:
+            seen.add(e['slug'])
+            in_week.append(e)
+        if len(in_week) >= 5:
+            break
+    cats = sorted({e['category'] for e in in_week})
+    filters = ''.join(
+        f'<button type="button" data-filter="{c}"' + (' class="on"' if c == 'all' else '') + f'>{label}</button>'
+        for c, label in [('all', 'All')] + [(c, CAT_LABELS.get(c, c.title())) for c in cats])
+    row_html = ''
+    for e in in_week:
+        d = datetime.fromisoformat(e['starts_at']).astimezone(TZ)
+        row_html += (
+            f'<a class="gh-row" data-cat="{esc(e["category"])}" href="{prefix}events/{esc(e["slug"])}/">'
+            f'<span class="gh-row-date"><span class="dow">{d:%a}</span>'
+            f'<span class="num">{d:%d}</span><span class="mon">{d:%b}</span></span>'
+            f'<span class="gh-row-info"><h4>{esc(e["title"])}</h4>'
+            f'<p>{esc(_wo16_trim(e.get("blurb"), 110))}</p></span>'
+            f'<span class="gh-row-tag">{esc(CAT_LABELS.get(e["category"], e["category"].title()))}</span>'
+            '<span class="gh-row-go" aria-hidden="true">→</span></a>')
+    short_range = f'{start:%a %b %d} — {end:%a %b %d}'
+    week = (
+        f'<section class="gh-week" aria-label="This week in Aspen" data-ed-range="{esc(ed["range"], quote=True)}" '
+        f'data-ed-title="{esc(ed["title"], quote=True)}" data-ed-standfirst="{esc(ed["standfirst"], quote=True)}" '
+        f'data-ed-href="{esc(ed["href"], quote=True)}">'
+        '<div class="gh-sec-head"><h2>This <em>week</em></h2>'
+        f'<div class="gh-week-tools"><span class="gh-sec-meta">{esc(ed["range"])}</span>'
+        f'<div class="gh-filters" role="group" aria-label="Filter this week\'s picks">{filters}</div></div></div>'
+        '<div class="gh-week-grid">'
+        f'<article class="gh-lead"><img src="{prefix}{LEAD_IMAGE[0]}" alt="{esc(LEAD_IMAGE[1])}" loading="lazy" decoding="async">'
+        f'<div class="gh-lead-body"><p class="gh-lead-k">{esc(short_range)}</p>'
+        f'<h3>{esc(ed["title"])}</h3><p>{esc(ed["standfirst"])}</p>'
+        f'<a class="gh-btn-solid" href="{esc(ed["href"])}">See what\'s on <span class="arr" aria-hidden="true">→</span></a>'
+        '</div></article>'
+        f'<div class="gh-rows">{row_html}</div></div>'
+        "<script>(function(){var s=document.currentScript.closest('.gh-week');if(!s)return;"
+        "var b=s.querySelectorAll('.gh-filters button'),r=s.querySelectorAll('.gh-row');"
+        "b.forEach(function(x){x.addEventListener('click',function(){"
+        "b.forEach(function(y){y.classList.toggle('on',y===x)});"
+        "var f=x.getAttribute('data-filter');"
+        "r.forEach(function(row){row.style.display=(f==='all'||row.getAttribute('data-cat')===f)?'':'none'})})})})();</script>"
+        '</section>')
+    tiles = ''.join(
+        f'<a class="gh-tile {cls}" href="{prefix}{href}"><img src="{prefix}{img}" alt="{esc(alt)}" loading="lazy" decoding="async">'
+        '<span class="gh-tile-shade"></span><span class="gh-tile-arr" aria-hidden="true">→</span>'
+        f'<span class="gh-tile-txt"><span class="gh-tile-lab">{esc(lab)}</span>'
+        f'<span class="gh-tile-bot"><h3>{esc(name)}</h3><p>{esc(blurb)}</p></span></span></a>'
+        for href, img, lab, name, blurb, alt, cls in EXPLORE_TILES)
+    explore = (
+        '<section class="gh-explore" aria-label="Explore the live guide">'
+        '<div class="gh-sec-head"><h2>Explore the <em>live guide</em></h2>'
+        '<span class="gh-sec-meta">Every verified event · Five ways in</span></div>'
+        f'<div class="gh-mosaic">{tiles}</div></section>')
+    after = [e for e in rows if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date() > end]
+    band = ''
+    if after:
+        band_seen = set()
+        picks = []
+        for e in after:
+            if e['slug'] not in band_seen:
+                band_seen.add(e['slug'])
+                picks.append(e)
+            if len(picks) >= 2:
+                break
+        first = picks[0]
+        month = datetime.fromisoformat(first['starts_at']).astimezone(TZ).strftime('%B')
+        halloween = any((d.month, d.day) == (10, 31)
+                        for d in (start.fromordinal(o) for o in range(start.toordinal(), end.toordinal() + 1)))
+        season = 'After Halloween · ' if halloween and month == 'November' else ''
+        items = ''
+        for e in picks:
+            d = datetime.fromisoformat(e['starts_at']).astimezone(TZ)
+            items += (f'<div class="gh-band-item"><span class="gh-band-when">{d:%a, %b %d}</span>'
+                      f'<div><h3>{esc(e["title"])}</h3><p>{esc(_wo16_trim(e.get("blurb")))}</p></div></div>')
+        items += (f'<div class="gh-band-item"><span class="gh-band-when">All month</span>'
+                  f'<div><h3>The Full Calendar</h3><p>Every verified listing for {month}, in one place. '
+                  f'<a href="{prefix}calendar/">Open it →</a></p></div></div>')
+        band = (f'<section class="gh-band" aria-label="Coming up"><div class="gh-band-in">'
+                f'<p class="gh-band-k">Coming up — {season}{month}</p>'
+                f'<div class="gh-band-grid">{items}</div></div></section>')
+    steps = ''.join(
+        f'<div class="gh-step"><span class="gh-step-n">{i:02d}</span>'
+        f'<div><h3>{esc(h)}</h3><p>{esc(p)}</p></div></div>'
+        for i, (h, p) in enumerate(VERIFY_STEPS, 1))
+    verify = (
+        '<section class="gh-verify" aria-label="How we verify">'
+        '<div class="gh-sec-head"><h2>How we <em>verify</em></h2>'
+        f'<a class="gh-btn-line" href="{prefix}sources/">See our sources <span class="arr" aria-hidden="true">→</span></a></div>'
+        f'<div class="gh-verify-grid">{steps}</div></section>')
+    return week + explore + band + verify
+
+
 def soup(text):
     return BeautifulSoup(text, 'html.parser')
 
@@ -161,13 +367,37 @@ def decorate(path, skin, rows, day):
             home_tagline = fragment('<p class="tagline">A weekly field guide to what&rsquo;s on &mdash; music, art, and high-country happenings, verified before publication.</p>').select_one('.tagline').extract()
         sub.insert(0, home_tagline)
         sub.append(fragment(navigation(prefix, current)).select_one('nav').extract())
+    if current == 'index.html':
+        # WO#16: below-hero homepage sections are builder-generated from
+        # the concept (This week / Explore mosaic / Coming-up band /
+        # Verify). Editorial inputs (edition range, title, standfirst)
+        # are extracted before the legacy blocks are replaced.
+        page_div = next((d for d in doc.select('.page')
+                         if d.select_one('.hero, .gh-week')), None)
+        if page_div is not None:
+            ed = _wo16_edition(doc)
+            block = fragment(homepage_sections(rows, day, ed, prefix))
+            page_div.clear()
+            for child in list(block.contents):
+                page_div.append(child.extract() if hasattr(child, 'extract') else child)
     if not doc.find('h1'):
         masthead.select_one('.brand').name = 'h1'
     refine_page(doc, path, rows, day)
     for footer in doc.find_all('footer'): footer.decompose()
-    doc.body.append(fragment('<footer class="gh-footer">' + footer_navigation(prefix,current) +
+    foot_head = foot_credits = ''
+    if current == 'index.html':
+        # WO#16: the concept's giant footer wordmark + meta line, homepage
+        # only; the shared footer shell (nav, verification line) is kept.
+        foot_head = ('<p class="gh-foot-word">THE GOLDEN <em>HOUR</em></p>'
+                     '<p class="gh-foot-meta"><span>From Aspen and Beyond</span>'
+                     '<span class="gh-gold">Verified before publication</span></p>')
+        foot_credits = f'<p class="gh-credits">{HOME_CREDITS}</p>'
+    doc.body.append(fragment('<footer class="gh-footer">' + foot_head + footer_navigation(prefix,current) +
         '<p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>'
+        + foot_credits +
         '<p>© 2026 The Golden Hour · From Aspen and Beyond.</p></footer>'))
+    if current == 'index.html':
+        assert doc.select_one('.gh-foot-word'), 'WO#16: footer wordmark missing'
     if path.relative_to(ROOT).parts[0] in ('press','desk','stats'):
         robots = doc.find('meta', attrs={'name':'robots'})
         if not robots: robots = doc.new_tag('meta',attrs={'name':'robots'});doc.head.append(robots)
@@ -264,6 +494,12 @@ def refine_page(doc, path, rows, day):
         assert doc.select_one('.gh-cover-frame img'), 'WO#15: homepage cover missing'
         assert doc.select_one('.gh-topbar'), 'WO#15: homepage top strip missing'
         assert doc.select_one('.gh-mast-sub nav.site-nav'), 'WO#15: homepage pill nav missing'
+        # WO#16 guards: the concept's below-hero sections are homepage
+        # structure — a build that loses them must fail here, not ship.
+        assert len(doc.select('.gh-tile')) == 5, 'WO#16: Explore mosaic must carry five tiles'
+        assert len(doc.select('.gh-band-item')) >= 3, 'WO#16: Coming-up band items missing'
+        assert len(doc.select('.gh-step')) == 3, 'WO#16: Verify steps missing'
+        assert doc.select_one('.gh-week .gh-row'), 'WO#16: This-week rows missing'
     if route == 'press/index.html':
         total=sum(datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()>=day for e in rows)
         for paragraph in doc.select('.card p'):

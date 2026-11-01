@@ -155,3 +155,259 @@ body.gh-site[data-page="index.html"] .gh-cover-credit a{color:inherit;text-decor
 /* Keep the approved two-line lockup at phone widths and guarantee cover-copy contrast. */
 body.gh-site[data-page="index.html"] .masthead .brand .l1{white-space:nowrap}
 body.gh-site[data-page="index.html"] .gh-cover-cap{background:rgba(13,27,36,.94)}
+
+/* ══ WO#16 — Homepage concept completion (concept v3.1, below-hero) ══
+   This week list, Explore photo mosaic, Coming-up band, Verify steps and
+   the giant footer wordmark. Photo-led pieces (tiles, band, footer) carry
+   the concept's fixed dark-band palette in BOTH themes, exactly as the
+   concept draws them; editorial pieces ride the shared theme tokens.
+   Seasonal dressing stays in gh-halloween.css/js — nothing seasonal here. */
+body.gh-site[data-page="index.html"]{
+  --gh-band:#12242f; --gh-band-2:#0d1b24; --gh-on-dark:#f7efdb;
+  --gh-on-dark-soft:#c9bfa6; --gh-line-dark:#2c475a;
+  --gh-gold-pale:#efce7a; --gh-gold-bright:#d99a22; --gh-rcard:6px;
+  overflow-x:clip;
+}
+
+/* ── Section heads ─────────────────────────────────────────────── */
+body.gh-site[data-page="index.html"] .gh-sec-head{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:10px 14px; padding:26px 0 12px; margin-bottom:14px; flex-wrap:wrap;
+  border-bottom:2px solid var(--ink);
+}
+body.gh-site[data-page="index.html"] .gh-sec-head h2{
+  font-family:var(--serif); font-weight:900; margin:0;
+  font-size:clamp(30px,4.4vw,46px); line-height:1; letter-spacing:-.01em;
+}
+body.gh-site[data-page="index.html"] .gh-sec-head h2 em{font-style:italic; color:var(--display-gold)}
+body.gh-site[data-page="index.html"] .gh-sec-meta{
+  font-size:11.5px; font-weight:800; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent);
+}
+
+/* ── This week — edition lead + event rows + filters ───────────── */
+body.gh-site[data-page="index.html"] .gh-week-tools{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+body.gh-site[data-page="index.html"] .gh-filters{display:flex; gap:6px; flex-wrap:wrap}
+body.gh-site[data-page="index.html"] .gh-filters button{
+  font:inherit; font-size:11.5px; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; padding:7px 12px; min-height:0; cursor:pointer;
+  border-radius:999px; border:1px solid var(--hair);
+  background:var(--surface)!important; color:var(--ink)!important;
+}
+body.gh-site[data-page="index.html"] .gh-filters button.on{
+  background:var(--gh-gold-bright)!important; border-color:var(--gh-gold-bright);
+  color:#1d1503!important;
+}
+body.gh-site[data-page="index.html"] .gh-week-grid{display:grid; grid-template-columns:1fr; gap:14px}
+@media(min-width:900px){
+  body.gh-site[data-page="index.html"] .gh-week-grid{grid-template-columns:1.25fr 1fr}
+}
+body.gh-site[data-page="index.html"] .gh-lead{
+  background:var(--surface); border:1px solid var(--hair);
+  border-radius:var(--gh-rcard); overflow:hidden; display:flex; flex-direction:column;
+}
+body.gh-site[data-page="index.html"] .gh-lead img{
+  width:100%; height:230px; display:block;
+  object-fit:cover!important; object-position:center 38%!important; background:transparent;
+}
+@media(min-width:900px){
+  body.gh-site[data-page="index.html"] .gh-lead img{height:262px}
+}
+body.gh-site[data-page="index.html"] .gh-lead-body{padding:16px 18px 18px; display:flex; flex-direction:column; gap:8px; flex:1}
+body.gh-site[data-page="index.html"] .gh-lead-k{
+  margin:0; font-size:11px; font-weight:800; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--accent);
+}
+body.gh-site[data-page="index.html"] .gh-lead-body h3{
+  font-family:var(--serif); font-weight:800; font-size:30px; line-height:1.05; margin:0;
+}
+body.gh-site[data-page="index.html"] .gh-lead-body p{font-size:14.5px; line-height:1.55; color:var(--muted); margin:0}
+body.gh-site[data-page="index.html"] .gh-btn-solid{
+  display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+  margin-top:auto; padding:11px 16px; border-radius:4px; text-decoration:none;
+  background:var(--ink); color:#fff6e0;
+  font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+}
+:root[data-theme="dark"] body.gh-site[data-page="index.html"] .gh-btn-solid{
+  background:var(--gh-gold-bright); color:#1d1503;
+}
+body.gh-site[data-page="index.html"] .gh-btn-solid .arr,
+body.gh-site[data-page="index.html"] .gh-btn-line .arr{
+  display:inline-grid; place-items:center; width:30px; height:30px;
+  border-radius:50%; background:var(--gh-gold-bright); color:#1d1503;
+  font-size:15px; letter-spacing:0;
+}
+body.gh-site[data-page="index.html"] .gh-btn-line{
+  display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+  color:var(--ink); font-size:12px; font-weight:800;
+  letter-spacing:.16em; text-transform:uppercase;
+}
+body.gh-site[data-page="index.html"] .gh-rows{
+  display:flex; flex-direction:column; background:var(--surface);
+  border:1px solid var(--hair); border-radius:var(--gh-rcard); overflow:hidden;
+}
+body.gh-site[data-page="index.html"] .gh-row{
+  display:flex; gap:14px; align-items:center; flex:1;
+  padding:13px 15px; border-bottom:1px solid var(--hair);
+  text-decoration:none; color:var(--ink);
+}
+body.gh-site[data-page="index.html"] .gh-row:last-child{border-bottom:0}
+body.gh-site[data-page="index.html"] .gh-row-date{
+  flex:0 0 60px; text-align:center; padding-right:13px;
+  border-right:1px solid var(--hair);
+}
+body.gh-site[data-page="index.html"] .gh-row-date .dow{
+  display:block; font-size:10.5px; font-weight:800; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--accent);
+}
+body.gh-site[data-page="index.html"] .gh-row-date .num{
+  display:block; font-family:var(--serif); font-weight:900;
+  font-size:25px; line-height:1.05; white-space:nowrap;
+}
+body.gh-site[data-page="index.html"] .gh-row-date .mon{
+  display:block; font-size:10.5px; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted);
+}
+body.gh-site[data-page="index.html"] .gh-row-info{flex:1; min-width:0}
+body.gh-site[data-page="index.html"] .gh-row-info h4{
+  margin:0; font-family:var(--serif); font-size:19px; font-weight:800; line-height:1.15;
+}
+body.gh-site[data-page="index.html"] .gh-row-info p{font-size:13px; line-height:1.4; color:var(--muted); margin:2px 0 0}
+body.gh-site[data-page="index.html"] .gh-row-tag{
+  flex:0 0 auto; font-size:10.5px; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--accent);
+  border:1px solid var(--hair); padding:5px 8px; border-radius:999px;
+}
+body.gh-site[data-page="index.html"] .gh-row-go{flex:0 0 auto; font-size:18px; color:var(--accent)}
+@media(max-width:560px){
+  body.gh-site[data-page="index.html"] .gh-row-tag{display:none}
+}
+
+/* ── Explore photo mosaic ──────────────────────────────────────── */
+body.gh-site[data-page="index.html"] .gh-mosaic{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+body.gh-site[data-page="index.html"] .gh-tile{
+  position:relative; display:block; min-height:168px; overflow:hidden;
+  border-radius:var(--gh-rcard); background:var(--gh-band); text-decoration:none;
+}
+body.gh-site[data-page="index.html"] .gh-tile img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover!important; object-position:center!important; background:transparent;
+}
+body.gh-site[data-page="index.html"] .gh-tile-shade{
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(8,17,23,.94) 0%,rgba(8,17,23,.34) 55%,rgba(8,17,23,.62) 100%);
+}
+body.gh-site[data-page="index.html"] .gh-tile-txt{
+  position:absolute; inset:0; padding:13px; display:flex;
+  flex-direction:column; color:#fff7e2;
+}
+body.gh-site[data-page="index.html"] .gh-tile-lab{
+  font-size:11px; font-weight:800; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gh-gold-pale); text-shadow:0 1px 8px rgba(0,0,0,.65);
+}
+body.gh-site[data-page="index.html"] .gh-tile-bot{margin-top:auto}
+body.gh-site[data-page="index.html"] .gh-tile-bot h3{
+  font-family:var(--serif); font-weight:800; font-size:24px;
+  line-height:1.05; margin:0; color:#fff7e2;
+}
+body.gh-site[data-page="index.html"] .gh-tile-bot p{
+  font-size:13px; line-height:1.45; color:#f2e8cf; margin:3px 0 0; max-width:300px;
+}
+body.gh-site[data-page="index.html"] .gh-tile-arr{
+  position:absolute; top:11px; right:11px; width:28px; height:28px; z-index:2;
+  border-radius:50%; background:rgba(250,244,230,.92); color:#152630;
+  display:grid; place-items:center; font-size:14px; font-weight:800;
+}
+body.gh-site[data-page="index.html"] .gh-tile-full{grid-column:span 2}
+@media(min-width:900px){
+  body.gh-site[data-page="index.html"] .gh-mosaic{grid-template-columns:repeat(4,1fr); grid-auto-rows:172px}
+  body.gh-site[data-page="index.html"] .gh-tile{min-height:0}
+  body.gh-site[data-page="index.html"] .gh-tile-big{grid-column:span 2; grid-row:span 2}
+  body.gh-site[data-page="index.html"] .gh-tile-big h3{font-size:36px}
+  body.gh-site[data-page="index.html"] .gh-tile-wide{grid-column:span 2}
+  body.gh-site[data-page="index.html"] .gh-tile-full{grid-column:span 4}
+}
+@media (prefers-reduced-motion: no-preference){
+  body.gh-site[data-page="index.html"] .gh-tile img,
+  body.gh-site[data-page="index.html"] .gh-lead img{transition:transform .5s ease}
+  body.gh-site[data-page="index.html"] .gh-tile:hover img{transform:scale(1.04)}
+}
+
+/* ── Coming-up band — full-bleed dark ──────────────────────────── */
+body.gh-site[data-page="index.html"] .gh-band{
+  position:relative; left:50%; transform:translateX(-50%); width:100vw;
+  margin-top:28px; background:var(--gh-band); color:var(--gh-on-dark);
+}
+body.gh-site[data-page="index.html"] .gh-band-in{
+  max-width:1200px; margin:0 auto; padding:20px 24px 22px;
+}
+body.gh-site[data-page="index.html"] .gh-band-k{
+  margin:0; font-size:11px; font-weight:800; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--gh-gold-pale);
+}
+body.gh-site[data-page="index.html"] .gh-band-grid{display:grid; grid-template-columns:1fr; gap:0; margin-top:10px}
+body.gh-site[data-page="index.html"] .gh-band-item{
+  display:flex; gap:14px; align-items:baseline;
+  padding:12px 0; border-top:1px solid var(--gh-line-dark);
+}
+body.gh-site[data-page="index.html"] .gh-band-when{
+  font-family:var(--serif); font-style:italic; font-weight:800;
+  font-size:16px; white-space:nowrap; color:var(--gh-gold-pale);
+}
+body.gh-site[data-page="index.html"] .gh-band-item h3{
+  margin:0; font-family:var(--serif); font-size:21px; font-weight:800;
+  line-height:1.15; color:var(--gh-on-dark);
+}
+body.gh-site[data-page="index.html"] .gh-band-item p{
+  font-size:13px; line-height:1.45; color:var(--gh-on-dark-soft); margin:3px 0 0;
+}
+body.gh-site[data-page="index.html"] .gh-band-item a{color:var(--gh-gold-pale); font-weight:700}
+@media(min-width:900px){
+  body.gh-site[data-page="index.html"] .gh-band-grid{grid-template-columns:repeat(3,1fr)}
+  body.gh-site[data-page="index.html"] .gh-band-item{
+    padding:12px 18px 4px; border-top:0; border-left:1px solid var(--gh-line-dark);
+  }
+  body.gh-site[data-page="index.html"] .gh-band-item:first-child{border-left:0; padding-left:0}
+}
+
+/* ── Verify steps ──────────────────────────────────────────────── */
+body.gh-site[data-page="index.html"] .gh-verify{padding-bottom:8px}
+body.gh-site[data-page="index.html"] .gh-verify-grid{display:grid; grid-template-columns:1fr; gap:8px}
+@media(min-width:900px){
+  body.gh-site[data-page="index.html"] .gh-verify-grid{grid-template-columns:repeat(3,1fr)}
+}
+body.gh-site[data-page="index.html"] .gh-step{
+  display:flex; gap:13px; align-items:flex-start;
+  background:var(--surface); border:1px solid var(--hair);
+  border-radius:var(--gh-rcard); padding:14px 16px;
+}
+body.gh-site[data-page="index.html"] .gh-step-n{
+  font-family:var(--serif); font-style:italic; font-weight:900;
+  font-size:30px; line-height:1; color:var(--accent);
+}
+body.gh-site[data-page="index.html"] .gh-step h3{margin:0; font-size:14px; font-weight:800; letter-spacing:.04em}
+body.gh-site[data-page="index.html"] .gh-step p{font-size:13px; line-height:1.5; color:var(--muted); margin:3px 0 0}
+
+/* ── Footer — concept dark band + giant wordmark (homepage only) ── */
+body.gh-site[data-page="index.html"] .gh-footer{
+  max-width:none; margin:28px 0 0; padding:22px 24px 26px;
+  background:var(--gh-band-2); color:var(--gh-on-dark-soft);
+  border-top:0; text-align:center; overflow:hidden;
+}
+body.gh-site[data-page="index.html"] .gh-foot-word{
+  margin:0; font-family:var(--serif); font-weight:900; white-space:nowrap;
+  font-size:clamp(40px,9.5vw,118px); line-height:.9; letter-spacing:-.01em;
+  color:var(--gh-on-dark);
+}
+body.gh-site[data-page="index.html"] .gh-foot-word em{font-style:italic; color:var(--gh-gold-bright)}
+body.gh-site[data-page="index.html"] .gh-foot-meta{
+  display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:12px 0 0;
+  font-size:11px; font-weight:800; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--gh-on-dark-soft);
+}
+body.gh-site[data-page="index.html"] .gh-foot-meta .gh-gold{color:var(--gh-gold-pale)}
+body.gh-site[data-page="index.html"] .gh-footer nav.site-nav a{color:var(--gh-on-dark)}
+body.gh-site[data-page="index.html"] .gh-footer nav.site-nav a[aria-current]{color:var(--gh-gold-pale)}
+body.gh-site[data-page="index.html"] .gh-footer p{color:var(--gh-on-dark-soft)}
+body.gh-site[data-page="index.html"] .gh-credits{font-size:11px; line-height:1.6; max-width:56rem}
+body.gh-site[data-page="index.html"] .gh-credits a{color:var(--gh-gold-pale)}

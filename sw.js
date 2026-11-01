@@ -1,6 +1,6 @@
 /* The Golden Hour — service worker v8; WO15 homepage assets and costume refresh */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v8";
+const CACHE = "golden-hour-v9";
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
