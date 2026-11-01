@@ -1,0 +1,87 @@
+{
+  "source": "348ab15672d93fb449d3d77ce5d69e7c11b9bacd",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "desk/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "desk-390-light.png"
+    },
+    {
+      "route": "sources/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "sources-390-light.png"
+    },
+    {
+      "route": "desk/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "desk-390-dark.png"
+    },
+    {
+      "route": "sources/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "sources-390-dark.png"
+    },
+    {
+      "route": "desk/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "desk-1440-light.png"
+    },
+    {
+      "route": "sources/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "sources-1440-light.png"
+    },
+    {
+      "route": "desk/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "desk-1440-dark.png"
+    },
+    {
+      "route": "sources/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "sources-1440-dark.png"
+    }
+  ]
+}

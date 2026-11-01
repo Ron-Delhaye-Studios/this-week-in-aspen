@@ -1,0 +1,47 @@
+{
+  "source": "f3b84c31659090c50a5c9c3f85f83e68a5ce9a1e",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "missing/nested/wo19",
+      "width": 390,
+      "theme": "light",
+      "http": 404,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "missing-nested-wo19-390-light.png"
+    },
+    {
+      "route": "missing/nested/wo19",
+      "width": 390,
+      "theme": "dark",
+      "http": 404,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "missing-nested-wo19-390-dark.png"
+    },
+    {
+      "route": "missing/nested/wo19",
+      "width": 1440,
+      "theme": "light",
+      "http": 404,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "missing-nested-wo19-1440-light.png"
+    },
+    {
+      "route": "missing/nested/wo19",
+      "width": 1440,
+      "theme": "dark",
+      "http": 404,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "missing-nested-wo19-1440-dark.png"
+    }
+  ]
+}

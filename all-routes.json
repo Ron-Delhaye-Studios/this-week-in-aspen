@@ -1,0 +1,986 @@
+{
+  "source": "af9a38d0d5e56a10388b39bed76f4a8eef92866f",
+  "width": 390,
+  "results": [
+    {
+      "route": "404.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "template.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "template.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "404.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "key-dates/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "key-dates/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "stats/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "stats/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "press/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "press/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "calendar/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "calendar/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "happy-hour/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "happy-hour/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "sources/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "sources/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "map/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "map/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "picks/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "picks/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "desk/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "desk/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "versions/2026-09-21-2255-field-notes-v1.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "shoulder-season/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "versions/2026-09-21-2255-field-notes-v1.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "shoulder-season/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "editions/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "editions/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "upcoming/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "upcoming/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "off-season/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "activities/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "off-season/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "activities/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "press/photo-pass-template/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "press/photo-pass-template/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/ismo-perseverance-tour/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/ismo-perseverance-tour/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/lcd-soundsystem-new-year-s-eve-2026/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/lcd-soundsystem-new-year-s-eve-2026/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/michelle-branch/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/michelle-branch/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/vienna-boys-choir/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/vienna-boys-choir/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/spooktacular-creepy-crafts/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/shrek-themed-halloween-party/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/spooktacular-creepy-crafts/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/shrek-themed-halloween-party/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/murder-at-the-rattlesnake-saloon/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/murder-at-the-rattlesnake-saloon/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspens-darkside-ghost-tour/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspens-darkside-ghost-tour/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/an-evening-with-tom-rush-accompanied-by-brendan-cleary/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/an-evening-with-tom-rush-accompanied-by-brendan-cleary/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/michigander-at-belly-up/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/michigander-at-belly-up/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/mack-bailey-and-chris-nole-poems-prayers-promises-the-songs/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/mack-bailey-and-chris-nole-poems-prayers-promises-the-songs/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-saturday-market-season-finale/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-saturday-market-season-finale/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/maroon-bells-at-peak-color/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/maroon-bells-at-peak-color/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/craig-robinson/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/craig-robinson/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/the-black-angels-with-ghostwoman/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/the-black-angels-with-ghostwoman/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/suzy-bogguss-a-swingin-little-christmas/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/suzy-bogguss-a-swingin-little-christmas/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/haunted-hotel-halloween-party-at-w-aspen/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/haunted-hotel-halloween-party-at-w-aspen/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-filmfest-opening-day-47th/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-filmfest-opening-day-47th/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/bombargo-at-belly-up/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/bombargo-at-belly-up/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/digable-planets/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/digable-planets/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/hiss-golden-messenger-at-belly-up/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/hiss-golden-messenger-at-belly-up/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/halloween-bash-ft-chaparelle/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/halloween-bash-ft-chaparelle/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/john-denver-celebration-opening-day/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/john-denver-celebration-opening-day/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/metalachi/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/metalachi/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-art-museum-fall-exhibitions/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-art-museum-fall-exhibitions/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/danceaspen-a-snowy-soiree/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/danceaspen-a-snowy-soiree/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/bonobo/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/bonobo/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/foy-vance-world-tour-with-bonnie-bishop-ryan-mcmullan/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/foy-vance-world-tour-with-bonnie-bishop-ryan-mcmullan/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-saturday-market/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-saturday-market/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/chris-collins-boulder-canyon-john-denver-tribute/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/chris-collins-boulder-canyon-john-denver-tribute/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/49-winchester/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/49-winchester/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/an-evening-with-pink-talking-fish/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/an-evening-with-pink-talking-fish/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/changemaker-speaker-series-kiliii-yuyan-indigenous-wisdom-fo/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/changemaker-speaker-series-kiliii-yuyan-indigenous-wisdom-fo/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/eddie-ifft-the-last-chair-tour/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/eddie-ifft-the-last-chair-tour/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/the-wooten-brothers/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/the-wooten-brothers/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/coco-and-breezy/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/coco-and-breezy/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/snowmass-balloon-festival-final-launch/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/snowmass-balloon-festival-final-launch/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/snowmass-oktoberfest/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/snowmass-oktoberfest/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/ghosts-of-aspens-past/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/ghosts-of-aspens-past/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/snowmass-balloon-festival-morning-launch/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/john-oates-and-the-good-road-band/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/snowmass-balloon-festival-morning-launch/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/john-oates-and-the-good-road-band/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/sugar-skull-a-d-a-de-muertos-musical-adventure/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/sugar-skull-a-d-a-de-muertos-musical-adventure/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-filmfest-closing-weekend/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-filmfest-closing-weekend/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/carbondale-potato-day/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/carbondale-potato-day/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-literary-festival-closing-day/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-literary-festival-closing-day/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-restaurant-week-autumn-final-evening/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/aspen-restaurant-week-autumn-final-evening/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/ute-cemetery-tour/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/ute-cemetery-tour/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/lcd-soundsystem-new-year-s-eve-2026-2/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "events/lcd-soundsystem-new-year-s-eve-2026-2/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "editions/2026-09-26/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "editions/2026-09-26/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "activities/golf/index.html",
+      "theme": "light",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    },
+    {
+      "route": "activities/golf/index.html",
+      "theme": "dark",
+      "overflow": false,
+      "issues": [],
+      "errors": []
+    }
+  ]
+}

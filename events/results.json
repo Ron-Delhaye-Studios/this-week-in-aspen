@@ -1,0 +1,127 @@
+{
+  "source": "3f4e15646da99a19d90d02b9c96c04a5da276efa",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "events/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-390-light.png"
+    },
+    {
+      "route": "events/digable-planets/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-digable-planets-390-light.png"
+    },
+    {
+      "route": "events/spooktacular-creepy-crafts/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-spooktacular-creepy-crafts-390-light.png"
+    },
+    {
+      "route": "events/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-390-dark.png"
+    },
+    {
+      "route": "events/digable-planets/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-digable-planets-390-dark.png"
+    },
+    {
+      "route": "events/spooktacular-creepy-crafts/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-spooktacular-creepy-crafts-390-dark.png"
+    },
+    {
+      "route": "events/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-1440-light.png"
+    },
+    {
+      "route": "events/digable-planets/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-digable-planets-1440-light.png"
+    },
+    {
+      "route": "events/spooktacular-creepy-crafts/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-spooktacular-creepy-crafts-1440-light.png"
+    },
+    {
+      "route": "events/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-1440-dark.png"
+    },
+    {
+      "route": "events/digable-planets/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-digable-planets-1440-dark.png"
+    },
+    {
+      "route": "events/spooktacular-creepy-crafts/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "events-spooktacular-creepy-crafts-1440-dark.png"
+    }
+  ]
+}

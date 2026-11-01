@@ -1,0 +1,87 @@
+{
+  "source": "7edbdb2a84e63d539155496571fb7fa1b31e2b66",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "happy-hour/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "happy-hour-390-light.png"
+    },
+    {
+      "route": "off-season/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "off-season-390-light.png"
+    },
+    {
+      "route": "happy-hour/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "happy-hour-390-dark.png"
+    },
+    {
+      "route": "off-season/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "off-season-390-dark.png"
+    },
+    {
+      "route": "happy-hour/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "happy-hour-1440-light.png"
+    },
+    {
+      "route": "off-season/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "off-season-1440-light.png"
+    },
+    {
+      "route": "happy-hour/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "happy-hour-1440-dark.png"
+    },
+    {
+      "route": "off-season/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "off-season-1440-dark.png"
+    }
+  ]
+}

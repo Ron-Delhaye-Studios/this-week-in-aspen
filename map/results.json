@@ -1,0 +1,47 @@
+{
+  "source": "6d97a28743bd760a0446360bca549b48d16a3663",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "map/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "map-390-light.png"
+    },
+    {
+      "route": "map/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "map-390-dark.png"
+    },
+    {
+      "route": "map/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "map-1440-light.png"
+    },
+    {
+      "route": "map/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "map-1440-dark.png"
+    }
+  ]
+}

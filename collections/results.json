@@ -1,0 +1,87 @@
+{
+  "source": "6726804ee2cbd440a0b649ed211a6f6733c417a9",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "upcoming/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "upcoming-390-light.png"
+    },
+    {
+      "route": "picks/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "picks-390-light.png"
+    },
+    {
+      "route": "upcoming/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "upcoming-390-dark.png"
+    },
+    {
+      "route": "picks/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "picks-390-dark.png"
+    },
+    {
+      "route": "upcoming/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "upcoming-1440-light.png"
+    },
+    {
+      "route": "picks/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "picks-1440-light.png"
+    },
+    {
+      "route": "upcoming/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "upcoming-1440-dark.png"
+    },
+    {
+      "route": "picks/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "picks-1440-dark.png"
+    }
+  ]
+}

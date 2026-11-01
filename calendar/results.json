@@ -1,0 +1,47 @@
+{
+  "source": "dc479a3b345120a571fda8046f2cb24b0da6bfdb",
+  "weather": "MOCKED_WEATHER",
+  "clock": "2026-11-01T15:00:00Z",
+  "results": [
+    {
+      "route": "calendar/",
+      "width": 390,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "calendar-390-light.png"
+    },
+    {
+      "route": "calendar/",
+      "width": 390,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "calendar-390-dark.png"
+    },
+    {
+      "route": "calendar/",
+      "width": 1440,
+      "theme": "light",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "calendar-1440-light.png"
+    },
+    {
+      "route": "calendar/",
+      "width": 1440,
+      "theme": "dark",
+      "http": 200,
+      "overflow": false,
+      "issues": [],
+      "errors": [],
+      "screenshot": "calendar-1440-dark.png"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "family": "chrome",
+    "source": "7db413964702869aef0dbd3f40aa1d51dfeb7482",
+    "build": "PASS: 70 pages share the design; 46 canonical occurrences; 11 today/future occurrences in both lists.",
+    "guards": "PASS: 70 pages, canonical hashes, retired skin, shell, stylesheet order and footer-only discovery",
+    "idempotent": true
+  },
+  {
+    "family": "tables",
+    "source": "348ab15672d93fb449d3d77ce5d69e7c11b9bacd",
+    "build": "PASS: 70 pages share the design; 46 canonical occurrences; 11 today/future occurrences in both lists.",
+    "guards": "PASS: 70 pages, canonical hashes, retired skin, shell, stylesheet order and footer-only discovery",
+    "idempotent": true
+  },
+  {
+    "family": "events",
+    "source": "a1180a07c14d23bae29fed57db4e6e7f0fc49ac3",
+    "build": "PASS: 70 pages share the design; 46 canonical occurrences; 11 today/future occurrences in both lists.",
+    "guards": "PASS: 70 pages, canonical hashes, retired skin, shell, stylesheet order and footer-only discovery",
+    "idempotent": true
+  },
+  {
+    "family": "collections",
+    "source": "6726804ee2cbd440a0b649ed211a6f6733c417a9",
+    "build": "PASS: 70 pages share the design; 46 canonical occurrences; 11 today/future occurrences in both lists.",
+    "guards": "PASS: 70 pages, canonical hashes, retired skin, shell, stylesheet order and footer-only discovery",
+    "idempotent": true
+  },
+  {
+    "family": "guides",
+    "source": "9756aeb3f8cb8990eea83f02990455c3fd8dceb8",
+    "build": "PASS: 70 pages share the design; 46 canonical occurrences; 11 today/future occurrences in both lists.",
+    "guards": "PASS: 70 pages, canonical hashes, retired skin, shell, stylesheet order and footer-only discovery",
+    "idempotent": true
+  },
+  {
+    "family": "map",
+    "source": "8a86cb077976b739aed78fe5a77d5a86cc97a9f5",
+    "build": "PASS: 70 pages share the design; 46 canonical occurrences; 11 today/future occurrences in both lists.",
+    "guards": "PASS: 70 pages, canonical hashes, retired skin, shell, stylesheet order and footer-only discovery",
+    "idempotent": true
+  },
+  {
+    "family": "404",
+    "source": "7efbc9b818b6266cf9e7cbd00f76d367d6bbd4e0",
+    "build": "PASS: 70 pages share the design; 46 canonical occurrences; 11 today/future occurrences in both lists.",
+    "guards": "PASS: 70 pages, canonical hashes, retired skin, shell, stylesheet order and footer-only discovery",
+    "idempotent": true
+  }
+]
