@@ -1,0 +1,13 @@
+{
+  "work_order": "WO19",
+  "family": "collections",
+  "state": "verified; PR queued for owner merge",
+  "tested_source": "d79afdbe7469fff5d36f195acb441f13a5a377f9",
+  "evidence_commit": "7c35b674ee9700a134ea9ecd55173bc50c785a3f",
+  "checks": "Eight rendered viewport/theme cases; zero reported WCAG A/AA violations or overflow. Failed-image states verified. Remote licensed photographs remain external and may be slow; their loading/error treatment is now designed.",
+  "canonical_event_sha256": "115afb6b6e0b23111faae3998b47e85df994f93c7ccdbaaf3b00c311888b02ae",
+  "publication": "MASTER INDY merge only; production pending",
+  "signed": "CODEX",
+  "final_evidence_commit": "27a2a4493d8cc838c5db0d6ca925a99c1875c4e2",
+  "shared_weather": "Reserves space without visible loading text; reveals reading or unavailable state. Folded into PR15."
+}
