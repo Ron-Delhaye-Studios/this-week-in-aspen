@@ -1,0 +1,16 @@
+{
+  "work_order": "WO19",
+  "family": "homepage Tier 1 follow-through",
+  "state": "verified; PR queued for owner merge",
+  "tested_source": "1fe893fb2025d35bc7e3bf03db8b5b0c6058ee18",
+  "evidence_commit": "27a2a4493d8cc838c5db0d6ca925a99c1875c4e2",
+  "checks": [
+    "390/1440 light/dark: zero reported violations or overflow",
+    "Nov1/Nov21 runtime rollover follows existing event feed",
+    "failed feed hides expired edition and retains recovery link",
+    "repeat build stable; all canonical hashes unchanged"
+  ],
+  "license_finding": "Exact cover source identity / altered-rendition share-alike record UNKNOWN; existing image and credit unchanged; flag sent to LUNA.",
+  "publication": "MASTER INDY merge only",
+  "signed": "CODEX"
+}
