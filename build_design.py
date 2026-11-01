@@ -97,15 +97,13 @@ HOME_CREDITS = (
     '<a href="https://creativecommons.org/licenses/by/2.0/" rel="license">CC BY 2.0</a>')
 
 
-def _wo16_trim(text, limit=140):
-    """First sentence of a blurb, hard-trimmed at a word boundary."""
-    text = ' '.join((text or '').split())
-    if len(text) <= limit:
-        return text
-    cut = text.find('. ')
-    if 40 <= cut <= limit:
-        return text[:cut + 1]
-    return text[:limit].rsplit(' ', 1)[0] + '…'
+def _wo19_summary(event, limit=140):
+    """A complete short source sentence, or an existing category/venue fact line."""
+    text=' '.join((event.get('blurb') or '').split())
+    first=re.split(r'(?<=[.!?])\s+(?=[A-Z0-9])',text,maxsplit=1)[0]
+    if first and len(first)<=limit and not first.endswith(('…','...')):
+        return first
+    return CAT_LABELS.get(event['category'],event['category'].title())+' · '+event['venue'].split(',')[0]
 
 
 def _wo16_edition(doc):
@@ -128,7 +126,7 @@ def _wo16_edition(doc):
     sec = doc.select_one('.gh-week')
     if sec is not None:
         return {'range': sec.get('data-ed-range', ''), 'title': sec.get('data-ed-title', ''),
-                'standfirst': sec.get('data-ed-standfirst', ''), 'href': sec.get('data-ed-href', 'events/')}
+                'standfirst': sec.get('data-ed-standfirst', ''), 'href': sec.get('data-ed-href', 'events/'), 'live': sec.get('data-ed-live')=='true'}
     return {'range': '', 'title': '', 'standfirst': '', 'href': 'events/'}
 
 
@@ -158,6 +156,24 @@ def homepage_sections(rows, day, ed, prefix):
     """
     esc = html.escape
     start, end = _wo16_window(ed, day)
+    live=ed.get('live') or end<day
+    heading='This <em>week</em>'
+    lead_image=LEAD_IMAGE
+    lead_class=''
+    if live:
+        future=[e for e in rows if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()>=day]
+        current_end=day.fromordinal(day.toordinal()+6)
+        current=[e for e in future if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()<=current_end]
+        start=day if current or not future else datetime.fromisoformat(future[0]['starts_at']).astimezone(TZ).date()
+        end=start.fromordinal(start.toordinal()+6)
+        if not current and future:heading='Coming <em>up</em>'
+        lead=future[0] if future else None
+        ed={'range':f'{start:%A, %B %d} – {end:%A, %B %d, %Y}',
+            'title':lead['title'] if lead else 'Upcoming',
+            'standfirst':_wo19_summary(lead) if lead else 'No upcoming events listed. Check back soon.',
+            'href':prefix+'events/'+lead['slug']+'/' if lead else prefix+'events/', 'live':True}
+        lead_image=(lead['image'],lead['title']) if lead and lead.get('image') else None
+        lead_class=' gh-event-lead'
     in_week, seen = [], set()
     for e in rows:
         d = datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()
@@ -178,19 +194,21 @@ def homepage_sections(rows, day, ed, prefix):
             f'<span class="gh-row-date"><span class="dow">{d:%a}</span>'
             f'<span class="num">{d:%d}</span><span class="mon">{d:%b}</span></span>'
             f'<span class="gh-row-info"><h4>{esc(e["title"])}</h4>'
-            f'<p>{esc(_wo16_trim(e.get("blurb"), 110))}</p></span>'
+            f'<p>{esc(_wo19_summary(e, 110))}</p></span>'
             f'<span class="gh-row-tag">{esc(CAT_LABELS.get(e["category"], e["category"].title()))}</span>'
             '<span class="gh-row-go" aria-hidden="true">→</span></a>')
+    if not row_html:
+        row_html='<p class="gh-list-empty">No upcoming events listed. Check back soon.</p>'
     short_range = f'{start:%a %b %d} — {end:%a %b %d}'
     week = (
-        f'<section class="gh-week" aria-label="This week in Aspen" data-ed-range="{esc(ed["range"], quote=True)}" '
+        f'<section class="gh-week" aria-label="{'Coming up' if heading.startswith('Coming') else 'This week in Aspen'}" data-ed-range="{esc(ed["range"], quote=True)}" '
         f'data-ed-title="{esc(ed["title"], quote=True)}" data-ed-standfirst="{esc(ed["standfirst"], quote=True)}" '
-        f'data-ed-href="{esc(ed["href"], quote=True)}">'
-        '<div class="gh-sec-head"><h2>This <em>week</em></h2>'
+        f'data-ed-href="{esc(ed["href"], quote=True)}" data-ed-live="{str(bool(live)).lower()}" data-window-end="{end.isoformat()}">'
+        f'<div class="gh-sec-head"><h2>{heading}</h2>'
         f'<div class="gh-week-tools"><span class="gh-sec-meta">{esc(ed["range"])}</span>'
         f'<div class="gh-filters" role="group" aria-label="Filter this week\'s picks">{filters}</div></div></div>'
         '<div class="gh-week-grid">'
-        f'<article class="gh-lead"><img src="{prefix}{LEAD_IMAGE[0]}" alt="{esc(LEAD_IMAGE[1])}" loading="lazy" decoding="async">'
+        f'<article class="gh-lead{lead_class}">' + (f'<img src="{prefix}{lead_image[0]}" alt="{esc(lead_image[1])}" loading="lazy" decoding="async">' if lead_image else '') +
         f'<div class="gh-lead-body"><p class="gh-lead-k">{esc(short_range)}</p>'
         f'<h3>{esc(ed["title"])}</h3><p>{esc(ed["standfirst"])}</p>'
         f'<a class="gh-btn-solid" href="{esc(ed["href"])}">See what\'s on <span class="arr" aria-hidden="true">→</span></a>'
@@ -234,7 +252,7 @@ def homepage_sections(rows, day, ed, prefix):
         for e in picks:
             d = datetime.fromisoformat(e['starts_at']).astimezone(TZ)
             items += (f'<div class="gh-band-item"><span class="gh-band-when">{d:%a, %b %d}</span>'
-                      f'<div><h3>{esc(e["title"])}</h3><p>{esc(_wo16_trim(e.get("blurb")))}</p></div></div>')
+                      f'<div><h3>{esc(e["title"])}</h3><p>{esc(_wo19_summary(e))}</p></div></div>')
         items += (f'<div class="gh-band-item"><span class="gh-band-when">All month</span>'
                   f'<div><h3>The Full Calendar</h3><p>Every verified listing for {month}, in one place. '
                   f'<a href="{prefix}calendar/">Open it →</a></p></div></div>')
@@ -499,9 +517,9 @@ def refine_page(doc, path, rows, day):
         # WO#16 guards: the concept's below-hero sections are homepage
         # structure — a build that loses them must fail here, not ship.
         assert len(doc.select('.gh-tile')) == 5, 'WO#16: Explore mosaic must carry five tiles'
-        assert len(doc.select('.gh-band-item')) >= 3, 'WO#16: Coming-up band items missing'
+        assert not doc.select_one('.gh-band') or len(doc.select('.gh-band-item')) >= 3, 'WO#16: Coming-up band items missing'
         assert len(doc.select('.gh-step')) == 3, 'WO#16: Verify steps missing'
-        assert doc.select_one('.gh-week .gh-row'), 'WO#16: This-week rows missing'
+        assert doc.select_one('.gh-week .gh-row,.gh-week .gh-list-empty'), 'WO#16: This-week rows missing'
     if route == 'press/index.html':
         total=sum(datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()>=day for e in rows)
         for paragraph in doc.select('.card p'):
