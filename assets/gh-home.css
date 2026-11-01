@@ -411,3 +411,46 @@ body.gh-site[data-page="index.html"] .gh-footer nav.site-nav a[aria-current]{col
 body.gh-site[data-page="index.html"] .gh-footer p{color:var(--gh-on-dark-soft)}
 body.gh-site[data-page="index.html"] .gh-credits{font-size:11px; line-height:1.6; max-width:56rem}
 body.gh-site[data-page="index.html"] .gh-credits a{color:var(--gh-gold-pale)}
+
+/* ══ WO#17-R1 — Safe-area restore + cover hardening (2026-10-31) ══
+   Fix 1 (safe area): WO#13's F1 padding-top lives on .gh-top in
+   gh-theme.css, but the homepage band is .gh-topbar, whose shorthand
+   padding:0 (higher-specificity scoped rule above) defeats it — the F1
+   compensation never reaches the homepage header. The band now carries
+   the inset itself: padding-top: env(safe-area-inset-top, 0px) added to
+   .gh-topbar, and the inner strip keeps a flat 7px (its calc() term is
+   retired here) so the inset is counted exactly once. In a browser
+   env() is 0 and the total is unchanged (7px); in the installed app
+   the masthead clears the status bar by inset + 7px.
+   Fix 1b (THALEIA Pillar 1): a fixed frosted scrim exactly one safe-area
+   tall, so content scrolling under the black-translucent status bar
+   never clashes with the white iOS clock / 5G / battery glyphs. The
+   specced block carries no content property; content:"" is added
+   because a ::before without it generates no box at all — the verbatim
+   block renders nothing (caught in this payload's render verification).
+   Fix 2 (cover): the frame holds a deep-navy surface and a 340px floor —
+   the cover image's own minimum height — while the image loads or if it
+   fails, so the frame never collapses to floating alt text; the caption
+   (THALEIA Pillar 2) trades its flat slab for a progressive gradient
+   scrim, darkest at the text line (AAA contrast kept). */
+body.gh-site::before{
+  content:""; display:block;
+  position:fixed; top:0; left:0; right:0;
+  height:env(safe-area-inset-top,0px);
+  background:rgba(13,27,36,0.82);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  z-index:9999; pointer-events:none;
+}
+body.gh-site[data-page="index.html"] .gh-topbar{
+  padding-top:env(safe-area-inset-top,0px);
+}
+body.gh-site[data-page="index.html"] .gh-topbar-in{
+  padding-top:7px;
+}
+body.gh-site[data-page="index.html"] .gh-cover-frame{
+  background:#0d1b24; min-height:340px;
+}
+body.gh-site[data-page="index.html"] .gh-cover-cap{
+  background:linear-gradient(to top, rgba(8,17,23,0.96) 0%, rgba(8,17,23,0.86) 62%, rgba(8,17,23,0.45) 85%, transparent 100%);
+}
