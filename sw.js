@@ -6,7 +6,7 @@ const REVISIONS = {
 
   chrome: 2,
 
-  tables: 0,
+  tables: 1,
 
   events: 1,
 
