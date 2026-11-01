@@ -185,7 +185,7 @@
       picks.forEach(function(p){
         if(p.lat==null||p.lng==null){return;}
         var color=CAT_COLOR[p.category]||"#103d60";
-        var m=L.marker([p.lat,p.lng],{icon:L.divIcon({className:"",
+        var m=L.marker([p.lat,p.lng],{title:p.name,icon:L.divIcon({className:"",
           html:'<span class="mk" style="background:'+color+'"></span>',iconSize:[14,14],iconAnchor:[7,7]})}).addTo(map);
         m.bindPopup("<b>"+esc(p.name)+"</b><br>"+esc(p.score)+" / 10 · "+esc(p.category)+
           (p.address?"<br>"+esc(p.address):"")+
