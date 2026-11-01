@@ -26,6 +26,13 @@ def apply(doc,path,root):
     if not doc.find('h1'):mast.select_one('.brand').name='h1'
     for child in reversed(retained):mast.insert_after(child)
     foot=doc.select_one('.gh-footer')
+    if foot:
+        from build_design import footer_navigation
+        current=route.replace('index.html','') or 'index.html'
+        canonical=BeautifulSoup(footer_navigation(prefix,current),'html.parser').nav
+        old_nav=foot.select_one('nav')
+        if old_nav:old_nav.replace_with(canonical)
+        else:foot.insert(0,canonical)
     if foot and not foot.select_one('.gh-foot-word'):
         front=BeautifulSoup('<p class="gh-foot-word">THE GOLDEN <em>HOUR</em></p><p class="gh-foot-meta"><span>From Aspen and Beyond</span><span>Verified before publication</span></p>','html.parser')
         for child in reversed(list(front.contents)):foot.insert(0,child.extract())
