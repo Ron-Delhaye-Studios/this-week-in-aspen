@@ -14,7 +14,7 @@ const REVISIONS = {
 
   guides: 0,
 
-  map: 0,
+  map: 1,
 
   notfound: 1
 };

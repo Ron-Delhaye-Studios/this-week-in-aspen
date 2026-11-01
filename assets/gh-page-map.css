@@ -1,0 +1,16 @@
+/* WO19 map chrome: the same paper, gold rules, pills and readable detail surface. */
+.gh-site .gh-map-heading{max-width:1200px;padding:0 24px;margin:24px auto 16px}
+.gh-site .gh-map-heading h1{font-size:clamp(38px,5vw,64px);letter-spacing:-.025em;margin:0}
+.gh-site[data-page="map/index.html"]>.tagline{max-width:1152px;width:calc(100% - 48px);margin-bottom:24px}
+.gh-site #controls,.gh-site #catrow{max-width:1200px;padding:0 24px;gap:10px}
+.gh-site #controls .chip,.gh-site #catrow .chip{border:1px solid var(--hair);padding:12px 10px;min-height:44px;background:var(--surface)!important;color:var(--ink)!important}
+.gh-site #controls .chip.active,.gh-site #catrow .chip.active{background:var(--ink)!important;color:var(--paper)!important;border-color:var(--ink)}
+.gh-site #map{max-width:1152px;width:calc(100% - 48px);margin:24px auto;border:1px solid var(--hair);border-radius:var(--radius);height:clamp(360px,60vh,640px)}
+.gh-site #meta{max-width:1152px;margin:16px auto;padding:0 24px;color:var(--muted);font-size:13px;line-height:1.7}
+.gh-site .legend{gap:12px 20px;padding:12px 24px 20px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.gh-site .leaflet-popup-content{font-family:var(--sans);font-size:14px;line-height:1.6;margin:20px;min-width:180px}
+.gh-site .leaflet-popup-content h3{font:700 26px/1.15 var(--serif);margin:12px 0}
+.gh-site .leaflet-popup-content a{color:var(--accent);text-underline-offset:3px}
+.gh-site .leaflet-popup-content img.ev-photo{background:var(--paper);border-radius:8px}
+.gh-site .leaflet-popup-close-button{min-width:44px;min-height:44px;line-height:44px!important;color:var(--ink)!important}
+@media(max-width:640px){.gh-site .gh-map-heading{padding:0 16px}.gh-site #controls,.gh-site #catrow{padding:0 16px;gap:8px}.gh-site #map{width:calc(100% - 32px);height:420px}.gh-site[data-page="map/index.html"]>.tagline{width:calc(100% - 32px)}.gh-site #controls .chip,.gh-site #catrow .chip{font-size:11px;line-height:1.4}}
