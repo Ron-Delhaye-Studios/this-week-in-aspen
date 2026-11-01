@@ -8,8 +8,8 @@ body.gh-site:not([data-page="index.html"]) .masthead{max-width:1200px;margin:0 a
 .gh-site .gh-eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 10px!important}
 .gh-site .gh-eyebrow .rule{height:1px;flex:1;background:var(--accent);box-shadow:0 3px 0 var(--accent)}
 .gh-site .gh-kicker-text{font-size:11px;letter-spacing:.24em;color:var(--accent)}
-body.gh-site:not([data-page="index.html"]) .masthead .brand{font-size:clamp(30px,11.8vw,168px)!important;line-height:.84!important;white-space:normal;letter-spacing:-.015em;padding:10px 0 4px;margin:0!important}
-.gh-site .brand .l1,.gh-site .brand .l2{display:block}
+body.gh-site:not([data-page="index.html"]) .masthead .brand{font-size:clamp(30px,11.2vw,150px)!important;line-height:.84!important;white-space:normal;letter-spacing:-.015em;padding:10px 0 4px;margin:0!important}
+.gh-site .brand .l1,.gh-site .brand .l2{display:block;white-space:nowrap}
 .gh-site .gh-mast-sub{padding:14px 0 16px;border-bottom:3px double var(--accent)}
 .gh-site .gh-mast-sub nav.site-nav{border:0;padding:0;gap:6px}
 .gh-site .gh-mast-sub nav.site-nav a{border:1px solid var(--hair);border-radius:999px;background:var(--surface);color:var(--ink);padding:8px 13px;min-height:44px;font-size:12px;letter-spacing:.08em}
