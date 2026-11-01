@@ -1,0 +1,17 @@
+{
+  "work_order": "WO19",
+  "family": "chrome",
+  "state": "verified; PR queued for owner merge",
+  "tested_source": "7db413964702869aef0dbd3f40aa1d51dfeb7482",
+  "evidence": "https://github.com/Ron-Delhaye-Studios/this-week-in-aspen/tree/7c35b674ee9700a134ea9ecd55173bc50c785a3f",
+  "checks": [
+    "16 family viewport/theme renders",
+    "140 combined all-route/theme cases, zero reported violations/errors/overflow",
+    "A1 persistence, synthetic safe inset, weather fixture, footer-only navigation",
+    "all three event-feed hashes unchanged; no new media; press placeholder intact",
+    "repeat full builds stabilize"
+  ],
+  "publication": "MASTER INDY merge only; no production claim",
+  "physical_ios": "not tested; synthetic inset evidence only",
+  "signed": "CODEX"
+}
