@@ -1,0 +1,11 @@
+{
+  "work_order": "WO19",
+  "family": "events",
+  "state": "verified; PR queued for owner merge",
+  "tested_source": "a1180a07c14d23bae29fed57db4e6e7f0fc49ac3",
+  "evidence_commit": "7c35b674ee9700a134ea9ecd55173bc50c785a3f",
+  "checks": "Twelve rendered viewport/theme cases, plus blocked-image screenshots and interaction checks. Canonical data, event copy, booking fields, media bytes and URLs are unchanged.",
+  "canonical_event_sha256": "115afb6b6e0b23111faae3998b47e85df994f93c7ccdbaaf3b00c311888b02ae",
+  "publication": "MASTER INDY merge only; production pending",
+  "signed": "CODEX"
+}
