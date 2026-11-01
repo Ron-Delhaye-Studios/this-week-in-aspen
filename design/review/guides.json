@@ -2,10 +2,12 @@
   "work_order": "WO19",
   "family": "guides",
   "state": "verified; PR queued for owner merge",
-  "tested_source": "9756aeb3f8cb8990eea83f02990455c3fd8dceb8",
+  "tested_source": "b39760c1b74671e4dd8627beb0c7c6612578eb5d",
   "evidence_commit": "7c35b674ee9700a134ea9ecd55173bc50c785a3f",
   "checks": "Eight rendered viewport/theme cases; zero reported WCAG A/AA violations or overflow. Empty listings and out-of-season visibility tested using labelled fixtures.",
   "canonical_event_sha256": "115afb6b6e0b23111faae3998b47e85df994f93c7ccdbaaf3b00c311888b02ae",
   "publication": "MASTER INDY merge only; production pending",
-  "signed": "CODEX"
+  "signed": "CODEX",
+  "final_evidence_commit": "27a2a4493d8cc838c5db0d6ca925a99c1875c4e2",
+  "shared_weather": "Reserves space without visible loading text; reveals reading or unavailable state. Folded into PR15."
 }
