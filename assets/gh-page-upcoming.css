@@ -16,3 +16,10 @@
 .gh-site .cat-nav{gap:8px;margin:24px 0}
 .gh-site .cat-nav a{display:inline-flex;align-items:center;padding:8px 14px;border:1px solid var(--hair);border-radius:999px;min-height:44px;text-decoration:none}
 @media(max-width:640px){.gh-site .gh-card-actions>*{flex:1}.gh-site .gh-card-body{padding:24px}.gh-site .gh-type-media{min-height:220px}}
+/* A slow licensed photograph also has a designed state, using the existing title. */
+.gh-site .gh-card-media{position:relative}
+.gh-site .gh-media-loading{display:none}
+.gh-site .gh-media-pending .gh-media-loading{display:flex;position:absolute;inset:24px;flex-direction:column;justify-content:flex-end;gap:14px;color:var(--ink);background:var(--paper);z-index:1}
+.gh-site .gh-media-pending img{opacity:0}
+.gh-site .gh-media-loading h3{margin:0;font-size:30px}
+.gh-site .gh-media-loading .score{align-self:flex-start}

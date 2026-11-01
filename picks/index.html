@@ -162,7 +162,7 @@
   function card(p){
     var heading='<p class="gh-card-kicker">'+esc(p.category)+'</p><h3>'+esc(p.name)+'</h3><span class="score" aria-label="Score '+esc(p.score)+' out of 10">'+esc(p.score)+' / 10</span>';
     var photo=p.photo
-      ? '<figure class="gh-card-media"><img class="gh-artwork" src="'+esc(p.photo)+'" alt="'+esc(p.photo_alt||p.name)+'" loading="lazy"></figure>'
+      ? '<figure class="gh-card-media gh-media-pending"><div class="gh-media-loading" aria-hidden="true">'+heading+'</div><img class="gh-artwork" src="'+esc(p.photo)+'" alt="'+esc(p.photo_alt||p.name)+'" loading="lazy" onload="this.parentElement.classList.remove(\'gh-media-pending\')"></figure>'
       : '<header class="gh-type-media">'+heading+'</header>';
     var credit=p.photo_credit?'<p class="pcredit">Photo: '+esc(p.photo_credit)+'</p>':"";
     var addr=p.address?'<p class="addr">'+esc(p.address)+'</p>':"";
