@@ -1,0 +1,18 @@
+/* WO19 collections: the same paper card, serif hierarchy and rhythm as Events. */
+.gh-site .gh-event-grid,.gh-site #pick-list .cat-section{gap:24px;margin-top:24px;align-items:stretch}
+.gh-site .gh-card{border-radius:16px;border-top-width:1px}
+.gh-site .gh-card-media{background:var(--paper);border-bottom:1px solid var(--hair)}
+.gh-site .gh-card-body{gap:14px;padding:24px}
+.gh-site .gh-card :is(h2,h3){font-size:clamp(26px,2.5vw,34px);letter-spacing:-.02em;line-height:1.15}
+.gh-site .gh-type-media{min-height:240px;justify-content:flex-end;padding:28px 24px;background:linear-gradient(135deg,var(--paper),var(--surface));border-bottom:1px solid var(--hair);gap:14px}
+.gh-site .gh-type-media:before{content:'';width:44px;height:3px;background:var(--accent);margin-bottom:auto}
+.gh-site .gh-card-details summary{min-height:44px}
+.gh-site .gh-card :is(.why,.src,.addr,.pcredit){line-height:1.8}
+.gh-site .gh-card .score{font-variant-numeric:tabular-nums;margin-top:4px}
+.gh-site .page>h1,.gh-site .pagetitle h2{font-size:clamp(38px,5vw,64px);letter-spacing:-.025em;margin:24px 0 16px}
+.gh-site .cat-head{padding-top:20px;border-top:2px solid var(--ink);font-size:clamp(30px,4vw,44px)}
+.gh-site .page-hero{background:var(--surface);padding:12px;border:1px solid var(--hair);border-radius:var(--radius)}
+.gh-site .page-hero img{background:var(--paper);border-radius:8px}
+.gh-site .cat-nav{gap:8px;margin:24px 0}
+.gh-site .cat-nav a{display:inline-flex;align-items:center;padding:8px 14px;border:1px solid var(--hair);border-radius:999px;min-height:44px;text-decoration:none}
+@media(max-width:640px){.gh-site .gh-card-actions>*{flex:1}.gh-site .gh-card-body{padding:24px}.gh-site .gh-type-media{min-height:220px}}
