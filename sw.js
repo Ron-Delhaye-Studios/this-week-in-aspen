@@ -12,7 +12,7 @@ const REVISIONS = {
 
   collections: 0,
 
-  guides: 0,
+  guides: 1,
 
   map: 1,
 

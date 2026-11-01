@@ -1,0 +1,17 @@
+/* WO19 local guides: deliberately composed type cards, not empty media boxes. */
+.gh-site .pagetitle h2{font-size:clamp(38px,5vw,64px);letter-spacing:-.025em;line-height:1.1;margin:24px 0 16px}
+.gh-site .page>.lede,.gh-site #season-live>.lede{max-width:70ch;line-height:1.8}
+.gh-site :is(#hh-list,#os-deals,#os-open,#os-closed,#os-gone){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:24px 0 32px}
+.gh-site .guide.gh-card{border:1px solid var(--hair);border-radius:var(--radius);margin:0;min-width:0}
+.gh-site .guide .gh-type-media{background:linear-gradient(135deg,var(--paper),var(--surface));min-height:210px;justify-content:flex-end;padding:24px;gap:14px;border-bottom:1px solid var(--hair)}
+.gh-site .guide .gh-type-media:before{content:'';width:44px;height:3px;background:var(--accent);margin-bottom:auto}
+.gh-site .guide.gh-card h3{font-size:clamp(26px,2.5vw,34px);line-height:1.15;letter-spacing:-.02em}
+.gh-site .guide .gh-card-body{padding:24px;gap:14px}
+.gh-site .guide.gh-card :is(.why,.src,.addr){font-size:14px;line-height:1.8}
+.gh-site .guide .score{white-space:normal;max-width:100%;line-height:1.5}
+.gh-site #season-live>h2{border-top:2px solid var(--ink);padding-top:22px;font-size:clamp(30px,4vw,44px);margin-top:32px}
+.gh-site #os-context,.gh-site #season-out{background:var(--surface);border:1px solid var(--hair);border-radius:var(--radius);padding:24px;margin:24px 0}
+.gh-site #os-context:empty{display:none}
+.gh-site #season-out[hidden]{display:none}
+.gh-site #season-out p{max-width:65ch;line-height:1.8}
+@media(max-width:640px){.gh-site :is(#hh-list,#os-deals,#os-open,#os-closed,#os-gone){grid-template-columns:1fr}.gh-site .guide .gh-type-media{min-height:200px}}
