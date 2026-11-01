@@ -65,6 +65,7 @@ def main():
     for path in root.rglob('*.html'):
         if '.git' in path.parts:continue
         route=path.relative_to(root).as_posix()
+        if route=='index.html':continue
         if args.routes and not any(route==r or route.startswith(r.rstrip('/')+'/') for r in args.routes):continue
         doc=BeautifulSoup(path.read_text(),'html.parser')
         if not doc.body or not doc.head:continue
