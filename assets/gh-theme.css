@@ -231,3 +231,7 @@ body.gh-site{margin:0;background:var(--paper);color:var(--ink);font-family:var(-
 .gh-site nav.site-nav{padding-top:calc(8px + env(safe-area-inset-top,0px))}
 .gh-site .gh-filters{padding-top:env(safe-area-inset-top,0px)}
 .gh-site .cat-nav{padding-top:env(safe-area-inset-top,0px)}
+/* WO19 Tier 1: reserve weather geometry; reveal observed/cached/unavailable value. */
+.gh-site .gh-weather{min-inline-size:140px;min-block-size:25px;transition:opacity .18s ease}
+.gh-site .gh-weather[aria-busy="true"]{opacity:0}
+@media(prefers-reduced-motion:reduce){.gh-site .gh-weather{transition:none}}

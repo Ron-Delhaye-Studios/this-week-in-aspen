@@ -1,10 +1,26 @@
-/* The Golden Hour — service worker v8; WO15 homepage assets and costume refresh */
+/* The Golden Hour — service worker v11; retire the optional Halloween skin */
 const PREFIX = "golden-hour-";
-const CACHE = "golden-hour-v10";
+// Each independently mergeable family advances its own slot.
+const REVISIONS = {
+  chrome: 2,
+
+  tables: 0,
+
+  events: 0,
+
+  collections: 0,
+
+  guides: 0,
+
+  map: 0,
+
+  notfound: 1
+};
+const CACHE = PREFIX + "wo19-" + Object.entries(REVISIONS).map(([name, revision]) => name + revision).join("-");
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
-  'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js', 'assets/gh-halloween.css', 'assets/gh-halloween.js']
+  'assets/gh-chrome.css', 'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js']
   .map(path => BASE + path);
 function noStore(response) {
   return /(?:^|,)\s*no-store\b/i.test(response.headers.get("Cache-Control") || "");

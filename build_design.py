@@ -415,6 +415,8 @@ def decorate(path, skin, rows, day):
     if skin == 'halloween':
         resources += f'<link data-gh-design rel="stylesheet" href="{prefix}assets/gh-halloween.css"><script data-gh-design defer src="{prefix}assets/gh-halloween.js"></script>'
     doc.head.append(fragment(resources))
+    from design.chrome import finish as finish_chrome
+    finish_chrome(doc, path, ROOT)
     path.write_text('\n'.join(line.rstrip() for line in str(doc).splitlines()).rstrip() + '\n')
 
 

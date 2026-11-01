@@ -40,13 +40,14 @@
     const condition = code => code === 0 ? 'Clear' : code <= 3 ? 'Cloudy' : code <= 48 ? 'Fog' : code <= 67 ? 'Rain' : code <= 77 ? 'Snow' : code <= 82 ? 'Showers' : code <= 86 ? 'Snow showers' : 'Thunderstorms';
     const showWeather = stale => {
       if (!pill) return;
+      pill.setAttribute('aria-busy','false');
       if (!last) { pill.textContent = 'Aspen · Weather unavailable'; return; }
       const time = format({hour:'numeric',minute:'2-digit',month:'short',day:'numeric'}).format(new Date(last.time));
       pill.textContent = `Aspen · ${Math.round(last.temp)}°F · ${condition(last.code)}${stale ? ' · Last reading ' + time + ' MT' : ''}`;
       pill.title = `Open-Meteo · Observed ${time} MT`;
     };
     const weather = async () => {
-      showWeather(true);
+      if (last) showWeather(true);
       try {
         const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=39.1911&longitude=-106.8175&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=UTC', {signal:AbortSignal.timeout(10000)});
         if (!response.ok) throw new Error('Weather unavailable');
