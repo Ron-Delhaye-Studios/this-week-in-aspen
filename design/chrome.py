@@ -29,8 +29,9 @@ def apply(doc,path,root):
     if foot and not foot.select_one('.gh-foot-word'):
         front=BeautifulSoup('<p class="gh-foot-word">THE GOLDEN <em>HOUR</em></p><p class="gh-foot-meta"><span>From Aspen and Beyond</span><span>Verified before publication</span></p>','html.parser')
         for child in reversed(list(front.contents)):foot.insert(0,child.extract())
-    if not doc.select_one('link[href$="gh-chrome.css"]'):
-        doc.head.append(doc.new_tag('link',rel='stylesheet',href=prefix+'assets/gh-chrome.css'))
+    css=doc.select_one('link[href$="gh-chrome.css"]')
+    if css:css.extract()
+    doc.head.append(css or doc.new_tag('link',rel='stylesheet',href=prefix+'assets/gh-chrome.css'))
 
 def link_family(doc,path,root):
     route=path.relative_to(root)
@@ -38,7 +39,9 @@ def link_family(doc,path,root):
     asset='assets/gh-page-'+family+'.css'
     if (root/asset).exists():
         href='../'*(len(route.parts)-1)+asset
-        if not doc.find('link',href=href):doc.head.append(doc.new_tag('link',rel='stylesheet',href=href))
+        css=doc.find('link',href=href)
+        if css:css.extract()
+        doc.head.append(css or doc.new_tag('link',rel='stylesheet',href=href))
 
 def finish(doc,path,root):
     import importlib
