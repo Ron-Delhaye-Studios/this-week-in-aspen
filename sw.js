@@ -8,7 +8,7 @@ const REVISIONS = {
 
   tables: 0,
 
-  events: 0,
+  events: 1,
 
   collections: 1,
 
