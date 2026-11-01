@@ -1,0 +1,8 @@
+/* WO19: a designed recovery page using the existing, approved error copy. */
+.gh-site .gh-not-found{max-width:960px;margin:32px auto;padding:clamp(24px,5vw,64px);background:linear-gradient(135deg,var(--surface),var(--paper));border:1px solid var(--hair);border-top:3px solid var(--accent);border-radius:var(--radius)}
+.gh-site .gh-not-found .gh-card-kicker{font:900 clamp(88px,17vw,180px)/.9 var(--serif);letter-spacing:-.04em;color:var(--accent);margin:0 0 24px}
+.gh-site .gh-not-found h1{font-size:clamp(38px,5vw,64px);letter-spacing:-.025em;line-height:1.1;margin:0 0 20px}
+.gh-site .gh-not-found>p:not(.gh-card-kicker){max-width:45ch;color:var(--muted);font-size:17px;line-height:1.8}
+.gh-site .gh-not-found .gh-card-actions{gap:12px;margin-top:28px}
+.gh-site .gh-not-found .btn{min-height:48px;padding:12px 24px;font-size:13px}
+@media(max-width:640px){.gh-site .gh-not-found{margin:24px 0}.gh-site .gh-not-found .gh-card-actions{display:grid;grid-template-columns:1fr}.gh-site .gh-not-found .btn{width:100%}}

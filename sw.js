@@ -14,7 +14,7 @@ const REVISIONS = {
 
   map: 0,
 
-  notfound: 0
+  notfound: 1
 };
 const CACHE = PREFIX + "wo19-" + Object.entries(REVISIONS).map(([name, revision]) => name + revision).join("-");
 const BASE = new URL('./', self.location.href).pathname;
