@@ -1,0 +1,22 @@
+/* WO19 Events: the homepage's serif hierarchy, full-frame artwork and paper surfaces. */
+.gh-site[data-page^="events/"] .page>h1{font-size:clamp(38px,5vw,64px);letter-spacing:-.025em;margin:24px 0 16px}
+.gh-site[data-page^="events/"] .page>.lede{max-width:65ch}
+.gh-site[data-page^="events/"] .gh-event-grid{gap:24px;align-items:stretch;margin:24px 0 32px}
+.gh-site[data-page^="events/"] .gh-card{border-radius:16px}
+.gh-site[data-page^="events/"] .gh-card-media{background:var(--paper);border-bottom:1px solid var(--hair)}
+.gh-site[data-page^="events/"] .gh-card-body{gap:14px;padding:24px}
+.gh-site[data-page^="events/"] .gh-card :is(h2,h3){font-size:clamp(26px,2.5vw,34px);letter-spacing:-.02em;line-height:1.15}
+.gh-site[data-page^="events/"] .gh-type-media{min-height:240px;justify-content:flex-end;padding:28px 24px;background:linear-gradient(135deg,var(--paper),var(--surface));border-bottom:1px solid var(--hair);gap:14px}
+.gh-site[data-page^="events/"] .gh-type-media:before{content:'';width:44px;height:3px;background:var(--accent);margin-bottom:auto}
+.gh-site[data-page^="events/"] .gh-card.gh-typographic{border-top-width:1px}
+.gh-site[data-page^="events/"] .gh-card-details{padding-top:16px}
+.gh-site[data-page^="events/"] .gh-card-details summary{min-height:44px}
+.gh-site[data-page^="events/"] .ev-hero{padding:12px;border:1px solid var(--hair);border-radius:var(--radius);background:var(--surface);margin:24px 0}
+.gh-site[data-page^="events/"] .ev-hero img{border-radius:8px;background:var(--paper);max-height:600px}
+.gh-site[data-page^="events/"] .ev-title{font-size:clamp(38px,5.5vw,72px);letter-spacing:-.025em;max-width:24ch;margin:16px 0 24px}
+.gh-site[data-page^="events/"] .gh-event-title-block{padding:32px;border:1px solid var(--hair);border-top:3px solid var(--accent);border-radius:var(--radius);background:linear-gradient(135deg,var(--surface),var(--paper));margin:24px 0}
+.gh-site[data-page^="events/"] .gh-event-title-block .kicker{color:var(--accent);font-size:11px;letter-spacing:.18em;margin:0 0 20px}
+.gh-site[data-page^="events/"] .gh-event-title-block .ev-title{margin:0;max-width:24ch}
+.gh-site[data-page^="events/"] .ev-details{padding:20px 24px;max-width:850px;margin:24px 0}
+.gh-site[data-page^="events/"] :is(.ev-blurb,.ev-fit,.gh-field-note){max-width:70ch;line-height:1.8}
+@media(max-width:640px){.gh-site[data-page^="events/"] .gh-event-title-block{padding:24px}.gh-site[data-page^="events/"] .ev-details .row{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:12px}.gh-site[data-page^="events/"] .gh-card-actions>*{flex:1}.gh-site[data-page^="events/"] .ev-title{font-size:38px}}
