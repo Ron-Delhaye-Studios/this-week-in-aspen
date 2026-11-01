@@ -52,9 +52,10 @@ def link_family(doc,path,root):
 
 def finish(doc,path,root):
     import importlib
+    apply(doc,path,root)
     for module in sorted((root/'design').glob('finish_*.py')):
         importlib.import_module('design.'+module.stem).apply(doc,path,root)
-    apply(doc,path,root);link_family(doc,path,root)
+    link_family(doc,path,root)
     # Removed generated head tags must not leave one extra blank node per build.
     for child in list(doc.head.children):
         if not getattr(child, 'name', None) and not str(child).strip():child.extract()

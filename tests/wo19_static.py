@@ -12,6 +12,7 @@ for path in ROOT.rglob('*.html'):
     if '.git' in path.parts:continue
     doc=BeautifulSoup(path.read_text(),'html.parser')
     assert len(doc.select('.gh-top'))==1,path
+    assert 'Loading weather' not in doc.get_text(),path
     assert len(doc.select('.gh-theme-toggle'))==1,path
     assert len(doc.select('.gh-footer'))==1,path
     assert doc.select_one('.gh-footer .gh-foot-word'),path
