@@ -32,11 +32,11 @@ import urllib.request
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, "/opt/hatch/skills/skill-creator/bin")
-from dynamic_credentials import add_surrogate_to_request  # noqa: E402
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
-import live_layer  # noqa: E402 — shared live-layer contract (window + anchors)
+
 MAPDIR = HERE  # this file lives in map/
 DENVER = ZoneInfo("America/Denver")
 API = "https://ypfhcqeispdunewubxjm.supabase.co/rest/v1"
@@ -49,16 +49,19 @@ EVENTS_JSON = os.path.join(MAPDIR, "events.json")
 
 NAV = [
     ("../index.html", "Latest"),
+    ("../events/", "Events"),
     ("../upcoming/", "Upcoming"),
     ("../calendar/", "Calendar"),
     ("", "Map"),
     ("../picks/", "Top Picks"),
+    ("../activities/", "Activities"),
     ("../editions/", "Archive"),
     ("../sources/", "How we verify"),
 ]
 
 
 def supa_get(params):
+    from dynamic_credentials import add_surrogate_to_request
     qs = urllib.parse.urlencode(params)
     req = urllib.request.Request(API + "/" + TABLE + "?" + qs,
                                  headers={"Accept": "application/json"})
@@ -187,6 +190,7 @@ def _clean_str(v):
 
 
 def build_data(limit=None):
+    import live_layer
     rows = fetch_approved(limit)
     # Rolling live window — same policy as Upcoming/Calendar (live_layer.py).
     rows = [r for r in rows if live_layer.in_window(r.get("starts_at"))]
@@ -325,11 +329,7 @@ PAGE_TMPL = """<!DOCTYPE html>
   </div>
 </div>
 
-<footer class="colophon">
-  <p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>
-  <p><a href="../index.html">Latest</a> · <a href="../upcoming/">Upcoming</a> · <a href="../calendar/">Calendar</a> · <a href="index.html">Map</a> · <a href="../picks/">Top Picks</a> · <a href="../happy-hour/">Happy Hour</a> · <a href="../off-season/"{season_windows}>Off Season</a> · <a href="../editions/">Archive</a> · <a href="../sources/">How we verify</a></p>
-  <p>© 2026 The Golden Hour</p>
-</footer>
+{footer}
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
@@ -364,10 +364,16 @@ def build_shell():
             season_windows = f' data-windows="{_wins}"'
     except Exception:
         season_windows = ""
-    page = PAGE_TMPL.replace("{nav}", nav).replace("{season_windows}", season_windows).replace("{seo}", seo).replace("{analytics}", analytics).replace("{{", "{").replace("}}", "}")
+    from build_design import footer_navigation
+    footer = '<footer class="colophon">'+footer_navigation("../", "map/")+'</footer>'
+    page = PAGE_TMPL.replace("{footer}", footer).replace("{nav}", nav).replace("{season_windows}", season_windows).replace("{seo}", seo).replace("{analytics}", analytics).replace("{{", "{").replace("}}", "}")
     with open(os.path.join(MAPDIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(page)
-    print("wrote map/index.html")
+    # Finish the shell locally; shell-only never fetches or rewrites map data.
+    from pathlib import Path
+    from build_design import decorate, events
+    decorate(Path(MAPDIR)/"index.html", None, events(), dt.datetime.now(DENVER).date())
+    print("wrote map/index.html (shared shell; data untouched)")
 
 
 def main():
