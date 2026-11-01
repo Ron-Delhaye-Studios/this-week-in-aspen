@@ -23,3 +23,4 @@
 .gh-site .gh-media-pending img{opacity:0}
 .gh-site .gh-media-loading h3{margin:0;font-size:30px}
 .gh-site .gh-media-loading .score{align-self:flex-start}
+.gh-site .gh-media-pending~.gh-card-body>:is(.gh-card-kicker,h3,.score,.pcredit){display:none}
