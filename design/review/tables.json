@@ -1,0 +1,11 @@
+{
+  "work_order": "WO19",
+  "family": "tables",
+  "state": "verified; PR queued for owner merge",
+  "tested_source": "348ab15672d93fb449d3d77ce5d69e7c11b9bacd",
+  "evidence_commit": "7c35b674ee9700a134ea9ecd55173bc50c785a3f",
+  "checks": "Eight rendered viewport/theme cases; no reported WCAG A/AA violations or horizontal overflow. All table text and links are preserved.",
+  "canonical_event_sha256": "115afb6b6e0b23111faae3998b47e85df994f93c7ccdbaaf3b00c311888b02ae",
+  "publication": "MASTER INDY merge only; production pending",
+  "signed": "CODEX"
+}
