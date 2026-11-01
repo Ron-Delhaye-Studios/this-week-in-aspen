@@ -26,4 +26,5 @@ jobs:
           PY
       - run: python build_design.py
       - run: python build_design.py --check
+      - run: python tests/wo19_static.py
       - run: git diff --check
