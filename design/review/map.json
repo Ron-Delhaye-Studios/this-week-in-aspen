@@ -2,10 +2,12 @@
   "work_order": "WO19",
   "family": "map",
   "state": "verified; PR queued for owner merge",
-  "tested_source": "8a86cb077976b739aed78fe5a77d5a86cc97a9f5",
+  "tested_source": "21542332dac90040ccbbcb579769c924ca43c456",
   "evidence_commit": "7c35b674ee9700a134ea9ecd55173bc50c785a3f",
   "checks": "Eight chrome/map-tile renders across widths/themes; zero reported WCAG A/AA violations or overflow. Real OpenStreetMap tiles load. Shell-only rebuild preserves all canonical hashes. Existing filters and attribution remain intact.",
   "canonical_event_sha256": "115afb6b6e0b23111faae3998b47e85df994f93c7ccdbaaf3b00c311888b02ae",
   "publication": "MASTER INDY merge only; production pending",
-  "signed": "CODEX"
+  "signed": "CODEX",
+  "final_evidence_commit": "27a2a4493d8cc838c5db0d6ca925a99c1875c4e2",
+  "shared_weather": "Reserves space without visible loading text; reveals reading or unavailable state. Folded into PR15."
 }
