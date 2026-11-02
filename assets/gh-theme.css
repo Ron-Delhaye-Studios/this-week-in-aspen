@@ -235,3 +235,14 @@ body.gh-site{margin:0;background:var(--paper);color:var(--ink);font-family:var(-
 .gh-site .gh-weather{min-inline-size:140px;min-block-size:25px;transition:opacity .18s ease}
 .gh-site .gh-weather[aria-busy="true"]{opacity:0}
 @media(prefers-reduced-motion:reduce){.gh-site .gh-weather{transition:none}}
+
+/* WO21: one opaque paper surface across the light-mode status/top band.
+   Higher specificity beats the homepage and inner chrome's fixed dark bands.
+   No dark-theme selector or safe-area geometry is changed. */
+:root:not([data-theme="dark"]){background:var(--paper)}
+:root:not([data-theme="dark"]) body.gh-site .gh-topbar,
+:root:not([data-theme="dark"]) body.gh-site .gh-topbar-in{background:var(--paper);color:var(--ink)}
+:root:not([data-theme="dark"]) body.gh-site .gh-topbar{--band-ink:var(--ink);--band-soft:var(--muted);--band-gold:var(--accent)}
+:root:not([data-theme="dark"]) body.gh-site .gh-topbar :is(.gh-weather,.gh-theme-toggle){background:var(--paper)!important;color:var(--ink)!important;border-color:var(--hair)}
+:root:not([data-theme="dark"]) body.gh-site::before{background:var(--paper);backdrop-filter:none;-webkit-backdrop-filter:none}
+:root:not([data-theme="dark"]) body.gh-site .gh-topbar .gh-theme-toggle:hover{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--hair)}

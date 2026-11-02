@@ -66,6 +66,7 @@
     };
     let selectedFilter = 'all';
     const prune = () => {
+      if (document.body.dataset.page !== 'events/index.html') return;
       const cutoff = key(new Date());
       const today = new Date(cutoff + 'T12:00:00Z');
       const weekday = today.getUTCDay();
@@ -87,7 +88,7 @@
       }
     };
     prune(); setInterval(prune,60000);
-    document.querySelectorAll('.gh-filters button').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('body[data-page="events/index.html"] .gh-filters button').forEach(button => button.addEventListener('click', () => {
       selectedFilter = button.dataset.filter;
       document.querySelectorAll('.gh-filters button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       prune();

@@ -77,7 +77,7 @@ CSS_VARS = (
 # (href, label, key) — same items, same order, on every page.
 NAV_ITEMS = [
     ("index.html", "Latest", "latest"),
-    ("upcoming/", "Upcoming", "upcoming"),
+    ("upcoming/", "This Week", "upcoming"),
     ("calendar/", "Calendar", "calendar"),
     ("map/", "Map", "map"),
     ("picks/", "Top Picks", "picks"),

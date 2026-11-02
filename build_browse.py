@@ -21,6 +21,7 @@ from dynamic_credentials import add_surrogate_to_request, read_json_response  # 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import live_layer
+from week_scope import this_week, DESCRIPTION as WEEK_DESCRIPTION
 import theme  # noqa: E402 — shared live-layer contract (window + anchors)
 
 DENVER = ZoneInfo("America/Denver")
@@ -222,14 +223,15 @@ def week_start(d):
 
 
 def build_upcoming(rows, root):
+    rows = this_week(rows, dt.datetime.now(DENVER).date())
     body = [f"""<div class="page">
   <header class="masthead">
     <p class="kicker">From Aspen and Beyond</p>
     <h1 class="brand">The Golden Hour</h1>
     <hr class="rule-double">
   </header>
-  <h2 class="when" style="margin-top:0">Upcoming</h2>
-  <p class="empty">{live_layer.window_label()}</p>"""]
+  <h2 class="when" style="margin-top:0">This Week</h2>
+  <p class="empty">{WEEK_DESCRIPTION}</p>"""]
     if not rows:
         body.append('  <p class="empty">New picks are being curated — check back soon.</p>')
     else:
@@ -244,7 +246,7 @@ def build_upcoming(rows, root):
             body.append(f'  <h2 class="when">{html.escape(label)}</h2>')
             body.extend(event_card(r, root) for r in by_week[ws])
     body.append("</div>")
-    return wrap("Upcoming — The Golden Hour", "\n".join(body), root, active="upcoming")
+    return wrap("This Week — The Golden Hour", "\n".join(body), root, active="upcoming")
 
 
 GCAL_CSS = """
@@ -344,7 +346,7 @@ def build_calendar(rows, root):
 
 
 SEO_FOR_PAGE = {
-    "upcoming": ("Every verified upcoming event in Aspen and the high country, soonest first.", "upcoming/"),
+    "upcoming": (WEEK_DESCRIPTION, "upcoming/"),
     "calendar": ("The month at a glance \u2014 every verified Aspen-area event on a Google-style calendar.", "calendar/"),
 }
 
