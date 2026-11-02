@@ -1,0 +1,65 @@
+{
+  "review_fixture": true,
+  "ready": false,
+  "town_key": "basalt",
+  "town": "Basalt",
+  "department": "Around the Valley",
+  "edition": "WO20 layout review",
+  "editorial_by": "CODEX layout fixture — LUNA copy pending",
+  "lede": "An editorial lede belongs here in the finished feature. This sample demonstrates its scale and reading order without making claims about Basalt.",
+  "source_url": "https://example.com/layout-proof",
+  "last_checked": "2026-11-01",
+  "verification": "DRAFT",
+  "highlight_event_id": "review-highlight",
+  "highlight_last_checked": "2026-11-01",
+  "entries": [
+    {
+      "name": "The first stop",
+      "description": "Sample editorial text for layout review. The published entry will use LUNA’s short, sourced recommendation, in the order a visitor would follow. No venue is asserted by this fixture.",
+      "source_url": "https://example.com/layout-proof",
+      "last_checked": "2026-11-01",
+      "verification": "DRAFT",
+      "section": "STAY"
+    },
+    {
+      "name": "The next stop",
+      "description": "Sample editorial text for layout review. The published entry will use LUNA’s short, sourced recommendation, in the order a visitor would follow. No venue is asserted by this fixture.",
+      "source_url": "https://example.com/layout-proof",
+      "last_checked": "2026-11-01",
+      "verification": "DRAFT",
+      "section": "PLAY"
+    },
+    {
+      "name": "An afternoon stop",
+      "description": "Sample editorial text for layout review. The published entry will use LUNA’s short, sourced recommendation, in the order a visitor would follow. No venue is asserted by this fixture.",
+      "source_url": "https://example.com/layout-proof",
+      "last_checked": "2026-11-01",
+      "verification": "DRAFT",
+      "section": "EAT"
+    }
+  ],
+  "photos": [
+    {
+      "file": "assets/img/tile-map-aspen-downtown.jpg",
+      "alt": "Existing licensed Aspen-area imagery used only for layout review; not a Basalt photograph.",
+      "caption": "Layout sample, not Basalt",
+      "credit": "Daniel Case",
+      "source_url": "https://thegoldenhour.guide/assets/img/tile-map-aspen-downtown.jpg",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "place_key": "aspen",
+      "last_checked": "2026-11-01",
+      "verification": "DRAFT"
+    },
+    {
+      "file": "assets/img/tile-calendar-autumn-gold.jpg",
+      "alt": "Existing licensed Aspen-area imagery used only for layout review; not a Basalt photograph.",
+      "caption": "Layout sample, not Basalt",
+      "credit": "MichaelKirsh",
+      "source_url": "https://thegoldenhour.guide/assets/img/tile-calendar-autumn-gold.jpg",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "place_key": "aspen",
+      "last_checked": "2026-11-01",
+      "verification": "DRAFT"
+    }
+  ]
+}

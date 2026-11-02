@@ -1,0 +1,50 @@
+[
+  {
+    "width": 390,
+    "theme": "light",
+    "overflow": false,
+    "broken": [],
+    "columns": "358px",
+    "weekly": [
+      "Wed, Nov 04, 06:00 PM MTSample weekly event"
+    ],
+    "page_errors": [],
+    "rollover": "PASS"
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "overflow": false,
+    "broken": [],
+    "columns": "358px",
+    "weekly": [
+      "Wed, Nov 04, 06:00 PM MTSample weekly event"
+    ],
+    "page_errors": [],
+    "rollover": "PASS"
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "overflow": false,
+    "broken": [],
+    "columns": "746.656px 373.344px",
+    "weekly": [
+      "Wed, Nov 04, 06:00 PM MTSample weekly event"
+    ],
+    "page_errors": [],
+    "rollover": "PASS"
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "overflow": false,
+    "broken": [],
+    "columns": "746.656px 373.344px",
+    "weekly": [
+      "Wed, Nov 04, 06:00 PM MTSample weekly event"
+    ],
+    "page_errors": [],
+    "rollover": "PASS"
+  }
+]

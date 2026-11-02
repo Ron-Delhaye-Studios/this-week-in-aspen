@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "basalt",
+    "name": "Basalt",
+    "valley": {
+      "name": "Roaring Fork Valley",
+      "slug": "roaring-fork"
+    },
+    "character": "Sample character line for layout review only.",
+    "review_fixture": true,
+    "ready": false
+  }
+]
