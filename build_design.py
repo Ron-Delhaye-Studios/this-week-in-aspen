@@ -615,6 +615,8 @@ def main():
         for name in ['calendar/events.json','map/events.json']:
             (ROOT/name).write_text(json.dumps(rows,indent=2,ensure_ascii=False)+'\n')
         build_lists(rows,day)
+        from build_features import build_ready
+        build_ready(ROOT,rows,day)
         build_404()
         skin=json.loads((ROOT/'design-config.json').read_text())['skin']
         assert skin in (None,'halloween'), 'Unknown seasonal skin'

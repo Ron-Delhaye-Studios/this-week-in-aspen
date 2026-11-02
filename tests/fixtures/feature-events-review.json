@@ -1,0 +1,41 @@
+[
+  {
+    "id": "review-week",
+    "slug": "review-week",
+    "title": "Sample weekly event",
+    "starts_at": "2026-11-04T18:00:00-07:00",
+    "venue": "QA sample venue",
+    "place_key": "basalt",
+    "category": "arts",
+    "url": "https://example.com/layout-proof",
+    "blurb": "Layout fixture only.",
+    "price_info": "",
+    "verified": true
+  },
+  {
+    "id": "review-highlight",
+    "slug": "review-highlight",
+    "title": "Sample seasonal highlight",
+    "starts_at": "2026-12-05T17:00:00-07:00",
+    "venue": "QA sample venue",
+    "place_key": "basalt",
+    "category": "arts",
+    "url": "https://example.com/layout-proof",
+    "blurb": "Layout fixture only.",
+    "price_info": "",
+    "verified": true
+  },
+  {
+    "id": "review-other",
+    "slug": "review-other",
+    "title": "Another town’s sample event",
+    "starts_at": "2026-11-04T18:00:00-07:00",
+    "venue": "QA sample venue",
+    "place_key": "carbondale",
+    "category": "arts",
+    "url": "https://example.com/layout-proof",
+    "blurb": "Layout fixture only.",
+    "price_info": "",
+    "verified": true
+  }
+]
