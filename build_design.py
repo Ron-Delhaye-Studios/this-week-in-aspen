@@ -13,7 +13,7 @@ import re
 from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup
-from week_scope import this_week, week_bounds, available_filters, is_free, DESCRIPTION as WEEK_DESCRIPTION
+from week_scope import coming_up, this_week, week_bounds, available_filters, is_free, DESCRIPTION as WEEK_DESCRIPTION
 
 ROOT = Path(__file__).resolve().parent
 TZ = ZoneInfo('America/Denver')
@@ -85,18 +85,6 @@ VERIFY_STEPS = [
 ]
 CAT_LABELS = {'music': 'Music', 'arts': 'Art', 'outdoors': 'Outdoors', 'family': 'Family',
               'comedy': 'Comedy', 'dining': 'Dining', 'dance': 'Dance', 'speakers': 'Speakers'}
-# Licensed homepage photography credits (CC0 images need none and are not
-# listed). The licensed authors' credits — never a Ron credit.
-HOME_CREDITS = (
-    'Homepage photos: Ute Cemetery entrance — Jeffrey Beall, '
-    '<a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="license">CC BY-SA 2.0</a> · '
-    'Downtown Aspen — Daniel Case, '
-    '<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">CC BY-SA 3.0</a> · '
-    'Autumn Gold and Maroon — MichaelKirsh, '
-    '<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC BY-SA 4.0</a> · '
-    'Live concert — Shixart1985, '
-    '<a href="https://creativecommons.org/licenses/by/2.0/" rel="license">CC BY 2.0</a>')
-
 
 def _wo19_summary(event, limit=140):
     """A complete short source sentence, or an existing category/venue fact line."""
@@ -149,18 +137,18 @@ def _wo16_window(ed, day):
 def homepage_sections(rows, day, ed, prefix):
     """Current edition panel, approved Explore mosaic and verification steps.
 
-    The page never moves its weekly window to a later event to fill an empty
-    edition. Long-range listings remain on Calendar and Events.
+    This Week stays strict; an empty homepage week becomes an explicitly
+    labeled next-five calendar view without changing the edition window.
     """
     esc = html.escape
     start, end = week_bounds(day)
-    current = this_week(rows, day)
-    heading = 'Coming <em>up</em>'
+    current, horizon = coming_up(rows, day)
+    heading = 'Next on the <em>Calendar</em>' if horizon else 'Coming <em>up</em>'
     lead = current[0] if current else None
     live = True
     ed = {'range': f'{start:%A, %B %d} – {end:%A, %B %d, %Y}',
           'title': lead['title'] if lead else 'This Week',
-          'standfirst': _wo19_summary(lead) if lead else 'No verified events this week. See Calendar for later dates.',
+          'standfirst': _wo19_summary(lead) if lead else 'Explore the valley with the guide.',
           'href': prefix+'events/'+lead['slug']+'/' if lead else prefix+'calendar/'}
     lead_image = (lead['image'],lead['title']) if lead and lead.get('image') else None
     lead_class = ' gh-event-lead'
@@ -184,15 +172,16 @@ def homepage_sections(rows, day, ed, prefix):
             f'<span class="gh-row-tag">{esc(CAT_LABELS.get(e["category"], e["category"].title()))}</span>'
             '<span class="gh-row-go" aria-hidden="true">→</span></a>')
     if not row_html:
-        row_html='<p class="gh-list-empty">No verified events this week. <a href="'+prefix+'calendar/">Calendar</a> · <a href="'+prefix+'events/">Events</a></p>'
-    short_range = f'{start:%a %b %d} — {end:%a %b %d}'
+        row_html='<p class="gh-list-empty">Explore <a href="'+prefix+'picks/">Top Picks</a> or plan with <a href="'+prefix+'activities/">Activities</a>.</p>'
+    display_range = 'Next five verified happenings' if horizon and current else 'Explore the valley' if horizon else ed['range']
+    short_range = 'Next on the Calendar' if horizon else f'{start:%a %b %d} — {end:%a %b %d}'
     week = (
-        f'<section class="gh-week" aria-label="{'Coming up' if heading.startswith('Coming') else 'This week in Aspen'}" data-ed-range="{esc(ed["range"], quote=True)}" '
+        f'<section class="gh-week" aria-label="{'Next on the Calendar' if horizon else 'Coming up'}" data-ed-range="{esc(ed["range"], quote=True)}" '
         f'data-ed-title="{esc(ed["title"], quote=True)}" data-ed-standfirst="{esc(ed["standfirst"], quote=True)}" '
-        f'data-ed-href="{esc(ed["href"], quote=True)}" data-ed-live="{str(bool(live)).lower()}" data-window-end="{end.isoformat()}">'
+        f'data-ed-href="{esc(ed["href"], quote=True)}" data-ed-live="{str(bool(live)).lower()}" data-window-end="{end.isoformat()}" data-horizon="{str(horizon).lower()}">'
         f'<div class="gh-sec-head"><h2>{heading}</h2>'
-        f'<div class="gh-week-tools"><span class="gh-sec-meta">{esc(ed["range"])}</span>'
-        f'<div class="gh-filters" role="group" aria-label="Filter this week\'s picks"{' hidden' if not current else ''}>{filters}</div></div></div>'
+        f'<div class="gh-week-tools"><span class="gh-sec-meta">{esc(display_range)}</span>'
+        f'<div class="gh-filters" role="group" aria-label="Filter coming events"{' hidden' if not current else ''}>{filters}</div></div></div>'
         '<div class="gh-week-grid">'
         f'<article class="gh-lead{lead_class}" data-starts="{esc(lead["starts_at"]) if lead else ""}"' + (' hidden' if not lead else '') + '>' + (f'<img src="{prefix}{lead_image[0]}" alt="{esc(lead_image[1])}" loading="lazy" decoding="async">' if lead_image else '') +
         f'<div class="gh-lead-body"><p class="gh-lead-k">{esc(short_range)}</p>'
@@ -318,7 +307,7 @@ def decorate(path, skin, rows, day):
             '<span class="gh-top-left"><time class="gh-date">Aspen, Colorado</time>'
             '<span class="gh-weather" role="status">Aspen · Loading weather…</span></span>'
             '<span class="gh-top-center" aria-hidden="true"></span>'
-            '<span class="gh-top-right"><span class="gh-top-loc">Aspen, Colorado</span>'
+            '<span class="gh-top-right">'
             '<button class="gh-theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false">Theme</button></span></div></div>')
         doc.body.insert(0, topbar.select_one('.gh-topbar').extract())
         masthead.append(fragment('<p class="kicker gh-eyebrow"><span class="rule double"></span>'
@@ -357,17 +346,15 @@ def decorate(path, skin, rows, day):
         masthead.select_one('.brand').name = 'h1'
     refine_page(doc, path, rows, day)
     for footer in doc.find_all('footer'): footer.decompose()
-    foot_head = foot_credits = ''
+    foot_head = ''
     if current == 'index.html':
         # WO#16: the concept's giant footer wordmark + meta line, homepage
         # only; the shared footer shell (nav, verification line) is kept.
         foot_head = ('<p class="gh-foot-word">THE GOLDEN <em>HOUR</em></p>'
                      '<p class="gh-foot-meta"><span>From Aspen and Beyond</span>'
                      '<span class="gh-gold">Verified before publication</span></p>')
-        foot_credits = f'<p class="gh-credits">{HOME_CREDITS}</p>'
     doc.body.append(fragment('<footer class="gh-footer">' + foot_head + footer_navigation(prefix,current) +
         '<p>Every event verified against official sources before publication. Details may change — please confirm with the venue.</p>'
-        + foot_credits +
         '<p>© 2026 The Golden Hour · From Aspen and Beyond.</p></footer>'))
     if current == 'index.html':
         assert doc.select_one('.gh-foot-word'), 'WO#16: footer wordmark missing'

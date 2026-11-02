@@ -61,14 +61,15 @@ class ScopeTests(unittest.TestCase):
             self.assertEqual(len(events.select('.gh-event-card')),2)
         self.assertEqual(rows,original)
 
-    def test_empty_week_does_not_promote_a_future_edition(self):
+    def test_homepage_fallback_is_labeled_without_moving_week_window(self):
         rows=[event('nov-14','2026-11-14T12:00:00-07:00')]
         doc=BeautifulSoup(build.homepage_sections(rows,date(2026,11,1),{},''),'html.parser')
         week=doc.select_one('.gh-week')
         self.assertEqual(week['data-window-end'],'2026-11-06')
-        self.assertFalse(week.select('.gh-row'))
-        self.assertTrue(week.select_one('.gh-filters').has_attr('hidden'))
-        self.assertTrue(week.select_one('.gh-lead').has_attr('hidden'))
+        self.assertEqual(len(week.select('.gh-row')),1)
+        self.assertEqual(week['aria-label'],'Next on the Calendar')
+        self.assertFalse(week.select_one('.gh-filters').has_attr('hidden'))
+        self.assertFalse(week.select_one('.gh-lead').has_attr('hidden'))
         self.assertIn('Calendar',week.get_text())
 
     def test_canonical_bytes_and_generated_navigation(self):
