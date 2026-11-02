@@ -6,7 +6,7 @@
     const grid=document.querySelector('.gh-event-grid'),chips=document.querySelector('.gh-filters'),empty=document.querySelector('.gh-list-empty');
     const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const fmt=(d,opts)=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',...opts}).format(new Date(d));
-    let rows=null,selected='all',loadedDay='',pending=false;
+    let rows=null,selected='all',loadedDay='',pending=false,rendered='';
     function card(e){
       const when=fmt(e.starts_at,{weekday:'short',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit'})+' MT';
       const title='<p class="gh-card-kicker">'+esc(e.category)+'</p><time datetime="'+esc(e.starts_at)+'">'+esc(when)+'</time><h2><a class="gh-card-link" href="'+new URL('events/'+encodeURIComponent(e.slug)+'/',base).href+'">'+esc(e.title)+'</a></h2>';
@@ -20,11 +20,17 @@
       if(rows){
         const current=W.select(rows,key),available=W.filters(current);
         if(!available.some(([value])=>value===selected))selected='all';
-        chips.innerHTML=available.map(([value,label])=>'<button type="button" data-filter="'+value+'" aria-pressed="'+(value===selected)+'">'+label+'</button>').join('');
+        const signature=JSON.stringify([key,current]);
+        // Keep open details, copy feedback and keyboard focus on unchanged data.
+        if(signature!==rendered){
+          chips.innerHTML=available.map(([value,label])=>'<button type="button" data-filter="'+value+'" aria-pressed="'+(value===selected)+'">'+label+'</button>').join('');
+          grid.innerHTML=current.map(card).join('');
+          const ld=document.getElementById('gh-event-list');
+          if(ld)ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',name:'This Week — The Golden Hour',itemListElement:current.map((e,i)=>({'@type':'ListItem',position:i+1,item:{'@type':'Event',name:e.title,startDate:e.starts_at,url:'https://thegoldenhour.guide/events/'+e.slug+'/'}}))});
+          rendered=signature;
+        }
         chips.hidden=!current.length;
-        grid.innerHTML=current.map(card).join('');
-        const ld=document.getElementById('gh-event-list');
-        if(ld)ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',name:'This Week — The Golden Hour',itemListElement:current.map((e,i)=>({'@type':'ListItem',position:i+1,item:{'@type':'Event',name:e.title,startDate:e.starts_at,url:'https://thegoldenhour.guide/events/'+e.slug+'/'}}))});
+        chips.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===selected)));
       }
       const eligible=[...grid.children].filter(c=>W.matches({starts_at:c.dataset.starts},key));
       if(!rows){

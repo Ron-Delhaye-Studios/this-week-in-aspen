@@ -36,3 +36,16 @@ def this_week(rows, day):
 def available_filters(rows):
     return [(key, label) for key, label in FILTERS if rows and
             (key == 'all' or any(is_free(e) if key == 'free' else e['category'] == key for e in rows))]
+
+
+def coming_up(rows, day):
+    """Keep the weekly edition; explicitly label a forward-calendar fallback."""
+    weekly=this_week(rows,day)
+    if weekly:return weekly,False
+    future=sorted((e for e in rows if is_verified(e) and datetime.fromisoformat(e['starts_at']).astimezone(DENVER).date()>=day),key=lambda e:datetime.fromisoformat(e['starts_at']))
+    seen=set();chosen=[]
+    for event in future:
+        if event['slug'] in seen:continue
+        seen.add(event['slug']);chosen.append(event)
+        if len(chosen)==5:break
+    return chosen,True

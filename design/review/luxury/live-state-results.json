@@ -1,0 +1,18 @@
+[
+  {
+    "theme": "light",
+    "details_and_focus_after_minute_pageshow_visibility": "PASS",
+    "filter_focus_and_details_preserved": "PASS",
+    "rollover_prunes_HTML_and_JSONLD": "PASS",
+    "unchanged_home_lead_and_rows_retained": "PASS",
+    "home_filter_focus": "PASS"
+  },
+  {
+    "theme": "dark",
+    "details_and_focus_after_minute_pageshow_visibility": "PASS",
+    "filter_focus_and_details_preserved": "PASS",
+    "rollover_prunes_HTML_and_JSONLD": "PASS",
+    "unchanged_home_lead_and_rows_retained": "PASS",
+    "home_filter_focus": "PASS"
+  }
+]

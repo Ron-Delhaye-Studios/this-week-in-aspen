@@ -11,7 +11,7 @@
     if (button) {
       button.textContent = value === 'dark' ? 'Light mode' : 'Dark mode';
       button.setAttribute('aria-pressed', String(value === 'dark'));
-      button.setAttribute('aria-label', 'Dark theme');
+      button.setAttribute('aria-label', button.textContent);
     }
     let statusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
     if (!statusBar) { statusBar = document.createElement('meta'); statusBar.name = 'apple-mobile-web-app-status-bar-style'; document.head.append(statusBar); }
