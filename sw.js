@@ -3,7 +3,7 @@ const PREFIX = "golden-hour-";
 // Each independently mergeable family advances its own slot.
 const REVISIONS = {
   wo21: 2,
-  luxury: 1,
+  luxury: 2,
   homepage: 1,
 
   chrome: 2,

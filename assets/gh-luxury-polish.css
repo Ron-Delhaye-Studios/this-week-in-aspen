@@ -14,3 +14,5 @@ body.gh-site[data-page="index.html"] .gh-cover-credit{font-size:10.5px;letter-sp
  body.gh-site[data-page] .gh-mast-sub nav.site-nav:focus-within{mask-image:none;-webkit-mask-image:none}
  body.gh-site[data-page] .gh-mast-sub nav.site-nav a:last-child{margin-right:16px}
 }
+/* Fit the approved footer wordmark within phone padding without clipping it. */
+body.gh-site[data-page="index.html"] .gh-footer .gh-foot-word{max-width:none;font-size:clamp(24px,8vw,118px)}

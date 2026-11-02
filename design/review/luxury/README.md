@@ -37,3 +37,21 @@ Install Playwright, Chromium and axe-core outside the checkout. Serve with
 `CHROMIUM_PATH` and `AXE_PATH` pointing to those local installations. Browser tests
 use a fixed Denver date and deterministic weather; event data comes from the
 unchanged publication feed.
+
+## Owner optimization follow-up
+
+Added after the owner's request to contribute branding and UX improvements:
+
+- The same approved footer wordmark now fits320/390/430/1440px with normal and
+  italic Playfair900 loaded. Text-range geometry catches clipping that page
+  overflow and automated accessibility checks missed. See brand-geometry.json
+  and footer-320/390-light/dark.png.
+- Unchanged event data no longer replaces the This Week card/chip DOM on minute,
+  pageshow or visibility refresh. Open booking details, copy feedback and keyboard
+  focus survive. Filter changes update selected state without replacing cards.
+- The homepage also retains its unchanged lead image and rows; changing a filter
+  preserves the chip focus and avoids recreating an identical lead image.
+- Denver date rollover still removes expired records from HTML and JSON-LD.
+  Both-theme browser proofs: live-state-results.json; reproduce with
+  tests/live_state_browser.py against the local8784 preview server.
+- Cache revision luxury:2 carries these fixes. Canonical event bytes remain unchanged.
