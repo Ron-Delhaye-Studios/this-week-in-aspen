@@ -13,6 +13,9 @@
       button.setAttribute('aria-pressed', String(value === 'dark'));
       button.setAttribute('aria-label', 'Dark theme');
     }
+    let statusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+    if (!statusBar) { statusBar = document.createElement('meta'); statusBar.name = 'apple-mobile-web-app-status-bar-style'; document.head.append(statusBar); }
+    statusBar.content = value === 'dark' ? 'black-translucent' : 'default';
     const manifest = document.querySelector('link[rel="manifest"]');
     if (manifest) manifest.href = new URL(value === 'dark' ? 'manifest-dark.json' : 'manifest.json', base).href;
     document.querySelectorAll('meta[name="theme-color"]').forEach(m => {

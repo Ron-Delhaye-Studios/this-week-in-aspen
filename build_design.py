@@ -279,7 +279,7 @@ def decorate(path, skin, rows, day):
     # Remove old registrations and head resources; a single shared runtime owns PWA.
     for tag in list(doc.head.find_all('script')):
         if 'serviceWorker' in tag.get_text(): tag.decompose()
-    for tag in list(doc.head.select('link[rel="manifest"], link[rel="apple-touch-icon"], meta[name="theme-color"]')):
+    for tag in list(doc.head.select('link[rel="manifest"], link[rel="apple-touch-icon"], meta[name="theme-color"], meta[name="apple-mobile-web-app-status-bar-style"]')):
         tag.decompose()
     for tag in doc.find_all('script', src=True):
         if tag['src'] in {prefix+'assets/gh-theme.js',prefix+'assets/gh-halloween.js'}: tag.decompose()
@@ -376,6 +376,7 @@ def decorate(path, skin, rows, day):
         if not robots: robots = doc.new_tag('meta',attrs={'name':'robots'});doc.head.append(robots)
         robots['content'] = 'noindex, nofollow'
     resources = f'''<meta data-gh-design name="theme-color" content="#faf4e8">
+<meta data-gh-design name="apple-mobile-web-app-status-bar-style" content="default">
 <meta data-gh-design name="mobile-web-app-capable" content="yes">
 <meta data-gh-design name="apple-mobile-web-app-capable" content="yes">
 <meta data-gh-design name="apple-mobile-web-app-title" content="Golden Hour">

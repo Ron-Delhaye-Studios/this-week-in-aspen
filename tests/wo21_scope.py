@@ -81,5 +81,12 @@ class ScopeTests(unittest.TestCase):
             for link in doc.select('nav a[href$="upcoming/"]'):
                 self.assertEqual(link.get_text(strip=True),'This Week',str(path))
 
+    def test_static_apple_status_bar_defaults_to_light(self):
+        for path in ROOT.rglob('*.html'):
+            if '.git' in path.parts:continue
+            doc=BeautifulSoup(path.read_text(),'html.parser')
+            for meta in doc.select('meta[name="apple-mobile-web-app-status-bar-style"]'):
+                self.assertEqual(meta['content'],'default',str(path))
+
 
 if __name__=='__main__':unittest.main(verbosity=2)

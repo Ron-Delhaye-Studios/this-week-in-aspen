@@ -21,6 +21,13 @@
     "empty_current_week": "pass"
   },
   {
+    "mode": "ordinary_browser_tab",
+    "width": 390,
+    "native_safe_area": "0px",
+    "light_default_with_dark_OS": "pass",
+    "light_band": "pass"
+  },
+  {
     "mode": "fixture",
     "width": 320,
     "compact_chips": "pass",
@@ -48,13 +55,6 @@
     "zero_count_art_free_chips_hidden": true
   },
   {
-    "mode": "ordinary_browser_tab",
-    "width": 390,
-    "native_safe_area": "0px",
-    "light_default_with_dark_OS": "pass",
-    "light_band": "pass"
-  },
-  {
     "mode": "actual_installed_chromium_PWA",
     "viewport": [
       390,
@@ -62,7 +62,7 @@
     ],
     "display_mode": "standalone",
     "safe_area": "CDP simulated 47px; not physical iOS",
-    "launch_target": "1DF48F90E8F5A6F4899CDA81FAD85E23",
+    "launch_target": "FA1F79BC37E06D6F432F6762080E56B4",
     "light_band": "pass",
     "dark_mode": "pass"
   }

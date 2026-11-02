@@ -66,6 +66,7 @@ def styles(page):
         inset:css(top).paddingTop,scrim:getComputedStyle(b,'::before').backgroundColor,
         blur:getComputedStyle(b,'::before').backdropFilter,
         scrimHeight:getComputedStyle(b,'::before').height,
+        nativeStatus:document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').content,
         theme:document.documentElement.dataset.theme};
     }''')
 
@@ -73,7 +74,7 @@ def styles(page):
 def light_band(page):
     colors=styles(page)
     assert all(colors[k]=='rgb(250, 244, 232)' for k in ['body','bar','inner','weather','button','scrim']),colors
-    assert colors['blur']=='none',colors
+    assert colors['blur']=='none' and colors['nativeStatus']=='default',colors
     assert colors['inset']=='47px' and colors['scrimHeight']=='47px',colors
     assert page.locator('.gh-date').bounding_box()['y']>=47
     return colors
@@ -99,7 +100,7 @@ with sync_playwright() as p:
         light_band(page)
         if width==390:page.screenshot(path=str(OUT/'top-light-browser-safe-area-simulated.png'))
         page.locator('.gh-theme-toggle').click()
-        dark=styles(page);assert dark['bar']=='rgb(13, 27, 36)' and dark['scrim']=='rgba(13, 27, 36, 0.82)',dark
+        dark=styles(page);assert dark['bar']=='rgb(13, 27, 36)' and dark['scrim']=='rgba(13, 27, 36, 0.82)' and dark['nativeStatus']=='black-translucent',dark
         page.locator('.gh-theme-toggle').click();light_band(page)
         page.evaluate('scrollTo(0,600)');light=styles(page);assert light['scrim']=='rgb(250, 244, 232)' and light['blur']=='none'
         load(page,'upcoming/');assert page.locator('h1').inner_text()=='This Week'

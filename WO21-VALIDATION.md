@@ -4,7 +4,7 @@ Sources: [0046](https://drive.google.com/file/d/1mpZM9FgvGl9O2aF93edXumeXcHZZtyV
 
 ## Result
 
-- In light mode, the root, body, full-width top bar, inner row, weather/toggle surfaces and fixed safe-area scrim use the existing paper token `#faf4e8`. The light scrim is opaque and has no backdrop blur. Dark-mode selectors, colours and safe-area geometry are preserved.
+- In light mode, the root, body, full-width top bar, inner row, weather/toggle surfaces and fixed safe-area scrim use the existing paper token `#faf4e8`. The light scrim is opaque and has no backdrop blur. The static Apple status-bar meta defaults to light; the synchronous theme resolver restores `black-translucent` for an explicit dark choice. Dark-mode colours and safe-area geometry are preserved.
 - The homepage weekly filters no longer repeat `safe-area-inset-top` or add their own vertical margins. Existing section/head/card styling stays in place.
 - `/upcoming/` remains the route and canonical URL; its heading, document/social metadata, navigation and homepage Explore tile now say **This Week**.
 - One row of compact **All · Music · Art · Free** chips replaces the six-button grid on that page. Each retains a 44px hit area. Empty categories are hidden; an entirely empty week hides the row.
@@ -14,7 +14,7 @@ Sources: [0046](https://drive.google.com/file/d/1mpZM9FgvGl9O2aF93edXumeXcHZZtyV
 
 ## Evidence
 
-**PASS:** seven Python scope tests; nine browser scenarios at 320px, 390px and 1440px; build validation; existing WO19 static guards; JavaScript syntax and whitespace checks. Tests cover the Denver DST rollback, Friday/Saturday and year boundaries, empty weeks, explicit verification flags, single-row chips, nonempty-category filtering, DOM/JSON-LD agreement, offline cached rollover, light-default with a dark OS preference, ordinary zero-inset tabs and simulated 47px safe areas. No horizontal overflow observed in the checked page states.
+**PASS:** eight Python scope tests; nine browser scenarios at 320px, 390px and 1440px; build validation; existing WO19 static guards; JavaScript syntax and whitespace checks. Tests cover the Denver DST rollback, Friday/Saturday and year boundaries, empty weeks, explicit verification flags, single-row chips, nonempty-category filtering, DOM/JSON-LD agreement, offline cached rollover, light-default with a dark OS preference, ordinary zero-inset tabs and simulated 47px safe areas. No horizontal overflow observed in the checked page states.
 
 The three canonical files remain byte-identical:
 
