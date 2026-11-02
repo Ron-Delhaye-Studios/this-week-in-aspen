@@ -13,6 +13,9 @@
       button.setAttribute('aria-pressed', String(value === 'dark'));
       button.setAttribute('aria-label', 'Dark theme');
     }
+    let statusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+    if (!statusBar) { statusBar = document.createElement('meta'); statusBar.name = 'apple-mobile-web-app-status-bar-style'; document.head.append(statusBar); }
+    statusBar.content = value === 'dark' ? 'black-translucent' : 'default';
     const manifest = document.querySelector('link[rel="manifest"]');
     if (manifest) manifest.href = new URL(value === 'dark' ? 'manifest-dark.json' : 'manifest.json', base).href;
     document.querySelectorAll('meta[name="theme-color"]').forEach(m => {
@@ -66,6 +69,7 @@
     };
     let selectedFilter = 'all';
     const prune = () => {
+      if (document.body.dataset.page !== 'events/index.html') return;
       const cutoff = key(new Date());
       const today = new Date(cutoff + 'T12:00:00Z');
       const weekday = today.getUTCDay();
@@ -87,7 +91,7 @@
       }
     };
     prune(); setInterval(prune,60000);
-    document.querySelectorAll('.gh-filters button').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('body[data-page="events/index.html"] .gh-filters button').forEach(button => button.addEventListener('click', () => {
       selectedFilter = button.dataset.filter;
       document.querySelectorAll('.gh-filters button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       prune();

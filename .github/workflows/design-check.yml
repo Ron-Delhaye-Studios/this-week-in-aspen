@@ -27,4 +27,5 @@ jobs:
       - run: python build_design.py
       - run: python build_design.py --check
       - run: python tests/wo19_static.py
+      - run: python tests/wo21_scope.py
       - run: git diff --check

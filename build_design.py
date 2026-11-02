@@ -13,6 +13,7 @@ import re
 from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup
+from week_scope import this_week, week_bounds, available_filters, is_free, DESCRIPTION as WEEK_DESCRIPTION
 
 ROOT = Path(__file__).resolve().parent
 TZ = ZoneInfo('America/Denver')
@@ -20,7 +21,7 @@ URL = 'https://thegoldenhour.guide/'
 HALLOWEEN = {'aspens-darkside-ghost-tour', 'spooktacular-creepy-crafts', 'ute-cemetery-tour',
              'murder-at-the-rattlesnake-saloon', 'ghosts-of-aspens-past', 'coco-and-breezy',
              'halloween-bash-ft-chaparelle', 'shrek-themed-halloween-party'}
-NAV = [('index.html','Latest'), ('events/','Events'), ('upcoming/','Upcoming'),
+NAV = [('index.html','Latest'), ('events/','Events'), ('upcoming/','This Week'),
        ('calendar/','Calendar'), ('map/','Map'), ('picks/','Top Picks'),
        ('activities/','Activities'), ('editions/','Archive'), ('sources/','How we verify')]
 # Footer-only guide links: the footer is the canonical guide-discovery
@@ -56,8 +57,8 @@ def season_windows_attr(season):
 # time. Imagery is licensed stock only (see the WO#16 MANIFEST); Ron's
 # photography never appears on this site.
 EXPLORE_TILES = [
-    ('upcoming/', 'assets/img/tile-upcoming-live-concert.jpg', 'Browse', 'Upcoming',
-     'Every verified event, soonest first — music, art, and nights out.',
+    ('upcoming/', 'assets/img/tile-upcoming-live-concert.jpg', 'Browse', 'This Week',
+     'Verified events this week, soonest first.',
      'A live band on stage under stage lights, crowd silhouettes in front', 'gh-tile-big'),
     ('map/', 'assets/img/tile-map-aspen-downtown.jpg', 'Wander', 'Map',
      'Every event, placed across Colorado.',
@@ -146,51 +147,36 @@ def _wo16_window(ed, day):
     return day, day.fromordinal(day.toordinal() + 6)
 
 def homepage_sections(rows, day, ed, prefix):
-    """WO#16: the concept's below-hero homepage, generated at build time.
+    """Current edition panel, approved Explore mosaic and verification steps.
 
-    This week (edition lead + data rows + category filters), Explore photo
-    mosaic, the Coming-up band (data-driven), and the Verify steps. The
-    seasonal band string is generated from the data window: when the
-    edition week contains Halloween and the band looks into November, the
-    kicker reads 'After Halloween · November', as in the concept.
+    The page never moves its weekly window to a later event to fill an empty
+    edition. Long-range listings remain on Calendar and Events.
     """
     esc = html.escape
-    start, end = _wo16_window(ed, day)
-    live=ed.get('live') or end<day
-    heading='This <em>week</em>'
-    lead_image=LEAD_IMAGE
-    lead_class=''
-    if live:
-        future=[e for e in rows if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()>=day]
-        current_end=day.fromordinal(day.toordinal()+6)
-        current=[e for e in future if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()<=current_end]
-        start=day if current or not future else datetime.fromisoformat(future[0]['starts_at']).astimezone(TZ).date()
-        end=start.fromordinal(start.toordinal()+6)
-        if not current and future:heading='Coming <em>up</em>'
-        lead=future[0] if future else None
-        ed={'range':f'{start:%A, %B %d} – {end:%A, %B %d, %Y}',
-            'title':lead['title'] if lead else 'Upcoming',
-            'standfirst':_wo19_summary(lead) if lead else 'No upcoming events listed. Check back soon.',
-            'href':prefix+'events/'+lead['slug']+'/' if lead else prefix+'events/', 'live':True}
-        lead_image=(lead['image'],lead['title']) if lead and lead.get('image') else None
-        lead_class=' gh-event-lead'
+    start, end = week_bounds(day)
+    current = this_week(rows, day)
+    heading = 'Coming <em>up</em>'
+    lead = current[0] if current else None
+    live = True
+    ed = {'range': f'{start:%A, %B %d} – {end:%A, %B %d, %Y}',
+          'title': lead['title'] if lead else 'This Week',
+          'standfirst': _wo19_summary(lead) if lead else 'No verified events this week. See Calendar for later dates.',
+          'href': prefix+'events/'+lead['slug']+'/' if lead else prefix+'calendar/'}
+    lead_image = (lead['image'],lead['title']) if lead and lead.get('image') else None
+    lead_class = ' gh-event-lead'
     in_week, seen = [], set()
-    for e in rows:
-        d = datetime.fromisoformat(e['starts_at']).astimezone(TZ).date()
-        if start <= d <= end and e['slug'] not in seen:
-            seen.add(e['slug'])
-            in_week.append(e)
-        if len(in_week) >= 5:
+    for event in current:
+        if event['slug'] not in seen:
+            seen.add(event['slug'])
+            in_week.append(event)
+        if len(in_week) == 5:
             break
-    cats = sorted({e['category'] for e in in_week})
-    filters = ''.join(
-        f'<button type="button" data-filter="{c}"' + (' class="on"' if c == 'all' else '') + f'>{label}</button>'
-        for c, label in [('all', 'All')] + [(c, CAT_LABELS.get(c, c.title())) for c in cats])
+    filters = ''.join(f'<button type="button" data-filter="{key}" aria-pressed="{str(key == "all").lower()}"' + (' class="on"' if key == 'all' else '') + f'>{label}</button>' for key,label in available_filters(current))
     row_html = ''
     for e in in_week:
         d = datetime.fromisoformat(e['starts_at']).astimezone(TZ)
         row_html += (
-            f'<a class="gh-row" data-cat="{esc(e["category"])}" href="{prefix}events/{esc(e["slug"])}/">'
+            f'<a class="gh-row" data-starts="{esc(e["starts_at"])}" data-free="{int(is_free(e))}" data-cat="{esc(e["category"])}" href="{prefix}events/{esc(e["slug"])}/">'
             f'<span class="gh-row-date"><span class="dow">{d:%a}</span>'
             f'<span class="num">{d:%d}</span><span class="mon">{d:%b}</span></span>'
             f'<span class="gh-row-info"><h4>{esc(e["title"])}</h4>'
@@ -198,7 +184,7 @@ def homepage_sections(rows, day, ed, prefix):
             f'<span class="gh-row-tag">{esc(CAT_LABELS.get(e["category"], e["category"].title()))}</span>'
             '<span class="gh-row-go" aria-hidden="true">→</span></a>')
     if not row_html:
-        row_html='<p class="gh-list-empty">No upcoming events listed. Check back soon.</p>'
+        row_html='<p class="gh-list-empty">No verified events this week. <a href="'+prefix+'calendar/">Calendar</a> · <a href="'+prefix+'events/">Events</a></p>'
     short_range = f'{start:%a %b %d} — {end:%a %b %d}'
     week = (
         f'<section class="gh-week" aria-label="{'Coming up' if heading.startswith('Coming') else 'This week in Aspen'}" data-ed-range="{esc(ed["range"], quote=True)}" '
@@ -206,20 +192,14 @@ def homepage_sections(rows, day, ed, prefix):
         f'data-ed-href="{esc(ed["href"], quote=True)}" data-ed-live="{str(bool(live)).lower()}" data-window-end="{end.isoformat()}">'
         f'<div class="gh-sec-head"><h2>{heading}</h2>'
         f'<div class="gh-week-tools"><span class="gh-sec-meta">{esc(ed["range"])}</span>'
-        f'<div class="gh-filters" role="group" aria-label="Filter this week\'s picks">{filters}</div></div></div>'
+        f'<div class="gh-filters" role="group" aria-label="Filter this week\'s picks"{' hidden' if not current else ''}>{filters}</div></div></div>'
         '<div class="gh-week-grid">'
-        f'<article class="gh-lead{lead_class}">' + (f'<img src="{prefix}{lead_image[0]}" alt="{esc(lead_image[1])}" loading="lazy" decoding="async">' if lead_image else '') +
+        f'<article class="gh-lead{lead_class}" data-starts="{esc(lead["starts_at"]) if lead else ""}"' + (' hidden' if not lead else '') + '>' + (f'<img src="{prefix}{lead_image[0]}" alt="{esc(lead_image[1])}" loading="lazy" decoding="async">' if lead_image else '') +
         f'<div class="gh-lead-body"><p class="gh-lead-k">{esc(short_range)}</p>'
         f'<h3>{esc(ed["title"])}</h3><p>{esc(ed["standfirst"])}</p>'
         f'<a class="gh-btn-solid" href="{esc(ed["href"])}">See what\'s on <span class="arr" aria-hidden="true">→</span></a>'
         '</div></article>'
         f'<div class="gh-rows">{row_html}</div></div>'
-        "<script>(function(){var s=document.currentScript.closest('.gh-week');if(!s)return;"
-        "var b=s.querySelectorAll('.gh-filters button'),r=s.querySelectorAll('.gh-row');"
-        "b.forEach(function(x){x.addEventListener('click',function(){"
-        "b.forEach(function(y){y.classList.toggle('on',y===x)});"
-        "var f=x.getAttribute('data-filter');"
-        "r.forEach(function(row){row.style.display=(f==='all'||row.getAttribute('data-cat')===f)?'':'none'})})})})();</script>"
         '</section>')
     tiles = ''.join(
         f'<a class="gh-tile {cls}" href="{prefix}{href}"><img src="{prefix}{img}" alt="{esc(alt)}" loading="lazy" decoding="async">'
@@ -232,33 +212,8 @@ def homepage_sections(rows, day, ed, prefix):
         '<div class="gh-sec-head"><h2>Explore the <em>live guide</em></h2>'
         '<span class="gh-sec-meta">Every verified event · Five ways in</span></div>'
         f'<div class="gh-mosaic">{tiles}</div></section>')
-    after = [e for e in rows if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date() > end]
+    # Later dates belong on Calendar/Events, not a second future-week list.
     band = ''
-    if after:
-        band_seen = set()
-        picks = []
-        for e in after:
-            if e['slug'] not in band_seen:
-                band_seen.add(e['slug'])
-                picks.append(e)
-            if len(picks) >= 2:
-                break
-        first = picks[0]
-        month = datetime.fromisoformat(first['starts_at']).astimezone(TZ).strftime('%B')
-        halloween = any((d.month, d.day) == (10, 31)
-                        for d in (start.fromordinal(o) for o in range(start.toordinal(), end.toordinal() + 1)))
-        season = 'After Halloween · ' if halloween and month == 'November' else ''
-        items = ''
-        for e in picks:
-            d = datetime.fromisoformat(e['starts_at']).astimezone(TZ)
-            items += (f'<div class="gh-band-item"><span class="gh-band-when">{d:%a, %b %d}</span>'
-                      f'<div><h3>{esc(e["title"])}</h3><p>{esc(_wo19_summary(e))}</p></div></div>')
-        items += (f'<div class="gh-band-item"><span class="gh-band-when">All month</span>'
-                  f'<div><h3>The Full Calendar</h3><p>Every verified listing for {month}, in one place. '
-                  f'<a href="{prefix}calendar/">Open it →</a></p></div></div>')
-        band = (f'<section class="gh-band" aria-label="Coming up"><div class="gh-band-in">'
-                f'<p class="gh-band-k">Coming up — {season}{month}</p>'
-                f'<div class="gh-band-grid">{items}</div></div></section>')
     steps = ''.join(
         f'<div class="gh-step"><span class="gh-step-n">{i:02d}</span>'
         f'<div><h3>{esc(h)}</h3><p>{esc(p)}</p></div></div>'
@@ -324,7 +279,7 @@ def decorate(path, skin, rows, day):
     # Remove old registrations and head resources; a single shared runtime owns PWA.
     for tag in list(doc.head.find_all('script')):
         if 'serviceWorker' in tag.get_text(): tag.decompose()
-    for tag in list(doc.head.select('link[rel="manifest"], link[rel="apple-touch-icon"], meta[name="theme-color"]')):
+    for tag in list(doc.head.select('link[rel="manifest"], link[rel="apple-touch-icon"], meta[name="theme-color"], meta[name="apple-mobile-web-app-status-bar-style"]')):
         tag.decompose()
     for tag in doc.find_all('script', src=True):
         if tag['src'] in {prefix+'assets/gh-theme.js',prefix+'assets/gh-halloween.js'}: tag.decompose()
@@ -421,6 +376,7 @@ def decorate(path, skin, rows, day):
         if not robots: robots = doc.new_tag('meta',attrs={'name':'robots'});doc.head.append(robots)
         robots['content'] = 'noindex, nofollow'
     resources = f'''<meta data-gh-design name="theme-color" content="#faf4e8">
+<meta data-gh-design name="apple-mobile-web-app-status-bar-style" content="default">
 <meta data-gh-design name="mobile-web-app-capable" content="yes">
 <meta data-gh-design name="apple-mobile-web-app-capable" content="yes">
 <meta data-gh-design name="apple-mobile-web-app-title" content="Golden Hour">
@@ -428,6 +384,8 @@ def decorate(path, skin, rows, day):
 <link data-gh-design rel="apple-touch-icon" href="{prefix}icons/apple-touch-icon.png">
 <link data-gh-design rel="stylesheet" href="{prefix}assets/gh-theme.css">
 <script data-gh-design src="{prefix}assets/gh-theme.js"></script>'''
+    if current in ('index.html','upcoming/'):
+        resources = resources.replace(f'<script data-gh-design src="{prefix}assets/gh-theme.js">',f'<script data-gh-design src="{prefix}assets/gh-week.js"></script><script data-gh-design src="{prefix}assets/gh-theme.js">')
     if current == 'index.html':
         resources += f'<link data-gh-design rel="stylesheet" href="{prefix}assets/gh-home.css">'
     if skin == 'halloween':
@@ -554,11 +512,12 @@ def events():
     return sorted(rows,key=lambda e:datetime.fromisoformat(e['starts_at']))
 
 
-def document(title,body,ld=None):
+def document(title,body,ld=None,route=None):
     structured = '<script id="gh-event-list" type="application/ld+json">' + json.dumps(ld,ensure_ascii=False).replace('</','<\\/') + '</script>' if ld else ''
-    route = title.lower() + '/'
-    seo = (f'<meta name="description" content="Every verified upcoming event in Aspen and the high country, soonest first."><link rel="canonical" href="{URL}{route}">' if title in ('Events','Upcoming') else '')
-    analytics = '<script src="../assets/js/analytics-config.js"></script><script defer src="../assets/js/analytics.js"></script>' if title in ('Events','Upcoming') else ''
+    route = route or title.lower() + '/'
+    description = WEEK_DESCRIPTION if route == 'upcoming/' else 'Every verified upcoming event in Aspen and the high country, soonest first.'
+    seo = (f'<meta name="description" content="{description}"><link rel="canonical" href="{URL}{route}">' if title in ('Events','Upcoming','This Week') else '')
+    analytics = '<script src="../assets/js/analytics-config.js"></script><script defer src="../assets/js/analytics.js"></script>' if title in ('Events','Upcoming','This Week') else ''
     return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{html.escape(title)} — The Golden Hour</title>{seo}{structured}{analytics}</head><body><div class="page">{body}</div></body></html>'
 
 
@@ -584,15 +543,22 @@ def card(e,detail=False):
 
 def build_lists(rows,day):
     future = [e for e in rows if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date() >= day]
-    ld = {'@context':'https://schema.org','@type':'ItemList','name':'Upcoming events — The Golden Hour',
-          'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Event','name':e['title'],
-            'startDate':e['starts_at'],'url':URL+'events/'+e['slug']+'/'}} for i,e in enumerate(future)]}
-    for path,title,detail in [('events/index.html','Events',False),('upcoming/index.html','Upcoming',True)]:
-        body = f'<h1>{title}</h1><p class="lede">Every verified upcoming event in Aspen and the high country, soonest first.</p>'
-        body += '<div class="gh-filters" role="group" aria-label="Filter events">' + ''.join(f'<button type="button" data-filter="{key}" aria-pressed="{str(key == "all").lower()}">{label}</button>' for key,label in [('all','All'),('weekend','This weekend'),('music','Music'),('arts','Art'),('outdoors','Outdoors'),('free','Free')]) + '</div>'
-        body += '<div class="gh-event-grid">' + ''.join(card(e,detail) for e in future) + '</div>'
-        body += '<p class="gh-list-empty"' + (' hidden' if future else '') + '>No upcoming events listed. Check back soon.</p>'
-        (ROOT/path).write_text(document(title,body,ld))
+    for path,title,detail in [('events/index.html','Events',False),('upcoming/index.html','This Week',True)]:
+        weekly = path.startswith('upcoming/')
+        selected = this_week(rows,day) if weekly else future
+        ld = {'@context':'https://schema.org','@type':'ItemList','name':title+' — The Golden Hour',
+              'itemListElement':[{'@type':'ListItem','position':i+1,'item':{'@type':'Event','name':e['title'],
+                'startDate':e['starts_at'],'url':URL+'events/'+e['slug']+'/'}} for i,e in enumerate(selected)]}
+        body = f'<h1>{title}</h1><p class="lede">{WEEK_DESCRIPTION if weekly else "Every verified upcoming event in Aspen and the high country, soonest first."}</p>'
+        if weekly:
+            start,end=week_bounds(day)
+            body += f'<p class="gh-week-range">{start:%b %d} – {end:%b %d, %Y} · MT</p>'
+        chips = available_filters(selected) if weekly else [('all','All'),('weekend','This weekend'),('music','Music'),('arts','Art'),('outdoors','Outdoors'),('free','Free')]
+        body += '<div class="gh-filters" role="group" aria-label="Filter events"'+ (' hidden' if weekly and not selected else '') +'>' + ''.join(f'<button type="button" data-filter="{key}" aria-pressed="{str(key == "all").lower()}">{label}</button>' for key,label in chips) + '</div>'
+        body += '<div class="gh-event-grid">' + ''.join(card(e,detail) for e in selected) + '</div>'
+        empty = 'No verified events this week. <a href="../calendar/">Calendar</a> · <a href="../events/">Events</a>' if weekly else 'No upcoming events listed. Check back soon.'
+        body += '<p class="gh-list-empty"' + (' hidden' if selected else '') + '>'+empty+'</p>'
+        (ROOT/path).write_text(document(title,body,ld,route=path.replace('index.html','')))
     # Preserve existing individual event editorial pages; create only missing routes.
     for e in rows:
         path = ROOT/'events'/e['slug']/'index.html'
@@ -612,9 +578,10 @@ def validate(rows,day):
     expected = [e['id'] for e in rows if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date() >= day]
     for name in ['events/index.html','upcoming/index.html']:
         doc=soup((ROOT/name).read_text())
-        assert [c['id'][3:] for c in doc.select('.gh-event-card')] == expected, f'{name}: stale, missing, or unsorted rows'
+        scoped = [e['id'] for e in this_week(rows,day)] if name.startswith('upcoming/') else expected
+        assert [c['id'][3:] for c in doc.select('.gh-event-card')] == scoped, f'{name}: stale, missing, or unsorted rows'
         ld=json.loads(doc.select_one('#gh-event-list').string)
-        assert [x['item']['startDate'] for x in ld['itemListElement']] == [e['starts_at'] for e in rows if e['id'] in expected], f'{name}: structured data differs from visible events'
+        assert [x['item']['startDate'] for x in ld['itemListElement']] == [e['starts_at'] for e in rows if e['id'] in scoped], f'{name}: structured data differs from visible events'
     count=0
     for path in ROOT.rglob('*.html'):
         if '.git' in path.parts: continue
@@ -628,7 +595,7 @@ def validate(rows,day):
                 assert (path.parent/src).is_file(), f'Broken local image: {path}: {src}'
         assert not re.search(r'ad\s+astra|photograph(?:y|er)?[^<\n]{0,80}Ron Delhaye',str(doc),re.I), f'Brand lock: {path}'
         count+=1
-    print(f'PASS: {count} pages share the design; {len(rows)} canonical occurrences; {len(expected)} today/future occurrences in both lists.')
+    print(f'PASS: {count} pages share the design; {len(rows)} canonical occurrences; {len(expected)} today/future occurrences; {len(this_week(rows,day))} remaining this-week occurrences.')
 
 
 def build_404():

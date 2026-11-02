@@ -458,3 +458,9 @@ body.gh-site[data-page="index.html"] .gh-cover-cap{
 body.gh-site[data-page="index.html"] .gh-event-lead img{object-fit:contain!important;background:var(--paper);aspect-ratio:4/3;height:auto}
 body.gh-site[data-page="index.html"] .gh-lead:not(:has(img)) .gh-lead-body{min-height:240px;display:flex;flex-direction:column;justify-content:center}
 body.gh-site[data-page="index.html"] :is(.gh-week-grid,.gh-filters,.gh-band)[hidden]{display:none!important}
+
+/* WO21: a filter row is not a status bar; do not repeat the safe-area inset
+   between the section dateline and chips. Keep the existing section rhythm. */
+body.gh-site[data-page="index.html"] .gh-week .gh-filters{padding-top:0;margin:0}
+body.gh-site[data-page="index.html"] .gh-week .gh-lead[hidden]{display:none!important}
+body.gh-site[data-page="index.html"] .gh-week .gh-row[hidden],body.gh-site[data-page="index.html"] .gh-week button[hidden],body.gh-site[data-page="index.html"] .gh-week .gh-list-empty[hidden]{display:none!important}

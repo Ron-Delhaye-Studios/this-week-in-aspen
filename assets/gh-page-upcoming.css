@@ -24,3 +24,10 @@
 .gh-site .gh-media-loading h3{margin:0;font-size:30px}
 .gh-site .gh-media-loading .score{align-self:flex-start}
 .gh-site .gh-media-pending~.gh-card-body>:is(.gh-card-kicker,h3,.score,.pcredit){display:none}
+
+/* WO21: a single compact row; the 44px hit area survives the smaller label. */
+body.gh-site[data-page="upcoming/index.html"] .gh-filters{display:flex;flex-wrap:nowrap;gap:6px;padding-top:0;margin:16px 0}
+body.gh-site[data-page="upcoming/index.html"] .gh-filters button{flex:0 0 auto;width:auto;min-width:0;min-height:44px;padding:7px 12px;font-size:12px;line-height:1.2;letter-spacing:.03em}
+body.gh-site[data-page="upcoming/index.html"] .gh-week-range{font-size:12px;color:var(--muted);margin:8px 0}
+body.gh-site[data-page="upcoming/index.html"] .gh-event-grid{margin-top:16px}
+body.gh-site[data-page="upcoming/index.html"] [hidden]{display:none!important}

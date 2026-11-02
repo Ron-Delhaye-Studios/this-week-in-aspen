@@ -1,0 +1,69 @@
+[
+  {
+    "mode": "browser",
+    "width": 320,
+    "light_band": "pass",
+    "dark_band": "unchanged",
+    "empty_current_week": "pass"
+  },
+  {
+    "mode": "browser",
+    "width": 390,
+    "light_band": "pass",
+    "dark_band": "unchanged",
+    "empty_current_week": "pass"
+  },
+  {
+    "mode": "browser",
+    "width": 1440,
+    "light_band": "pass",
+    "dark_band": "unchanged",
+    "empty_current_week": "pass"
+  },
+  {
+    "mode": "ordinary_browser_tab",
+    "width": 390,
+    "native_safe_area": "0px",
+    "light_default_with_dark_OS": "pass",
+    "light_band": "pass"
+  },
+  {
+    "mode": "fixture",
+    "width": 320,
+    "compact_chips": "pass",
+    "verification_and_week_scope": "pass",
+    "cached_rollover_feed_offline": "pass"
+  },
+  {
+    "mode": "fixture",
+    "width": 390,
+    "compact_chips": "pass",
+    "verification_and_week_scope": "pass",
+    "cached_rollover_feed_offline": "pass"
+  },
+  {
+    "mode": "fixture",
+    "width": 1440,
+    "compact_chips": "pass",
+    "verification_and_week_scope": "pass",
+    "cached_rollover_feed_offline": "pass"
+  },
+  {
+    "mode": "canonical_reference_week",
+    "as_of": "2026-11-14",
+    "heading_to_chips_gap": 10,
+    "zero_count_art_free_chips_hidden": true
+  },
+  {
+    "mode": "actual_installed_chromium_PWA",
+    "viewport": [
+      390,
+      844
+    ],
+    "display_mode": "standalone",
+    "safe_area": "CDP simulated 47px; not physical iOS",
+    "launch_target": "FA1F79BC37E06D6F432F6762080E56B4",
+    "light_band": "pass",
+    "dark_mode": "pass"
+  }
+]
