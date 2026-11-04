@@ -8,9 +8,8 @@ DESCRIPTION = 'Every verified event this week in Aspen and the high country, soo
 
 
 def week_bounds(day):
-    # Existing build_browse convention: Saturday through Friday, Denver dates.
-    start = day - timedelta(days=(day.weekday() + 2) % 7)
-    return start, start + timedelta(days=6)
+    # Rolling discovery window, including today and the following six days.
+    return day, day + timedelta(days=6)
 
 
 def is_verified(event):
