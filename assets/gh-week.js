@@ -13,7 +13,7 @@
   const filter = (e,key) => key==='all' || (key==='free' ? free(e) : e.category===key);
   const filters = rows => [['all','All'],['music','Music'],['arts','Art'],['free','Free']].filter(([key])=>rows.some(e=>filter(e,key)));
   const horizonMatches = (e,key) => Number.isFinite(Date.parse(e.starts_at)) && verified(e) && day(new Date(e.starts_at))>=key;
-  const coming = (rows,key) => {const weekly=select(rows,key);if(weekly.length)return {rows:weekly,horizon:false};const seen=new Set();return {rows:rows.filter(e=>horizonMatches(e,key)).sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at)).filter(e=>!seen.has(e.slug)&&seen.add(e.slug)).slice(0,5),horizon:true}};
+  const coming = (rows,key) => {const weekly=select(rows,key);if(weekly.length)return {rows:weekly,horizon:false};const seen=new Set();return {rows:rows.filter(e=>horizonMatches(e,key)).sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at)).filter(e=>{const k=e.slug||e.id;return !seen.has(k)&&seen.add(k)}).slice(0,5),horizon:true}};
   window.GHWeek = {day,add,bounds,verified,free,matches,select,filter,filters,horizonMatches,coming};
   // This new URL bypasses an older worker's cached theme/home scripts. Once
   // the upgraded worker claims this already-controlled page, load its assets.

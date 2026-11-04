@@ -1,4 +1,6 @@
-/* WO21: refresh a cached This Week page from the unchanged publication feed. */
+/* WO21: refresh a cached This Week page from the publication feed.
+   WO-GH-CAL-05: the feed is now the aurelian-local set of the AURELIAN
+   calendar sync, loaded via assets/gh-calendar-sync.js. */
 (() => {
   const start=()=>{
     if(document.body.dataset.page!=='upcoming/index.html')return;
@@ -8,11 +10,14 @@
     const fmt=(d,opts)=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',...opts}).format(new Date(d));
     let rows=null,selected='all',loadedDay='',pending=false,rendered='';
     function card(e){
-      const when=fmt(e.starts_at,{weekday:'short',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit'})+' MT';
-      const title='<p class="gh-card-kicker">'+esc(e.category)+'</p><time datetime="'+esc(e.starts_at)+'">'+esc(when)+'</time><h2><a class="gh-card-link" href="'+new URL('events/'+encodeURIComponent(e.slug)+'/',base).href+'">'+esc(e.title)+'</a></h2>';
+      const when=e.all_day?fmt(e.starts_at,{weekday:'short',month:'short',day:'2-digit'})+' · All day':fmt(e.starts_at,{weekday:'short',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit'})+' MT';
+      // WO-GH-CAL-05: sync rows have no detail page; link the official source
+      // when the sync data carries one, otherwise render the title unlinked.
+      const href=e.slug?new URL('events/'+encodeURIComponent(e.slug)+'/',base).href:(e.url||'');
+      const title='<p class="gh-card-kicker">'+esc(e.category)+'</p><time datetime="'+esc(e.starts_at)+'">'+esc(when)+'</time><h2>'+(href?'<a class="gh-card-link" href="'+esc(href)+'"'+(e.slug?'':' rel="noopener"')+'>'+esc(e.title)+'</a>':esc(e.title))+'</h2>';
       const image=e.image?'<figure class="gh-card-media"><img src="'+esc(new URL(e.image,base).href)+'" alt="'+esc(e.title)+' — official event imagery" loading="lazy" decoding="async"></figure>':'';
       const copy=e.title+' — '+e.venue+'\n'+when+'\n'+(e.blurb||'')+'\n'+e.url;
-      return '<article id="ev-'+esc(e.id)+'" class="gh-event-card gh-card '+(image?'has-media':'gh-typographic')+'" data-starts="'+esc(e.starts_at)+'" data-slug="'+esc(e.slug)+'" data-cat="'+esc(e.category)+'" data-free="'+(W.free(e)?'1':'0')+'">'+(image||'<header class="gh-type-media">'+title+'</header>')+'<div class="gh-card-body">'+(image?title:'')+'<p class="gh-card-venue">'+esc(e.venue)+'</p><details class="gh-card-details"><summary>Details &amp; booking</summary><dl><div><dt>Price</dt><dd>'+esc(e.price_info||'Confirm with venue')+'</dd></div><div><dt>Ages</dt><dd>'+esc(e.age_policy||'Confirm with venue')+'</dd></div></dl><p>'+esc(e.blurb)+'</p><p>'+esc(e.fit_note)+'</p></details><div class="gh-card-actions"><a class="btn" href="'+esc(e.url)+'" rel="noopener">Official source ↗</a><button type="button" class="copybtn gh-copy" data-copy="'+esc(copy)+'">Copy details</button></div></div></article>';
+      return '<article id="ev-'+esc(e.id)+'" class="gh-event-card gh-card '+(image?'has-media':'gh-typographic')+'" data-starts="'+esc(e.starts_at)+'" data-slug="'+esc(e.slug)+'" data-cat="'+esc(e.category)+'" data-free="'+(W.free(e)?'1':'0')+'">'+(image||'<header class="gh-type-media">'+title+'</header>')+'<div class="gh-card-body">'+(image?title:'')+'<p class="gh-card-venue">'+esc(e.venue)+'</p><details class="gh-card-details"><summary>Details &amp; booking</summary><dl><div><dt>Price</dt><dd>'+esc(e.price_info||'Confirm with venue')+'</dd></div><div><dt>Ages</dt><dd>'+esc(e.age_policy||'Confirm with venue')+'</dd></div></dl><p>'+esc(e.blurb)+'</p><p>'+esc(e.fit_note)+'</p></details><div class="gh-card-actions">'+(e.url?'<a class="btn" href="'+esc(e.url)+'" rel="noopener">Official source ↗</a>':'')+'<button type="button" class="copybtn gh-copy" data-copy="'+esc(copy)+'">Copy details</button></div></div></article>';
     }
     function render(){
       const key=W.day(new Date()),range=W.bounds(key);
@@ -26,7 +31,7 @@
           chips.innerHTML=available.map(([value,label])=>'<button type="button" data-filter="'+value+'" aria-pressed="'+(value===selected)+'">'+label+'</button>').join('');
           grid.innerHTML=current.map(card).join('');
           const ld=document.getElementById('gh-event-list');
-          if(ld)ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',name:'This Week — The Golden Hour',itemListElement:current.map((e,i)=>({'@type':'ListItem',position:i+1,item:{'@type':'Event',name:e.title,startDate:e.starts_at,url:'https://thegoldenhour.guide/events/'+e.slug+'/'}}))});
+          if(ld)ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',name:'This Week — The Golden Hour',itemListElement:current.map((e,i)=>({'@type':'ListItem',position:i+1,item:{'@type':'Event',name:e.title,startDate:e.starts_at,url:e.slug?'https://thegoldenhour.guide/events/'+e.slug+'/':(e.url||'https://thegoldenhour.guide/upcoming/')}}))});
           rendered=signature;
         }
         chips.hidden=!current.length;
@@ -47,7 +52,7 @@
     async function refresh(){
       render();const key=W.day(new Date());if(pending||loadedDay===key)return;
       pending=true;
-      try{const r=await fetch(new URL('data/events.json',base));if(!r.ok)throw Error('Feed unavailable');const data=await r.json();if(!Array.isArray(data))throw Error('Invalid feed');rows=data;loadedDay=key;render()}catch(_){/* Preserve only still-eligible server-rendered listings. */}finally{pending=false}
+      try{const sync=await window.GHCalSync.load();if(!sync||!Array.isArray(sync.local))throw Error('Invalid feed');rows=sync.local;loadedDay=key;render()}catch(_){/* Preserve only still-eligible server-rendered listings. */}finally{pending=false}
     }
     chips.addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(b){selected=b.dataset.filter;render()}});
     refresh();setInterval(refresh,60000);addEventListener('pageshow',refresh);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});

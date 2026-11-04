@@ -43,16 +43,16 @@
         lead.querySelector('img')?.remove();
         if(first.image){const img=document.createElement('img');img.src=new URL(first.image,base);img.alt=first.title;img.loading='lazy';img.onerror=()=>img.remove();lead.prepend(img)}
         lead.querySelector('h3').textContent=first.title;lead.querySelector('.gh-lead-body>p:not(.gh-lead-k)').textContent=summary(first);
-        lead.querySelector('.gh-lead-k').textContent=horizon?'Next on the Calendar':fmt(range.start,{weekday:'short',month:'short',day:'2-digit'})+' — '+fmt(range.end,{weekday:'short',month:'short',day:'2-digit'});lead.querySelector('a').href=new URL('events/'+first.slug+'/',base);
+        lead.querySelector('.gh-lead-k').textContent=horizon?'Next on the Calendar':fmt(range.start,{weekday:'short',month:'short',day:'2-digit'})+' — '+fmt(range.end,{weekday:'short',month:'short',day:'2-digit'});lead.querySelector('a').href=first.slug?new URL('events/'+first.slug+'/',base):(first.url||new URL('upcoming/',base));
       }
       leadRendered=leadSignature;
       rendered=signature;
-      const seen=new Set(),chosen=current.filter(e=>W.filter(e,selected)&&!seen.has(e.slug)&&seen.add(e.slug)).slice(0,5);
-      rowsBox.innerHTML=chosen.map(e=>{const key=W.day(new Date(e.starts_at));return '<a class="gh-row" data-starts="'+esc(e.starts_at)+'" data-free="'+(W.free(e)?'1':'0')+'" data-cat="'+esc(e.category)+'" href="'+new URL('events/'+encodeURIComponent(e.slug)+'/',base).href+'"><span class="gh-row-date"><span class="dow">'+fmt(key,{weekday:'short'})+'</span><span class="num">'+fmt(key,{day:'2-digit'})+'</span><span class="mon">'+fmt(key,{month:'short'})+'</span></span><span class="gh-row-info"><h4>'+esc(e.title)+'</h4><p>'+esc(summary(e,110))+'</p></span><span class="gh-row-tag">'+esc(labels[e.category]||e.category)+'</span><span class="gh-row-go" aria-hidden="true">→</span></a>'}).join('')||'<p class="gh-list-empty">'+empty+'</p>';
+      const seen=new Set(),chosen=current.filter(e=>W.filter(e,selected)&&!seen.has(e.slug||e.id)&&seen.add(e.slug||e.id)).slice(0,5);
+      rowsBox.innerHTML=chosen.map(e=>{const key=W.day(new Date(e.starts_at));return '<a class="gh-row" data-starts="'+esc(e.starts_at)+'" data-free="'+(W.free(e)?'1':'0')+'" data-cat="'+esc(e.category)+'" href="'+esc(e.slug?new URL('events/'+encodeURIComponent(e.slug)+'/',base).href:(e.url||new URL('calendar/',base).href))+'"><span class="gh-row-date"><span class="dow">'+fmt(key,{weekday:'short'})+'</span><span class="num">'+fmt(key,{day:'2-digit'})+'</span><span class="mon">'+fmt(key,{month:'short'})+'</span></span><span class="gh-row-info"><h4>'+esc(e.title)+'</h4><p>'+esc(summary(e,110))+'</p></span><span class="gh-row-tag">'+esc(labels[e.category]||e.category)+'</span><span class="gh-row-go" aria-hidden="true">→</span></a>'}).join('')||'<p class="gh-list-empty">'+empty+'</p>';
     }
     async function refresh(){
       render();const key=W.day(new Date());if(pending||loadedDay===key)return;pending=true;
-      try{const r=await fetch(new URL('data/events.json',base));if(!r.ok)throw Error('Feed unavailable');const data=await r.json();if(!Array.isArray(data))throw Error('Invalid feed');feed=data;loadedDay=key;render()}catch(_){/* Preserve the labeled server horizon offline; expired cards remain hidden. */}finally{pending=false}
+      try{const sync=await window.GHCalSync.load();if(!sync||!Array.isArray(sync.local))throw Error('Invalid feed');feed=sync.local;loadedDay=key;render()}catch(_){/* Preserve the labeled server horizon offline; expired cards remain hidden. */}finally{pending=false}
     }
     filters.addEventListener('click',e=>{const button=e.target.closest('button[data-filter]');if(button){selected=button.dataset.filter;render()}});
     refresh();setInterval(refresh,60000);addEventListener('pageshow',refresh);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
