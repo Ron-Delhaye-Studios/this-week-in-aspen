@@ -1,6 +1,8 @@
 /* Golden Hour calendar — Google-style month grid.
-   Renders events.json (same live-layer rows as Upcoming/Map) into a month
-   view with category-color event dots and a selected-day agenda panel below. */
+   WO-GH-CAL-05: renders the aurelian-regional set from the AURELIAN sync
+   feed (calendar/calendar-sync.json, via assets/gh-calendar-sync.js) into
+   a month view with category-color event dots and a selected-day agenda
+   panel below. */
 (function () {
   "use strict";
 
@@ -27,7 +29,7 @@
 
   function denverKey(iso) { return dayKeyFmt.format(new Date(iso)); }
   function hasEnded(ev) {
-    return denverKey(ev.starts_at) < TODAY_KEY;
+    return denverKey(ev.ends_at || ev.starts_at) < TODAY_KEY;
   }
 
   function chipTime(iso) {
@@ -51,7 +53,7 @@
   var TODAY_KEY = T.y + "-" + pad2(T.m + 1) + "-" + pad2(T.d);
   var viewY = T.y, viewM = T.m;
   var minIdx = T.y * 12 + T.m;
-  var maxIdx = minIdx + 4;
+  var maxIdx = minIdx + 6; // WO-GH-CAL-05: sync export window runs ~6 months out
 
   var eventsByDay = {};
   var eventsById = {};
@@ -72,12 +74,16 @@
     return "In " + diff + " days";
   }
 
+  function timeLabel(ev) {
+    return ev.all_day ? "All day" : chipTime(ev.starts_at);
+  }
+
   function dotHTML(ev) {
     var cls = "gcal-event" + (hasEnded(ev) ? " ended" : "");
     return '<button class="' + cls + '" data-ev="' + esc(ev.id) + '"' +
       ' style="border-left-color:' + catStyle(ev.category)[1] + '"' +
-      ' aria-label="' + esc(ev.title) + ", " + esc(chipTime(ev.starts_at)) + '">' +
-      '<span class="gcal-event-time">' + esc(chipTime(ev.starts_at)) + '</span>' +
+      ' aria-label="' + esc(ev.title) + ", " + esc(timeLabel(ev)) + '">' +
+      '<span class="gcal-event-time">' + esc(timeLabel(ev)) + '</span>' +
       '<span class="gcal-event-title">' + esc(ev.title) + '</span></button>';
   }
 
@@ -85,6 +91,12 @@
     "July", "August", "September", "October", "November", "December"];
 
   function pad2(n) { return String(n).padStart(2, "0"); }
+
+  function nextDayKey(key) {
+    var d = new Date(key + "T12:00:00Z");
+    d.setUTCDate(d.getUTCDate() + 1);
+    return d.toISOString().slice(0, 10);
+  }
 
   function render() {
     var title = document.getElementById("gcal-title");
@@ -130,7 +142,7 @@
   function agendaRowHTML(ev) {
     var st = catStyle(ev.category);
     return '<button class="gcal-arow' + (hasEnded(ev) ? " ended" : "") + '" data-ev="' + esc(ev.id) + '" style="border-left-color:' + st[1] + '">' +
-      '<span class="gcal-atime">' + esc(chipTime(ev.starts_at)) + "</span>" +
+      '<span class="gcal-atime">' + esc(timeLabel(ev)) + "</span>" +
       '<span class="gcal-abody"><strong>' + esc(ev.title) + "</strong>" +
       '<span class="gcal-avenue">' + esc(ev.venue) + "</span>" +
       (ev.blurb ? '<span class="gcal-ablurb">' + esc(ev.blurb) + "</span>" : "") +
@@ -151,8 +163,9 @@
     if (!box) return;
     var key = selectedKey || TODAY_KEY;
     var evs = (eventsByDay[key] || []).slice().sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); });
-    var label = evs.length ? panelDayFmt.format(new Date(evs[0].starts_at))
-      : panelDayFmt.format(new Date(key + "T12:00:00"));
+    // Label the panel with the selected day itself: with multi-day spans,
+    // the first event's start date is not necessarily the selected day.
+    var label = panelDayFmt.format(new Date(key + "T12:00:00"));
     var html = '<div class="gcal-phead"><h3>' + esc(label) + "</h3>" +
       (key === TODAY_KEY ? '<span class="gcal-arel">Today</span>' : "") +
       '<span class="gcal-pcount">' + evs.length + (evs.length === 1 ? " event" : " events") + "</span></div>";
@@ -170,7 +183,7 @@
     tipEl = document.createElement("div");
     tipEl.className = "gcal-tip";
     tipEl.innerHTML = "<strong>" + esc(ev.title) + "</strong><span>" +
-      esc(chipTime(ev.starts_at)) + " · " + esc(ev.venue) + (hasEnded(ev) ? " · Ended" : "") + "</span>";
+      esc(timeLabel(ev)) + " · " + esc(ev.venue) + (hasEnded(ev) ? " · Ended" : "") + "</span>";
     document.body.appendChild(tipEl);
     var r = chip.getBoundingClientRect();
     var tw = Math.min(260, window.innerWidth * 0.7);
@@ -197,17 +210,30 @@
     html += '<div class="gcal-modal-body">';
     html += '<p class="gcal-cat" style="background:' + st[0] + ";color:" + st[1] + '">' + esc(ev.category || "event") + "</p>";
     html += "<h3>" + esc(ev.title) + "</h3>";
-    html += '<p class="gcal-when"><strong>' + esc(fullDateFmt.format(new Date(ev.starts_at))) + "</strong> · " +
-      esc(chipTime(ev.starts_at)) + (rel ? ' · <span class="gcal-rel">' + esc(rel) + "</span>" : "") + "</p>";
+    // All-day events show date-only (WO-GH-CAL-05); multi-day spans show the range.
+    var whenText;
+    if (ev.all_day) {
+      whenText = fullDateFmt.format(new Date(ev.starts_at));
+      if (ev.end_day && ev.end_day > ev.start_day) {
+        whenText += " – " + fullDateFmt.format(new Date(ev.ends_at));
+      }
+    } else if (ev.end_day && ev.end_day > ev.start_day) {
+      whenText = fullDateFmt.format(new Date(ev.starts_at)) + ", " + chipTime(ev.starts_at) +
+        " – " + fullDateFmt.format(new Date(ev.ends_at)) + ", " + chipTime(ev.ends_at);
+    } else {
+      whenText = fullDateFmt.format(new Date(ev.starts_at)) + ", " + chipTime(ev.starts_at);
+    }
+    html += '<p class="gcal-when"><strong>' + esc(whenText) + "</strong>" +
+      (rel ? ' · <span class="gcal-rel">' + esc(rel) + "</span>" : "") + "</p>";
     if (hasEnded(ev)) html += '<p class="gcal-ended">This event has ended.</p>';
     html += '<p class="gcal-venue">' + esc(ev.venue) + "</p>";
     if (meta) html += '<p class="gcal-meta">' + meta + "</p>";
     if (ev.blurb) html += '<p class="gcal-blurb">' + esc(ev.blurb) + "</p>";
     if (ev.fit_note) html += '<p class="gcal-fit">' + esc(/^for\s/i.test(ev.fit_note) ? ev.fit_note : "For: " + ev.fit_note) + "</p>";
     html += '<div class="gcal-links">';
+    // Sync rows have no map entry or /upcoming/ anchor; the official link is
+    // the only outbound door the sync data supports.
     if (ev.url) html += '<a href="' + esc(ev.url) + '" target="_blank" rel="noopener">Official event page ↗</a>';
-    html += '<a href="../map/?event=' + esc(ev.id) + '">View on map ↗</a>';
-    html += '<a href="../upcoming/#ev-' + esc(ev.id) + '">Event details ↗</a>';
     html += "</div></div></div>";
     showModal(html);
   }
@@ -282,14 +308,21 @@
 
   selectedKey = TODAY_KEY;
   render();
-  fetch("../data/events.json", { cache: "no-store" })
-    .then(function (r) { return r.json(); })
-    .then(function (evs) {
+  // WO-GH-CAL-05: the regional view consumes the AURELIAN sync feed
+  // (aurelian-regional only) through the shared adapter.
+  window.GHCalSync.load()
+    .then(function (sync) {
       loaded = true;
-      evs.forEach(function (ev) {
+      sync.regional.forEach(function (ev) {
         eventsById[ev.id] = ev;
-        var k = denverKey(ev.starts_at);
-        (eventsByDay[k] = eventsByDay[k] || []).push(ev);
+        // Multi-day events appear on every Denver day they span.
+        var k = ev.start_day, guard = 0;
+        while (k && guard < 92) {
+          (eventsByDay[k] = eventsByDay[k] || []).push(ev);
+          if (k === ev.end_day) break;
+          k = nextDayKey(k);
+          guard++;
+        }
       });
       if (!selectedKey) selectedKey = TODAY_KEY;
       render();

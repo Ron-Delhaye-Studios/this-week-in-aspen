@@ -2,15 +2,15 @@
 const PREFIX = "golden-hour-";
 // Each independently mergeable family advances its own slot.
 const REVISIONS = {
-  wo21: 2,
+  wo21: 3,
   luxury: 2,
-  homepage: 1,
+  homepage: 2,
 
   chrome: 2,
 
   tables: 1,
 
-  events: 1,
+  events: 2,
 
   collections: 1,
 
@@ -24,7 +24,7 @@ const CACHE = PREFIX + "wo19-" + Object.entries(REVISIONS).map(([name, revision]
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
-  'assets/gh-luxury-polish.css', 'assets/gh-image-credits.js', 'assets/gh-week.js', 'assets/gh-this-week.js', 'assets/gh-home-live.js', 'assets/gh-chrome.css', 'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js']
+  'assets/gh-luxury-polish.css', 'assets/gh-image-credits.js', 'assets/gh-week.js', 'assets/gh-calendar-sync.js', 'assets/gh-this-week.js', 'assets/gh-home-live.js', 'assets/gh-chrome.css', 'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js']
   .map(path => BASE + path);
 function noStore(response) {
   return /(?:^|,)\s*no-store\b/i.test(response.headers.get("Cache-Control") || "");
