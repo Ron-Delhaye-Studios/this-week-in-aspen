@@ -48,6 +48,10 @@
       }
       [...grid.children].forEach(c=>{c.hidden=!eligible.includes(c)||!(selected==='all'||(selected==='free'?c.dataset.free==='1':c.dataset.cat===selected))});
       empty.hidden=eligible.some(c=>!c.hidden);
+      if(!empty.hidden && rows){
+        const next=rows.filter(e=>W.verified(e)&&W.day(new Date(e.starts_at))>range.end).sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at))[0];
+        empty.textContent=selected!=='all'?'No verified events match this filter. Try All.':next?'Nothing verified in the next seven days — next up: '+fmt(next.starts_at,{month:'short',day:'numeric',year:'numeric'})+'.':'No upcoming events are currently verified. Check back for new listings.';
+      }
     }
     async function refresh(){
       render();const key=W.day(new Date());if(pending||loadedDay===key)return;
