@@ -94,7 +94,7 @@
       fit_note: "",
       url: ev.url || made.url || "",
       blurb: made.blurb,
-      image: "",
+      image: ev.image || "",
       slug: "",
       place_key: ev.place_key || "",
       verified: ev.verified !== false
