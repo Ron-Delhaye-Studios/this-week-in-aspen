@@ -2,7 +2,7 @@
 import html
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
@@ -14,9 +14,9 @@ def slug(event_id):
     return 'sync-' + re.sub(r'[^a-zA-Z0-9_-]', '-', event_id)
 
 def safe_url(value):
-    return value if urlparse(value or '').scheme in ('https', 'http') else ''
+    return value if urlparse(value or '').scheme in ('https', 'http') and urlparse(value).hostname and not urlparse(value).username else ''
 
-def build(root=ROOT):
+def build(root=ROOT, now=None):
     data = json.loads((root/'calendar/calendar-sync.json').read_text(encoding='utf-8'))
     shell = (root/'upcoming/index.html').read_text(encoding='utf-8')
     mast = re.search(r'<header class="masthead">.*?</header>', shell, re.S).group()
@@ -35,16 +35,19 @@ def build(root=ROOT):
         text = re.sub(r'<[^>]+>', ' ', e.get('description', ''))
         url = safe_url(e.get('url'))
         if not url:
-            urls = re.findall(r'https?://[^\s<>"\)]+', text)
+            urls = re.findall(r'(?im)^\s*(?:source|official(?: url)?):\s*(https?://[^\s<>"\)]+)', text)
             url = safe_url(urls[0]) if urls else ''
         image = safe_url(e.get('image')) or (('../../'+e['image']) if e.get('image','').startswith('calendar/media/') else '')
         def stamp(value):
             d = datetime.fromisoformat(value)
             return d.astimezone(ZoneInfo('America/Denver')).strftime('%b %d, %Y · %I:%M %p MT') if d.tzinfo else d.strftime('%b %d, %Y')
-        when = esc(stamp(e['start'])) + (' — '+esc(stamp(e['end'])) if e.get('end') else '')
+        display_end = e.get('end') or e['start']
+        if e.get('all_day') and display_end > e['start']:
+            display_end = (datetime.fromisoformat(display_end) - timedelta(days=1)).date().isoformat()
+        when = esc(stamp(e['start'])) + (' — '+esc(stamp(display_end)) if display_end != e['start'] else '')
         end = datetime.fromisoformat(e.get('end') or e['start'])
-        today = datetime.now(ZoneInfo('America/Denver'))
-        past = end < today if end.tzinfo else end.date() < today.date()
+        today = now or datetime.now(ZoneInfo('America/Denver'))
+        past = end < today if end.tzinfo else datetime.fromisoformat(display_end).date() < today.date()
         content = '<p><a href="../../upcoming/">This Week</a> / Event details</p><h1>'+title+'</h1>'
         if past:
             content += '<p><strong>Past event</strong> · Historical listing. See This Week for current plans.</p>'

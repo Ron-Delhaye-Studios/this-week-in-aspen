@@ -604,6 +604,8 @@ def main():
         build_lists(rows,day)
         from build_features import build_ready
         build_ready(ROOT,rows,day)
+        from build_event_details import build as build_event_details
+        build_event_details(ROOT, datetime.combine(day, datetime.min.time(), tzinfo=TZ))
         build_404()
         skin=json.loads((ROOT/'design-config.json').read_text())['skin']
         assert skin in (None,'halloween'), 'Unknown seasonal skin'
