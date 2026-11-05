@@ -63,6 +63,8 @@ def build(root=ROOT, now=None):
         target = root/'events'/key/'index.html'
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(page, encoding='utf-8')
+        from build_design import decorate
+        decorate(target, None, [], (now or datetime.now(ZoneInfo('America/Denver'))).date())
     return len(seen)
 
 if __name__ == '__main__':
