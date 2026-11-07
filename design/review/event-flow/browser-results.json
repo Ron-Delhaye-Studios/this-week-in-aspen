@@ -1,0 +1,29 @@
+[
+  {
+    "theme": "light",
+    "home_to_local_overview": "PASS",
+    "upcoming_title_and_image_links_stay_local": "PASS",
+    "home_thumbnails": true,
+    "no_unverified_placeholder_figure": "PASS",
+    "official_source_is_explicit_new_tab_action": "PASS",
+    "detail_media_loaded": true,
+    "axe_A_AA_violations": [],
+    "page_errors": []
+  },
+  {
+    "theme": "dark",
+    "home_to_local_overview": "PASS",
+    "upcoming_title_and_image_links_stay_local": "PASS",
+    "home_thumbnails": true,
+    "no_unverified_placeholder_figure": "PASS",
+    "official_source_is_explicit_new_tab_action": "PASS",
+    "detail_media_loaded": true,
+    "axe_A_AA_violations": [],
+    "page_errors": []
+  },
+  {
+    "feed_failure_no_stale_events": "PASS",
+    "Denver_midnight_prunes_HTML_and_JSONLD": "PASS",
+    "calendar_month_and_internal_overview": "PASS"
+  }
+]
