@@ -8,7 +8,7 @@ body.gh-site[data-page="index.html"] .gh-cover-credit{font-size:10.5px;letter-sp
  body.gh-site[data-page="index.html"] .gh-top-right{flex-shrink:0}
  body.gh-site[data-page="index.html"] .gh-top-center{display:none}
  body.gh-site[data-page] .gh-mast-sub{min-width:0}
- body.gh-site[data-page] .gh-mast-sub nav.site-nav{display:flex;flex-wrap:nowrap!important;justify-content:flex-start;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:8px;padding:4px 2px 8px;mask-image:linear-gradient(to right,#000 94%,transparent);-webkit-mask-image:linear-gradient(to right,#000 94%,transparent)}
+ body.gh-site[data-page] .gh-mast-sub nav.site-nav{display:flex;flex-wrap:nowrap!important;justify-content:flex-start!important;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:8px;padding:4px 2px 8px;mask-image:linear-gradient(to right,#000 94%,transparent);-webkit-mask-image:linear-gradient(to right,#000 94%,transparent)}
  body.gh-site[data-page] .gh-mast-sub nav.site-nav::-webkit-scrollbar{display:none}
  body.gh-site[data-page] .gh-mast-sub nav.site-nav a{flex:0 0 auto;white-space:nowrap}
  body.gh-site[data-page] .gh-mast-sub nav.site-nav:focus-within{mask-image:none;-webkit-mask-image:none}
@@ -16,3 +16,11 @@ body.gh-site[data-page="index.html"] .gh-cover-credit{font-size:10.5px;letter-sp
 }
 /* Fit the approved footer wordmark within phone padding without clipping it. */
 body.gh-site[data-page="index.html"] .gh-footer .gh-foot-word{max-width:none;font-size:clamp(24px,8vw,118px)}
+
+body.gh-site[data-page="index.html"] .gh-lead-image-link{display:block}
+body.gh-site[data-page="index.html"] .gh-week .gh-row-image{width:80px;height:80px;flex:0 0 80px;object-fit:contain!important;background:var(--paper);border:1px solid var(--hair);border-radius:4px}
+@media(max-width:600px){body.gh-site[data-page="index.html"] .gh-week .gh-row-image{width:64px;height:64px;flex-basis:64px}}
+.gh-site .gh-card-image-link{display:block;text-decoration:none}
+
+body.gh-site[data-page="index.html"] .gh-lead-body h3 a{color:inherit;text-decoration:none}
+body.gh-site[data-page="index.html"] .gh-lead-body h3 a:hover{text-decoration:underline}

@@ -121,9 +121,15 @@
     return base;
   }
 
-  let promise = null;
+  const script = document.currentScript || document.querySelector('script[src$="gh-calendar-sync.js"]');
+  const base = new URL('../', script.src);
+  const canonicalUrl = row => 'https://thegoldenhour.guide/events/' + encodeURIComponent(row.slug) + '/';
+  const detailUrl = row => new URL('events/' + encodeURIComponent(row.slug) + '/', base).href;
+  let promise = null, loadedDay = '';
   function load() {
-    if (promise) return promise;
+    const day = todayKey();
+    if (promise && loadedDay === day) return promise;
+    loadedDay = day;
     const self = document.querySelector('script[src$="gh-calendar-sync.js"]');
     const jsonUrl = new URL("../calendar/calendar-sync.json", self.src);
     promise = fetch(jsonUrl, { cache: "no-store" })
@@ -144,8 +150,9 @@
           counts: data.counts || {}
         };
       });
+    promise = promise.catch(error => { promise = null; throw error; });
     return promise;
   }
 
-  window.GHCalSync = { load, dayKey, todayKey };
+  window.GHCalSync = { load, dayKey, todayKey, detailUrl, canonicalUrl };
 })();

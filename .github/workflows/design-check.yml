@@ -30,4 +30,5 @@ jobs:
       - run: python tests/wo21_scope.py
       - run: python tests/wo20_features.py
       - run: python tests/luxury_scope.py
+      - run: python tests/event_flow.py
       - run: git diff --check
