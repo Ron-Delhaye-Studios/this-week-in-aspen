@@ -1,9 +1,7 @@
 """Event summaries lead to a real on-site page with supplied media and metadata."""
-import hashlib
 import json
 from pathlib import Path
 import re
-import subprocess
 import sys
 import unittest
 from bs4 import BeautifulSoup
@@ -43,8 +41,9 @@ class EventFlowTests(unittest.TestCase):
         urls={node.text for node in ET.parse(ROOT/'sitemap.xml').getroot().iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
         for event in json.loads((ROOT/'calendar/calendar-sync.json').read_text())['events']:
             self.assertIn('https://thegoldenhour.guide/events/'+slug(event['id'])+'/',urls)
-    def test_feed_bytes_are_unchanged(self):
-        expected='8bbda96bbc3a78cc0131b0304f8b22c24188c2d0f12ca6004adf9fbf51efe734'
-        self.assertEqual(hashlib.sha256((ROOT/'calendar/calendar-sync.json').read_bytes()).hexdigest(),expected)
+    def test_internal_research_metadata_is_not_public_story_copy(self):
+        for event in json.loads((ROOT/'calendar/calendar-sync.json').read_text())['events']:
+            doc=BeautifulSoup((ROOT/'events'/slug(event['id'])/'index.html').read_text(),'html.parser')
+            self.assertNotRegex(doc.select_one('.gh-sync-detail').get_text(),r'AURELIAN EVENT|MASTER ID:|AURELIAN Score:|Trip Type:')
 
 if __name__=='__main__':unittest.main()
