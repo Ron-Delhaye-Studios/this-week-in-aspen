@@ -1,5 +1,5 @@
 {
- "exported_at": "2026-11-04T17:00:40.013776+00:00",
+ "exported_at": "2026-11-07T00:02:53.445034+00:00",
  "window": {
   "time_min": "2026-09-01T00:00:00-06:00",
   "time_max": "2027-04-30T23:59:59-06:00"
@@ -10,9 +10,9 @@
  },
  "airgap": "Personal (Ron) and RITZ-CARLTON calendars are never read by this export.",
  "counts": {
-  "aurelian-local": 92,
-  "aurelian-regional": 95,
-  "total": 187
+  "aurelian-local": 100,
+  "aurelian-regional": 98,
+  "total": 198
  },
  "events": [
   {
@@ -28,7 +28,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Three-day Labor Day music festival with major national artists at Snowmass Town Park.\nWhere: Snowmass Town Park, Snowmass Village\nWhy it matters: One of the region’s marquee end-of-summer music weekends with broad Concierge appeal.\nAURELIAN Score: 5/5\nTrip Type: LOCAL / ASPEN AREA\nTickets: On sale\nOfficial: https://jazzaspensnowmass.org/labor-day-experience/\nMASTER ID: ARE-2026-0008</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:dihvpvsvbbiivb6a8it843sbb8",
@@ -43,7 +43,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Iconic Santa Fe community ritual centered on the ceremonial burning of the giant Zozobra effigy.\nWhere: Fort Marcy Park / Zozobra Field, Santa Fe\nWhy it matters: One of the region’s most distinctive annual cultural spectacles and a true destination-level experience.\nAURELIAN Score: 5/5\nTrip Type: DESTINATION TRIP\nTickets: Official event information and access details at organizer site\nOfficial: https://burnzozobra.com/\nMASTER ID: ARE-2026-0007</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:d63m3sru3mdk3iv2j87ii6mfo4",
@@ -58,7 +58,7 @@
    "description": "<p>AURELIAN Regional Events Intelligence — First Friday + Bonedale Flea. Core First Friday 5–8 PM with broader programming into the evening, including live music, galleries, live painting and community programming. Verify individual venue schedules/admission before attending.</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:os4qagusvc13ka9ntb6lvthfos",
@@ -73,7 +73,7 @@
    "description": "<p>32nd Annual Vail Jazz Festival. Friday evening under the Discover Vail Jazz Tent: 7:00 PM Vail Jazz All-Stars; 8:15 PM Vail Jazz Instructors; 9:30 PM Organasmic. Official source: https://vailjazz.org/vail-jazz-festival/</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:i92cuspddie6hst528jndjre5g",
@@ -88,7 +88,7 @@
    "description": "<p>AURELIAN Regional Events Intelligence — An Evening with Shakedown Street. Doors 8:30 PM; show 9:30 PM. Ticketed / 21+. Grateful Dead repertoire from the long-running Colorado band. Official: https://bellyupaspen.com/events/an-evening-with-shakedown-street-6/</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:j8fii5fiapke1c7ftisg2d3pq4",
@@ -103,7 +103,7 @@
    "description": "<p>32nd Annual Vail Jazz Festival. Saturday program includes daytime performances and evening concerts under the Discover Vail Jazz Tent. Official source: https://vailjazz.org/vail-jazz-festival/</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:q5v92h2qpbic0vcirpecop58mg",
@@ -118,7 +118,7 @@
    "description": "<p>32nd Annual Vail Jazz Festival. Sunday program includes Gospel Prayer Meetin’, daytime performances, and the festival finale. Official source: https://vailjazz.org/vail-jazz-festival/</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:c31th2n7t5cbs6niagqopase94",
@@ -133,7 +133,7 @@
    "description": "<p>KBPI Presents. Rob Zombie &amp; Marilyn Manson with The HU and Orgy. All ages. Source: AXS event listing supplied to AURELIAN on 2026-08-30. Published start time: 6:30 PM. Published end time was not shown in the supplied source; 11:00 PM is a planning placeholder pending confirmation.</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:_6kr3cdpi6cr3aba588oj2b9k8p2k6ba26osj8ba56kp46h1p60q3ag9l60",
@@ -148,7 +148,7 @@
    "description": "",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:car94vu2emkvfvagj226mlf9i8",
@@ -163,7 +163,7 @@
    "description": "<p>Weekly karaoke night at Silver City Aspen.</p>\n<p>Official event listing: https://www.silvercityaspen.com/calendar/hnk5pg7tecf44hm-ht3a7-ls84t-fsyh4-jkm8k-rh2gp-drb7a-42zrl-rh9ar-wm33w-ptles-m2g6p-fhact-hj9ys-d8rk2-cskwg-ne2ae-bxfbt-8bw86-cbggh-n9can-sgh2n-ntbhc</p>\n<p>Note: Silver City’s published calendar lists the event marker as 9:00–9:15 PM; actual karaoke may continue beyond the listed end time.</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:pa599heaab027s73g3mon95cqk",
@@ -178,7 +178,7 @@
    "description": "Free admission. Fall shows: Anthea Hamilton 'Cauliflower Sundial,' Adrian Villar Rojas 'First Gods, Lost Animals,' Arch Connelly 'Straighten Your Wig and Pray,' Kerstin Bratsch 'Fossil Psychic Stone Mimicry.' Rooftop Swedish Hill dining with Aspen Mountain views.\n\nSource: https://aspenchamber.org/blog/fall-arts-and-culture-roundup-aspen-colorado/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/e46f082711fc.jpg"
   },
   {
@@ -194,7 +194,7 @@
    "description": "<p>AURELIAN Regional Events Intelligence — SURFILMUSIC, a documentary tracing Jack Johnson from surfer/filmmaker to musician. FREE; RSVP required. This is a film event, not advertised as a Jack Johnson concert. Official: https://aspenshowtix.com/event/wheeler-presents-jack-johnson-surfilmusic/</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:9mvqghabpif7h30f3he5erkido",
@@ -209,7 +209,7 @@
    "description": "Changemaker Speaker Series at the Wheeler. Showtimes mostly not yet published - verify at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:fmb16jso5depa9i4ud6uk7d8i4",
@@ -224,7 +224,7 @@
    "description": "The 'filmmaker's festival' against peak fall color; screenings at Eclipse Theater.\n\nSource: https://breckfilm.org/colorado-film-festivals/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:mi09b4foc84labdsts2ilr1erc",
@@ -239,7 +239,7 @@
    "description": "<p>AURELIAN Regional Events Intelligence — Avon Community Picnic featuring Hazel Miller &amp; the Collective. FREE; food and beverages available while supplies last. Official: https://discoveravon.org/things-to-do/events-festivals/community-picnic/</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:htu0c7iev62v9gr0jeq38o1k34",
@@ -254,7 +254,7 @@
    "description": "<p>CURATED PICK — An unusual evening for curious members: guided telescope viewing, with food and drinks available to purchase. Confirm admission and weather arrangements before recommending; no reservation made.\nOfficial schedule and event detail links: https://mollieaspen.com/events/\nSource checked September 15, 2026. All times America/Denver.</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:ank96qnlnl4gctj0m1phfun2p0",
@@ -269,7 +269,7 @@
    "description": "Intimate jazz/blues/soul/gospel performance with Epicure dinner menu. Performer not yet announced - verify at jazzaspensnowmass.org. Free JAS Community Nights every Tuesday.\n\nSource: https://jazzaspensnowmass.org/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:uv8oa5bgac6itlhlrjgpvp9elc",
@@ -284,7 +284,7 @@
    "description": "Fri 9/18: Passport to Pagosa food & wine 6-9pm (live music, restaurant people's-choice voting). Sat 9/19: Bands, Brews & Barrels 4-8pm, evening Balloon Glow + State of Colorado drone show at dusk. Mass balloon launches ~8am Sat (downtown) and ~8am Sun (uptown), weather permitting. Ticketed sub-events via Pagosa Chamber; balloons free to watch.\n\nSource: https://pagosadailypost.com/2026/09/03/chamber-news-colorfest-celebrates-40th-anniversary-sept-18-20/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:5dqbtkurpf3dk6l33tamohh9mc",
@@ -299,7 +299,7 @@
    "description": "Fall wine weekend in Snowmass Village. Ticket prices not published.\n\nSource: https://festivalguidesandreviews.com/colorado-festivals/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ck25h07e5cs9cgefe3r7qb2k60",
@@ -314,7 +314,7 @@
    "description": "32nd annual blues/funk/rock/soul festival headlined by Jon Batiste, Taj Mahal & Keb' Mo', and Marcus King Band. Juke Joint late-night shows, Blisters & Brews 5K Saturday, brewer showcase. 3-day and single-day passes on sale.\n\nSource: https://www.tellurideblues.com/news/the-2026-telluride-blues-brews-artist-lineup-is-here",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:gljegmb4icmt35jvj0d5n5ctgs",
@@ -329,7 +329,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Three-day mountain music festival pairing national blues/rock programming with craft beer.\nWhere: Telluride Town Park, Telluride\nWhy it matters: Premier fall festival in Telluride with exceptional scenery and destination appeal.\nAURELIAN Score: 5/5\nTrip Type: WEEKEND TRIP\nTickets: On sale\nOfficial: https://tellurideblues.com/\nMASTER ID: ARE-2026-0009</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:munphma7e9qtth4kd1imth83vs",
@@ -344,7 +344,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Two-day charity wine weekend with Friday dinner and Saturday Grand Tasting.\nWhere: Viceroy Snowmass and Snowmass Town Park\nWhy it matters: Strong local luxury-concierge wine recommendation close to Aspen.\nAURELIAN Score: 4/5\nTrip Type: LOCAL / ASPEN AREA\nTickets: On sale; 21+\nOfficial: https://snowmasswinefestival.com/\nMASTER ID: ARE-2026-0010</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:ivlroddk46noapurdflmb5jvqk",
@@ -359,7 +359,7 @@
    "description": "Final weekends of scenic gondola rides, bike park, and peak fall-color viewing. Silver Queen Gondola 10am-4pm; Maroon Bells shuttle/parking reservations required; Independence Pass and Ashcroft/Castle Creek drives at peak color.\n\nSource: https://aspenchamber.org/blog/aspens-favorite-leaf-peeping-spots/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:78fd0j00jncroj9pq13aaef25g",
@@ -374,7 +374,7 @@
    "description": "Weekly farmers and artisan market. Free entry. Final market of the season.\n\nSource: https://shaneaspen.com/blog/aspens-cultural-calendar-a-deep-dive-into-summer-festivals-and-events-julyseptember",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:bjtrtbba7r0jpehg62e40942h4",
@@ -389,7 +389,7 @@
    "description": "'The most adventurous Octoberfest in Colorado' at 7,100 ft: rides, gondola, historic cave tours, ceremonial keg tapping, beer garden, stein-holding contest, live music, German-inspired food, pumpkin patch. Admission includes rides, gondola and cave tours.\n\nSource: https://www.glenwoodcaverns.com/events/octoberfest/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:nrp0v3d6ed68iugarj3s9k10tk",
@@ -404,7 +404,7 @@
    "description": "'The world's most elevating marathon and half marathon' - the Ascent and full Marathon up America's Mountain.\n\nSource: https://www.visitcos.com/events/annual/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:g0ftktg5cvuadi1t5ormpeeju8",
@@ -419,7 +419,7 @@
    "description": "The regional airshow returns for 2026. Details and tickets unverified - verify at pprairshow.com.\n\nSource: https://www.visitcos.com/events/annual/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:cbcg9b5vu5h9bjsdeurihn4mq8",
@@ -434,7 +434,7 @@
    "description": "Multi-day MTB and trail-run race weekend (MTB race ~Sept 23, trail run ~Sept 24). Public race-day schedule unverified - verify at sunlightmtn.com.\n\nSource: https://www.trisignup.com/Race/Volunteer/CO/GlenwoodSprings/SunlightShowdown",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:h700vqm06m0iir6t9kuacfpkp0",
@@ -449,7 +449,7 @@
    "description": "Fall bike ride through wine country: leisurely 23-mile route along the Palisade Fruit & Wine Byway or a 58-mile course adding the Reeder Mesa loop. Ticket price not published - verify with organizer The Ride Collective.\n\nSource: https://bicyclecolorado.org/venue/palisade-co/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ffkp1uvprmr61kdn4r2id1oeds",
@@ -464,7 +464,7 @@
    "description": "Colorado's premier wine festival, reimagined as an intimate single-session upscale event: tastings from ~30 Colorado wineries, gourmet bites, live entertainment, ice carving, shaded lounges; under 2,000 attendees. Reserved Experience 11:00am; Signature Session 12:00-4:00pm. Tickets from $200/person.\n\nSource: https://wineindustryadvisor.com/2026/07/29/colorado-mountain-winefest-returns-september-19/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:60h2ahp1fidafd9e6u50daubks",
@@ -479,7 +479,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Colorado wine tasting festival featuring winemakers, growers, culinary partners and artists.\nWhere: Riverbend Park, Palisade\nWhy it matters: One of the strongest culinary road-trip events on the Western Slope.\nAURELIAN Score: 5/5\nTrip Type: DAY TRIP\nTickets: On sale; 21+\nOfficial: https://coloradowinefest.com/events/colorado-winefest-2026/\nMASTER ID: ARE-2026-0011</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:67b9e86ha99l3ji41ruj0tncik",
@@ -494,7 +494,7 @@
    "description": "<p>CURATED PICK — Country music with a full band and mountain views. A distinctive early-evening option for music lovers. RSVP encouraged; seating first come, first served. Food and drinks sold separately. Check rooftop weather arrangements; no RSVP made.\nOfficial schedule and event detail links: https://mollieaspen.com/events/\nSource checked September 15, 2026. All times America/Denver.</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:blvp8t2tjjst1iv44vcs6gvvm8",
@@ -509,7 +509,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Pink Floyd tribute. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:vi9fl3nkrb43su2idi0vm03rp0",
@@ -524,7 +524,7 @@
    "description": "<p>CURATED PICK — Dining / seasonal value\nA timely opportunity to explore Aspen restaurants through autumn prix fixe menus. Particularly useful for returning members seeking something different.\nOfficial dates: September 21–27, 2026. Calendar span marks the festival dates, NOT continuous service hours; restaurant schedules vary.\nExamples listed: PARC $45 bar / $75 dinner; Ellina $75; Matsuhisa $75 and $95 menus. Check menu inclusions and restaurant-specific dates before recommending. Reservation",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:99b6jrautn3idad9mb9ekhv69g",
@@ -539,7 +539,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:do2orgaq4lnh3946di63l468u8",
@@ -554,7 +554,7 @@
    "description": "Comedy at the Wheeler. Showtimes not yet published - verify at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:gvhh82e2m98pmritccqg05jnas",
@@ -569,7 +569,7 @@
    "description": "Three comedy writers on stage at the Wheeler. Showtimes not yet published - verify at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:gam3dmcb3si1h6kgcvugik4hhc",
@@ -584,7 +584,7 @@
    "description": "Free fine-arts festival (jewelry, painting, photography, ceramics, metalwork) alongside the car concours. Thu 4-7pm, Fri-Sat 9:30am-5:30pm, Sun 9:30am-3pm. Great foliage-season excursion pairing with Ouray.\n\nSource: https://tellurideautumnclassic.com/fine-arts-festival/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:8thskit7ir93naoqqc69gr9eck",
@@ -599,7 +599,7 @@
    "description": "<p>CURATED PICK — Create a landscape painting inspired by autumn mountain views. A memorable hands-on seasonal experience. Materials included; beginners welcome. Limited space; reservations recommended. Check pricing and weather arrangements before booking; no reservation made.\nOfficial schedule and event detail links: https://mollieaspen.com/events/\nSource checked September 15, 2026. All times America/Denver.</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:7cu82umjplc5siki9konsodvl4",
@@ -614,7 +614,7 @@
    "description": "Multi-sport mountain festival: trail running, mountain biking, fly-fishing, gear demos and clinics. Details unverified - verify with organizer.\n\nSource: https://mtntownmagazine.com/events-calendar/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:75aqk4ivmoulsm38ov5tb42lh4",
@@ -629,7 +629,7 @@
    "description": "Aspen Words literary weekend: dozens of acclaimed authors, dynamic panels, parties, art activations, food trucks; most events free (registration required); keynote events $45.\n\nSource: https://mtntownmagazine.com/events-calendar/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:36reunqvnnphdba6b37vqdnc0g",
@@ -644,7 +644,7 @@
    "description": "One of Colorado's most iconic Oktoberfests with exclusive collectible steins. Beer pouring from 2:00pm Friday, 11:00am Saturday and Sunday.\n\nSource: https://mtntownmagazine.com/events-calendar/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ckn07la2mr08duog4q2fnt7u5g",
@@ -659,7 +659,7 @@
    "description": "Fundraiser for the Glenwood Springs Historical Society: costumed portrayals of figures like Doc Holliday. Tickets $25. Verify at GlenwoodHistory.org.\n\nSource: https://happeningnext.com/event/history-ghost-walk-2026-eid3a0e35vrpl",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:thf7ffphukvoaneumqimj7cl7o",
@@ -674,7 +674,7 @@
    "description": "Intimate jazz/blues/soul/gospel performance with Epicure dinner menu. Performer not yet announced - verify at jazzaspensnowmass.org. Free JAS Community Nights every Tuesday.\n\nSource: https://jazzaspensnowmass.org/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:58r720orfuei4r5u216qevrvdo",
@@ -689,7 +689,7 @@
    "description": "15 balloons. Night Glow Friday 6-9pm; mass ascensions 7-9am Saturday and Sunday. Free to watch.\n\nSource: https://mtntownmagazine.com/events-calendar/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:lb2ou7i65mhgb1qn80u1hvvr3s",
@@ -704,7 +704,7 @@
    "description": "<p>CURATED PICK — Arts / ideas\nThree-day gathering of authors, panels and conversations. Strong fit for readers and members seeking a cultural experience beyond the usual itinerary.\nOfficial dates: September 25–27, 2026. This is a date-span marker, not session hours. Select sessions and verify venue, local start time and ticket availability before planning attendance. The Aspen Words overview carries a UTC-7 label inconsistent with Aspen daylight time; do not use its generic hours for a member i",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:p02nu6is7kn3tt25i335nj74v8",
@@ -719,7 +719,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Multi-day author talks and literary programming in Aspen.\nWhere: Wheeler Opera House, Aspen\nWhy it matters: High-quality cultural programming with strong intellectual and Concierge appeal.\nAURELIAN Score: 4/5\nTrip Type: LOCAL / ASPEN AREA\nTickets: Free lecture passes / selected access may vary\nOfficial: https://aspenliteraryfestival.org/\nMASTER ID: ARE-2026-0020</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:kl4sodjvkfqi1av3q6ice0703g",
@@ -734,7 +734,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Local harvest celebration featuring farms, orchards, cider, music and seasonal community programming.\nWhere: Paonia Town Park, Paonia\nWhy it matters: Authentic North Fork fall experience and strong hidden-gem excursion option.\nAURELIAN Score: 4/5\nTrip Type: DAY TRIP\nTickets: Free / not required for the main festival\nOfficial: https://mountainharvestfestival.org/\nMASTER ID: ARE-2026-0021</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:p6lbjs01219vb7m4v07ducgb9o",
@@ -749,7 +749,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Three-day hot-air balloon festival with Friday Night Glow and morning launches Saturday and Sunday.\nWhere: Snowmass Town Park, Snowmass Village\nWhy it matters: Highly visual, low-friction, family-friendly fall event near Aspen.\nAURELIAN Score: 4/5\nTrip Type: LOCAL / ASPEN AREA\nTickets: Free / not required\nOfficial: https://www.gosnowmass.com/event/snowmass-balloon-festival/2025-09-13/\nMASTER ID: ARE-2026-0019</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:mlk8vfl58hcba2vt0q1gcv6b2g",
@@ -764,7 +764,7 @@
    "description": "Weekly farmers and artisan market. Free entry.\n\nSource: https://shaneaspen.com/blog/aspens-cultural-calendar-a-deep-dive-into-summer-festivals-and-events-julyseptember",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:m4m6d7c40le84rnoltra8oka8g",
@@ -779,7 +779,7 @@
    "description": "'The most adventurous Octoberfest in Colorado' at 7,100 ft: rides, gondola, historic cave tours, ceremonial keg tapping, beer garden, stein-holding contest, live music, German-inspired food, pumpkin patch. Admission includes rides, gondola and cave tours.\n\nSource: https://www.glenwoodcaverns.com/events/octoberfest/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:217f48jmjvpv6da1vprgshke3s",
@@ -794,7 +794,7 @@
    "description": "Fundraiser for the Glenwood Springs Historical Society: costumed portrayals of figures like Doc Holliday. Tickets $25. Verify at GlenwoodHistory.org.\n\nSource: https://happeningnext.com/event/history-ghost-walk-2026-eid3a0e35vrpl",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:fcors4ocktn1ug07u732fdhlb8",
@@ -809,7 +809,7 @@
    "description": "Mountain art festival pairing nicely with a wine-country weekend.\n\nSource: Town of Palisade 2026 special events calendar, https://palisade.colorado.gov",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:79bt58p4aa4lb6r9s3q6r14ej4",
@@ -824,7 +824,7 @@
    "description": "Moved from June to fall 2026. Modest Mouse headlines Sat 9/26 at 7:30pm, Lil Jon headlines Sun 9/27 at 6:45pm, plus local food and business vendors.\n\nSource: https://www.visitftcollins.com/blog/stories/post/you-cant-miss-these-fall-festivals-in-fort-collins/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:pv5h634ga8o5fr7q3o6vhivb0s",
@@ -839,7 +839,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Scenic half marathon timed around fall-color season.\nWhere: Fanny Hill Trailhead, Snowmass Village\nWhy it matters: A memorable active-travel event during peak fall scenery.\nAURELIAN Score: Not yet scored\nTrip Type: LOCAL / ASPEN AREA\nTickets: Registration open\nOfficial: https://www.gosnowmass.com/event/golden-leaf-half-marathon/\nMASTER ID: ARE-2026-0022</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:9g6kcvivedhjquj054nks3ub08",
@@ -854,7 +854,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:leumpbp3ma3aiaacn5np1dv92c",
@@ -869,7 +869,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20260929T030000Z",
@@ -884,7 +884,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:hadkn3ahfhr75h28vsahskpggs",
@@ -899,7 +899,7 @@
    "description": "Aspen Film's flagship festival: narrative and documentary features plus international independent cinema. Passes - verify at aspenfilm.org.\n\nSource: https://www.uncovercolorado.com/colorado-fall-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:6b7mn8lt1pnl24lrrjujud3vf4",
@@ -914,7 +914,7 @@
    "description": "<p>CURATED PICK — Cinema / autumn culture\nThe 47th Aspen Filmfest offers six days of films and conversations, with a useful indoor option for fall visits.\nOfficial dates: September 29–October 4, 2026. Calendar span marks festival dates, not screening hours. Select individual screenings through the program before arranging attendance.\nOfficial listing: general single tickets $35; Sunday family matinee $10 adults, free ages 17 and under. Check screening-specific admission and availability. No tick",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:s6cssh1bhr7gio7pjfcmrf519k",
@@ -929,7 +929,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:9v6cala53u6bka0275n61oosss",
@@ -944,7 +944,7 @@
    "description": "38th annual celebration of cowboy culture: live performances, cowboy poets and musicians.\n\nSource: https://www.uncovercolorado.com/colorado-fall-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:0o5mugrmv0r8ccfbl8ni79ojio",
@@ -959,7 +959,7 @@
    "description": "Week-long tribute to John Denver: concerts of his songs plus nightly singalongs of 'Rocky Mountain High,' 'Take Me Home, Country Roads,' 'Annie's Song,' etc.\n\nSource: https://aspenchamber.org/blog/fall-arts-and-culture-roundup-aspen-colorado/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ke3rhqck51ap4c6j2q3i9uebog",
@@ -974,7 +974,7 @@
    "description": "Peak-harvest festival of small-batch wines and ranch-country cuisine: chef-led dinners, seminars, outdoor experiences, grand tasting. Pricing unverified - verify at steamboatfoodandwine.com.\n\nSource: https://traveldenver.com/colorado-wine-festivals-events-in-2026/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:q3gdr6op6mpabhugh3p2dm474k",
@@ -989,7 +989,7 @@
    "description": "An Evening with Tom Rush, accompanied by Brendan Cleary. Ticket price is a marketplace listing - confirm at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:h88mrbi48onsnma1nuflfuorhs",
@@ -1004,7 +1004,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Pink Floyd / Talking Heads / Phish tribute. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:hvunem13l4qbn3ogmargnjulk0",
@@ -1019,7 +1019,7 @@
    "description": "Annual autumn harvest celebration on the Grand Mesa: chili cook-off, golf tournament, 5K, classic car show, live concerts, apple pie sales.\n\nSource: https://www.uncovercolorado.com/colorado-fall-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:4subrv36nj80qplqnbn2185mlg",
@@ -1034,7 +1034,7 @@
    "description": "Fundraiser for the Glenwood Springs Historical Society: costumed portrayals of figures like Doc Holliday. Tickets $25. Verify at GlenwoodHistory.org.\n\nSource: https://happeningnext.com/event/history-ghost-walk-2026-eid3a0e35vrpl",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:o0am632a93dfdj0b0460m28sko",
@@ -1049,7 +1049,7 @@
    "description": "Sesquicentennial weekend: a historic ball at the landmark Beaumont Hotel honoring Ouray's Victorian heritage, plus a free community concert in Fellin Park.\n\nSource: https://visitfourcorners.com/colorado-150-southwest-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:mbnrmlbrq97l83dj4k4cgvfpag",
@@ -1064,7 +1064,7 @@
    "description": "John Denver tribute concert — night 1 of 2 at the Wheeler, part of the annual John Denver Celebration (Aspen in October, Sept 30–Oct 4). Mack Bailey performed with John on stage; Chris Nole toured and recorded with him through the 90s.\n\nTickets: aspenshowtix.com\nFull schedule: johndenvercelebration.com",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:678tg22lq5p7lbro85g2nt2evg",
@@ -1079,7 +1079,7 @@
    "description": "Weekly farmers and artisan market. Free entry. Final market of the season.\n\nSource: https://shaneaspen.com/blog/aspens-cultural-calendar-a-deep-dive-into-summer-festivals-and-events-julyseptember",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:p4assr7msss7qlnjpe7tg4l0b8",
@@ -1094,7 +1094,7 @@
    "description": "100K, 50-mile, 50K, half marathon, 10K and 5K on fast, scenic trails (ultras Saturday, short races Sunday); voted best trail race in Competitor Magazine's poll. Entry fees unverified - verify with organizer.\n\nSource: https://www.coloradorunnermag.com/event/bear-chase-trail-race/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:l80d99tdkrhchan0pktc148blk",
@@ -1109,7 +1109,7 @@
    "description": "Fall festival celebrating the elk rut: Mountain Man Rendezvous, Native American music and dance, bugling contest, elk seminars, elk-viewing bus, food and craft vendors.\n\nSource: https://www.uncovercolorado.com/colorado-fall-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:coln0c3hj6ncpq6lilvej62qes",
@@ -1124,7 +1124,7 @@
    "description": "'The most adventurous Octoberfest in Colorado' at 7,100 ft: rides, gondola, historic cave tours, ceremonial keg tapping, beer garden, stein-holding contest, live music, German-inspired food, pumpkin patch. Admission includes rides, gondola and cave tours.\n\nSource: https://www.glenwoodcaverns.com/events/octoberfest/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:rt9v3doh3mqk827hp321g94crc",
@@ -1139,7 +1139,7 @@
    "description": "Fundraiser for the Glenwood Springs Historical Society: costumed portrayals of figures like Doc Holliday. Tickets $25. Verify at GlenwoodHistory.org.\n\nSource: https://happeningnext.com/event/history-ghost-walk-2026-eid3a0e35vrpl",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:v6ejus1f8q6lrin6a73p8sacho",
@@ -1154,7 +1154,7 @@
    "description": "More than a dozen craft breweries pour fresh-hopped beers at a working hop farm.\n\nSource: https://www.uncovercolorado.com/colorado-fall-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:nnrpmr10hdteii4miuu7kp8cmg",
@@ -1169,7 +1169,7 @@
    "description": "Hundreds of costumed corgis parade through Old Town after a costume contest; vendors; proceeds benefit dog rescues.\n\nSource: https://www.visitftcollins.com/blog/stories/post/you-cant-miss-these-fall-festivals-in-fort-collins/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ea4hm169cvjh3j74eka3pqhlgc",
@@ -1184,7 +1184,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Longstanding Carbondale community tradition with pancake breakfast, parade and BBQ.\nWhere: Chacos Park, Main Street and Sopris Park, Carbondale\nWhy it matters: Authentic local heritage event rather than a generic tourism festival.\nAURELIAN Score: Not yet scored\nTrip Type: HALF-DAY\nTickets: Free / not required\nOfficial: https://carbondalerec.com/\nMASTER ID: ARE-2026-0027</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:6255nqegrjvs3g4232roruq684",
@@ -1199,7 +1199,7 @@
    "description": "15K and 50K desert-rock trail races. Fees unverified - verify with One Love Endurance Events.\n\nSource: https://www.coloradorunnermag.com/event/sage-burner-trail-race/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:78336ornq3mim8nuelsbeigkqk",
@@ -1214,7 +1214,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: Free anniversary concert featuring Big Head Todd &amp; The Monsters with Hazel Miller &amp; The Collective.\nWhere: Fellin Park, Ouray\nWhy it matters: Special one-time heritage celebration in a high-scenic-value mountain town.\nAURELIAN Score: 5/5\nTrip Type: LONG DAY TRIP\nTickets: Free / not required\nOfficial: https://ouraymusicseries.com/ouray150\nMASTER ID: ARE-2026-0029</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:daiui29c1aeo4fppsurtkvh6kg",
@@ -1229,7 +1229,7 @@
    "description": "John Denver tribute concert — night 2 of 2 at the Wheeler, part of the annual John Denver Celebration (Aspen in October, Sept 30–Oct 4).\n\nTickets: aspenshowtix.com\nFull schedule: johndenvercelebration.com",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:krasovack6gvt10tfuc559a97k",
@@ -1244,7 +1244,7 @@
    "description": "Bicycles-only early opening of the Pikes Peak Highway to the summit; no car traffic until 9am, summit food and beverage from 8:30am. Reservations required (from Sept 1 at drivepikespeak.com); $20/person.\n\nSource: https://www.visitcos.com/blog/fall-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:cv13afk97dlvhnt4m8m6p966v4",
@@ -1259,7 +1259,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261006T030000Z",
@@ -1274,7 +1274,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:e45bkghji160gan2l65lfft590",
@@ -1289,7 +1289,7 @@
    "description": "At the Wheeler. Showtimes not yet published - verify at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:0fpe4n0q7f4o554qggdsuna4r0",
@@ -1304,7 +1304,7 @@
    "description": "Major arena pop-rap show; Denver metro night out. Ticket prices not published - verify at ballarena.com.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ko7dc810tf05q7aeer1cgajum4",
@@ -1319,7 +1319,7 @@
    "description": "Indoor performance fundraiser for the Glenwood Springs Historical Society: costumed portrayals of figures like Doc Holliday. Tickets $25. Verify at GlenwoodHistory.org.\n\nSource: https://happeningnext.com/event/history-ghost-walk-2026-eid3a0e35vrpl",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:t7lnm5he7747m7cfh4nsrc7180",
@@ -1334,7 +1334,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:1crj28hi9l3876cg8jt8lil4qo",
@@ -1349,7 +1349,7 @@
    "description": "Fundraiser for the Glenwood Springs Historical Society: costumed portrayals of figures like Doc Holliday. Tickets $25. Verify at GlenwoodHistory.org.\n\nSource: https://happeningnext.com/event/history-ghost-walk-2026-eid3a0e35vrpl",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:5lbk016mbnu7mkaprg41b0ja08",
@@ -1364,7 +1364,7 @@
    "description": "Family theatrical celebration of family, culture and tradition through music and storytelling. Tickets - verify at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:9dcgvogjsn2op57vfv0h3jjhq8",
@@ -1379,7 +1379,7 @@
    "description": "'The most adventurous Octoberfest in Colorado' at 7,100 ft: rides, gondola, historic cave tours, ceremonial keg tapping, beer garden, stein-holding contest, live music, German-inspired food, pumpkin patch. Admission includes rides, gondola and cave tours.\n\nSource: https://www.glenwoodcaverns.com/events/octoberfest/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:95curuouno44emej7adjc36d84",
@@ -1394,7 +1394,7 @@
    "description": "Fundraiser for the Glenwood Springs Historical Society: costumed portrayals of figures like Doc Holliday. Tickets $25. Verify at GlenwoodHistory.org.\n\nSource: https://happeningnext.com/event/history-ghost-walk-2026-eid3a0e35vrpl",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:tj44tilsb66vd84f0fpbob93js",
@@ -1409,7 +1409,7 @@
    "description": "Reimagined outdoors for 2026: hundreds of breweries, live music, silent disco, public GABF awards ceremony Sunday. Sessions 12:00-4:00pm daily, 21+. Tickets from $60; PAIRED chef-paired experience $159.\n\nSource: https://www.greatamericanbeerfestival.com/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:7q1rhmn6jc10vrj6een8pvdkjg",
@@ -1424,7 +1424,7 @@
    "description": "<p>AURELIAN Regional Events Intelligence — Teton Gravity Research presents its 31st annual ski and snowboard film, “Actually, It Is Rocket Science.” Aspen Show Tix currently lists two screenings on Oct. 10 (4:30 PM and 7:30 PM); this calendar entry captures the 7:30 PM evening screening. TGR describes the film as exploring elite skiers pushing the physics of big-mountain lines, gaps, transitions and gravity, filmed across locations including Alaska, Japan, British Columbia, Finland, Andorra, Mon",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:tec45m0d40ejt2f9m960fijujc",
@@ -1439,7 +1439,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261013T030000Z",
@@ -1454,7 +1454,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:liqvrj7uvvdgnbnlr76ohjdqs8",
@@ -1469,7 +1469,7 @@
    "description": "Comedy night: Craig Robinson (The Office, Killing It) mixes stand-up, storytelling, and live music. Verified from the Wheeler Opera House ad — show 7:30 PM; end time approximate. Tickets: wheeleroperahouse.com. MASTER INDY flagged personal interest in attending.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:4tce5pbctu8hp9572n790f8lfc",
@@ -1484,7 +1484,7 @@
    "description": "Authentic Bavarian Oktoberfest hosted by the Bavarian Guild, two weekends.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:dafd1ua8kv4cfm787ihcjpsa3c",
@@ -1499,7 +1499,7 @@
    "description": "Three-day celebration of women's voices through film. Tickets unverified - verify at rmwfilm.org.\n\nSource: https://www.visitcos.com/events/annual/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:2dqj3m4mead3ql44fpur7l4dps",
@@ -1514,7 +1514,7 @@
    "description": "Colorado's first and largest horror film festival: horror, thriller, dark fantasy, sci-fi and dark comedy in Telluride's theaters, many first U.S. showings. MovieMaker '20 Coolest Film Festivals'.\n\nSource: http://www.telluridehorrorshow.com/intro",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261020T030000Z",
@@ -1529,7 +1529,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:h7p0ck0ocaqes406situlk14ng",
@@ -1544,7 +1544,7 @@
    "description": "Changemaker Speaker Series: Indigenous Wisdom for a Modern World. Showtimes not yet published - verify at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:h1vd3fs8o1ojia9478r0kesano",
@@ -1559,7 +1559,7 @@
    "description": "One of the country's oldest film festivals; 40,000+ attendees, red-carpet premieres. Passes unverified - verify at denverfilm.org.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:b2fnnbav84grmdee2dhl5dv8q0",
@@ -1574,7 +1574,7 @@
    "description": "Authentic Bavarian Oktoberfest hosted by the Bavarian Guild, two weekends.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:5mpd8kao40gklqpiccu5uscj28",
@@ -1589,7 +1589,7 @@
    "description": "Weekly Thursday live-music series at MOLLIE. Smokin’ Joe Kelly is a respected blues guitarist with deep roots in classic R&B and blues touring circuits — played alongside Ike & Tina Turner, Tina Turner, and Bill Withers. Source: https://aspenchamber.org/events/live-music-night-mollie/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:9bc7uj9tqjjhj2s7ii0a758ao4",
@@ -1604,7 +1604,7 @@
    "description": "Theater at the Wheeler. Showtimes not yet published - verify at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:ln6i0himn48m1923lodfg10uso",
@@ -1619,7 +1619,7 @@
    "description": "One-hour guided evening stroll through Aspen's mining-era murders, ghosts and mayhem; runs in all weather, nightly 7pm departures from across the Wheeler Opera House. $45-48/adult. Ongoing tour - good Halloween-season filler.\n\nSource: https://www.expedia.com/things-to-do/aspens-darkside-ghost-tour.a1380617.activity-details",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:5ivltj9cvg6vo94vpkg7vsru34",
@@ -1634,7 +1634,7 @@
    "description": "One of Colorado's weirdest traditions: teams of four pallbearers race elaborately decorated coffins carrying an 'Emma' 195 yards down Manitou Ave. Fan zone opens 10am, parade at noon, races ~1-2pm; after-party with Denver band RADO. FREE.\n\nSource: https://manitousprings.org/emma-crawford-coffin-races/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ikclb756cbi3mnfv2rblatpg5o",
@@ -1649,7 +1649,7 @@
    "description": "<p>AURELIAN EVENT</p>\n<p>What: 21+ costume ball in Glenwood’s historic Hotel Colorado.\nWhere: Hotel Colorado, Glenwood Springs\nWhy it matters: Distinctive adult Halloween option with historic-setting and nightlife appeal.\nAURELIAN Score: 4/5\nTrip Type: EVENING OUTING\nTickets: On sale; 21+\nOfficial: https://hotelcolorado.com/\nMASTER ID: ARE-2026-0035</p>",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:fhilsv85ebcnf9vo9efe2cuf6s",
@@ -1664,7 +1664,7 @@
    "description": "The world-famous choir performs in Aspen. Ticket price is a marketplace listing - confirm at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261027T030000Z",
@@ -1679,7 +1679,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:qkjm8akdp0md45d60qfd1aq4c0",
@@ -1694,7 +1694,7 @@
    "description": "Organized 4x4 trail rides across Moab's famous slickrock trails (trail ratings 3-9), Friday-Saturday runs. Registration and fees unverified - verify at jeepjamboreeusa.com.\n\nSource: https://canyonlandsjeep.com/october-in-moab-events-adventures-and-the-perfect-time-to-explore-by-jeep/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:q2di7r1lsp8kdeq16eu7bu9p58",
@@ -1709,7 +1709,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Metal mariachi. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:91ce464qqqr1rq8u395aehf18c",
@@ -1724,7 +1724,7 @@
    "description": "Intimate premier venue, 450 S Galena St. Prices are marketplace listings - confirm at bellyupaspen.com.\n\nSource: https://www.concertarchives.org/venues/belly-up-aspen?date=upcoming",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:bmso72n4ivpqfvjpai27nju1ac",
@@ -1739,7 +1739,7 @@
    "description": "Step inside W Aspen’s darker side for a night of spooky cocktails, immersive DJ sets, and a costume contest that transforms the hotel.\n\nTickets: https://www.eventbrite.com/e/haunted-hotel-halloween-party-at-w-aspen-tickets-1987456397586\nRefunds up to 7 days before the event.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:4p6235tmr51cah06ft8lirslo0",
@@ -1754,7 +1754,7 @@
    "description": "Intimate festival exploring the Jewish experience through film; closing day of the 2026 festival (runs Oct 25-Nov 1).\n\nSource: https://www.bouldercoloradousa.com/events/annual-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:1jhi79r18o33n3hk70mu2d2nbs",
@@ -1769,8 +1769,7 @@
    "description": "Lantern festival at Four Mile Historic Park with a new theme and sculptures each year. Runs into early November; exact November dates, times and prices not captured.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:l04fol6ji75f5tpag32g9tnbi4",
@@ -1785,7 +1784,7 @@
    "description": "Family children's show.\n\nSource: https://thesnowmag.com/aspens-wheeler-opera-house-wins-national-historic-theatre-award/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261103T040000Z",
@@ -1800,7 +1799,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:epvcbmu3s6g1dfjeruoel8lods",
@@ -1815,7 +1814,7 @@
    "description": "Ongoing exhibition (opened June 16, 2026; closing date not yet announced): Aspen Historical Society's look at the decade that turned a small ski town into a global hotspot — artifacts, archival photos, newspaper clippings and '80s playlists, upstairs at the Queen Anne Victorian Wheeler/Stallard house. Museum open Tue-Sat 12-5 PM; admission free.\n\nSource: https://aspenhistory.org/wheeler-stallard-museum/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:42kf61q8sd2oim7n9ods525mnc",
@@ -1830,7 +1829,7 @@
    "description": "Restorative sound journey and evening forest bathing led by Aspen local Megan DiSabatino — crystal and Tibetan bowls, chimes, gongs and drums; begins outdoors among the meadows and woods at Hallam Lake and finishes inside. Bring cozy layers, a yoga mat or blanket (loaners available), pillow and water. Select dates through winter; register via ACES.\n\nSource: https://aspennature.org/activity/winter-sound-bath-forest-bathing/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/df0d800bb109.jpg"
   },
   {
@@ -1846,23 +1845,22 @@
    "description": "Hands-on noncredit culinary class with instructor Kristi Keasler: build a crispy spring-roll filling, roll and fry a few to enjoy in class, and take the rest home for the freezer. $79. No same-day registration — register ahead through Colorado Mountain College.\n\nRegister: https://coloradomtn.augusoft.net/connect/ClassInfo/ClassInformation?int_class_id=2583",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
-   "id": "aurelian-local:lrijtkf6ume809khgcm5qqr4tk",
+   "id": "aurelian-local:1afjl9igf02jicqbrd2kvgafbg",
    "source": "aurelian-local",
-   "title": "Ben Roy (comedy) at TACAW",
-   "start": "2026-11-06",
-   "end": "2026-11-07",
-   "all_day": true,
-   "venue": "TACAW, 400 Robinson St, Basalt, CO",
-   "place_key": "basalt",
+   "title": "Sacred Cinema: 'Bab'Aziz' — Aspen Chapel",
+   "start": "2026-11-05T18:15:00-07:00",
+   "end": "2026-11-05T20:00:00-07:00",
+   "all_day": false,
+   "venue": "Aspen Chapel, 77 Meadowood Drive, Aspen, CO",
+   "place_key": "aspen",
    "url": "",
-   "description": "Stand-up comedy at The Arts Campus at Willits. Time and price not yet published - verify with TACAW box office.\n\nSource: https://www.jambase.com/venue/the-arts-campus-at-willits-tacaw",
+   "description": "Aspen Chapel's Sacred Cinema series: a free screening of 'Bab'Aziz — The Prince Who Contemplated His Soul' (2005), Nacer Khemir's visual poem about a blind dervish and his granddaughter Ishtar crossing the desert. Talk and conversation from 6:15 p.m., refreshments included, donations welcome. Free, no registration necessary.\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/0a4d57edc45a.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:1vu2ae6a6kohahlpl7loevnkfo",
@@ -1877,7 +1875,7 @@
    "description": "One of the earliest Colorado openings. Scheduled, conditions permitting.\n\nSource: https://news.vailresorts.com/2026-08-18-Is-Winter-About-to-Show-Off-Vail-Resorts-Announces-2026-27-Opening-Dates-as-Super-El-Nino-Builds-Anticipation-for-Great-Powder",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/087adb9f25f6.jpg"
   },
   {
@@ -1893,7 +1891,7 @@
    "description": "First-day festivities traditionally include a party at Center Village. Scheduled, conditions permitting. Official Copper confirmation not yet found - date via established ski media.\n\nSource: https://www.powder.com/news/colorados-ski-resort-opening-dates-winter-26-27",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:ueg2ccovd0ntu92hm7efjo2ch0",
@@ -1908,8 +1906,7 @@
    "description": "Denver-wide: hundreds of arts, music, and comedy events, including free Night at the Museums. Many events free.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:2egqmd18vaem491cb5222hnim8",
@@ -1924,7 +1921,38 @@
    "description": "Folk, Americana and bluegrass in a red-rock setting: John Craigie, Rising Appalachia, Leftover Salmon, Steve Poltz. Ballfields 11am-4:30pm Sat/Sun; Star Hall 7-9:30pm Fri/Sat; venues ticketed separately. MARQUEE - can't-miss.\n\nSource: https://www.moabfolkfestival.com/tickets",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
+  },
+  {
+   "id": "aurelian-local:o6kikrurmugeuvtf4o92bavvnc",
+   "source": "aurelian-local",
+   "title": "Storytime Playgroup — Basalt Regional Library",
+   "start": "2026-11-06T10:30:00-07:00",
+   "end": "2026-11-06T11:15:00-07:00",
+   "all_day": false,
+   "venue": "Basalt Regional Library, 14 Midland Ave, Basalt, CO",
+   "place_key": "basalt",
+   "url": "",
+   "description": "Stories, large-motor movement and sensory play for children 0–3 and their caregivers, in the Community Room. Presented in English. A Basalt Regional Library early-literacy program.\n\nOfficial: https://basaltlibrary.libcal.com/\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
+  },
+  {
+   "id": "aurelian-regional:2v4tmls2d8tlbrvs0srkahf85k",
+   "source": "aurelian-regional",
+   "title": "First Friday: Día de los Muertos Celebration — Carbondale",
+   "start": "2026-11-06T17:00:00-07:00",
+   "end": "2026-11-06T21:00:00-07:00",
+   "all_day": false,
+   "venue": "4th Street Plaza, 76 S 4th St, Carbondale, CO",
+   "place_key": "carbondale",
+   "url": "",
+   "description": "Carbondale First Friday in the Creative District — the November edition celebrates Día de los Muertos, described by Carbondale Arts as the largest valley-wide honoring of the holiday. Face painting, hot chocolate and pan de muerto at the Carbondale Library from 4:30 PM; food trucks and activities at Chacos Park from 5 PM; Dance Initiative Folklórico procession departs Third Street Center ~6 PM to Chacos Park. Source: https://www.carbondalearts.com/upcoming-events/dia-de-los-muertos-celebration\n\n",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
+   "image": "calendar/media/305fa35de479.jpg"
   },
   {
    "id": "aurelian-regional:cdk2g80tp0j29m4bqgb73nffb8",
@@ -1939,8 +1967,71 @@
    "description": "Thousands of LED lights across 22 downtown block faces; display runs nightly from early November through Valentine's Day. Gather ~5:30pm, lights-on ~6:30pm; live music. Free.\n\nSource: https://www.visitftcollins.com/blog/stories/post/you-cant-miss-these-fall-festivals-in-fort-collins/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/35e8403cb890.jpg"
+  },
+  {
+   "id": "aurelian-regional:bl8bt0obsu0s0g9vj7t5fhkdc4",
+   "source": "aurelian-regional",
+   "title": "Benny Bleu — Live Music at True Nature (Carbondale)",
+   "start": "2026-11-06T19:00:00-07:00",
+   "end": "2026-11-06T21:00:00-07:00",
+   "all_day": false,
+   "venue": "True Nature Healing Arts, 100 N Third St, Carbondale, CO",
+   "place_key": "carbondale",
+   "url": "",
+   "description": "An intimate evening in the Kiva at True Nature Healing Arts: meditative clawhammer banjo and geologically inspired songs from train-traveling folk musician Benny Bleu, touring his album 'When I Am a Fossil.' Doors 6:30 p.m., show 7 p.m. with a short intermission. Tickets: Standard $33 / Generosity $45 (early bird $20 through Oct 30).\n\nOfficial: https://www.truenaturehealingarts.com/events-workshops/2026/11/6/benny-bleu\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the A",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
+   "image": "calendar/media/855a64e44708.jpg"
+  },
+  {
+   "id": "aurelian-local:vmvg7hb2un475129t7er3nnlhc",
+   "source": "aurelian-local",
+   "title": "Comedian Ben Roy with Nick Ellis & Jordan Lowe — TACAW",
+   "start": "2026-11-06T20:00:00-07:00",
+   "end": "2026-11-06T23:59:00-07:00",
+   "all_day": false,
+   "venue": "TACAW, 400 Robinson St, Basalt, CO",
+   "place_key": "basalt",
+   "url": "",
+   "description": "Stand-up at The Arts Campus at Willits: Ben Roy — Comedy Central, HBO, Hulu, and one of Variety's Top Ten Comics to Watch — with Nick Ellis and Jordan Lowe. Doors 7 p.m., show 8 p.m. Seated show, 21+. Tickets $35 members / $40 advance / $50 day of; limit 4 per purchaser, all sales final.\n\nOfficial: https://tacaw.org/calendar/comedian-ben-roy/\n\nChecked at the source by The Golden Hour, Nov 6, 2026.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
+   "image": "calendar/media/0a4d57edc45a.jpg"
+  },
+  {
+   "id": "aurelian-regional:j435m5n0o733ahvoggd2n0vgk0",
+   "source": "aurelian-regional",
+   "title": "Lena Rich & Emily Barnes — Live Music at Steve's Guitars (Carbondale)",
+   "start": "2026-11-06T20:00:00-07:00",
+   "end": "2026-11-06T23:00:00-07:00",
+   "all_day": false,
+   "venue": "Steve's Guitars, 19 S Fourth St, Carbondale, CO",
+   "place_key": "carbondale",
+   "url": "",
+   "description": "A co-bill in the Steve's Guitars listening room: Lena Rich, sharing songs from her new album 'Emerald City,' and Emily Barnes. Show 8 p.m. Tickets at stevesguitars.net.\n\nOfficial: https://www.stevesguitars.net/\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
+  },
+  {
+   "id": "aurelian-local:r3qgqdt0pkhhiu9ct2o3gnniv8",
+   "source": "aurelian-local",
+   "title": "Easy Jim — Live Music at Belly Up",
+   "start": "2026-11-06T21:00:00-07:00",
+   "end": "2026-11-06T23:00:00-07:00",
+   "all_day": false,
+   "venue": "Belly Up Aspen, 450 S Galena St, Aspen, CO",
+   "place_key": "aspen",
+   "url": "",
+   "description": "An Evening with Easy Jim — the music of the Grateful Dead at Belly Up Aspen. Doors 8 p.m., show 9 p.m. 21-and-older. Tickets $21.60–$54 via AXS.\n\nOfficial: https://bellyupaspen.com/calendar/\nTickets & info: https://www.jambase.com/show/easy-jim-music-of-the-grateful-dead-belly-up-aspen-20261106\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
+   "image": "calendar/media/7155f8b864ac.jpg"
   },
   {
    "id": "aurelian-regional:rs0ku96lm25ed9cq185haugch0",
@@ -1955,22 +2046,99 @@
    "description": "'In Their Honor' Veterans Day parade on Tejon Street, downtown Colorado Springs. Parade start time not yet confirmed (city lists road closures 7am-noon). Likely free.\n\nSource: https://coloradosprings.gov/node/158431",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
-   "id": "aurelian-local:ka1snl00u65e48psmmedio6c4s",
+   "id": "aurelian-local:lr7010urqbehjbtd8r3q3jvjms",
    "source": "aurelian-local",
-   "title": "Margaret Glaspy at TACAW",
-   "start": "2026-11-08",
-   "end": "2026-11-09",
-   "all_day": true,
+   "title": "Aspen Park Run — Herron Park",
+   "start": "2026-11-07T09:00:00-07:00",
+   "end": "2026-11-07T10:15:00-07:00",
+   "all_day": false,
+   "venue": "Herron Park, 103 Neale Ave, Aspen, CO",
+   "place_key": "aspen",
+   "url": "",
+   "description": "A free, weekly, timed 5K from Herron Park — run, jog or walk, all paces welcome. Register free at parkrun.us/aspen to be timed; post-run coffee at Swedish Hill (Aspen Art Museum).\n\nSeason note: City of Aspen Recreation lists the regular season running May–Oct 25. Confirm this week's run at parkrun.us/aspen before heading out.\n\nOfficial: http://www.parkrun.us/aspen/\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
+  },
+  {
+   "id": "aurelian-local:67itfm100c2clkobkghf1gjkp4",
+   "source": "aurelian-local",
+   "title": "Beach Weather — Live Music at Belly Up",
+   "start": "2026-11-07T20:30:00-07:00",
+   "end": "2026-11-07T23:00:00-07:00",
+   "all_day": false,
+   "venue": "Belly Up Aspen, 450 S Galena St, Aspen, CO",
+   "place_key": "aspen",
+   "url": "",
+   "description": "Beach Weather headlines Belly Up Aspen for the first time — the alt-pop trio led by Nick Santino, on the road with new music ahead of a 2027 album. All-ages show, starts 8:30 p.m. Tickets $28 per the print listing; official seller bellyupaspen.com.\n\nOfficial: https://bellyupaspen.com/calendar/\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
+   "image": "calendar/media/0f79c25ab511.jpg"
+  },
+  {
+   "id": "aurelian-local:qapd8gi8ugv72r4j8ekfrq50jk",
+   "source": "aurelian-local",
+   "title": "Sunday Mass — St. Mary Catholic Church",
+   "start": "2026-11-08T07:30:00-07:00",
+   "end": "2026-11-08T08:30:00-07:00",
+   "all_day": false,
+   "venue": "St. Mary Catholic Church, 533 E Main St, Aspen, CO",
+   "place_key": "aspen",
+   "url": "",
+   "description": "Sunday Mass at St. Mary Catholic Church, Aspen. Sunday Masses at 7:30 a.m., 10 a.m. and 5:30 p.m.; Saturday vigil at 5:30 p.m. This entry marks the 7:30 a.m. Mass.\n\nOfficial: https://stmaryaspen.org/\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
+   "image": "calendar/media/7ee13b67b94a.jpg"
+  },
+  {
+   "id": "aurelian-local:dko0ql0l868rar09hcaem5fbkg",
+   "source": "aurelian-local",
+   "title": "Sunday Worship — Grace Church (Basalt)",
+   "start": "2026-11-08T09:00:00-07:00",
+   "end": "2026-11-08T10:30:00-07:00",
+   "all_day": false,
+   "venue": "Grace Church, 1776 Emma Road, Basalt, CO",
+   "place_key": "basalt",
+   "url": "",
+   "description": "Sunday worship at Grace Church of the Roaring Fork Valley (Emma, Basalt) — a gospel-centered community with traditional and contemporary worship, nursery and Sunday School for families. Service 9–10:30 a.m.\n\nOfficial: http://graceroaringfork.com/\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
+  },
+  {
+   "id": "aurelian-local:pukksc0rmsc7e76bfbvdhn822c",
+   "source": "aurelian-local",
+   "title": "Sunday Worship — St. Peter's of the Valley (Basalt)",
+   "start": "2026-11-08T09:30:00-07:00",
+   "end": "2026-11-08T11:30:00-07:00",
+   "all_day": false,
+   "venue": "St. Peter's of the Valley, 200 Elk Run Drive, Basalt, CO",
+   "place_key": "basalt",
+   "url": "",
+   "description": "Sunday Holy Eucharist (Rite II) at St. Peter's of the Valley Episcopal Church, Basalt — 9:30 a.m. on the fall/winter/spring schedule, in an open and affirming parish between Aspen and Glenwood Springs.\n\nOfficial: https://www.stpetersbasalt.org/worship-3\n\nChecked at the source by The Golden Hour, Nov 6, 2026. First listed in the Aspen Daily News print calendar, Nov 5, 2026 edition.",
+   "categories": [],
+   "verified": true,
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
+  },
+  {
+   "id": "aurelian-local:dnaceuu7qh32hbf47oik3v3478",
+   "source": "aurelian-local",
+   "title": "Margaret Glaspy: The I Am Both Tour (Solo) with Olive Klug — TACAW",
+   "start": "2026-11-08T19:00:00-07:00",
+   "end": "2026-11-08T23:59:00-07:00",
+   "all_day": false,
    "venue": "TACAW, 400 Robinson St, Basalt, CO",
    "place_key": "basalt",
    "url": "",
-   "description": "Indie singer-songwriter and guitarist. Time and price not yet published - verify with TACAW box office.\n\nSource: https://www.jambase.com/venue/the-arts-campus-at-willits-tacaw",
+   "description": "New York singer-songwriter Margaret Glaspy brings her I Am Both tour to TACAW, solo, with opener Olive Klug. Doors 6 p.m., show 7 p.m. Seated show, 18+. Tickets $35 member / $40 advance / $50 day of; limit 4 per purchaser, all sales final.\n\nOfficial: https://tacaw.org/calendar/margaret-glaspy-the-i-am-both-tour-solo/\n\nChecked at the source by The Golden Hour, Nov 6, 2026.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/574ad867f27e.jpg"
   },
   {
@@ -1986,7 +2154,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:jmcgaf8uuetdukfs06pkfjjfhg",
@@ -2001,7 +2169,7 @@
    "description": "Latin Grammy-winning bilingual family music duo. Time and price not yet published - verify with TACAW box office.\n\nSource: https://www.jambase.com/venue/the-arts-campus-at-willits-tacaw",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/56e3a0364549.jpg"
   },
   {
@@ -2017,7 +2185,7 @@
    "description": "Scheduled, conditions permitting.\n\nSource: https://news.vailresorts.com/2026-08-18-Is-Winter-About-to-Show-Off-Vail-Resorts-Announces-2026-27-Opening-Dates-as-Super-El-Nino-Builds-Anticipation-for-Great-Powder",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/087adb9f25f6.jpg"
   },
   {
@@ -2033,7 +2201,7 @@
    "description": "Targeted opening date; Eldora has not posted a specific date on its own site yet. Conditions permitting.\n\nSource: https://www.powder.com/news/colorados-ski-resort-opening-dates-winter-26-27",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:jlfabgqndj8jm73tiqj7ph5vkk",
@@ -2048,7 +2216,7 @@
    "description": "Handmade craft, art, and design market on Pearl Street.\n\nSource: https://www.bouldercoloradousa.com/events/annual-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/84ffec363d9f.jpg"
   },
   {
@@ -2064,7 +2232,7 @@
    "description": "Wildlife viewing and education around Colorado's state mammal; activities traditionally free. DATE TENTATIVE - not confirmed by an official source; verify before planning.\n\nSource: https://festivalguidesandreviews.com/colorado-festivals/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:1vfabmdpekpabqr3r43o6j97bg",
@@ -2079,7 +2247,7 @@
    "description": "Austin psych-rock headliners in an intimate 450-cap room with GHOSTWOMAN supporting. Exact showtime not firmly confirmed (some calendars list 9pm). Price is a secondary listing - confirm at bellyupaspen.com.\n\nSource: https://www.jambase.com/venue/belly-up-aspen",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:4ksu1rhkq6d5up14ug80ohsi4g",
@@ -2094,7 +2262,7 @@
    "description": "17th annual, hosted by Colorado Veterans Project: 5K/10K run/walk and 10K Rippetoe Ruck Challenge from 8:30am; parade 10:30am-noon; festival with live music and beer garden to 2:30pm. Parade and festival free to the public; run registration fees apply.\n\nSource: https://www.denverveteransday.com",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:53tmi266rjjs101qvvio79blo0",
@@ -2109,8 +2277,7 @@
    "description": "Tribute to the Carpenters' catalog; Sunday matinee. Ticket price is a secondary listing - confirm at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/287fae68e4b6.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261117T040000Z",
@@ -2125,7 +2292,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:o0s4a5o9p8hv8gfhu420skle7s",
@@ -2140,8 +2307,7 @@
    "description": "50+ local artisan vendors, live music, festive drinks and decor. Free. Runs through Dec 24.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:jath8db7c3p2ndjlbpacat1nps",
@@ -2156,7 +2322,7 @@
    "description": "Twiddle frontman solo show (likely 8pm). Time and price not yet published - verify with TACAW box office.\n\nSource: https://www.jambase.com/venue/the-arts-campus-at-willits-tacaw",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/13eb7a462d5e.jpg"
   },
   {
@@ -2172,8 +2338,7 @@
    "description": "Northern Irish singer-songwriter on The Wake World Tour, celebrating 'The Wake' and the songs of 'If.' Ticket price is a secondary listing - confirm at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/287fae68e4b6.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:e8tmlqlp4grjnfe0omu929boso",
@@ -2188,7 +2353,7 @@
    "description": "Electronic/downtempo act - a major nightlife draw on Thanksgiving week. Showtime not firmly confirmed. Price is a secondary listing - confirm at bellyupaspen.com.\n\nSource: https://www.jambase.com/venue/belly-up-aspen",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:v1gv54bcr5k5qn1divnd7ghcag",
@@ -2203,8 +2368,7 @@
    "description": "Authentic German Christmas market: wooden huts, food, gluehwein, music, gifts. Typical hours Mon-Thu 1-9pm, Fri-Sun 11am-9pm. Free. Runs through Dec 23. MARQUEE - can't-miss.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:cgh63r1981bghog85ina03flvo",
@@ -2219,8 +2383,7 @@
    "description": "600 drones create holiday animations in the downtown Denver sky, nightly at 7pm. Free. Runs nightly through Dec 31. MARQUEE - can't-miss.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:6jj304g24fapn0dmks7mft3lr0",
@@ -2235,8 +2398,7 @@
    "description": "110-foot immersive light-and-music installation on the Great Lawn. Runs through Dec 31. Admission price not confirmed.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:lue30vq8rcvnumhkfhf3f4lhhc",
@@ -2251,7 +2413,7 @@
    "description": "Same tour as his Aspen show the night before, at Boulder's historic Fox Theatre.\n\nSource: https://www.axs.com/nz/artists/104206/foy-vance-tickets/staticDetails",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/dc42c6aeac0e.jpg"
   },
   {
@@ -2267,8 +2429,7 @@
    "description": "Stand-up comedy. Ticket price is a secondary listing - confirm at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/287fae68e4b6.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:oveo6q5qrq1j7egd9r09storjs",
@@ -2283,8 +2444,7 @@
    "description": "Final Frontier Tour - no opening act, full Journey set. Time and price not captured.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:qfo30cppph84vahtru3oolmjss",
@@ -2299,7 +2459,7 @@
    "description": "Cookie Crawl from 11am; illumination of Pearl Street, the Civic Area, and the Boulder County Courthouse at 5pm; Santa and Mrs. Claus visits to 7pm. Free.\n\nSource: https://boulderdowntown.com/light-up-the-holidays/events/switch-on-the-holidays",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261124T040000Z",
@@ -2314,7 +2474,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:fi75vbt420nts2t14pc51c2dug",
@@ -2329,8 +2489,7 @@
    "description": "Opulent musical adaptation and major Denver holiday tradition. Runs through Dec 27. Time and price not captured.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:9fnf4s7d69vb0s1qhq3i0f38a0",
@@ -2345,7 +2504,7 @@
    "description": "Scheduled, conditions permitting.\n\nSource: https://news.vailresorts.com/2026-08-18-Is-Winter-About-to-Show-Off-Vail-Resorts-Announces-2026-27-Opening-Dates-as-Super-El-Nino-Builds-Anticipation-for-Great-Powder",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/087adb9f25f6.jpg"
   },
   {
@@ -2361,7 +2520,7 @@
    "description": "Scheduled, conditions permitting.\n\nSource: https://news.vailresorts.com/2026-08-18-Is-Winter-About-to-Show-Off-Vail-Resorts-Announces-2026-27-Opening-Dates-as-Super-El-Nino-Builds-Anticipation-for-Great-Powder",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/087adb9f25f6.jpg"
   },
   {
@@ -2377,7 +2536,7 @@
    "description": "Scheduled season opener, conditions permitting. Aspen Snowmass's official lift-ticket page confirms Aspen Mountain opens 2026-11-26. Lift ticket or pass required. MARQUEE - can't-miss season kickoff.\n\nSource: https://www.aspensnowmass.com/visit/tickets-and-passes/lift-tickets",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/925ed000bb7c.jpg"
   },
   {
@@ -2393,7 +2552,7 @@
    "description": "Family-friendly opener near Winter Park. Scheduled, conditions permitting. Date via established ski media.\n\nSource: https://www.powder.com/news/colorados-ski-resort-opening-dates-winter-26-27",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:ss3p1uldavbgqujtgbbgjvn730",
@@ -2408,7 +2567,7 @@
    "description": "Scheduled season opener, conditions permitting. Aspen Snowmass's official lift-ticket page confirms Snowmass opens 2026-11-26. Lift ticket or pass required. (Aspen Highlands and Buttermilk open Dec 12.) MARQUEE - can't-miss season kickoff.\n\nSource: https://www.aspensnowmass.com/visit/tickets-and-passes/lift-tickets",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/925ed000bb7c.jpg"
   },
   {
@@ -2424,7 +2583,7 @@
    "description": "Official targeted opening date on Thanksgiving Day; conditions permitting. MARQUEE - can't-miss.\n\nSource: https://tellurideskiresort.com/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:7cpfkkvjhrpldd276l77lkppdc",
@@ -2439,7 +2598,7 @@
    "description": "From-scratch local chocolate samples, holiday shopping, music, chocolate awards; Saturday tree lighting in Basham Park (5:30pm); 'Elf' screening at The Ruth (7pm). Chocolate festival 11am-4pm Fri/Sat. MARQUEE - one-of-a-kind.\n\nSource: https://www.creede.com/chocolate-festival",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:i6davv45u8pp795f7ph34dbgsc",
@@ -2454,8 +2613,7 @@
    "description": "Millions of lights, 65-foot tree, 300-foot candy-cane tunnel, rides, interactive displays, Santa. Runs through Jan 3. Price and time not captured.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:7kpq8a200mlpqqf6l3r41jmv9o",
@@ -2470,7 +2628,7 @@
    "description": "Free visits with Santa at the Visitor Information Center on Pearl Street.\n\nSource: https://www.bouldercoloradousa.com/events/annual-events/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00",
    "image": "calendar/media/84ffec363d9f.jpg"
   },
   {
@@ -2486,8 +2644,7 @@
    "description": "Stand-up comedy on Thanksgiving weekend. Ticket price is a secondary listing - confirm at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/287fae68e4b6.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-regional:99pqj595gpd3a17jqiv43bsp58",
@@ -2502,8 +2659,7 @@
    "description": "Flagship holiday production (traditionally at the Ellie Caulkins Opera House - verify venue before stating). Runs through Dec 27. Time and price not captured. MARQUEE - can't-miss holiday tradition.\n\nSource: https://visitdenver.com/blog/post/event-planning-guide/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/229293f54cfc.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:pnvoladjc5onlp6s1n5kehf1v0",
@@ -2518,8 +2674,7 @@
    "description": "Country/jazz holiday concert kicking off the Christmas season. Ticket price is a secondary listing - confirm at wheeleroperahouse.com.\n\nSource: https://wheeleroperahouse.com/wheeler-labor-day-sale/",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00",
-   "image": "calendar/media/287fae68e4b6.jpg"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261201T040000Z",
@@ -2534,7 +2689,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261208T040000Z",
@@ -2549,7 +2704,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261215T040000Z",
@@ -2564,7 +2719,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261222T040000Z",
@@ -2579,7 +2734,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20261229T040000Z",
@@ -2594,7 +2749,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270105T040000Z",
@@ -2609,7 +2764,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270112T040000Z",
@@ -2624,7 +2779,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270119T040000Z",
@@ -2639,7 +2794,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270126T040000Z",
@@ -2654,7 +2809,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270202T040000Z",
@@ -2669,7 +2824,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270209T040000Z",
@@ -2684,7 +2839,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270216T040000Z",
@@ -2699,7 +2854,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270223T040000Z",
@@ -2714,7 +2869,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270302T040000Z",
@@ -2729,7 +2884,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270309T040000Z",
@@ -2744,7 +2899,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270316T030000Z",
@@ -2759,7 +2914,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270323T030000Z",
@@ -2774,7 +2929,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270330T030000Z",
@@ -2789,7 +2944,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270406T030000Z",
@@ -2804,7 +2959,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270413T030000Z",
@@ -2819,7 +2974,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270420T030000Z",
@@ -2834,7 +2989,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   },
   {
    "id": "aurelian-local:scg7ht9i9313s22feb80dnsqq0_20270427T030000Z",
@@ -2849,7 +3004,7 @@
    "description": "Weekly karaoke night at Silver City, Aspen's mountain saloon in the historic Elks Building. Hosted by Karaoke With Sandman (@karaokewithsandman). Sign-ups open 9pm; singing starts once 5 singers are signed up. Song list: kwslist.com. Walk-ins welcome. VERIFIED 2026-09-25 via the host's Instagram (\"EVERY MONDAY NIGHT\"). Note: the venue has moved this night before — re-confirm if a Monday looks off.",
    "categories": [],
    "verified": true,
-   "fetched_at": "2026-11-04T17:00:38.769578+00:00"
+   "fetched_at": "2026-11-07T00:02:52.078022+00:00"
   }
  ]
 }
