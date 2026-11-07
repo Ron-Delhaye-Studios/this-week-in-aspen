@@ -23,8 +23,10 @@ class LuxuryTests(unittest.TestCase):
         rows+=[rows[0],event('draft','2026-11-07T12:00:00-07:00',verified=False),event('past','2026-10-31T23:59:00-06:00')]
         chosen,horizon=coming_up(rows,date(2026,11,1));self.assertTrue(horizon);self.assertEqual([e['slug'] for e in chosen],['10','11','12','13','14']);self.assertEqual(this_week(rows,date(2026,11,1)),[])
     def test_denver_date_not_utc_day_controls_cutoff(self):
-        rows=[event('prior','2026-11-01T05:30:00Z'),event('future','2026-11-08T02:00:00Z')]
-        chosen,horizon=coming_up(rows,date(2026,11,1));self.assertTrue(horizon);self.assertEqual([e['slug'] for e in chosen],['future'])
+        rows=[event('prior','2026-11-01T05:30:00Z'),event('last-local-day','2026-11-08T02:00:00Z')]
+        chosen,horizon=coming_up(rows,date(2026,11,1));self.assertFalse(horizon);self.assertEqual([e['slug'] for e in chosen],['last-local-day'])
+        beyond=event('future','2026-11-08T07:00:00Z')
+        chosen,horizon=coming_up([rows[0],beyond],date(2026,11,1));self.assertTrue(horizon);self.assertEqual([e['slug'] for e in chosen],['future'])
     def test_empty_feed_offers_positive_guide_paths(self):
         doc=BeautifulSoup(homepage_sections([],date(2026,11,1),{},''),'html.parser').select_one('.gh-week')
         self.assertNotIn('No verified',doc.text);self.assertEqual([a['href'] for a in doc.select('.gh-list-empty a')],['picks/','activities/'])
