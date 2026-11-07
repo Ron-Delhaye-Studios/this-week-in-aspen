@@ -609,6 +609,9 @@ def main():
         assert skin in (None,'halloween'), 'Unknown seasonal skin'
         for path in ROOT.rglob('*.html'):
             if '.git' not in path.parts: decorate(path,skin,rows,day)
+        # The detail generator copies shared chrome from the decorated collection.
+        from build_event_details import build as build_event_details
+        build_event_details(ROOT, datetime.combine(day, datetime.min.time(), tzinfo=TZ))
     validate(rows,day)
 
 

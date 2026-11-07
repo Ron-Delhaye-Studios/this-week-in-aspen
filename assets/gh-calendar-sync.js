@@ -95,7 +95,7 @@
       url: ev.url || made.url || "",
       blurb: made.blurb,
       image: ev.image || "",
-      slug: "",
+      slug: "sync-" + String(ev.id).replace(/[^a-zA-Z0-9_-]/g, "-"),
       place_key: ev.place_key || "",
       verified: ev.verified !== false
     };
