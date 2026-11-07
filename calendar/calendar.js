@@ -231,9 +231,8 @@
     if (ev.blurb) html += '<p class="gcal-blurb">' + esc(ev.blurb) + "</p>";
     if (ev.fit_note) html += '<p class="gcal-fit">' + esc(/^for\s/i.test(ev.fit_note) ? ev.fit_note : "For: " + ev.fit_note) + "</p>";
     html += '<div class="gcal-links">';
-    // Sync rows have no map entry or /upcoming/ anchor; the official link is
-    // the only outbound door the sync data supports.
-    if (ev.url) html += '<a href="' + esc(ev.url) + '" target="_blank" rel="noopener">Official event page ↗</a>';
+    // The publication overview comes before the explicit venue/booking exit.
+    html += '<a href="' + esc(window.GHCalSync.detailUrl(ev)) + '">Event details →</a>';
     html += "</div></div></div>";
     showModal(html);
   }

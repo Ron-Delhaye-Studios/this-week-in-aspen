@@ -10,7 +10,7 @@ const REVISIONS = {
 
   tables: 1,
 
-  events: 2,
+  events: 3,
 
   collections: 1,
 
@@ -24,7 +24,7 @@ const CACHE = PREFIX + "wo19-" + Object.entries(REVISIONS).map(([name, revision]
 const BASE = new URL('./', self.location.href).pathname;
 const CORE = ['', 'index.html', '404.html', 'manifest.json', 'manifest-dark.json',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
-  'assets/gh-luxury-polish.css', 'assets/gh-image-credits.js', 'assets/gh-week.js', 'assets/gh-calendar-sync.js', 'assets/gh-this-week.js', 'assets/gh-home-live.js', 'assets/gh-chrome.css', 'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js']
+  'assets/gh-event-detail.css', 'assets/gh-luxury-polish.css', 'assets/gh-image-credits.js', 'assets/gh-week.js', 'assets/gh-calendar-sync.js', 'assets/gh-this-week.js', 'assets/gh-home-live.js', 'assets/gh-chrome.css', 'assets/gh-home.css', 'assets/img/cover-maroon-bells.jpg', 'assets/gh-theme.css', 'assets/gh-theme.js']
   .map(path => BASE + path);
 function noStore(response) {
   return /(?:^|,)\s*no-store\b/i.test(response.headers.get("Cache-Control") || "");

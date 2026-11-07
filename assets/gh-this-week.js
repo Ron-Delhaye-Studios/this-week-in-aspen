@@ -82,18 +82,16 @@
         esc(row.image) + '"/></figure>'
       : "";
     const cls = row.image ? "gh-event-card gh-card has-media" : "gh-event-card gh-card gh-typographic";
-    const link = row.url
-      ? '<div class="gh-card-actions"><a class="btn" href="' + esc(row.url) +
-        '" rel="noopener">Official source ↗</a></div>'
-      : "";
+    const detail = window.GHCalSync.detailUrl(row);
+    const link = '<div class="gh-card-actions"><a class="btn" href="' + esc(detail) + '">Event details →</a></div>';
     const blurb = row.blurb ? "<p>" + esc(row.blurb) + "</p>" : "";
     const venue = row.venue ? '<p class="gh-card-venue">' + esc(row.venue) + "</p>" : "";
     return '<article class="' + cls + '" data-starts="' + esc(row.starts_at) + '">' +
-      media +
+      (media ? '<a class="gh-card-image-link" href="' + esc(detail) + '" aria-label="' + esc(row.title) + ' — event details">' + media + '</a>' : "") +
       '<div class="gh-card-body">' +
       '<p class="gh-card-kicker">' + esc(row.category || "event") + "</p>" +
       "<time datetime=\"" + esc(row.starts_at) + "\">" + esc(whenLabel(row)) + "</time>" +
-      "<h2>" + esc(row.title) + "</h2>" +
+      '<h2><a class="gh-card-link" href="' + esc(detail) + '">' + esc(row.title) + "</a></h2>" +
       venue + blurb + link +
       "</div></article>";
   }
@@ -109,7 +107,7 @@
         startDate: row.starts_at,
         endDate: row.ends_at || row.starts_at,
         location: row.venue ? { "@type": "Place", name: row.venue } : undefined,
-        url: row.url || undefined
+        url: window.GHCalSync.canonicalUrl(row)
       }
     }));
     ldEl.textContent = JSON.stringify({
@@ -120,23 +118,42 @@
     });
   }
 
-  window.GHCalSync.load().then((data) => {
+  grid.replaceChildren();
+  if (rangeEl) rangeEl.textContent = '';
+  if (emptyEl) { emptyEl.hidden = false; emptyEl.textContent = 'Finding what’s on…'; }
+  jsonLd([]);
+  let rendered='', pending=false;
+  async function refresh(){
+    if(pending)return;pending=true;
+    try {
+    const data=await window.GHCalSync.load();
     const today = window.GHCalSync.todayKey();
-    const rows = (data.local || []).filter((r) => r.verified !== false);
+    const rows = (data.local || []).filter((r) => r.verified !== false && r.end_day >= today).sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at));
     const inWeek = rows.filter((r) => r.start_day >= today && r.start_day <= addDays(today, 6));
     const horizon = inWeek.length === 0;
     const show = horizon ? rows.slice(0, 5) : inWeek;
 
+    const signature=JSON.stringify([today,show]);if(signature===rendered)return;rendered=signature;
     if (rangeEl && show.length) rangeEl.textContent = rangeLabel(show, horizon);
     if (show.length) {
       grid.innerHTML = show.map(cardHTML).join("");
       if (emptyEl) emptyEl.hidden = true;
       jsonLd(show);
-    } else if (rangeEl) {
-      rangeEl.textContent = "";
+    } else {
+      grid.replaceChildren();if(emptyEl)emptyEl.hidden=false;
+      if (rangeEl) rangeEl.textContent = '';
+      if (emptyEl) emptyEl.textContent = 'Explore the Calendar for later dates.';
+      jsonLd([]);
     }
-  }).catch(() => {
+  } catch (_) {
+    rendered='';
+    grid.replaceChildren();jsonLd([]);
+    if (rangeEl) rangeEl.textContent = '';
+    if (emptyEl) {emptyEl.hidden = false;emptyEl.textContent = 'The calendar is temporarily unavailable. Please try again.';}
     /* Feed unavailable: the page's honest empty state remains, worded as-is.
        Nothing is fabricated to fill the grid. */
-  });
+  } finally {pending=false;}
+  }
+  refresh();setInterval(refresh,60000);addEventListener('pageshow',refresh);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
 })();
