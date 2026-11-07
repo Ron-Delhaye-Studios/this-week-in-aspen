@@ -1,65 +1,142 @@
-/* WO21: refresh a cached This Week page from the publication feed.
-   WO-GH-CAL-05: the feed is now the aurelian-local set of the AURELIAN
-   calendar sync, loaded via assets/gh-calendar-sync.js. */
+/* WO-GH-UPCOMING-FIX (LUNA build, 2026-11-06): the missing /upcoming/ renderer.
+   The page shipped as a static shell whose only data scripts were
+   gh-calendar-sync.js (data adapter) and gh-week.js (window math) — nothing
+   ever rendered rows, so the baked Oct 31 – Nov 06 window and the empty
+   state were all a visitor could ever see.
+
+   Contract (all pre-existing on the page — nothing here renames it):
+   - Data: window.GHCalSync.load() -> { local, regional, exported_at, counts }.
+     The adapter already drops events whose end_day < today (Denver) and
+     sorts soonest-first. `local` (aurelian-local / Around Aspen) feeds this
+     page, per the adapter's own header note.
+   - Window: PR #30 rolling discovery — start Denver-today; when no start
+     falls within 7 days, fall forward to the next 5 upcoming (horizon).
+     The Sat–Fri GHWeek preset (WO21) does NOT match the adapter's
+     all-events-by-start ordering (an in-progress timed event sorts before
+     a multi-day all-day one already under way), so the window is computed
+     here on start_day.
+   - Markup: the site's own card system (same classes as /events/).
+   - Standing rules: ended events never render (the adapter enforces it);
+     an event with no verified image gets NO media header (the typographic
+     card is the design, not a fallback); cover/range text is generated
+     from live data at render time, never hand-written.
+   - Failure: if the feed cannot load, the honest empty state stays and
+     says so. This script never invents events. */
 (() => {
-  const start=()=>{
-    if(document.body.dataset.page!=='upcoming/index.html')return;
-    const W=window.GHWeek,base=new URL('../',document.querySelector('script[src$="gh-this-week.js"]').src);
-    const grid=document.querySelector('.gh-event-grid'),chips=document.querySelector('.gh-filters'),empty=document.querySelector('.gh-list-empty');
-    const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const fmt=(d,opts)=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',...opts}).format(new Date(d));
-    let rows=null,selected='all',loadedDay='',pending=false,rendered='';
-    function card(e){
-      const when=e.all_day?fmt(e.starts_at,{weekday:'short',month:'short',day:'2-digit'})+' · All day':fmt(e.starts_at,{weekday:'short',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit'})+' MT';
-      // WO-GH-CAL-05: sync rows have no detail page; link the official source
-      // when the sync data carries one, otherwise render the title unlinked.
-      const href=e.slug?new URL('events/'+encodeURIComponent(e.slug)+'/',base).href:(e.url||'');
-      const title='<p class="gh-card-kicker">'+esc(e.category)+'</p><time datetime="'+esc(e.starts_at)+'">'+esc(when)+'</time><h2>'+(href?'<a class="gh-card-link" href="'+esc(href)+'"'+(e.slug?'':' rel="noopener"')+'>'+esc(e.title)+'</a>':esc(e.title))+'</h2>';
-      const image=e.image?'<figure class="gh-card-media"><img src="'+esc(new URL(e.image,base).href)+'" alt="'+esc(e.title)+' — official event imagery" loading="lazy" decoding="async"></figure>':'';
-      const copy=e.title+' — '+e.venue+'\n'+when+'\n'+(e.blurb||'')+'\n'+e.url;
-      return '<article id="ev-'+esc(e.id)+'" class="gh-event-card gh-card '+(image?'has-media':'gh-typographic')+'" data-starts="'+esc(e.starts_at)+'" data-slug="'+esc(e.slug)+'" data-cat="'+esc(e.category)+'" data-free="'+(W.free(e)?'1':'0')+'">'+(image||'<header class="gh-type-media">'+title+'</header>')+'<div class="gh-card-body">'+(image?title:'')+'<p class="gh-card-venue">'+esc(e.venue)+'</p><details class="gh-card-details"><summary>Details &amp; booking</summary><dl><div><dt>Price</dt><dd>'+esc(e.price_info||'Confirm with venue')+'</dd></div><div><dt>Ages</dt><dd>'+esc(e.age_policy||'Confirm with venue')+'</dd></div></dl><p>'+esc(e.blurb)+'</p><p>'+esc(e.fit_note)+'</p></details><div class="gh-card-actions">'+(e.url?'<a class="btn" href="'+esc(e.url)+'" rel="noopener">Official source ↗</a>':'')+'<button type="button" class="copybtn gh-copy" data-copy="'+esc(copy)+'">Copy details</button></div></div></article>';
-    }
-    function render(){
-      const key=W.day(new Date()),range=W.bounds(key);
-      document.querySelector('.gh-week-range').textContent=fmt(range.start+'T12:00:00Z',{month:'short',day:'2-digit'})+' – '+fmt(range.end+'T12:00:00Z',{month:'short',day:'2-digit',year:'numeric'})+' · MT';
-      if(rows){
-        const current=W.select(rows,key),available=W.filters(current);
-        if(!available.some(([value])=>value===selected))selected='all';
-        const signature=JSON.stringify([key,current]);
-        // Keep open details, copy feedback and keyboard focus on unchanged data.
-        if(signature!==rendered){
-          chips.innerHTML=available.map(([value,label])=>'<button type="button" data-filter="'+value+'" aria-pressed="'+(value===selected)+'">'+label+'</button>').join('');
-          grid.innerHTML=current.map(card).join('');
-          const ld=document.getElementById('gh-event-list');
-          if(ld)ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',name:'This Week — The Golden Hour',itemListElement:current.map((e,i)=>({'@type':'ListItem',position:i+1,item:{'@type':'Event',name:e.title,startDate:e.starts_at,url:e.slug?'https://thegoldenhour.guide/events/'+e.slug+'/':(e.url||'https://thegoldenhour.guide/upcoming/')}}))});
-          rendered=signature;
-        }
-        chips.hidden=!current.length;
-        chips.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===selected)));
+  "use strict";
+
+  const grid = document.querySelector(".gh-event-grid");
+  const rangeEl = document.querySelector(".gh-week-range");
+  const emptyEl = document.querySelector(".gh-list-empty");
+  const ldEl = document.getElementById("gh-event-list");
+  if (!grid || !window.GHCalSync) return;
+
+  const DENVER = "America/Denver";
+  const dayFmt = new Intl.DateTimeFormat("en-US", {
+    timeZone: DENVER, weekday: "short", month: "short", day: "numeric"
+  });
+  const timeFmt = new Intl.DateTimeFormat("en-US", {
+    timeZone: DENVER, hour: "numeric", minute: "2-digit"
+  });
+  const rangeFmt = new Intl.DateTimeFormat("en-US", {
+    timeZone: DENVER, month: "short", day: "numeric"
+  });
+  const yearFmt = new Intl.DateTimeFormat("en-US", { timeZone: DENVER, year: "numeric" });
+
+  const esc = (s) => String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+  function addDays(dateStr, n) {
+    const d = new Date(dateStr + "T12:00:00Z");
+    d.setUTCDate(d.getUTCDate() + n);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function whenLabel(row) {
+    if (row.all_day) {
+      const a = dayFmt.format(new Date(row.starts_at));
+      if (row.end_day && row.end_day !== row.start_day) {
+        return a + " – " + dayFmt.format(new Date(row.ends_at)) + " · All day";
       }
-      const eligible=[...grid.children].filter(c=>W.matches({starts_at:c.dataset.starts},key));
-      if(!rows){
-        const available=eligible.length?['all',...['music','arts','free'].filter(f=>eligible.some(c=>f==='free'?c.dataset.free==='1':c.dataset.cat===f))]:[];
-        if(!available.includes(selected))selected='all';
-        chips.querySelectorAll('button').forEach(b=>{b.hidden=!available.includes(b.dataset.filter);b.setAttribute('aria-pressed',String(b.dataset.filter===selected))});
-        chips.hidden=!available.length;
-        const ld=document.getElementById('gh-event-list');
-        if(ld){const data=JSON.parse(ld.textContent);data.itemListElement=data.itemListElement.filter(x=>W.matches({starts_at:x.item.startDate},key)).map((x,i)=>({...x,position:i+1}));ld.textContent=JSON.stringify(data)}
-      }
-      [...grid.children].forEach(c=>{c.hidden=!eligible.includes(c)||!(selected==='all'||(selected==='free'?c.dataset.free==='1':c.dataset.cat===selected))});
-      empty.hidden=eligible.some(c=>!c.hidden);
-      if(!empty.hidden && rows){
-        const next=rows.filter(e=>W.verified(e)&&W.day(new Date(e.starts_at))>range.end).sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at))[0];
-        empty.textContent=selected!=='all'?'No verified events match this filter. Try All.':next?'Nothing verified in the next seven days � next up: '+fmt(next.starts_at,{month:'short',day:'numeric',year:'numeric'})+'.':'No upcoming events are currently verified. Check back for new listings.';
-      }
+      return a + " · All day";
     }
-    async function refresh(){
-      render();const key=W.day(new Date());if(pending||loadedDay===key)return;
-      pending=true;
-      try{const sync=await window.GHCalSync.load();if(!sync||!Array.isArray(sync.local))throw Error('Invalid feed');rows=sync.local;loadedDay=key;render()}catch(_){/* Preserve only still-eligible server-rendered listings. */}finally{pending=false}
+    return dayFmt.format(new Date(row.starts_at)) + " · " +
+      timeFmt.format(new Date(row.starts_at)) + " MT";
+  }
+
+  function rangeLabel(rows, horizon) {
+    if (!rows.length) return "";
+    const first = rows[0], last = rows[rows.length - 1];
+    const a = rangeFmt.format(new Date(first.starts_at));
+    const b = rangeFmt.format(new Date((last.all_day ? last.ends_at : last.starts_at)));
+    const yr = yearFmt.format(new Date(last.starts_at));
+    return (horizon ? "Coming up · " : "") +
+      (a === b ? a : a + " – " + b) + ", " + yr + " · MT";
+  }
+
+  function cardHTML(row) {
+    const media = row.image
+      ? '<figure class="gh-card-media"><img class="gh-artwork" alt="' +
+        esc(row.title) + ' — official event imagery" loading="lazy" decoding="async" src="../' +
+        esc(row.image) + '"/></figure>'
+      : "";
+    const cls = row.image ? "gh-event-card gh-card has-media" : "gh-event-card gh-card gh-typographic";
+    const link = row.url
+      ? '<div class="gh-card-actions"><a class="btn" href="' + esc(row.url) +
+        '" rel="noopener">Official source ↗</a></div>'
+      : "";
+    const blurb = row.blurb ? "<p>" + esc(row.blurb) + "</p>" : "";
+    const venue = row.venue ? '<p class="gh-card-venue">' + esc(row.venue) + "</p>" : "";
+    return '<article class="' + cls + '" data-starts="' + esc(row.starts_at) + '">' +
+      media +
+      '<div class="gh-card-body">' +
+      '<p class="gh-card-kicker">' + esc(row.category || "event") + "</p>" +
+      "<time datetime=\"" + esc(row.starts_at) + "\">" + esc(whenLabel(row)) + "</time>" +
+      "<h2>" + esc(row.title) + "</h2>" +
+      venue + blurb + link +
+      "</div></article>";
+  }
+
+  function jsonLd(rows) {
+    if (!ldEl) return;
+    const items = rows.map((row, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Event",
+        name: row.title,
+        startDate: row.starts_at,
+        endDate: row.ends_at || row.starts_at,
+        location: row.venue ? { "@type": "Place", name: row.venue } : undefined,
+        url: row.url || undefined
+      }
+    }));
+    ldEl.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "This Week — The Golden Hour",
+      itemListElement: items
+    });
+  }
+
+  window.GHCalSync.load().then((data) => {
+    const today = window.GHCalSync.todayKey();
+    const rows = (data.local || []).filter((r) => r.verified !== false);
+    const inWeek = rows.filter((r) => r.start_day >= today && r.start_day <= addDays(today, 6));
+    const horizon = inWeek.length === 0;
+    const show = horizon ? rows.slice(0, 5) : inWeek;
+
+    if (rangeEl && show.length) rangeEl.textContent = rangeLabel(show, horizon);
+    if (show.length) {
+      grid.innerHTML = show.map(cardHTML).join("");
+      if (emptyEl) emptyEl.hidden = true;
+      jsonLd(show);
+    } else if (rangeEl) {
+      rangeEl.textContent = "";
     }
-    chips.addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(b){selected=b.dataset.filter;render()}});
-    refresh();setInterval(refresh,60000);addEventListener('pageshow',refresh);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
-  };
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+  }).catch(() => {
+    /* Feed unavailable: the page's honest empty state remains, worded as-is.
+       Nothing is fabricated to fill the grid. */
+  });
 })();
