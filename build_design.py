@@ -604,13 +604,14 @@ def main():
         build_lists(rows,day)
         from build_features import build_ready
         build_ready(ROOT,rows,day)
-        from build_event_details import build as build_event_details
-        build_event_details(ROOT, datetime.combine(day, datetime.min.time(), tzinfo=TZ))
         build_404()
         skin=json.loads((ROOT/'design-config.json').read_text())['skin']
         assert skin in (None,'halloween'), 'Unknown seasonal skin'
         for path in ROOT.rglob('*.html'):
             if '.git' not in path.parts: decorate(path,skin,rows,day)
+        # The detail generator copies shared chrome from the decorated collection.
+        from build_event_details import build as build_event_details
+        build_event_details(ROOT, datetime.combine(day, datetime.min.time(), tzinfo=TZ))
     validate(rows,day)
 
 
