@@ -31,4 +31,6 @@ jobs:
       - run: python tests/wo20_features.py
       - run: python tests/luxury_scope.py
       - run: python tests/event_flow.py
+      - run: python tests/calendar_intake.py
+      - run: node tests/event_policy.cjs
       - run: git diff --check

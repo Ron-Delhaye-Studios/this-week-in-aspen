@@ -67,7 +67,8 @@
 
   function rangeLabel(rows, horizon) {
     if (!rows.length) return "";
-    const first = rows[0], last = rows[rows.length - 1];
+    const byTime = [...rows].sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at));
+    const first = byTime[0], last = byTime[byTime.length - 1];
     const a = rangeFmt.format(new Date(first.starts_at));
     const b = rangeFmt.format(new Date((last.all_day ? last.ends_at : last.starts_at)));
     const yr = yearFmt.format(new Date(last.starts_at));
@@ -113,7 +114,7 @@
     ldEl.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: "This Week — The Golden Hour",
+      name: grid.dataset.ghScope === 'all' ? "Events — The Golden Hour" : "This Week — The Golden Hour",
       itemListElement: items
     });
   }
@@ -122,18 +123,27 @@
   if (rangeEl) rangeEl.textContent = '';
   if (emptyEl) { emptyEl.hidden = false; emptyEl.textContent = 'Finding what’s on…'; }
   jsonLd([]);
-  let rendered='', pending=false;
+  let rendered='', pending=false, selected='all';
+  const filterBox=grid.dataset.ghScope==='all'?document.querySelector('.gh-filters'):null;
+  if(filterBox)filterBox.addEventListener('click',event=>{const button=event.target.closest('button[data-filter]');if(button){selected=button.dataset.filter;refresh();}});
   async function refresh(){
     if(pending)return;pending=true;
     try {
     const data=await window.GHCalSync.load();
     const today = window.GHCalSync.todayKey();
-    const rows = (data.local || []).filter((r) => r.verified !== false && r.end_day >= today).sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at));
-    const inWeek = rows.filter((r) => r.start_day >= today && r.start_day <= addDays(today, 6));
+    const all = grid.dataset.ghScope === 'all';
+    const rows = (all ? [...data.local,...data.regional] : data.local || []).filter((r) => r.verified === true && r.end_day >= today).sort(window.GHCalSync.compare);
+    const inWeek = rows.filter((r) => r.start_day <= addDays(today, 6));
     const horizon = inWeek.length === 0;
-    const show = horizon ? rows.slice(0, 5) : inWeek;
+    if(filterBox){
+      const categories=[...new Set(rows.map(row=>row.category))].filter(value=>value&&value!=='event');
+      const filters=[['all','All'],...categories.map(value=>[value,value.charAt(0).toUpperCase()+value.slice(1)])];
+      if(!filters.some(([value])=>value===selected))selected='all';
+      filterBox.innerHTML=filters.map(([value,label])=>'<button type="button" data-filter="'+esc(value)+'" aria-pressed="'+(value===selected)+'">'+esc(label)+'</button>').join('');
+    }
+    const show = all ? rows.filter(row=>selected==='all'||row.category===selected) : horizon ? rows.slice(0, 5) : inWeek;
 
-    const signature=JSON.stringify([today,show]);if(signature===rendered)return;rendered=signature;
+    const signature=JSON.stringify([today,selected,show]);if(signature===rendered)return;rendered=signature;
     if (rangeEl && show.length) rangeEl.textContent = rangeLabel(show, horizon);
     if (show.length) {
       grid.innerHTML = show.map(cardHTML).join("");
