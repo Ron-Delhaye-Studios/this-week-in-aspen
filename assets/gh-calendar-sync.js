@@ -10,6 +10,7 @@
   "use strict";
 
   const DENVER = "America/Denver";
+  const policy = window.GHEventPolicy;
   const dayFmt = new Intl.DateTimeFormat("en-CA", { timeZone: DENVER, year: "numeric", month: "2-digit", day: "2-digit" });
   const dayKey = (d) => dayFmt.format(d);
   const todayKey = () => dayKey(new Date());
@@ -94,10 +95,13 @@
       fit_note: "",
       url: ev.url || made.url || "",
       blurb: made.blurb,
-      image: ev.image || "",
+      image: ev.verified === true && /^calendar\/media\/[a-zA-Z0-9_.-]+\.(?:jpg|jpeg|png|webp)$/i.test(ev.image || '') ? ev.image : "",
       slug: "sync-" + String(ev.id).replace(/[^a-zA-Z0-9_-]/g, "-"),
       place_key: ev.place_key || "",
-      verified: ev.verified !== false
+      verified: ev.verified === true,
+      band: ev.band || "",
+      lat: ev.lat,
+      lng: ev.lng
     };
     if (ev.all_day) {
       // Export carries all-day events as date-only strings. The end date is
@@ -125,11 +129,12 @@
   const base = new URL('../', script.src);
   const canonicalUrl = row => 'https://thegoldenhour.guide/events/' + encodeURIComponent(row.slug) + '/';
   const detailUrl = row => new URL('events/' + encodeURIComponent(row.slug) + '/', base).href;
-  let promise = null, loadedDay = '';
+  let promise = null, loadedDay = '', loadedAt = 0;
   function load() {
     const day = todayKey();
-    if (promise && loadedDay === day) return promise;
+    if (promise && loadedDay === day && Date.now()-loadedAt<60000) return promise;
     loadedDay = day;
+    loadedAt = Date.now();
     const self = document.querySelector('script[src$="gh-calendar-sync.js"]');
     const jsonUrl = new URL("../calendar/calendar-sync.json", self.src);
     promise = fetch(jsonUrl, { cache: "no-store" })
@@ -139,10 +144,12 @@
       })
       .then((data) => {
         const today = todayKey();
-        const rows = (data.events || [])
+        if (!Array.isArray(data.events)) throw Error('Invalid calendar sync feed');
+        const rows = data.events
+          .filter(policy.verified)
           .map(normalize)
-          .filter((row) => row.end_day >= today)
-          .sort((a, b) => (Date.parse(a.starts_at) - Date.parse(b.starts_at)) || a.title.localeCompare(b.title));
+          .filter((row) => policy.eligible(row, today))
+          .sort(policy.compare);
         return {
           local: rows.filter((row) => row.source === "aurelian-local"),
           regional: rows.filter((row) => row.source === "aurelian-regional"),
@@ -154,5 +161,5 @@
     return promise;
   }
 
-  window.GHCalSync = { load, dayKey, todayKey, detailUrl, canonicalUrl };
+  window.GHCalSync = { load, dayKey, todayKey, detailUrl, canonicalUrl, normalize, compare:policy.compare };
 })();

@@ -70,6 +70,7 @@
     let selectedFilter = 'all';
     const prune = () => {
       if (document.body.dataset.page !== 'events/index.html') return;
+      if (document.querySelector('.gh-event-grid[data-gh-scope="all"]')) return;
       const cutoff = key(new Date());
       const today = new Date(cutoff + 'T12:00:00Z');
       const weekday = today.getUTCDay();

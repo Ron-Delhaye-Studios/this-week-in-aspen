@@ -75,7 +75,7 @@ def build(root=ROOT, now=None):
         title = esc(event['title'])
         page_url = SITE+'events/'+key+'/'
         content = '<nav aria-label="Breadcrumb"><a href="../../index.html">Home</a> / <a href="../../upcoming/">This Week</a> / Event details</nav>'
-        content += '<main class="gh-sync-detail"><p class="gh-card-kicker">'+('Past event' if past else 'Event details')+'</p><h1>'+title+'</h1>'
+        content += '<main class="gh-sync-detail" data-end-day="'+end_day.isoformat()+'" data-when="'+esc(when)+'"><p class="gh-card-kicker">'+('Past event' if past else 'Event details')+'</p><h1>'+title+'</h1>'
         if past:
             content += '<p class="gh-sync-past"><strong>This event took place on '+esc(when)+'.</strong> See This Week for current plans.</p>'
         if image:

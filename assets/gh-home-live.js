@@ -11,8 +11,8 @@
     let feed=null,selected='all',loadedDay='',pending=false,rendered='',leadRendered='';
     const empty='Explore <a href="'+new URL('picks/',base).href+'">Top Picks</a> or plan with <a href="'+new URL('activities/',base).href+'">Activities</a>.';
     function select(rows,key){
-      const eligible=rows.filter(e=>e.verified!==false&&e.end_day>=key).sort((a,b)=>Date.parse(a.starts_at)-Date.parse(b.starts_at));
-      const current=eligible.filter(e=>e.start_day>=key&&e.start_day<=W.add(key,6));
+      const eligible=rows.filter(e=>e.verified===true&&e.end_day>=key).sort(window.GHCalSync.compare);
+      const current=eligible.filter(e=>e.start_day<=W.add(key,6));
       return {rows:current.length?current:eligible.slice(0,5),horizon:!current.length};
     }
     const detail=e=>window.GHCalSync.detailUrl(e);
@@ -48,7 +48,7 @@
       schema(chosen);
     }
     async function refresh(){
-      render();const key=W.day(new Date());if(pending||loadedDay===key)return;pending=true;
+      render();const key=W.day(new Date());if(pending)return;pending=true;
       try{const sync=await window.GHCalSync.load();if(!sync||!Array.isArray(sync.local))throw Error('Invalid feed');feed=sync.local;loadedDay=key;render()}catch(_){feed=null;rendered='';lead.hidden=true;filters.hidden=true;rowsBox.innerHTML='<p class="gh-list-empty">The calendar is temporarily unavailable. Please try again.</p>';section.querySelector('.gh-sec-meta').textContent='';schema([]);}finally{pending=false}
     }
     filters.addEventListener('click',e=>{const button=e.target.closest('button[data-filter]');if(button){selected=button.dataset.filter;render()}});

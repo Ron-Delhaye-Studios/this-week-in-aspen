@@ -117,9 +117,7 @@
       var key = d.getUTCFullYear() + "-" + pad2(d.getUTCMonth() + 1) + "-" + pad2(d.getUTCDate());
       var inMonth = d.getUTCMonth() === viewM;
       var isToday = d.getUTCFullYear() === T.y && d.getUTCMonth() === T.m && d.getUTCDate() === T.d;
-      var evs = (eventsByDay[key] || []).slice().sort(function (a, b) {
-        return new Date(a.starts_at) - new Date(b.starts_at);
-      });
+      var evs = (eventsByDay[key] || []).slice().sort(window.GHEventPolicy.compareWithinDay);
       html += '<div class="gcal-day' + (inMonth ? "" : " dim") + (evs.length ? " has-events" : "") + (isToday ? " istoday" : "") + (key === selectedKey ? " selected" : "") + '" data-day="' + key + '">';
       html += '<button class="gcal-daynum' + (isToday ? " today" : "") + '" aria-label="' + esc(new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'long',month:'long',day:'numeric'}).format(d)) + '" aria-pressed="' + (key === selectedKey) + '"><span class="gcal-weekday">' + ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getUTCDay()] + '</span>' + d.getUTCDate() + "</button>";
       var shown = evs.slice(0, MAX_DOTS);
@@ -162,7 +160,7 @@
     var box = document.getElementById("gcal-agenda");
     if (!box) return;
     var key = selectedKey || TODAY_KEY;
-    var evs = (eventsByDay[key] || []).slice().sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); });
+    var evs = (eventsByDay[key] || []).slice().sort(window.GHEventPolicy.compareWithinDay);
     // Label the panel with the selected day itself: with multi-day spans,
     // the first event's start date is not necessarily the selected day.
     var label = panelDayFmt.format(new Date(key + "T12:00:00"));
@@ -309,25 +307,42 @@
   render();
   // WO-GH-CAL-05: the regional view consumes the AURELIAN sync feed
   // (aurelian-regional only) through the shared adapter.
-  window.GHCalSync.load()
+  var refreshing = false;
+  function refreshCalendar() {
+    if (refreshing) return;
+    refreshing = true;
+    var nextToday = window.GHCalSync.todayKey();
+    if (nextToday !== TODAY_KEY) {
+      TODAY_KEY = nextToday; T = denverToday();
+      minIdx = T.y*12+T.m; maxIdx = minIdx+6;
+      viewY = T.y; viewM = T.m; selectedKey = TODAY_KEY;
+      closeModal();
+    }
+    window.GHCalSync.load()
     .then(function (sync) {
-      loaded = true;
+      loaded = true; eventsByDay = {}; eventsById = {};
       sync.regional.forEach(function (ev) {
         eventsById[ev.id] = ev;
         // Multi-day events appear on every Denver day they span.
-        var k = ev.start_day, guard = 0;
-        while (k && guard < 92) {
+        var k = ev.start_day < TODAY_KEY ? TODAY_KEY : ev.start_day, guard = 0;
+        while (k && guard < 370) {
           (eventsByDay[k] = eventsByDay[k] || []).push(ev);
           if (k === ev.end_day) break;
           k = nextDayKey(k);
           guard++;
         }
       });
+      Object.values(eventsByDay).forEach(function(rows){ rows.sort(window.GHCalSync.compare); });
       if (!selectedKey) selectedKey = TODAY_KEY;
       render();
     })
     .catch(function () {
+      loaded = false; eventsByDay = {}; eventsById = {}; closeModal(); render();
       document.getElementById("gcal-grid").innerHTML =
         '<p class="empty">Could not load events — please refresh.</p>';
-    });
+    }).finally(function(){ refreshing=false; });
+  }
+  refreshCalendar(); setInterval(refreshCalendar,60000);
+  window.addEventListener('pageshow',refreshCalendar);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)refreshCalendar();});
 })();

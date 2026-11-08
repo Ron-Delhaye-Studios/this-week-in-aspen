@@ -65,7 +65,7 @@
       (ev.age_policy ? " · " + ev.age_policy : "");
     var link = ev.url ? '<p><a href="' + ev.url.replace(/"/g, "") +
       '" target="_blank" rel="noopener">Details &rarr;</a></p>' : "";
-    var xlink = '<p><a href="../upcoming/#ev-' + String(ev.id).replace(/"/g, "") +
+    var xlink = '<p><a href="' + window.GHCalSync.detailUrl(ev) +
       '">Event details &rarr;</a></p>';
     var blurb = ev.blurb ? '<p class="meta">' + ev.blurb.replace(/</g, "&lt;") + "</p>" : "";
     // __GH_IMGROOT__: page-relative prefix for photos ("../" on the live page).
@@ -74,12 +74,13 @@
     var photo = (imgRoot !== null && ev.image) ? '<img class="ev-photo" src="' + imgRoot +
       String(ev.image).replace(/"/g, "") + '" alt="" loading="lazy">' : "";
     return photo + when + "<h3>" + String(ev.title).replace(/</g, "&lt;") + "</h3>" +
-      '<p class="meta">' + String(meta).replace(/</g, "&lt;") + "</p>" + blurb + xlink + link;
+      '<p class="meta">' + String(meta).replace(/</g, "&lt;") + "</p>" + blurb + xlink;
   }
 
   function inRange(ev) {
     var n = diffDays(ev.starts_at);
-    if (n < 0) return state.includePast;
+    if (!window.GHEventPolicy.eligible(ev, todayKey())) return false;
+    if (n < 0) return true;
     switch (state.range) {
       case "today": return n === 0;
       case "weekend": {
@@ -185,12 +186,20 @@
     });
   });
 
-  fetch("../data/events.json").then(function (r) { return r.json(); }).then(function (data) {
+  var refreshing = false;
+  function refreshMap() {
+    if (refreshing) return;
+    refreshing = true;
+    window.GHCalSync.load().then(function (sync) {
+    var data = sync.local.concat(sync.regional);
+
     allEvents = data.filter(function (ev) {
       return typeof ev.lat === "number" && typeof ev.lng === "number";
     });
+    document.getElementById("catrow").replaceChildren();
     buildCatChips();
     render();
+    if(!allEvents.length) document.getElementById('count').textContent = 'No verified map coordinates are available. Browse Events or Calendar for current listings.';
     // Deep link: map/?event=<uuid> focuses that pin and opens its card.
     var focusId = null;
     try { focusId = new URLSearchParams(window.location.search).get("event"); } catch (e) {}
@@ -211,6 +220,11 @@
       if (pts.length) map.fitBounds(L.latLngBounds(pts).pad(0.15),{animate:false});
     }
   }).catch(function () {
-    document.getElementById("count").textContent = "Event data is not loaded yet.";
-  });
+    allEvents=[]; render();
+    document.getElementById("count").textContent = "Event data is temporarily unavailable.";
+  }).finally(function(){refreshing=false;});
+  }
+  refreshMap(); setInterval(refreshMap,60000);
+  addEventListener('pageshow',refreshMap);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)refreshMap();});
 })();

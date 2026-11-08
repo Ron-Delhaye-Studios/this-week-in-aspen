@@ -565,6 +565,11 @@ def validate(rows,day):
     expected = [e['id'] for e in rows if datetime.fromisoformat(e['starts_at']).astimezone(TZ).date() >= day]
     for name in ['events/index.html','upcoming/index.html']:
         doc=soup((ROOT/name).read_text())
+        if name == 'events/index.html':
+            assert not doc.select('.gh-event-card'), 'Events must be a live shell'
+            assert doc.select_one('script[src$="gh-calendar-sync.js"]'), 'Events missing adapter'
+            assert json.loads(doc.select_one('#gh-event-list').string)['itemListElement'] == [], 'Events shell has stale schema'
+            continue
         scoped = [e['id'] for e in this_week(rows,day)] if name.startswith('upcoming/') else expected
         assert [c['id'][3:] for c in doc.select('.gh-event-card')] == scoped, f'{name}: stale, missing, or unsorted rows'
         ld=json.loads(doc.select_one('#gh-event-list').string)
@@ -600,7 +605,7 @@ def main():
     rows=events()
     if not args.check:
         for name in ['calendar/events.json','map/events.json']:
-            (ROOT/name).write_text(json.dumps(rows,indent=2,ensure_ascii=False)+'\n')
+            (ROOT/name).write_text(json.dumps(rows,indent=2,ensure_ascii=False)+'\n', encoding='utf-8', newline='\n')
         build_lists(rows,day)
         from build_features import build_ready
         build_ready(ROOT,rows,day)
@@ -612,6 +617,15 @@ def main():
         # The detail generator copies shared chrome from the decorated collection.
         from build_event_details import build as build_event_details
         build_event_details(ROOT, datetime.combine(day, datetime.min.time(), tzinfo=TZ))
+        import xml.etree.ElementTree as ET
+        sitemap = ROOT/'sitemap.xml'
+        ns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
+        ET.register_namespace('',ns)
+        tree=ET.parse(sitemap)
+        if URL+'agents/' not in {n.text for n in tree.getroot().iter('{'+ns+'}loc')}:
+            entry=ET.SubElement(tree.getroot(),'{'+ns+'}url')
+            ET.SubElement(entry,'{'+ns+'}loc').text=URL+'agents/'
+            tree.write(sitemap,encoding='utf-8',xml_declaration=True)
     validate(rows,day)
 
 

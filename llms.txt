@@ -1,0 +1,15 @@
+# The Golden Hour
+
+> Aspen and Roaring Fork Valley pocket guide. Current facts require fresh primary-source checks.
+
+- [Agent methodology](https://thegoldenhour.guide/agents/)
+- [Current week](https://thegoldenhour.guide/upcoming/)
+- [Calendar](https://thegoldenhour.guide/calendar/)
+
+Events originate only from the two public AURELIAN calendars: Around Aspen and Regional Events Intelligence. Personal and Ritz-Carlton calendars are excluded. Calendar export metadata describes its last supplied refresh; the trust line is an editorial standard, not proof that a later refresh occurred.
+
+Only verified events are eligible. Routine worship, regular classes and standing hours are not events; seasonal specials may qualify. FEATURED/LISTED bands are assigned upstream; numerical scoring is not inferred. Event imagery is verified subject-specific imagery or absent.
+
+Use America/Denver dates. Google date-only end dates are exclusive. A record remains current through its local end date and enters history the next day. Historical events are research candidates, never automatically re-listed. Re-verify any future edition with its original source.
+
+Runtime lists and structured data must agree. Feed failure must not silently fall back to an old edition. Generated overview URLs are stable; explicit official-source actions are the booking exit.
