@@ -324,8 +324,8 @@
       sync.regional.forEach(function (ev) {
         eventsById[ev.id] = ev;
         // Multi-day events appear on every Denver day they span.
-        var k = ev.start_day, guard = 0;
-        while (k && guard < 92) {
+        var k = ev.start_day < TODAY_KEY ? TODAY_KEY : ev.start_day, guard = 0;
+        while (k && guard < 370) {
           (eventsByDay[k] = eventsByDay[k] || []).push(ev);
           if (k === ev.end_day) break;
           k = nextDayKey(k);

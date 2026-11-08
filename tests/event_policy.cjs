@@ -14,6 +14,7 @@ assert.equal(P.eligible(event('overnight','2026-11-06T23:00:00-07:00','LISTED',{
 assert.equal(P.endDay(event('spring','2026-03-08','LISTED',{end:'2026-03-09',all_day:true})),'2026-03-08');
 const rows=[event('early','2026-11-08T09:00:00-07:00'),event('feature','2026-11-08T20:00:00-07:00','FEATURED'),event('previous','2026-11-07T23:00:00-07:00')];
 assert.deepEqual(rows.sort(P.compare).map(e=>e.id),['previous','feature','early']);
+assert.deepEqual([rows[0],rows[1]].sort(P.compareWithinDay).map(e=>e.id),['feature','previous']);
 assert.equal(P.routine({title:'Sunday Mass — St Mary'}),true);
 assert.equal(P.routine({title:'Christmas Sunday Mass — St Mary'}),false);
 assert.equal(P.routine({title:'Holiday concert'}),false);
